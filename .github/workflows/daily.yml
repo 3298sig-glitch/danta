@@ -24,15 +24,24 @@ jobs:
       - name: 라이브러리 설치
         run: pip install requests
 
-      - name: 스크립트 실행 (docs/index.html 생성)
+      - name: 스크립트 실행 (docs/ 결과 생성)
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
         run: python dart_top3.py
+
+      - name: 닷홈으로 FTP 업로드
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./docs/
+          server-dir: /hosting/sigg3298/html/
 
       - name: 결과 커밋 및 푸시
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html
+          git add docs/
           git diff --cached --quiet && echo "변경 없음" || git commit -m "docs: 일일 결과 업데이트 ($(date +'%Y-%m-%d'))"
           git push

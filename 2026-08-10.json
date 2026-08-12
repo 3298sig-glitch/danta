@@ -1,0 +1,101 @@
+{
+  "date": "2026-08-10",
+  "ranked": [
+    {
+      "corp_name": "한전산업",
+      "stock_code": "051600",
+      "score": 4,
+      "items": [
+        {
+          "report_nm": "[기재정정]단일판매ㆍ공급계약체결(자율공시)",
+          "score": 2,
+          "rcept_no": "20260810800894",
+          "flr_nm": "한전산업",
+          "rcept_dt": "20260810",
+          "rm": "유"
+        },
+        {
+          "report_nm": "[기재정정]단일판매ㆍ공급계약체결(자율공시)",
+          "score": 2,
+          "rcept_no": "20260810800888",
+          "flr_nm": "한전산업",
+          "rcept_dt": "20260810",
+          "rm": ""
+        }
+      ],
+      "ohlc": []
+    },
+    {
+      "corp_name": "OCI홀딩스",
+      "stock_code": "456040",
+      "score": -2,
+      "items": [
+        {
+          "report_nm": "주요사항보고서(자기주식취득신탁계약해지결정)",
+          "score": -1,
+          "rcept_no": "20260810800314",
+          "flr_nm": "OCI홀딩스",
+          "rcept_dt": "20260810",
+          "rm": ""
+        },
+        {
+          "report_nm": "주요사항보고서(자기주식취득신탁계약해지결정)",
+          "score": -1,
+          "rcept_no": "20260810000268",
+          "flr_nm": "OCI홀딩스",
+          "rcept_dt": "20260810",
+          "rm": ""
+        }
+      ],
+      "ohlc": []
+    },
+    {
+      "corp_name": "HD건설기계",
+      "stock_code": "267270",
+      "score": 3,
+      "items": [
+        {
+          "report_nm": "주요사항보고서(자기주식취득결정)",
+          "score": 3,
+          "rcept_no": "20260810000659",
+          "flr_nm": "HD건설기계",
+          "rcept_dt": "20260810",
+          "rm": ""
+        }
+      ],
+      "ohlc": []
+    },
+    {
+      "corp_name": "삼성전자",
+      "stock_code": "005930",
+      "score": 2,
+      "items": [
+        {
+          "report_nm": "자기주식취득결정",
+          "score": 2,
+          "rcept_no": "20260810000001",
+          "flr_nm": "삼성전자",
+          "rcept_dt": "20260810",
+          "rm": ""
+        }
+      ],
+      "ohlc": []
+    },
+    {
+      "corp_name": "LG화학",
+      "stock_code": "051910",
+      "score": 1,
+      "items": [
+        {
+          "report_nm": "특허권 취득",
+          "score": 1,
+          "rcept_no": "20260810000002",
+          "flr_nm": "LG화학",
+          "rcept_dt": "20260810",
+          "rm": ""
+        }
+      ],
+      "ohlc": []
+    }
+  ]
+}
