@@ -28,9 +28,11 @@ docs/index.html 은 이 JSON들을 브라우저에서 자바스크립트로 불�
     - 개인 참고용 도구이며, 투자 판단의 근거로 그대로 사용하지 마세요.
 """
 
+import ast
 import getpass
 import json
 import os
+import re
 import sys
 import xml.etree.ElementTree as ET
 from collections import defaultdict
@@ -41,6 +43,7 @@ import requests
 
 DART_LIST_URL = "https://opendart.fss.or.kr/api/list.json"
 NAVER_CHART_URL = "https://fchart.stock.naver.com/sise.nhn"
+NAVER_SISEJSON_URL = "https://api.finance.naver.com/siseJson.naver"
 TOP_N = 5
 DOCS_DIR = "docs"
 DATA_DIR = os.path.join(DOCS_DIR, "data")
@@ -161,52 +164,255 @@ def score_disclosure(report_nm: str) -> int:
     return sum(ALL_KEYWORDS[k] for k in get_matched_keywords(report_nm))
 
 
-def fetch_daily_ohlc(stock_code: str, count: int = 60) -> List[Dict[str, Any]]:
-    """네이버 금융 공개 차트 데이터로 최근 N일 일봉(OHLC)을 가져온다.
+def _fetch_ohlc_via_fchart(stock_code: str, count: int = 60) -> List[Dict[str, Any]]:
+    """네이버 금융의 구버전 차트 API(fchart/sise.nhn, XML 응답)로 일봉을 가져온다."""
 
-    실패하거나 종목코드가 없으면 빈 리스트를 반환한다 (차트가 없어도
-    나머지 기능은 정상 동작해야 하므로, 여기서 예외를 밖으로 던지지 않는다).
-    """
     if not stock_code:
+        print(
+            "  (참고) 종목코드가 없어 일봉 차트를 건너뜁니다.",
+            file=sys.stderr,
+        )
         return []
+
+    # params= 방식 대신 ASCII 문자열 URL을 직접 구성한다.
+    # GitHub Actions 환경에서 multi-byte encoding 오류를 피하기 위한 방식
+    url = (
+        f"{NAVER_CHART_URL}"
+        f"?symbol={stock_code}"
+        f"&timeframe=day"
+        f"&count={int(count)}"
+        f"&requestType=0"
+    )
+
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/126.0 Safari/537.36"
+        ),
+        "Referer": "https://finance.naver.com/",
+        "Accept": "application/xml,text/xml,text/plain,*/*",
+    }
+
     try:
+        print(f"  네이버 차트 요청: {url}")
+
+        resp = requests.get(
+            url,
+            headers=headers,
+            timeout=15,
+        )
+
+        print(
+            f"  네이버 차트 응답: {stock_code} "
+            f"HTTP {resp.status_code}, {len(resp.content):,} bytes"
+        )
+
+        resp.raise_for_status()
+
+        if not resp.content:
+            print(
+                f"  (참고) {stock_code} 네이버 응답이 비어 있습니다.",
+                file=sys.stderr,
+            )
+            return []
+
+        # 네이버의 이 XML 응답은 <?xml ... encoding="EUC-KR"?> 로 선언되어 오는 경우가 많은데,
+        # 파이썬 내장 XML 파서(expat)는 EUC-KR 같은 멀티바이트 인코딩을 직접 지원하지 않아
+        # ET.fromstring(bytes)를 바로 호출하면 "multi-byte encodings are not supported" 에러가 난다.
+        # -> 우리가 먼저 직접 디코딩한 뒤, XML 선언부(인코딩 표기)를 제거하고 순수 텍스트로 파싱한다.
+        try:
+            text = resp.content.decode("euc-kr", errors="replace")
+        except LookupError:
+            text = resp.content.decode("utf-8", errors="replace")
+        text = re.sub(r"^\s*<\?xml[^>]*\?>", "", text, count=1)
+
+        try:
+            root = ET.fromstring(text)
+
+        except ET.ParseError as e:
+            # 오류 확인을 위해 응답 앞부분만 ASCII-safe 방식으로 출력
+            preview = text[:300]
+
+            print(
+                f"  (참고) {stock_code} XML 파싱 실패: {e}",
+                file=sys.stderr,
+            )
+            print(
+                f"  응답 앞부분: {preview}",
+                file=sys.stderr,
+            )
+
+            return []
+
+        items = list(root.iter("item"))
+
+        if not items:
+            preview = resp.content[:300].decode(
+                "utf-8",
+                errors="replace",
+            )
+
+            print(
+                f"  (참고) {stock_code} <item> 데이터가 없습니다.",
+                file=sys.stderr,
+            )
+            print(
+                f"  응답 앞부분: {preview}",
+                file=sys.stderr,
+            )
+
+            return []
+
+        candles: List[Dict[str, Any]] = []
+
+        for item in items:
+
+            raw = item.get("data", "")
+
+            parts = raw.split("|")
+
+            if len(parts) < 6:
+                continue
+
+            d, o, h, l, c, v = parts[:6]
+
+            if not all([d, o, h, l, c]):
+                continue
+
+            try:
+                candles.append(
+                    {
+                        "date": d,
+                        "open": float(o),
+                        "high": float(h),
+                        "low": float(l),
+                        "close": float(c),
+                        "volume": int(float(v)) if v else 0,
+                    }
+                )
+
+            except (ValueError, TypeError):
+                print(
+                    f"  (참고) {stock_code} 잘못된 OHLC 데이터: {raw}",
+                    file=sys.stderr,
+                )
+                continue
+
+        if not candles:
+            print(
+                f"  (참고) {stock_code} 유효한 일봉 데이터가 없습니다.",
+                file=sys.stderr,
+            )
+            return []
+
+        print(
+            f"  ✓ {stock_code} 일봉 {len(candles)}건 수집 "
+            f"({candles[0]['date']} ~ {candles[-1]['date']})"
+        )
+
+        return candles
+
+    except requests.RequestException as e:
+        print(
+            f"  (참고) {stock_code} 네이버 차트 HTTP 요청 실패: {e}",
+            file=sys.stderr,
+        )
+        return []
+
+    except Exception as e:
+        print(
+            f"  (참고) {stock_code} 일봉 차트 처리 실패: "
+            f"{type(e).__name__}: {e}",
+            file=sys.stderr,
+        )
+        return []
+
+
+def _fetch_ohlc_via_sisejson(stock_code: str, count: int = 60) -> List[Dict[str, Any]]:
+    """네이버 금융의 또 다른 공개 차트 API(siseJson, 준-JSON 응답)로 일봉을 가져온다.
+
+    _fetch_ohlc_via_fchart가 막히거나 응답 형식이 바뀌었을 때를 대비한 예비 경로다.
+    응답이 진짜 JSON은 아니고(작은따옴표 사용) 파이썬 리스트 리터럴과 문법이 같아서
+    ast.literal_eval로 안전하게 파싱한다.
+    """
+    try:
+        end = date.today()
+        start = end - timedelta(days=int(count * 1.6) + 10)  # 주말/휴장일 감안해 여유있게 조회
         params = {
             "symbol": stock_code,
+            "requestType": 1,
+            "startTime": start.strftime("%Y%m%d"),
+            "endTime": end.strftime("%Y%m%d"),
             "timeframe": "day",
-            "count": count,
-            "requestType": 0,
         }
         headers = {
             "User-Agent": (
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/126.0 Safari/537.36"
             ),
-            "Referer": "https://finance.naver.com/",
+            "Referer": f"https://finance.naver.com/item/fchart.naver?code={stock_code}",
         }
-        resp = requests.get(NAVER_CHART_URL, params=params, headers=headers, timeout=10)
+        resp = requests.get(NAVER_SISEJSON_URL, params=params, headers=headers, timeout=15)
         resp.raise_for_status()
-        root = ET.fromstring(resp.content)
-        candles = []
-        for item in root.iter("item"):
-            raw = item.get("data", "")
-            parts = raw.split("|")
-            if len(parts) < 6:
+
+        print(
+            f"  네이버 siseJson 응답: {stock_code} HTTP {resp.status_code}, "
+            f"{len(resp.content):,} bytes"
+        )
+
+        rows = ast.literal_eval(resp.text.strip())
+        if not rows or len(rows) < 2:
+            print(f"  (참고) {stock_code} siseJson에 데이터 행이 없습니다.", file=sys.stderr)
+            return []
+
+        candles: List[Dict[str, Any]] = []
+        for row in rows[1:]:  # 첫 행은 '날짜,시가,고가,저가,종가,거래량' 같은 헤더
+            if len(row) < 6:
                 continue
-            d, o, h, l, c, v = parts[:6]
-            if not (d and o and h and l and c):
+            d, o, h, l, c, v = row[:6]
+            try:
+                candles.append({
+                    "date": str(d),
+                    "open": float(o),
+                    "high": float(h),
+                    "low": float(l),
+                    "close": float(c),
+                    "volume": int(float(v)) if v else 0,
+                })
+            except (ValueError, TypeError):
                 continue
-            candles.append({
-                "date": d,           # YYYYMMDD
-                "open": float(o),
-                "high": float(h),
-                "low": float(l),
-                "close": float(c),
-                "volume": int(v) if v else 0,
-            })
+
+        if not candles:
+            print(f"  (참고) {stock_code} siseJson 유효한 일봉 데이터가 없습니다.", file=sys.stderr)
+            return []
+
+        candles = candles[-count:]
+        print(
+            f"  ✓ {stock_code} 일봉 {len(candles)}건 수집 (siseJson 대체 경로) "
+            f"({candles[0]['date']} ~ {candles[-1]['date']})"
+        )
         return candles
-    except Exception as e:  # noqa: BLE001 - 차트는 부가 기능이라 실패해도 전체를 막지 않는다
-        print(f"  (참고) {stock_code} 일봉 차트를 가져오지 못했습니다: {e}", file=sys.stderr)
+
+    except Exception as e:  # noqa: BLE001 - 예비 경로이므로 여기서도 절대 예외를 밖으로 던지지 않는다
+        print(
+            f"  (참고) {stock_code} siseJson 대체 조회도 실패: {type(e).__name__}: {e}",
+            file=sys.stderr,
+        )
         return []
+
+
+def fetch_daily_ohlc(stock_code: str, count: int = 60) -> List[Dict[str, Any]]:
+    """일봉(OHLC)을 가져온다. 1차로 fchart 방식을 시도하고, 실패하면 siseJson 방식으로 재시도한다."""
+    candles = _fetch_ohlc_via_fchart(stock_code, count)
+    if candles:
+        return candles
+
+    if stock_code:
+        print(f"  ↳ {stock_code} 1차 조회 실패, 대체 경로(siseJson)로 재시도합니다.")
+        candles = _fetch_ohlc_via_sisejson(stock_code, count)
+    return candles
 
 
 def build_date_json(target_date: date, ranked: List[tuple], stock_items: Dict[str, List[Dict[str, Any]]]) -> Dict[str, Any]:
