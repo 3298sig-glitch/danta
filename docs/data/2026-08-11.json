@@ -1,0 +1,93 @@
+{
+  "date": "2026-08-11",
+  "ranked": [
+    {
+      "corp_name": "HJ중공업",
+      "stock_code": "097230",
+      "score": 4,
+      "items": [
+        {
+          "report_nm": "[기재정정]단일판매ㆍ공급계약체결              ",
+          "score": 2,
+          "rcept_no": "20260811800729",
+          "flr_nm": "HJ중공업",
+          "rcept_dt": "20260811",
+          "rm": "유"
+        },
+        {
+          "report_nm": "[기재정정]단일판매ㆍ공급계약체결              ",
+          "score": 2,
+          "rcept_no": "20260811800408",
+          "flr_nm": "HJ중공업",
+          "rcept_dt": "20260811",
+          "rm": "유"
+        }
+      ],
+      "ohlc": []
+    },
+    {
+      "corp_name": "미스토홀딩스",
+      "stock_code": "081660",
+      "score": 3,
+      "items": [
+        {
+          "report_nm": "자기주식취득결과보고서",
+          "score": 3,
+          "rcept_no": "20260811000484",
+          "flr_nm": "미스토홀딩스",
+          "rcept_dt": "20260811",
+          "rm": ""
+        }
+      ],
+      "ohlc": []
+    },
+    {
+      "corp_name": "SIMPAC",
+      "stock_code": "009160",
+      "score": 3,
+      "items": [
+        {
+          "report_nm": "자기주식취득결과보고서",
+          "score": 3,
+          "rcept_no": "20260811000125",
+          "flr_nm": "SIMPAC",
+          "rcept_dt": "20260811",
+          "rm": ""
+        }
+      ],
+      "ohlc": []
+    },
+    {
+      "corp_name": "DL",
+      "stock_code": "000210",
+      "score": 2,
+      "items": [
+        {
+          "report_nm": "[기재정정]단일판매ㆍ공급계약체결(자회사의 주요경영사항)              ",
+          "score": 2,
+          "rcept_no": "20260811800953",
+          "flr_nm": "DL",
+          "rcept_dt": "20260811",
+          "rm": "유"
+        }
+      ],
+      "ohlc": []
+    },
+    {
+      "corp_name": "DL이앤씨",
+      "stock_code": "375500",
+      "score": 2,
+      "items": [
+        {
+          "report_nm": "[기재정정]단일판매ㆍ공급계약체결              ",
+          "score": 2,
+          "rcept_no": "20260811800914",
+          "flr_nm": "DL이앤씨",
+          "rcept_dt": "20260811",
+          "rm": "유"
+        }
+      ],
+      "ohlc": []
+    }
+  ]
+}
