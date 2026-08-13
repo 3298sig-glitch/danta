@@ -267,12 +267,6 @@ function fmtPct(n) {
   return `${sign}${n}%`;
 }
 
-async function checkSession() {
-  const res = await fetch('api/session.php');
-  const data = await res.json();
-  return !!data.authed;
-}
-
 async function showApp() {
   document.getElementById('pin-gate').hidden = true;
   document.getElementById('app').hidden = false;
@@ -432,10 +426,8 @@ async function loadTrades() {
 }
 
 (async function init() {
-  const authed = await checkSession();
-  if (authed) {
-    await showApp();
-  }
+  // 페이지를 열 때마다 항상 PIN을 다시 묻도록, 남아있는 세션이 있으면 매번 로그아웃한다.
+  await fetch('api/logout.php');
 })();
 </script>
 </body>
