@@ -1,13 +1,17 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1786593470075,
+    "generatedTime": 1786594250512,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 1466,
-            "hash": "a3a9fb382416f8103f2d6d917bbeaaf1281bed19f47fe723658c94a0ac5e7324"
+            "hash": "7d32a74e3c93b91f7c792f074767eda0205430981d7d18f618a51100e4f3e72b"
+        },
+        {
+            "type": "folder",
+            "name": "api"
         },
         {
             "type": "folder",
@@ -16,8 +20,56 @@
         {
             "type": "file",
             "name": "index.html",
-            "size": 12520,
-            "hash": "4f0f4e8474b6065b929f70385f36cc4dc575c832159347d0d1f7ddff0deeffb0"
+            "size": 25893,
+            "hash": "49f8f62bea905a792b49ad6c28472a7f72a288ef17b5c1ffbbf7aaf3314c9def"
+        },
+        {
+            "type": "file",
+            "name": "profit.html",
+            "size": 14240,
+            "hash": "83d39828feb74accefdb5782c2dd3e48b4f90c0bfd329ab056666de81d9af2f7"
+        },
+        {
+            "type": "file",
+            "name": "api/auth.php",
+            "size": 690,
+            "hash": "dcea722641bb7ffd3468a31a2a56888b920d3d0eaf4a40a8b80de191afc7af52"
+        },
+        {
+            "type": "file",
+            "name": "api/config.example.php",
+            "size": 675,
+            "hash": "02a6e6d6e4cc0cd066052b10adfed5622cb7a4610e4be4ae9d2bc6b9797523d2"
+        },
+        {
+            "type": "file",
+            "name": "api/db.php",
+            "size": 1220,
+            "hash": "f5607bbbe087bd979161edac6ff96fdefce7dccebe45f59b5efff62c69b574f4"
+        },
+        {
+            "type": "file",
+            "name": "api/login.php",
+            "size": 592,
+            "hash": "e7655441962b48483f699f9bf8f4e97c8f2fc8e9ac11d6a3213f2e3723a49b25"
+        },
+        {
+            "type": "file",
+            "name": "api/logout.php",
+            "size": 226,
+            "hash": "01f5e522ad6b1636257edbcfbece785ba7ecb890a12bb12e859ebc44232fe42d"
+        },
+        {
+            "type": "file",
+            "name": "api/session.php",
+            "size": 225,
+            "hash": "5fa983aeed47756c9435e40ce422eda1eacca7f4e541f3ac597cca613aa1fdc1"
+        },
+        {
+            "type": "file",
+            "name": "api/trades.php",
+            "size": 3990,
+            "hash": "0756aaca63aa96e008bf09a30981691d00181754aa55d5ccbefc33eeeefbdc74"
         },
         {
             "type": "file",
@@ -28,8 +80,8 @@
         {
             "type": "file",
             "name": "data/2026-08-12.json",
-            "size": 58808,
-            "hash": "aebd99e6626e658dcabc5d04379a20afc51ca5152c37a10bd140c76e1cca828a"
+            "size": 62404,
+            "hash": "541de2ebe1b5f505bc7b9d2c3bcbb526575b3fb4500997691d09f472c23ce9d3"
         },
         {
             "type": "file",
