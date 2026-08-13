@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1786606534903,
+    "generatedTime": 1786608605888,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
-            "size": 3640,
-            "hash": "3cb38fa0a06cc4397945081369e52955e402dda7034f41307a4e41afe2df51ba"
+            "size": 3848,
+            "hash": "b005c7248b74a8c7e887a122c2a3250716a5e2705cf8cc17d1af45c96dbd39bb"
         },
         {
             "type": "folder",
@@ -24,8 +24,8 @@
         {
             "type": "file",
             "name": "index.html",
-            "size": 29803,
-            "hash": "6e3f6d04af9ac32c09edaf8ad5a305d17ec1f5bad9e9f0c4c4ffd3755692e565"
+            "size": 33120,
+            "hash": "f81bd1a30216952c6c118ae5e0ba752267743a42161d72274666b383f4fd8186"
         },
         {
             "type": "file",
@@ -41,15 +41,15 @@
         },
         {
             "type": "file",
-            "name": "api/db.php",
-            "size": 1220,
-            "hash": "f5607bbbe087bd979161edac6ff96fdefce7dccebe45f59b5efff62c69b574f4"
-        },
-        {
-            "type": "file",
             "name": "api/config.example.php",
             "size": 675,
             "hash": "02a6e6d6e4cc0cd066052b10adfed5622cb7a4610e4be4ae9d2bc6b9797523d2"
+        },
+        {
+            "type": "file",
+            "name": "api/db.php",
+            "size": 1220,
+            "hash": "f5607bbbe087bd979161edac6ff96fdefce7dccebe45f59b5efff62c69b574f4"
         },
         {
             "type": "file",
@@ -98,6 +98,12 @@
             "name": "data/dates.json",
             "size": 50,
             "hash": "cd659ef1140b767c15cfbffef96a3c1270bff2984aeb45b39ddb240e8690d412"
+        },
+        {
+            "type": "file",
+            "name": "data/verification.json",
+            "size": 2888,
+            "hash": "2a50c74a3034392ced75198c04186349ad6a635ae334c92b2eba53222f092e1c"
         },
         {
             "type": "file",
