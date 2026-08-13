@@ -1,0 +1,39 @@
+name: Deploy Profit Backend
+
+# 수익 관리(PHP+DB) 백엔드는 daily.yml/daily_open_price.yml처럼 매일 바뀌는 게 아니라
+# PHP 코드나 DB 접속정보를 바꿨을 때만 배포하면 되므로, 자동 스케줄 없이 수동 실행만 둔다.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: DB/PIN 설정 파일 생성 (시크릿에서 - 이 파일은 커밋되지 않음)
+        run: |
+          cat > docs/api/config.php << EOF
+          <?php
+          define('DB_HOST', '${{ secrets.DB_HOST }}');
+          define('DB_NAME', '${{ secrets.DB_NAME }}');
+          define('DB_USER', '${{ secrets.DB_USER }}');
+          define('DB_PASSWORD', '${{ secrets.DB_PASSWORD }}');
+          define('PROFIT_PIN', '${{ secrets.PROFIT_PIN }}');
+          EOF
+
+      - name: 닷홈으로 FTP 업로드 (profit.html + api/ 포함 docs/ 전체)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./docs/
+          server-dir: /hosting/sigg3298/html/
+
+      # config.php는 위에서 로컬 작업 디렉터리에만 생성했고 git에는 추가하지 않으므로
+      # 커밋 단계 자체가 없다 (daily.yml/daily_open_price.yml과의 차이점).

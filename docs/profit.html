@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수익 관리 · 코스피 호재 스캐너</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jetbrains-mono/2.304/web/woff2/JetBrainsMono.min.css">
+<style>
+  :root {
+    --bg: #0B0F14;
+    --surface: #131A22;
+    --surface-hover: #1A2229;
+    --line: #232D38;
+    --text: #E8ECF1;
+    --text-muted: #7C8898;
+    --rise: #F0454F;
+    --fall: #2F8FFF;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--fall); }
+  button, input, select { font-family: inherit; }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+  }
+  .masthead { margin-bottom: 24px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--rise);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  h1 { margin: 6px 0 4px; font-size: 24px; font-weight: 700; }
+  .back-link { font-size: 13px; font-family: var(--mono); }
+  .disclaimer {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* PIN 게이트 */
+  #pin-gate {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  #pin-gate p { color: var(--text-muted); font-size: 13px; margin-bottom: 16px; }
+  #pin-input {
+    width: 140px;
+    text-align: center;
+    letter-spacing: 0.3em;
+    font-family: var(--mono);
+    font-size: 18px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  #pin-submit {
+    display: block;
+    margin: 14px auto 0;
+    background: var(--rise);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  #pin-error { color: var(--rise); font-size: 12px; margin-top: 10px; min-height: 16px; }
+
+  /* 폼 */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+  .card h2 { margin: 0 0 14px; font-size: 15px; }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 12px;
+  }
+  .form-grid .full { grid-column: 1 / -1; }
+  .field label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .field input {
+    width: 100%;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .btn {
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--rise); color: #fff; }
+  .btn-secondary { background: var(--line); color: var(--text); }
+  .form-error { color: var(--rise); font-size: 12px; margin-top: 8px; min-height: 16px; }
+
+  /* 목록 */
+  .trade-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .trade-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .trade-corp { font-size: 15px; font-weight: 600; }
+  .trade-status {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .trade-status.closed { color: var(--text); }
+  .trade-meta {
+    margin-top: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 10px;
+  }
+  .trade-meta .value { color: var(--text); }
+  .trade-meta .up { color: var(--rise); }
+  .trade-meta .down { color: var(--fall); }
+  .trade-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+  }
+  .trade-actions button {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--text-muted);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .trade-actions button:hover { color: var(--text); border-color: #3A4656; }
+  .empty { color: var(--text-muted); font-size: 13px; padding: 12px 0; }
+</style>
+</head>
+<body>
+<main>
+  <div class="masthead">
+    <a class="back-link" href="index.html">&larr; 코스피 호재 스캐너로</a>
+    <div class="eyebrow" style="margin-top:10px;">PROFIT TRACKER</div>
+    <h1>수익 관리</h1>
+  </div>
+
+  <div id="pin-gate">
+    <p>PIN을 입력하면 매매기록을 보고 등록할 수 있습니다.</p>
+    <input id="pin-input" type="password" inputmode="numeric" maxlength="12" placeholder="PIN">
+    <button id="pin-submit">확인</button>
+    <div id="pin-error"></div>
+  </div>
+
+  <div id="app" hidden>
+    <div class="card">
+      <h2 id="form-title">매매기록 등록</h2>
+      <div class="form-grid">
+        <div class="field full">
+          <label for="f-corp-name">종목명</label>
+          <input id="f-corp-name" type="text" placeholder="예: 삼성전자">
+        </div>
+        <div class="field">
+          <label for="f-stock-code">종목코드 (선택)</label>
+          <input id="f-stock-code" type="text" placeholder="예: 005930">
+        </div>
+        <div class="field">
+          <label for="f-quantity">수량</label>
+          <input id="f-quantity" type="number" min="1" step="1">
+        </div>
+        <div class="field">
+          <label for="f-buy-price">매수가</label>
+          <input id="f-buy-price" type="number" min="0" step="1">
+        </div>
+        <div class="field">
+          <label for="f-buy-date">매수일</label>
+          <input id="f-buy-date" type="date">
+        </div>
+        <div class="field">
+          <label for="f-sell-price">매도가 (선택 - 보유중이면 비워두기)</label>
+          <input id="f-sell-price" type="number" min="0" step="1">
+        </div>
+        <div class="field">
+          <label for="f-sell-date">매도일 (선택)</label>
+          <input id="f-sell-date" type="date">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" id="f-submit">등록</button>
+        <button class="btn btn-secondary" id="f-cancel" hidden>취소</button>
+      </div>
+      <div class="form-error" id="f-error"></div>
+    </div>
+
+    <div id="trade-list"><div class="empty">불러오는 중...</div></div>
+  </div>
+
+  <div class="disclaimer">
+    개인 매매기록을 직접 입력해서 수익률·수익금·보유기간을 계산해보는 개인 참고용 도구입니다.
+    실시간 시세와 연동되지 않으며, 입력한 매도가는 실제 체결가와 다를 수 있습니다.
+  </div>
+</main>
+
+<script>
+let editingId = null;
+let trades = [];
+
+function fmtNumber(n) {
+  return n === null || n === undefined ? '-' : Number(n).toLocaleString();
+}
+
+function fmtPct(n) {
+  if (n === null || n === undefined) return '-';
+  const sign = n > 0 ? '+' : '';
+  return `${sign}${n}%`;
+}
+
+async function checkSession() {
+  const res = await fetch('api/session.php');
+  const data = await res.json();
+  return !!data.authed;
+}
+
+async function showApp() {
+  document.getElementById('pin-gate').hidden = true;
+  document.getElementById('app').hidden = false;
+  await loadTrades();
+}
+
+document.getElementById('pin-submit').addEventListener('click', async () => {
+  const pin = document.getElementById('pin-input').value;
+  const errEl = document.getElementById('pin-error');
+  errEl.textContent = '';
+  try {
+    const res = await fetch('api/login.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin }),
+    });
+    if (res.ok) {
+      await showApp();
+    } else {
+      errEl.textContent = 'PIN이 올바르지 않습니다.';
+    }
+  } catch (e) {
+    errEl.textContent = '요청에 실패했습니다.';
+  }
+});
+
+document.getElementById('pin-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('pin-submit').click();
+});
+
+function resetForm() {
+  editingId = null;
+  document.getElementById('form-title').textContent = '매매기록 등록';
+  document.getElementById('f-submit').textContent = '등록';
+  document.getElementById('f-cancel').hidden = true;
+  ['f-corp-name', 'f-stock-code', 'f-quantity', 'f-buy-price', 'f-buy-date', 'f-sell-price', 'f-sell-date']
+    .forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('f-error').textContent = '';
+}
+
+function fillFormForEdit(trade) {
+  editingId = trade.id;
+  document.getElementById('form-title').textContent = '매매기록 수정';
+  document.getElementById('f-submit').textContent = '수정하기';
+  document.getElementById('f-cancel').hidden = false;
+  document.getElementById('f-corp-name').value = trade.corp_name;
+  document.getElementById('f-stock-code').value = trade.stock_code || '';
+  document.getElementById('f-quantity').value = trade.quantity;
+  document.getElementById('f-buy-price').value = trade.buy_price;
+  document.getElementById('f-buy-date').value = trade.buy_date;
+  document.getElementById('f-sell-price').value = trade.sell_price ?? '';
+  document.getElementById('f-sell-date').value = trade.sell_date ?? '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('f-cancel').addEventListener('click', resetForm);
+
+document.getElementById('f-submit').addEventListener('click', async () => {
+  const errEl = document.getElementById('f-error');
+  errEl.textContent = '';
+
+  const payload = {
+    corp_name: document.getElementById('f-corp-name').value.trim(),
+    stock_code: document.getElementById('f-stock-code').value.trim(),
+    quantity: Number(document.getElementById('f-quantity').value),
+    buy_price: Number(document.getElementById('f-buy-price').value),
+    buy_date: document.getElementById('f-buy-date').value,
+    sell_price: document.getElementById('f-sell-price').value,
+    sell_date: document.getElementById('f-sell-date').value,
+  };
+  if (editingId) payload.id = editingId;
+
+  if (!payload.corp_name || !payload.quantity || !payload.buy_price || !payload.buy_date) {
+    errEl.textContent = '종목명/수량/매수가/매수일은 필수입니다.';
+    return;
+  }
+
+  try {
+    const res = await fetch('api/trades.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      errEl.textContent = data.error || '저장에 실패했습니다.';
+      return;
+    }
+    resetForm();
+    await loadTrades();
+  } catch (e) {
+    errEl.textContent = '요청에 실패했습니다.';
+  }
+});
+
+async function deleteTrade(id) {
+  if (!confirm('이 매매기록을 삭제할까요?')) return;
+  await fetch('api/trades.php', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id }),
+  });
+  await loadTrades();
+}
+
+function renderTrades() {
+  const el = document.getElementById('trade-list');
+  if (trades.length === 0) {
+    el.innerHTML = '<div class="empty">등록된 매매기록이 없습니다.</div>';
+    return;
+  }
+  el.innerHTML = '';
+  trades.forEach((t) => {
+    const div = document.createElement('div');
+    div.className = 'trade-item';
+    const statusLabel = t.status === 'closed' ? '매도완료' : '보유중';
+    const profitClass = t.profit_amount > 0 ? 'up' : (t.profit_amount < 0 ? 'down' : '');
+    div.innerHTML = `
+      <div class="trade-item-top">
+        <span class="trade-corp">${t.corp_name}${t.stock_code ? ' (' + t.stock_code + ')' : ''}</span>
+        <span class="trade-status ${t.status}">${statusLabel}</span>
+      </div>
+      <div class="trade-meta">
+        <div>매수가 <span class="value">${fmtNumber(t.buy_price)}원 &times; ${t.quantity}주</span></div>
+        <div>매수일 <span class="value">${t.buy_date}</span></div>
+        <div>매도가 <span class="value">${t.sell_price !== null ? fmtNumber(t.sell_price) + '원' : '-'}</span></div>
+        <div>매도일 <span class="value">${t.sell_date || '-'}</span></div>
+        <div>수익률 <span class="value ${profitClass}">${fmtPct(t.profit_rate)}</span></div>
+        <div>수익금 <span class="value ${profitClass}">${t.profit_amount !== null ? fmtNumber(t.profit_amount) + '원' : '-'}</span></div>
+        <div>진행기간 <span class="value">${t.holding_days}일</span></div>
+      </div>
+      <div class="trade-actions">
+        <button class="edit-btn">수정</button>
+        <button class="delete-btn">삭제</button>
+      </div>`;
+    div.querySelector('.edit-btn').addEventListener('click', () => fillFormForEdit(t));
+    div.querySelector('.delete-btn').addEventListener('click', () => deleteTrade(t.id));
+    el.appendChild(div);
+  });
+}
+
+async function loadTrades() {
+  document.getElementById('trade-list').innerHTML = '<div class="empty">불러오는 중...</div>';
+  try {
+    const res = await fetch('api/trades.php');
+    if (res.status === 401) {
+      document.getElementById('pin-gate').hidden = false;
+      document.getElementById('app').hidden = true;
+      return;
+    }
+    const data = await res.json();
+    trades = data.trades || [];
+    renderTrades();
+  } catch (e) {
+    document.getElementById('trade-list').innerHTML = '<div class="empty">불러오지 못했습니다.</div>';
+  }
+}
+
+(async function init() {
+  const authed = await checkSession();
+  if (authed) {
+    await showApp();
+  }
+})();
+</script>
+</body>
+</html>

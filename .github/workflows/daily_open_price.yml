@@ -1,0 +1,45 @@
+name: Daily Open Price Update
+
+on:
+  schedule:
+    # 매일 UTC 00:05 = 한국시간(KST) 09:05 실행 (장 시작 직후 시가를 매수가로 반영)
+    - cron: "5 0 * * *"
+  workflow_dispatch:  # GitHub 화면에서 수동으로도 실행 가능하게
+
+permissions:
+  contents: write
+
+jobs:
+  update-open-price:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 파이썬 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 라이브러리 설치
+        run: pip install requests
+
+      - name: 시가 반영 (매수가/매도가/손절가 계산, docs/data/{오늘}.json 갱신)
+        run: python update_open_price.py
+
+      - name: 닷홈으로 FTP 업로드
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./docs/
+          server-dir: /hosting/sigg3298/html/
+
+      - name: 결과 커밋 및 푸시
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet && echo "변경 없음" || git commit -m "docs: 시가 반영 매수가/매도가/손절가 업데이트 ($(date +'%Y-%m-%d'))"
+          git push

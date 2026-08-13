@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+
+# 실제 DB/PIN 값이 들어가는 파일 - 절대 커밋하지 않는다.
+# deploy_profit_backend.yml이 GitHub Secrets에서 배포 시점에 생성한다.
+# 로컬 테스트 시 docs/api/config.example.php를 복사해서 사용할 것.
+docs/api/config.php
