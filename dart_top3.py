@@ -1304,24 +1304,52 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   }
 
-  /* 추천 기준 패널 (탭으로 전환) */
-  #panel-criteria {
+  /* 추천 기준 패널 (탭으로 전환) - 카드형 */
+  .criteria-intro {
+    padding: 16px 18px;
+    margin-bottom: 12px;
     font-size: 13px;
     line-height: 1.7;
     color: var(--text-muted);
+  }
+  .criteria-intro strong { color: var(--text); }
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 480px) {
+    .criteria-grid { grid-template-columns: 1fr; }
+  }
+  .criteria-card {
     padding: 16px 18px;
+    border-left: 3px solid var(--accent);
   }
-  #panel-criteria strong { color: var(--text); }
-  .criteria-list {
-    margin: 10px 0;
-    padding-left: 18px;
+  .criteria-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
   }
-  .criteria-list li { margin-bottom: 8px; }
-  .criteria-note {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--line);
+  .criteria-name { font-size: 17px; font-weight: 700; color: var(--text); }
+  .criteria-weight {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
   }
+  .criteria-desc { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); }
+  .criteria-notes {
+    padding: 16px 18px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+  .criteria-notes p { margin: 0 0 8px; }
+  .criteria-notes p:last-child { margin-bottom: 0; }
 
   /* 신호 미터(공시/모멘텀/수급/테마) */
   .signals-block {
@@ -1590,8 +1618,8 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     </div>
 
     <nav class="main-tabs">
-      <button class="main-tab active" id="tab-stocks" data-tab="stocks">추천 종목 상세</button>
       <button class="main-tab" id="tab-criteria" data-tab="criteria">추천 기준</button>
+      <button class="main-tab active" id="tab-stocks" data-tab="stocks">추천 종목 상세</button>
       <button class="main-tab" id="tab-verification" data-tab="verification">추천종목검증</button>
       <a class="main-tab main-tab-link" href="profit.html">내 수익 관리 &rarr;</a>
     </nav>
@@ -1605,23 +1633,53 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
       <div id="verification-list"><div class="loading">불러오는 중...</div></div>
     </div>
 
-    <div id="panel-criteria" class="content-panel" hidden>
-      <p>이 사이트는 <strong>전일 코스피 공시가 있었던 종목만</strong> 후보로 삼아, 아래 4가지 신호를
-      종합점수(0~100)로 합산해 상위 5종목을 뽑습니다.</p>
-      <ul class="criteria-list">
-        <li><strong>공시 (35%)</strong> — 키워드 점수를 기본으로 하되, 가능하면 계약금액/시가총액
-        비율이나 매출액 대비 비율로 정규화해 규모를 반영합니다.</li>
-        <li><strong>모멘텀 (30%)</strong> — 전일 거래량이 평소보다 급증했는지, 종가가 고가권에서
-        마감했는지, 이동평균선을 돌파했는지를 봅니다.</li>
-        <li><strong>수급 (25%)</strong> — 최근 며칠간 외국인·기관이 연속으로 순매수해온 흐름입니다.
-        장 시작 전이라 '오늘 실시간 수급'은 볼 수 없어서, 어디까지나 선행지표로만 씁니다.</li>
-        <li><strong>테마 (10%)</strong> — 그날 등락률 상위 테마에 속하는 종목인지 확인합니다.</li>
-      </ul>
-      <p class="criteria-note">공시 자체가 호재로 분류되지 않은 종목(악재·중립)은 모멘텀·수급이 좋아도
-      종합점수를 적용하지 않고 원래 점수 그대로 하위로 둡니다.</p>
-      <p class="criteria-note">종목명 옆 점 4개(공시·수급·모멘텀·테마)는 각 신호 점수가 50점을 넘으면
-      초록 점, 못 넘으면 회색 빈 점으로 표시하는 신호등입니다.</p>
-      <p class="criteria-note">개인 참고용 도구입니다. 투자 판단의 근거로 그대로 사용하지 마세요.</p>
+    <div id="panel-criteria" hidden>
+      <div class="content-panel criteria-intro">
+        <p>이 사이트는 <strong>전일 코스피 공시가 있었던 종목만</strong> 후보로 삼아, 아래 4가지 신호를
+        종합점수(0~100)로 합산해 상위 5종목을 뽑습니다.</p>
+      </div>
+      <div class="criteria-grid">
+        <div class="content-panel criteria-card" style="--accent: var(--rise)">
+          <div class="criteria-card-head">
+            <span class="criteria-name">공시</span>
+            <span class="criteria-weight">35%</span>
+          </div>
+          <p class="criteria-desc">키워드 점수를 기본으로 하되, 가능하면 계약금액/시가총액 비율이나
+          매출액 대비 비율로 정규화해 규모를 반영합니다.</p>
+        </div>
+        <div class="content-panel criteria-card" style="--accent: var(--gold)">
+          <div class="criteria-card-head">
+            <span class="criteria-name">모멘텀</span>
+            <span class="criteria-weight">30%</span>
+          </div>
+          <p class="criteria-desc">전일 거래량이 평소보다 급증했는지, 종가가 고가권에서 마감했는지,
+          이동평균선(최근 5일·20일 평균 주가선)을 돌파했는지를 봅니다.</p>
+        </div>
+        <div class="content-panel criteria-card" style="--accent: var(--fall)">
+          <div class="criteria-card-head">
+            <span class="criteria-name">수급</span>
+            <span class="criteria-weight">25%</span>
+          </div>
+          <p class="criteria-desc">최근 며칠간 외국인·기관(외국인 투자자와 국내 기관투자자)이 연속으로
+          순매수해온 흐름입니다. 장 시작 전이라 '오늘 실시간 수급'은 볼 수 없어서, 어디까지나
+          선행지표로만 씁니다.</p>
+        </div>
+        <div class="content-panel criteria-card" style="--accent: var(--signal-on)">
+          <div class="criteria-card-head">
+            <span class="criteria-name">테마</span>
+            <span class="criteria-weight">10%</span>
+          </div>
+          <p class="criteria-desc">그날 핫테마(네이버 증권 기준 등락률 상위 테마)에 속하는 종목인지
+          확인합니다.</p>
+        </div>
+      </div>
+      <div class="content-panel criteria-notes">
+        <p>공시 자체가 호재로 분류되지 않은 종목(악재·중립)은 모멘텀·수급이 좋아도
+        종합점수를 적용하지 않고 원래 점수 그대로 하위로 둡니다.</p>
+        <p>종목명 옆 점 4개(공시·수급·모멘텀·테마)는 각 신호 점수가 50점을 넘으면
+        초록 점, 못 넘으면 회색 빈 점으로 표시하는 신호등입니다.</p>
+        <p>개인 참고용 도구입니다. 투자 판단의 근거로 그대로 사용하지 마세요.</p>
+      </div>
     </div>
 
     <div class="disclaimer">

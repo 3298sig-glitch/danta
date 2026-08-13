@@ -40,6 +40,13 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./docs/
           server-dir: /hosting/sigg3298/html/
+          # api/config.php는 git에 없는(gitignore) 파일이라 기본 sync 동작이면 매번 삭제됨 -
+          # deploy_profit_backend.yml이 배포시점에 만든 파일을 이 워크플로우가 지우지 않도록 제외
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            api/config.php
 
       - name: 결과 커밋 및 푸시
         run: |
