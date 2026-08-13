@@ -4,10 +4,10 @@ update_open_price.py
 dart_top3.py가 07:00에 저장해 둔 오늘자 TOP5 종목의 09:00 장 시작 시가(始價)를
 조회해서, 매수가/목표수익률별 매도가/손절가를 같은 JSON 파일에 추가한다.
 
-파일명 기준 주의: dart_top3.py는 파일을 '오늘 날짜'가 아니라 '공시 대상일'
-(=오늘-1일, 전일 공시를 스캔하기 때문)로 저장한다. 이 스크립트도 반드시
-같은 기준(get_target_date)을 써야 07:00이 방금 만든 파일을 찾을 수 있다
-(과거에 date.today()를 그대로 썼다가 파일을 못 찾는 버그가 있었음).
+파일명 기준 주의: dart_top3.py는 공시 자체는 전일(어제) 것을 스캔하지만, 파일명과
+화면에 표시되는 날짜는 '이 추천이 적용되는 당일'(오늘, date.today())을 쓴다
+(전일 날짜로 표시되면 사용자가 헷갈리기 때문). 이 스크립트도 반드시 같은
+date.today() 기준으로 파일을 찾아야 07:00이 방금 만든 파일을 찾을 수 있다.
 
 dart_top3.py는 07:00(장 시작 전)에 실행되기 때문에 그 시점엔 '오늘 시가'가
 아직 존재하지 않는다(장이 안 열렸으므로). 그래서 09:05경 이 스크립트를
@@ -28,9 +28,10 @@ dart_top3.py는 07:00(장 시작 전)에 실행되기 때문에 그 시점엔 '�
 import json
 import os
 import sys
+from datetime import date
 from typing import Any, Dict
 
-from dart_top3 import DATA_DIR, fetch_naver_integration, get_target_date
+from dart_top3 import DATA_DIR, fetch_naver_integration
 
 STOP_LOSS_PCT = 3.0  # 고정 손절폭(%) - 목표수익률과 무관하게 항상 매수가의 -3%
 TARGET_PROFIT_OPTIONS_PCT = list(range(1, 11))  # 목표수익률 선택지: 1%~10%
@@ -54,10 +55,9 @@ def build_trade_plan(buy_price: int) -> Dict[str, Any]:
 
 
 def get_today_json_path() -> str:
-    # dart_top3.py는 파일을 '오늘 날짜'가 아니라 '공시 대상일(=오늘-1일)'로 저장하므로
-    # (07:00에 전일 공시를 스캔해서 만드는 파일이라) 같은 기준(get_target_date)을
-    # 그대로 재사용해야 07:00이 방금 만든 파일을 09:05가 제대로 찾을 수 있다.
-    return os.path.join(DATA_DIR, f"{get_target_date().isoformat()}.json")
+    # dart_top3.py가 오늘(date.today()) 날짜로 저장한 파일과 반드시 같은 기준을 써야
+    # 07:00이 방금 만든 파일을 09:05가 제대로 찾을 수 있다.
+    return os.path.join(DATA_DIR, f"{date.today().isoformat()}.json")
 
 
 def main() -> None:

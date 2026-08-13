@@ -605,11 +605,19 @@ def compute_momentum_score(ohlc: List[Dict[str, Any]]) -> Dict[str, Any]:
     return result
 
 
+SUPPLY_BASE_SCORE = 10.0  # 순매수 흐름이 없을 때의 기준점 - "증거 없음"을 중립(50)이 아니라
+                          # 낮은 점수로 다뤄서, 실제로 연속 순매수가 있는 종목만 점수를 받게 한다.
+
+
 def compute_supply_score(deal_trend: List[Dict[str, Any]]) -> Dict[str, Any]:
     """전일까지의 외국인·기관 연속 순매수 추세를 점수화한다 (당일 실시간 수급은 개장
-    전에 존재 자체가 불가능해서 다루지 않는다 - 어디까지나 선행지표로만 사용)."""
+    전에 존재 자체가 불가능해서 다루지 않는다 - 어디까지나 선행지표로만 사용).
+
+    순매수 흐름이 없거나 데이터 자체가 없으면 SUPPLY_BASE_SCORE(낮은 점수)를 주고,
+    연속 순매수일수가 쌓일수록 점수를 올린다 - "정보 없음"이 종합점수를 은근히
+    떠받치지 않도록 하기 위함."""
     result: Dict[str, Any] = {
-        "score": 50.0,
+        "score": SUPPLY_BASE_SCORE,
         "foreign_streak": 0,
         "organ_streak": 0,
         "summary": "수급 데이터 없음",
@@ -629,9 +637,9 @@ def compute_supply_score(deal_trend: List[Dict[str, Any]]) -> Dict[str, Any]:
     foreign_streak = _streak("foreign_net")
     organ_streak = _streak("organ_net")
 
-    score = 50.0
-    score += min(30.0, foreign_streak * 10)
-    score += min(20.0, organ_streak * 8)
+    score = SUPPLY_BASE_SCORE
+    score += min(50.0, foreign_streak * 15)
+    score += min(30.0, organ_streak * 10)
     if deal_trend[0]["foreign_net"] > 0 and deal_trend[0]["organ_net"] > 0:
         score += 10
     score = min(100.0, max(0.0, score))
@@ -702,6 +710,10 @@ def fetch_hot_theme_members(top_n: int = HOT_THEME_COUNT) -> Dict[str, List[str]
     return dict(membership)
 
 
+THEME_BASE_SCORE = 5.0  # 핫테마 소속이 아닐 때의 기준점 - 코스피 대부분 종목이 해당되는
+                        # 흔한 경우라 0에 가깝게 낮춰서, 실제로 핫테마에 속한 종목만 점수를 받게 한다.
+
+
 def compute_theme_score(stock_code: str, hot_theme_map: Dict[str, List[str]]) -> Dict[str, Any]:
     """오늘 뜬 상위 테마에 속하는지로 점수화한다."""
     themes = hot_theme_map.get(stock_code, [])
@@ -709,7 +721,7 @@ def compute_theme_score(stock_code: str, hot_theme_map: Dict[str, List[str]]) ->
         score = min(100.0, 60.0 + len(themes) * 15)
         summary = "핫테마: " + ", ".join(themes)
     else:
-        score = 30.0
+        score = THEME_BASE_SCORE
         summary = "핫테마 소속 없음"
     return {"score": round(score, 1), "themes": themes, "summary": summary}
 
@@ -1014,20 +1026,28 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
 <style>
   :root {
     --bg: #0B0F14;
+    --bg-glow: #172230;
     --surface: #131A22;
     --surface-hover: #1A2229;
     --line: #232D38;
+    --line-strong: #2E3A48;
     --text: #E8ECF1;
     --text-muted: #7C8898;
     --rise: #F0454F;
     --fall: #2F8FFF;
+    --ma5: #E8B339;
+    --ma20: #B98AF2;
     --mono: 'JetBrains Mono', ui-monospace, monospace;
     --sans: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
   }
   * { box-sizing: border-box; }
+  html { background: var(--bg); }
   body {
     margin: 0;
-    background: var(--bg);
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse 900px 480px at 50% -10%, var(--bg-glow) 0%, transparent 62%),
+      var(--bg);
     color: var(--text);
     font-family: var(--sans);
     -webkit-font-smoothing: antialiased;
@@ -1040,11 +1060,29 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   button { font-family: inherit; cursor: pointer; }
 
   .marquee {
+    position: relative;
     border-bottom: 1px solid var(--line);
     background: var(--surface);
     overflow: hidden;
     white-space: nowrap;
     padding: 10px 0;
+  }
+  .marquee::before, .marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 36px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--surface), transparent);
+  }
+  .marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--surface), transparent);
   }
   .marquee-track {
     display: inline-block;
@@ -1077,11 +1115,22 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     flex-wrap: wrap;
   }
   .masthead .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     font-family: var(--mono);
     font-size: 12px;
     color: var(--rise);
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+  .masthead .eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rise);
+    box-shadow: 0 0 6px 1px rgba(240, 69, 79, 0.6);
   }
   .masthead h1 {
     margin: 6px 0 4px;
@@ -1134,7 +1183,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
 
   .card {
-    background: var(--surface);
+    background: linear-gradient(180deg, var(--surface) 0%, #111820 100%);
     border: 1px solid var(--line);
     border-radius: 10px;
     margin-bottom: 14px;
@@ -1142,18 +1191,24 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     width: 100%;
     text-align: left;
     color: inherit;
-    transition: border-color 0.12s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.015) inset;
+    transition: border-color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
   }
-  .card:hover { border-color: #3A4656; }
+  .card:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.02) inset;
+  }
   .card-head {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     gap: 12px;
     padding: 16px 18px;
   }
   .rank {
     font-family: var(--mono);
     font-size: 13px;
+    font-variant-numeric: tabular-nums;
     color: var(--text-muted);
     flex-shrink: 0;
   }
@@ -1166,6 +1221,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   .delta {
     font-family: var(--mono);
     font-size: 13px;
+    font-variant-numeric: tabular-nums;
     font-weight: 600;
     white-space: nowrap;
   }
@@ -1206,8 +1262,8 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   /* 신호 미터(공시/모멘텀/수급/테마) */
   .signals-block {
-    margin: 0 0 18px;
-    padding: 14px;
+    margin: 0 0 10px;
+    padding: 10px 12px;
     background: var(--bg);
     border: 1px solid var(--line);
     border-radius: 10px;
@@ -1216,40 +1272,44 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: flex;
     align-items: baseline;
     gap: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
     font-size: 12px;
     color: var(--text-muted);
     font-family: var(--mono);
   }
   .signals-head .composite-value {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--text);
   }
-  .signal-row { margin-bottom: 12px; }
-  .signal-row:last-child { margin-bottom: 0; }
+  .signals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+  }
   .signal-top {
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
-    margin-bottom: 4px;
+    font-size: 11px;
+    margin-bottom: 3px;
   }
   .signal-label { color: var(--text-muted); }
-  .signal-value { font-family: var(--mono); color: var(--text); }
+  .signal-value { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--text); }
   .meter-track {
-    height: 6px;
+    height: 4px;
     background: var(--line);
-    border-radius: 3px;
+    border-radius: 2px;
     overflow: hidden;
   }
   .meter-fill {
     height: 100%;
     background: var(--rise);
-    border-radius: 3px;
+    border-radius: 2px;
   }
   .signal-summary {
-    margin-top: 4px;
-    font-size: 12px;
+    margin-top: 3px;
+    font-size: 10.5px;
+    line-height: 1.3;
     color: var(--text-muted);
     font-family: var(--mono);
   }
@@ -1260,10 +1320,40 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-family: var(--mono);
   }
 
+  /* 카드 목록에서 종목명 옆에 붙는 4개 신호 신호등 (공시/수급/모멘텀/테마) */
+  .signal-lights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px 10px;
+    margin-top: 6px;
+  }
+  .signal-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+  }
+  .signal-light::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+  }
+  .signal-light.on { color: var(--text); }
+  .signal-light.on::before {
+    background: var(--rise);
+    border-color: var(--rise);
+    box-shadow: 0 0 4px 0.5px rgba(240, 69, 79, 0.55);
+  }
+
   /* 투자 전략 */
   .trade-plan {
-    margin: 0 0 18px;
-    padding: 14px;
+    margin: 0 0 10px;
+    padding: 10px 12px;
     background: var(--bg);
     border: 1px solid var(--line);
     border-radius: 10px;
@@ -1272,30 +1362,36 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 12px;
     color: var(--text-muted);
     font-family: var(--mono);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
+  .trade-plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 14px;
+  }
+  .trade-plan-grid .full { grid-column: 1 / -1; }
   .trade-plan-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 0;
-    font-size: 13px;
+    padding: 4px 0;
+    font-size: 12.5px;
   }
-  .trade-plan-row .mono { font-family: var(--mono); }
+  .trade-plan-row .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
   .trade-plan-select-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 0;
+    padding: 4px 0;
   }
   .trade-plan-select-row select {
     background: var(--surface);
     color: var(--text);
     border: 1px solid var(--line);
     border-radius: 6px;
-    padding: 5px 8px;
+    padding: 4px 8px;
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 12.5px;
   }
   .trade-plan-pending {
     font-size: 12px;
@@ -1320,9 +1416,9 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     border-radius: 16px 16px 0 0;
     width: 100%;
     max-width: 640px;
-    max-height: 88vh;
+    max-height: 96vh;
     overflow-y: auto;
-    padding: 20px;
+    padding: 16px;
   }
   @media (min-width: 640px) {
     .modal-backdrop { align-items: center; }
@@ -1332,9 +1428,9 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
-  .modal-head h2 { margin: 0; font-size: 18px; }
+  .modal-head h2 { margin: 0; font-size: 17px; }
   .modal-close {
     background: none;
     border: none;
@@ -1345,17 +1441,45 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .modal-close:hover { color: var(--text); }
   .chart-container {
-    margin: 12px 0 18px;
+    margin: 0 0 4px;
     border: 1px solid var(--line);
     border-radius: 8px;
     overflow: hidden;
   }
+  .chart-legend {
+    display: flex;
+    gap: 14px;
+    margin: 0 0 10px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+  }
+  .chart-legend .legend-item { display: flex; align-items: center; gap: 5px; }
+  .chart-legend .legend-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
   .chart-empty {
-    padding: 40px 0;
+    padding: 24px 0;
     text-align: center;
     color: var(--text-muted);
     font-size: 13px;
   }
+  .detail-toggle {
+    display: block;
+    width: 100%;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 8px;
+    text-align: center;
+  }
+  .detail-toggle:hover { color: var(--text); border-color: #3A4656; }
   .detail-item {
     display: block;
     padding: 12px 0;
@@ -1419,6 +1543,8 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
       </ul>
       <p class="criteria-note">공시 자체가 호재로 분류되지 않은 종목(악재·중립)은 모멘텀·수급이 좋아도
       종합점수를 적용하지 않고 원래 점수 그대로 하위로 둡니다.</p>
+      <p class="criteria-note">종목명 옆 점 4개(공시·수급·모멘텀·테마)는 각 신호 점수가 50점을 넘으면
+      빨간 점, 못 넘으면 회색 빈 점으로 표시하는 신호등입니다.</p>
       <p class="criteria-note">개인 참고용 도구입니다. 투자 판단의 근거로 그대로 사용하지 마세요.</p>
     </div>
 
@@ -1436,9 +1562,11 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
         <button class="modal-close" id="modal-close" aria-label="닫기">&times;</button>
       </div>
       <div class="chart-container" id="chart-container"></div>
+      <div class="chart-legend" id="chart-legend" hidden></div>
       <div id="signals-container"></div>
       <div id="trade-plan-container"></div>
-      <div id="modal-items"></div>
+      <button class="detail-toggle" id="detail-toggle" hidden></button>
+      <div id="modal-items" hidden></div>
     </div>
   </div>
 
@@ -1505,10 +1633,12 @@ function renderSignalsBlock(company) {
   return `
     <div class="signals-block">
       <div class="signals-head">${compositeText}</div>
-      ${renderSignalRow('disclosure', signals.disclosure)}
-      ${renderSignalRow('momentum', signals.momentum)}
-      ${renderSignalRow('supply', signals.supply)}
-      ${renderSignalRow('theme', signals.theme)}
+      <div class="signals-grid">
+        ${renderSignalRow('disclosure', signals.disclosure)}
+        ${renderSignalRow('momentum', signals.momentum)}
+        ${renderSignalRow('supply', signals.supply)}
+        ${renderSignalRow('theme', signals.theme)}
+      </div>
     </div>`;
 }
 
@@ -1529,20 +1659,22 @@ function renderTradePlan(company) {
   return `
     <div class="trade-plan">
       <div class="trade-plan-head">투자 전략</div>
-      <div class="trade-plan-row">
-        <span>매수가(시가)</span><span class="mono">${tp.buy_price.toLocaleString()}원</span>
-      </div>
-      <div class="trade-plan-select-row">
-        <label for="target-profit-select">목표수익률</label>
-        <select id="target-profit-select">${optionsHtml}</select>
-      </div>
-      <div class="trade-plan-row">
-        <span>목표 매도가</span>
-        <span class="mono delta-up" id="target-sell-price">${tp.target_sell_prices['1'].toLocaleString()}원</span>
-      </div>
-      <div class="trade-plan-row">
-        <span>손절가(${tp.stop_loss_pct}%)</span>
-        <span class="mono delta-down">${tp.stop_loss_price.toLocaleString()}원</span>
+      <div class="trade-plan-grid">
+        <div class="trade-plan-row">
+          <span>매수가(시가)</span><span class="mono">${tp.buy_price.toLocaleString()}원</span>
+        </div>
+        <div class="trade-plan-row">
+          <span>손절가(${tp.stop_loss_pct}%)</span>
+          <span class="mono delta-down">${tp.stop_loss_price.toLocaleString()}원</span>
+        </div>
+        <div class="trade-plan-select-row full">
+          <label for="target-profit-select">목표수익률</label>
+          <select id="target-profit-select">${optionsHtml}</select>
+        </div>
+        <div class="trade-plan-row full">
+          <span>목표 매도가</span>
+          <span class="mono delta-up" id="target-sell-price">${tp.target_sell_prices['1'].toLocaleString()}원</span>
+        </div>
       </div>
     </div>`;
 }
@@ -1556,15 +1688,27 @@ function wireTradePlanSelect(company) {
   });
 }
 
+function computeMA(candleData, period) {
+  const result = [];
+  for (let i = period - 1; i < candleData.length; i++) {
+    let sum = 0;
+    for (let j = i - period + 1; j <= i; j++) sum += candleData[j].close;
+    result.push({ time: candleData[i].time, value: sum / period });
+  }
+  return result;
+}
+
 function openModal(company) {
   document.getElementById('modal-title').textContent = company.corp_name;
   const container = document.getElementById('chart-container');
+  const legend = document.getElementById('chart-legend');
   container.innerHTML = '';
+  legend.hidden = true;
 
   if (company.ohlc && company.ohlc.length > 0 && window.LightweightCharts) {
     const chart = LightweightCharts.createChart(container, {
       width: container.clientWidth || 560,
-      height: 260,
+      height: 150,
       layout: { background: { color: '#131A22' }, textColor: '#7C8898', fontFamily: 'JetBrains Mono, monospace' },
       grid: { vertLines: { color: '#1D2530' }, horzLines: { color: '#1D2530' } },
       timeScale: { borderColor: '#232D38' },
@@ -1580,6 +1724,28 @@ function openModal(company) {
       open: c.open, high: c.high, low: c.low, close: c.close,
     })).sort((a, b) => a.time.localeCompare(b.time));
     series.setData(candleData);
+
+    // 이동평균선(5일/20일) - 모멘텀 신호가 참고하는 것과 같은 기준을 그려서 눈으로도 확인 가능하게
+    if (candleData.length >= 5) {
+      const ma5Series = chart.addLineSeries({
+        color: '#E8B339', lineWidth: 1, priceLineVisible: false, lastValueVisible: false,
+      });
+      ma5Series.setData(computeMA(candleData, 5));
+    }
+    if (candleData.length >= 20) {
+      const ma20Series = chart.addLineSeries({
+        color: '#B98AF2', lineWidth: 1, priceLineVisible: false, lastValueVisible: false,
+      });
+      ma20Series.setData(computeMA(candleData, 20));
+      legend.hidden = false;
+      legend.innerHTML = `
+        <span class="legend-item"><span class="legend-dot" style="background:#E8B339"></span>5일선</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#B98AF2"></span>20일선</span>`;
+    } else if (candleData.length >= 5) {
+      legend.hidden = false;
+      legend.innerHTML = `<span class="legend-item"><span class="legend-dot" style="background:#E8B339"></span>5일선</span>`;
+    }
+
     chart.timeScale().fitContent();
     currentChart = chart;
   } else {
@@ -1606,13 +1772,43 @@ function openModal(company) {
       </a>`;
   }).join('');
 
+  // 공시 원문 리스트는 기본으로 접어둬서, 클릭 한 번에 종합점수·신호·투자전략까지
+  // 스크롤 없이 한 화면에 보이게 한다. 필요하면 버튼으로 펼쳐서 본다.
+  itemsEl.hidden = true;
+  const toggle = document.getElementById('detail-toggle');
+  toggle.hidden = false;
+  toggle.textContent = `공시 원문 ${company.items.length}건 보기 ▾`;
+  toggle.onclick = () => {
+    itemsEl.hidden = !itemsEl.hidden;
+    toggle.textContent = itemsEl.hidden
+      ? `공시 원문 ${company.items.length}건 보기 ▾`
+      : '공시 원문 접기 ▴';
+  };
+
   document.getElementById('modal-backdrop').classList.add('open');
+}
+
+const CARD_LIGHT_LABELS = [
+  ['disclosure', '공시'],
+  ['supply', '수급'],
+  ['momentum', '모멘텀'],
+  ['theme', '테마'],
+];
+
+function renderSignalLights(signals) {
+  if (!signals) return '';
+  const items = CARD_LIGHT_LABELS.map(([key, label]) => {
+    const sig = signals[key];
+    const on = sig && sig.score != null && sig.score >= 50;
+    return `<span class="signal-light${on ? ' on' : ''}">${label}</span>`;
+  }).join('');
+  return `<div class="signal-lights">${items}</div>`;
 }
 
 function renderData(data) {
   const ranked = data.ranked || [];
   document.getElementById('sub-label').textContent =
-    `${formatDateKo(data.date)} 공시 마감 기준 · TOP ${ranked.length}`;
+    `${formatDateKo(data.date)} 추천 · 전일 공시 기준 · TOP ${ranked.length}`;
 
   const marqueeText = ranked.length
     ? ranked.map(c => c.corp_name).join(' · ')
@@ -1642,6 +1838,7 @@ function renderData(data) {
         <div class="corp">
           <h2 class="corp-name">${company.corp_name}</h2>
           ${compositeSub}
+          ${renderSignalLights(company.signals)}
         </div>
         <span class="delta delta-${dir} delta-total">${arrow} ${sign}${company.score}</span>
       </div>`;
@@ -1698,7 +1895,8 @@ init();
 
 def main() -> None:
     api_key = get_api_key()
-    target_date = get_target_date()
+    target_date = get_target_date()  # 공시를 조회할 대상 날짜 (전일)
+    display_date = date.today()      # 화면/파일명에 쓸 날짜 (이 추천이 적용되는 당일)
     disclosures = fetch_kospi_disclosures(api_key, target_date)
 
     save_index_html()  # index.html은 데이터와 무관한 고정 템플릿이라 항상 최신으로 유지
@@ -1770,9 +1968,9 @@ def main() -> None:
         )
         print()
 
-    payload = build_date_json(target_date, ranked, stock_items, profiles)
-    save_date_json(target_date, payload)
-    print(f"docs/data/{target_date.isoformat()}.json 파일에 결과를 저장했습니다.")
+    payload = build_date_json(display_date, ranked, stock_items, profiles)
+    save_date_json(display_date, payload)
+    print(f"docs/data/{display_date.isoformat()}.json 파일에 결과를 저장했습니다.")
 
 
 if __name__ == "__main__":
