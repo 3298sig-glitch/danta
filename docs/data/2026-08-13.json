@@ -607,7 +607,8 @@
         "theme": {
           "score": 5.0,
           "themes": [],
-          "summary": "핫테마 소속 없음"
+          "summary": "핫테마 소속 없음",
+          "theme_links": []
         }
       },
       "items": [
@@ -1149,7 +1150,8 @@
         "theme": {
           "score": 5.0,
           "themes": [],
-          "summary": "핫테마 소속 없음"
+          "summary": "핫테마 소속 없음",
+          "theme_links": []
         }
       },
       "items": [
@@ -1691,7 +1693,8 @@
         "theme": {
           "score": 5.0,
           "themes": [],
-          "summary": "핫테마 소속 없음"
+          "summary": "핫테마 소속 없음",
+          "theme_links": []
         }
       },
       "items": [
@@ -2233,7 +2236,8 @@
         "theme": {
           "score": 5.0,
           "themes": [],
-          "summary": "핫테마 소속 없음"
+          "summary": "핫테마 소속 없음",
+          "theme_links": []
         }
       },
       "items": [

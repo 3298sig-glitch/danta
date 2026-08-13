@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1786605530222,
+    "generatedTime": 1786606534903,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 3640,
-            "hash": "23d603291f5e491cd76e12043f814a0d1ca99b51fd01278b654793003a3bb10e"
+            "hash": "3cb38fa0a06cc4397945081369e52955e402dda7034f41307a4e41afe2df51ba"
         },
         {
             "type": "folder",
@@ -24,8 +24,8 @@
         {
             "type": "file",
             "name": "index.html",
-            "size": 29276,
-            "hash": "d80f6297fc161d2f76c46658810a889a268359de10174828e5057e111b1aa881"
+            "size": 29803,
+            "hash": "6e3f6d04af9ac32c09edaf8ad5a305d17ec1f5bad9e9f0c4c4ffd3755692e565"
         },
         {
             "type": "file",
@@ -41,15 +41,15 @@
         },
         {
             "type": "file",
-            "name": "api/config.example.php",
-            "size": 675,
-            "hash": "02a6e6d6e4cc0cd066052b10adfed5622cb7a4610e4be4ae9d2bc6b9797523d2"
-        },
-        {
-            "type": "file",
             "name": "api/db.php",
             "size": 1220,
             "hash": "f5607bbbe087bd979161edac6ff96fdefce7dccebe45f59b5efff62c69b574f4"
+        },
+        {
+            "type": "file",
+            "name": "api/config.example.php",
+            "size": 675,
+            "hash": "02a6e6d6e4cc0cd066052b10adfed5622cb7a4610e4be4ae9d2bc6b9797523d2"
         },
         {
             "type": "file",
@@ -90,8 +90,8 @@
         {
             "type": "file",
             "name": "data/2026-08-13.json",
-            "size": 63947,
-            "hash": "016fe63927751fa3ead6eabab17625ba24f2c3a9bc233250088b81b0b9d11670"
+            "size": 64287,
+            "hash": "98b828cb5a413bd670ac643bd93d67b3fb6cc0eefbaabbb35a7e0e2b163125eb"
         },
         {
             "type": "file",
