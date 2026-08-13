@@ -20,6 +20,7 @@
     --text-muted: #7C8898;
     --rise: #F0454F;
     --fall: #2F8FFF;
+    --signal-on: #34D399;
     --ma5: #E8B339;
     --ma20: #B98AF2;
     --mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -247,54 +248,54 @@
 
   /* 신호 미터(공시/모멘텀/수급/테마) */
   .signals-block {
-    margin: 0 0 10px;
-    padding: 10px 12px;
+    margin: 0 0 12px;
+    padding: 14px 16px;
     background: var(--bg);
     border: 1px solid var(--line);
-    border-radius: 10px;
+    border-radius: 12px;
   }
   .signals-head {
     display: flex;
     align-items: baseline;
     gap: 8px;
-    margin-bottom: 8px;
-    font-size: 12px;
+    margin-bottom: 12px;
+    font-size: 13px;
     color: var(--text-muted);
     font-family: var(--mono);
   }
   .signals-head .composite-value {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--text);
   }
   .signals-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px 14px;
+    gap: 12px 18px;
   }
   .signal-top {
     display: flex;
     justify-content: space-between;
-    font-size: 11px;
-    margin-bottom: 3px;
+    font-size: 12px;
+    margin-bottom: 4px;
   }
   .signal-label { color: var(--text-muted); }
   .signal-value { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--text); }
   .meter-track {
-    height: 4px;
+    height: 5px;
     background: var(--line);
-    border-radius: 2px;
+    border-radius: 3px;
     overflow: hidden;
   }
   .meter-fill {
     height: 100%;
     background: var(--rise);
-    border-radius: 2px;
+    border-radius: 3px;
   }
   .signal-summary {
-    margin-top: 3px;
-    font-size: 10.5px;
-    line-height: 1.3;
+    margin-top: 4px;
+    font-size: 11.5px;
+    line-height: 1.35;
     color: var(--text-muted);
     font-family: var(--mono);
   }
@@ -330,53 +331,53 @@
   }
   .signal-light.on { color: var(--text); }
   .signal-light.on::before {
-    background: var(--rise);
-    border-color: var(--rise);
-    box-shadow: 0 0 4px 0.5px rgba(240, 69, 79, 0.55);
+    background: var(--signal-on);
+    border-color: var(--signal-on);
+    box-shadow: 0 0 4px 0.5px rgba(52, 211, 153, 0.55);
   }
 
   /* 투자 전략 */
   .trade-plan {
-    margin: 0 0 10px;
-    padding: 10px 12px;
+    margin: 0 0 12px;
+    padding: 14px 16px;
     background: var(--bg);
     border: 1px solid var(--line);
-    border-radius: 10px;
+    border-radius: 12px;
   }
   .trade-plan-head {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
     font-family: var(--mono);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .trade-plan-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px 14px;
+    gap: 4px 16px;
   }
   .trade-plan-grid .full { grid-column: 1 / -1; }
   .trade-plan-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4px 0;
-    font-size: 12.5px;
+    padding: 5px 0;
+    font-size: 13.5px;
   }
   .trade-plan-row .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
   .trade-plan-select-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4px 0;
+    padding: 5px 0;
   }
   .trade-plan-select-row select {
     background: var(--surface);
     color: var(--text);
     border: 1px solid var(--line);
     border-radius: 6px;
-    padding: 4px 8px;
+    padding: 5px 10px;
     font-family: var(--mono);
-    font-size: 12.5px;
+    font-size: 13.5px;
   }
   .trade-plan-pending {
     font-size: 12px;
@@ -398,24 +399,25 @@
   .modal {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 16px 16px 0 0;
+    border-radius: 20px 20px 0 0;
     width: 100%;
-    max-width: 640px;
-    max-height: 96vh;
+    max-width: 720px;
+    min-height: 60vh;
+    max-height: 97vh;
     overflow-y: auto;
-    padding: 16px;
+    padding: 22px;
   }
-  @media (min-width: 640px) {
+  @media (min-width: 720px) {
     .modal-backdrop { align-items: center; }
-    .modal { border-radius: 16px; margin: 20px; }
+    .modal { border-radius: 20px; margin: 20px; }
   }
   .modal-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
-  .modal-head h2 { margin: 0; font-size: 17px; }
+  .modal-head h2 { margin: 0; font-size: 20px; }
   .modal-close {
     background: none;
     border: none;
@@ -426,17 +428,17 @@
   }
   .modal-close:hover { color: var(--text); }
   .chart-container {
-    margin: 0 0 4px;
+    margin: 0 0 6px;
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
   }
   .chart-legend {
     display: flex;
     gap: 14px;
-    margin: 0 0 10px;
+    margin: 0 0 14px;
     font-family: var(--mono);
-    font-size: 10.5px;
+    font-size: 11px;
     color: var(--text-muted);
   }
   .chart-legend .legend-item { display: flex; align-items: center; gap: 5px; }
@@ -529,7 +531,7 @@
       <p class="criteria-note">공시 자체가 호재로 분류되지 않은 종목(악재·중립)은 모멘텀·수급이 좋아도
       종합점수를 적용하지 않고 원래 점수 그대로 하위로 둡니다.</p>
       <p class="criteria-note">종목명 옆 점 4개(공시·수급·모멘텀·테마)는 각 신호 점수가 50점을 넘으면
-      빨간 점, 못 넘으면 회색 빈 점으로 표시하는 신호등입니다.</p>
+      초록 점, 못 넘으면 회색 빈 점으로 표시하는 신호등입니다.</p>
       <p class="criteria-note">개인 참고용 도구입니다. 투자 판단의 근거로 그대로 사용하지 마세요.</p>
     </div>
 
@@ -693,7 +695,7 @@ function openModal(company) {
   if (company.ohlc && company.ohlc.length > 0 && window.LightweightCharts) {
     const chart = LightweightCharts.createChart(container, {
       width: container.clientWidth || 560,
-      height: 150,
+      height: 220,
       layout: { background: { color: '#131A22' }, textColor: '#7C8898', fontFamily: 'JetBrains Mono, monospace' },
       grid: { vertLines: { color: '#1D2530' }, horzLines: { color: '#1D2530' } },
       timeScale: { borderColor: '#232D38' },
