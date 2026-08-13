@@ -105,17 +105,22 @@ def main() -> None:
         day_high = day_candle["high"] if day_candle else None
         current_price = latest_candle["close"]
 
-        change_amount = round(current_price - prev_close, 2)
-        change_pct = round((current_price - prev_close) / prev_close * 100, 2) if prev_close else None
-
+        # 등락률/등락폭/색상 판정 전부 "전일종가 대비 당일고가" 기준으로 통일한다
+        # (2026-08-13, 사용자 확정 - 이전엔 %/금액만 현재가 기준이었는데 헷갈린다는
+        # 피드백으로 색상 판정 기준과 일치시킴).
         if day_high is None:
             direction = "unknown"
-        elif day_high > prev_close:
-            direction = "up"
-        elif day_high < prev_close:
-            direction = "down"
+            change_amount = None
+            change_pct = None
         else:
-            direction = "flat"
+            change_amount = round(day_high - prev_close, 2)
+            change_pct = round((day_high - prev_close) / prev_close * 100, 2) if prev_close else None
+            if day_high > prev_close:
+                direction = "up"
+            elif day_high < prev_close:
+                direction = "down"
+            else:
+                direction = "flat"
 
         results.append({
             "corp_name": e["corp_name"],

@@ -653,15 +653,19 @@ let verificationLoaded = false;
 function renderVerificationEntry(e) {
   const dirClass = e.direction === 'up' ? 'verify-up' : e.direction === 'down' ? 'verify-down' : 'verify-flat';
   const dirArrow = e.direction === 'up' ? '▲' : e.direction === 'down' ? '▼' : '－';
-  const sign = e.change_amount > 0 ? '+' : '';
+  const hasChange = e.change_pct != null && e.change_amount != null;
+  const sign = hasChange && e.change_amount > 0 ? '+' : '';
+  const changeText = hasChange
+    ? `${sign}${e.change_pct}% (${sign}${e.change_amount.toLocaleString()}원)`
+    : '데이터 없음';
   return `
     <div class="card verify-item">
       <div class="card-head">
         <div class="corp">
           <p class="corp-name">${e.corp_name}</p>
-          <div class="verify-meta">${e.rec_date} 추천 · 전일종가 ${e.prev_close.toLocaleString()} · 당일고가 ${e.day_high != null ? e.day_high.toLocaleString() : '-'}</div>
+          <div class="verify-meta">${e.rec_date} 추천 · 전일종가 ${e.prev_close.toLocaleString()}원 · 당일고가 ${e.day_high != null ? e.day_high.toLocaleString() + '원' : '-'}</div>
         </div>
-        <span class="delta delta-total ${dirClass}">${dirArrow} ${sign}${e.change_pct}% (${sign}${e.change_amount.toLocaleString()})</span>
+        <span class="delta delta-total ${dirClass}">${dirArrow} ${changeText}</span>
       </div>
     </div>`;
 }
