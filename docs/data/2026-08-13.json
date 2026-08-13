@@ -577,7 +577,13 @@
           "themes": [
             "고체산화물 연료전지(SOFC)"
           ],
-          "summary": "핫테마: 고체산화물 연료전지(SOFC)"
+          "summary": "핫테마: 고체산화물 연료전지(SOFC)",
+          "theme_links": [
+            {
+              "name": "고체산화물 연료전지(SOFC)",
+              "url": "https://finance.naver.com/sise/sise_group_detail.naver?type=theme&no=559"
+            }
+          ]
         }
       },
       "items": [
@@ -1145,7 +1151,13 @@
           "themes": [
             "전력설비"
           ],
-          "summary": "핫테마: 전력설비"
+          "summary": "핫테마: 전력설비",
+          "theme_links": [
+            {
+              "name": "전력설비",
+              "url": "https://finance.naver.com/sise/sise_group_detail.naver?type=theme&no=123"
+            }
+          ]
         }
       },
       "items": [

@@ -318,6 +318,12 @@
     color: var(--text-muted);
     font-family: var(--mono);
   }
+  .signal-summary .theme-link {
+    color: var(--fall);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .signal-summary .theme-link:hover { color: var(--text); }
   .composite-sub {
     margin-top: 2px;
     font-size: 11px;
@@ -618,7 +624,17 @@ function renderSignalRow(key, signal) {
       </div>`;
   }
   const pct = Math.max(0, Math.min(100, signal.score));
-  const summary = signal.summary || (signal.basis ? signal.basis.join(' · ') : '');
+  let summary;
+  if (key === 'theme' && signal.theme_links && signal.theme_links.length) {
+    const links = signal.theme_links.map((t) => (
+      t.url
+        ? `<a class="theme-link" href="${t.url}" target="_blank" rel="noopener noreferrer">${t.name}</a>`
+        : t.name
+    )).join(', ');
+    summary = `핫테마: ${links}`;
+  } else {
+    summary = signal.summary || (signal.basis ? signal.basis.join(' · ') : '');
+  }
   return `
     <div class="signal-row">
       <div class="signal-top">

@@ -39,7 +39,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 from collections import defaultdict
 from datetime import date, timedelta
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 
 import requests
 
@@ -661,11 +661,14 @@ def compute_supply_score(deal_trend: List[Dict[str, Any]]) -> Dict[str, Any]:
     return result
 
 
-def fetch_hot_theme_members(top_n: int = HOT_THEME_COUNT) -> Dict[str, List[str]]:
+def fetch_hot_theme_members(top_n: int = HOT_THEME_COUNT) -> Tuple[Dict[str, List[str]], Dict[str, str]]:
     """네이버 테마 등락률 상위 페이지에서 상위 top_n개 테마만 추려, 그 테마들의
     소속 종목코드 -> 테마명 리스트 맵을 만든다. 전체 테마(300개 이상)를 다 크롤링하지
-    않고 그날 뜬 상위 테마의 상세페이지만 추가로 조회하는 방식이라 호출량이 적다."""
+    않고 그날 뜬 상위 테마의 상세페이지만 추가로 조회하는 방식이라 호출량이 적다.
+    테마명 -> 네이버 테마 상세페이지 URL 맵도 함께 반환해서, 프론트에서 "테마 내용 보기"
+    링크로 쓸 수 있게 한다."""
     membership: Dict[str, List[str]] = defaultdict(list)
+    theme_urls: Dict[str, str] = {}
 
     try:
         resp = requests.get(
@@ -685,6 +688,9 @@ def fetch_hot_theme_members(top_n: int = HOT_THEME_COUNT) -> Dict[str, List[str]
 
         for theme_no, theme_name in rows[:top_n]:
             theme_name = theme_name.strip()
+            theme_urls[theme_name] = (
+                f"https://finance.naver.com/sise/sise_group_detail.naver?type=theme&no={theme_no}"
+            )
             try:
                 d = requests.get(
                     NAVER_THEME_DETAIL_URL,
@@ -707,23 +713,34 @@ def fetch_hot_theme_members(top_n: int = HOT_THEME_COUNT) -> Dict[str, List[str]
     except Exception as e:
         print(f"  (참고) 테마 등락률 목록 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
 
-    return dict(membership)
+    return dict(membership), theme_urls
 
 
 THEME_BASE_SCORE = 5.0  # 핫테마 소속이 아닐 때의 기준점 - 코스피 대부분 종목이 해당되는
                         # 흔한 경우라 0에 가깝게 낮춰서, 실제로 핫테마에 속한 종목만 점수를 받게 한다.
 
 
-def compute_theme_score(stock_code: str, hot_theme_map: Dict[str, List[str]]) -> Dict[str, Any]:
+def compute_theme_score(
+    stock_code: str,
+    hot_theme_map: Dict[str, List[str]],
+    theme_urls: Dict[str, str],
+) -> Dict[str, Any]:
     """오늘 뜬 상위 테마에 속하는지로 점수화한다."""
     themes = hot_theme_map.get(stock_code, [])
     if themes:
         score = min(100.0, 60.0 + len(themes) * 15)
         summary = "핫테마: " + ", ".join(themes)
+        theme_links = [{"name": name, "url": theme_urls.get(name, "")} for name in themes]
     else:
         score = THEME_BASE_SCORE
         summary = "핫테마 소속 없음"
-    return {"score": round(score, 1), "themes": themes, "summary": summary}
+        theme_links = []
+    return {
+        "score": round(score, 1),
+        "themes": themes,
+        "summary": summary,
+        "theme_links": theme_links,
+    }
 
 
 def _dart_event_lookup(api_key: str, url: str, corp_code: str, target_date: date) -> List[Dict[str, Any]]:
@@ -896,6 +913,7 @@ def evaluate_candidate(
     target_date: date,
     items: List[Dict[str, Any]],
     hot_theme_map: Dict[str, List[str]],
+    theme_urls: Dict[str, str],
 ) -> Dict[str, Any]:
     """한 종목의 4개 신호(공시/모멘텀/수급/테마)를 계산하고, 랭킹에 쓸 점수를 정한다."""
     corp_code = items[0].get("corp_code", "") if items else ""
@@ -907,7 +925,7 @@ def evaluate_candidate(
 
     momentum = compute_momentum_score(ohlc)
     supply = compute_supply_score(naver["deal_trend"])
-    theme = compute_theme_score(stock_code, hot_theme_map)
+    theme = compute_theme_score(stock_code, hot_theme_map, theme_urls)
 
     if keyword_score > 0:
         disclosure = compute_disclosure_score(api_key, corp_code, target_date, naver["market_cap"], items)
@@ -1333,6 +1351,12 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--text-muted);
     font-family: var(--mono);
   }
+  .signal-summary .theme-link {
+    color: var(--fall);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .signal-summary .theme-link:hover { color: var(--text); }
   .composite-sub {
     margin-top: 2px;
     font-size: 11px;
@@ -1633,7 +1657,17 @@ function renderSignalRow(key, signal) {
       </div>`;
   }
   const pct = Math.max(0, Math.min(100, signal.score));
-  const summary = signal.summary || (signal.basis ? signal.basis.join(' · ') : '');
+  let summary;
+  if (key === 'theme' && signal.theme_links && signal.theme_links.length) {
+    const links = signal.theme_links.map((t) => (
+      t.url
+        ? `<a class="theme-link" href="${t.url}" target="_blank" rel="noopener noreferrer">${t.name}</a>`
+        : t.name
+    )).join(', ');
+    summary = `핫테마: ${links}`;
+  } else {
+    summary = signal.summary || (signal.basis ? signal.basis.join(' · ') : '');
+  }
   return `
     <div class="signal-row">
       <div class="signal-top">
@@ -1957,12 +1991,12 @@ def main() -> None:
     # 후보군(공시 있었던 종목 전체)에 대해 4개 신호(공시금액/모멘텀/수급/테마)를 계산한다.
     # 테마는 종목마다 다시 조회할 필요 없이 오늘의 핫테마 소속 맵을 한 번만 만들어 재사용.
     print("핫테마 목록 조회 중...")
-    hot_theme_map = fetch_hot_theme_members()
+    hot_theme_map, theme_urls = fetch_hot_theme_members()
 
     profiles: Dict[str, Dict[str, Any]] = {}
     for corp_name, items in stock_items.items():
         print(f"  {corp_name}({items[0].get('stock_code', '')}) 신호 계산 중...")
-        profiles[corp_name] = evaluate_candidate(api_key, target_date, items, hot_theme_map)
+        profiles[corp_name] = evaluate_candidate(api_key, target_date, items, hot_theme_map, theme_urls)
 
     # 종합 랭킹 점수(rank_score) 높은 순으로 정렬 후 상위 N개만
     ranked = sorted(
