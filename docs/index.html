@@ -91,6 +91,23 @@
     color: var(--text-muted);
     font-family: var(--mono);
   }
+  .masthead-left {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .hamburger-btn {
+    flex-shrink: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1;
+    padding: 9px 11px;
+    margin-bottom: 2px;
+  }
+  .hamburger-btn:hover { border-color: #3A4656; }
   #date-select {
     background: var(--surface);
     color: var(--text);
@@ -125,8 +142,8 @@
     color: var(--text-muted);
     flex-shrink: 0;
   }
-  .corp {
-    flex: 1;
+  .corp { flex: 1; }
+  .corp-name {
     margin: 0;
     font-size: 17px;
     font-weight: 600;
@@ -152,6 +169,206 @@
     font-size: 12px;
     color: var(--text-muted);
     line-height: 1.6;
+  }
+
+  /* 좌측 메뉴 */
+  .side-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 14;
+  }
+  .side-menu-backdrop.open { display: block; }
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(320px, 85vw);
+    background: var(--surface);
+    border-right: 1px solid var(--line);
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+  }
+  .side-menu.open { transform: translateX(0); }
+  .side-menu-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .side-menu-head h2 { margin: 0; font-size: 16px; }
+  .side-menu-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .side-menu-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-family: var(--sans);
+    padding: 12px 8px;
+    border-bottom: 2px solid transparent;
+  }
+  .side-menu-tab.active {
+    color: var(--text);
+    border-bottom-color: var(--rise);
+  }
+  .side-menu-body {
+    padding: 16px 18px;
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+  .side-menu-body strong { color: var(--text); }
+  .side-menu-profit-link {
+    display: block;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--fall);
+    flex-shrink: 0;
+  }
+  .side-menu-profit-link:hover { color: var(--text); }
+  .criteria-list {
+    margin: 10px 0;
+    padding-left: 18px;
+  }
+  .criteria-list li { margin-bottom: 8px; }
+  .criteria-note {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .side-menu-stock-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--line);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    padding: 12px 2px;
+  }
+  .side-menu-stock-item:first-child { border-top: none; }
+  .side-menu-stock-item:hover { color: var(--fall); }
+  .side-menu-stock-item .rank {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* 신호 미터(공시/모멘텀/수급/테마) */
+  .signals-block {
+    margin: 0 0 18px;
+    padding: 14px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .signals-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+  }
+  .signals-head .composite-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .signal-row { margin-bottom: 12px; }
+  .signal-row:last-child { margin-bottom: 0; }
+  .signal-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  .signal-label { color: var(--text-muted); }
+  .signal-value { font-family: var(--mono); color: var(--text); }
+  .meter-track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .meter-fill {
+    height: 100%;
+    background: var(--rise);
+    border-radius: 3px;
+  }
+  .signal-summary {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+  }
+  .composite-sub {
+    margin-top: 2px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+  }
+
+  /* 투자 전략 */
+  .trade-plan {
+    margin: 0 0 18px;
+    padding: 14px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .trade-plan-head {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+    margin-bottom: 10px;
+  }
+  .trade-plan-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 13px;
+  }
+  .trade-plan-row .mono { font-family: var(--mono); }
+  .trade-plan-select-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+  }
+  .trade-plan-select-row select {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .trade-plan-pending {
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 4px 0;
   }
 
   /* 상세 모달 */
@@ -229,7 +446,7 @@
   }
 
   @media (max-width: 420px) {
-    .corp { font-size: 15px; }
+    .corp-name { font-size: 15px; }
     .masthead h1 { font-size: 22px; }
   }
 </style>
@@ -238,10 +455,13 @@
   <div class="marquee"><div class="marquee-track" id="marquee-track">불러오는 중...</div></div>
   <main>
     <div class="masthead">
-      <div>
-        <div class="eyebrow">KOSPI DISCLOSURE SCAN</div>
-        <h1>코스피 호재 스캐너</h1>
-        <div class="sub" id="sub-label">불러오는 중...</div>
+      <div class="masthead-left">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="메뉴 열기">&#9776;</button>
+        <div>
+          <div class="eyebrow">KOSPI DISCLOSURE SCAN</div>
+          <h1>코스피 호재 스캐너</h1>
+          <div class="sub" id="sub-label">불러오는 중...</div>
+        </div>
       </div>
       <select id="date-select" aria-label="조회 날짜 선택"></select>
     </div>
@@ -249,11 +469,43 @@
     <div id="cards"><div class="loading">불러오는 중...</div></div>
 
     <div class="disclaimer">
-      공시 제목의 키워드만으로 점수를 매기는 단순 규칙 기반 도구입니다.
-      개인 참고용으로만 사용하고, 투자 판단의 근거로 그대로 쓰지 마세요.
-      일봉 차트는 최근 데이터 기준이며, 종목을 클릭하면 상세 공시와 함께 볼 수 있습니다.
+      전일 공시가 있었던 종목만 대상으로, 공시·모멘텀·수급·테마 4가지 신호를 종합해 순위를 매기는
+      개인 참고용 도구입니다 (자세한 기준은 왼쪽 메뉴 참고). 투자 판단의 근거로 그대로 쓰지 마세요.
+      종목을 클릭하면 일봉 차트와 상세 신호를 볼 수 있습니다.
     </div>
   </main>
+
+  <div class="side-menu-backdrop" id="side-menu-backdrop"></div>
+  <nav class="side-menu" id="side-menu" aria-label="메뉴">
+    <div class="side-menu-head">
+      <h2>메뉴</h2>
+      <button class="modal-close" id="side-menu-close" aria-label="닫기">&times;</button>
+    </div>
+    <div class="side-menu-tabs">
+      <button class="side-menu-tab active" id="tab-criteria" data-tab="criteria">추천 기준 설명</button>
+      <button class="side-menu-tab" id="tab-stocks" data-tab="stocks">추천 종목 상세</button>
+    </div>
+    <a class="side-menu-profit-link" href="profit.html">내 수익 관리 &rarr;</a>
+    <div class="side-menu-body" id="side-menu-body-criteria">
+      <p>이 사이트는 <strong>전일 코스피 공시가 있었던 종목만</strong> 후보로 삼아, 아래 4가지 신호를
+      종합점수(0~100)로 합산해 상위 5종목을 뽑습니다.</p>
+      <ul class="criteria-list">
+        <li><strong>공시 (35%)</strong> — 키워드 점수를 기본으로 하되, 가능하면 계약금액/시가총액
+        비율이나 매출액 대비 비율로 정규화해 규모를 반영합니다.</li>
+        <li><strong>모멘텀 (30%)</strong> — 전일 거래량이 평소보다 급증했는지, 종가가 고가권에서
+        마감했는지, 이동평균선을 돌파했는지를 봅니다.</li>
+        <li><strong>수급 (25%)</strong> — 최근 며칠간 외국인·기관이 연속으로 순매수해온 흐름입니다.
+        장 시작 전이라 '오늘 실시간 수급'은 볼 수 없어서, 어디까지나 선행지표로만 씁니다.</li>
+        <li><strong>테마 (10%)</strong> — 그날 등락률 상위 테마에 속하는 종목인지 확인합니다.</li>
+      </ul>
+      <p class="criteria-note">공시 자체가 호재로 분류되지 않은 종목(악재·중립)은 모멘텀·수급이 좋아도
+      종합점수를 적용하지 않고 원래 점수 그대로 하위로 둡니다.</p>
+      <p class="criteria-note">개인 참고용 도구입니다. 투자 판단의 근거로 그대로 사용하지 마세요.</p>
+    </div>
+    <div class="side-menu-body" id="side-menu-body-stocks" hidden>
+      <div id="side-menu-stock-list"></div>
+    </div>
+  </nav>
 
   <div class="modal-backdrop" id="modal-backdrop">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -262,6 +514,8 @@
         <button class="modal-close" id="modal-close" aria-label="닫기">&times;</button>
       </div>
       <div class="chart-container" id="chart-container"></div>
+      <div id="signals-container"></div>
+      <div id="trade-plan-container"></div>
       <div id="modal-items"></div>
     </div>
   </div>
@@ -287,6 +541,126 @@ function closeModal() {
     currentChart.remove();
     currentChart = null;
   }
+}
+
+function openSideMenu() {
+  document.getElementById('side-menu-backdrop').classList.add('open');
+  document.getElementById('side-menu').classList.add('open');
+}
+
+function closeSideMenu() {
+  document.getElementById('side-menu-backdrop').classList.remove('open');
+  document.getElementById('side-menu').classList.remove('open');
+}
+
+function switchSideMenuTab(tab) {
+  document.getElementById('tab-criteria').classList.toggle('active', tab === 'criteria');
+  document.getElementById('tab-stocks').classList.toggle('active', tab === 'stocks');
+  document.getElementById('side-menu-body-criteria').hidden = tab !== 'criteria';
+  document.getElementById('side-menu-body-stocks').hidden = tab !== 'stocks';
+}
+
+function renderSideMenuStockList(ranked) {
+  const el = document.getElementById('side-menu-stock-list');
+  if (!ranked.length) {
+    el.innerHTML = '<div class="empty">오늘은 추천 종목이 없습니다.</div>';
+    return;
+  }
+  el.innerHTML = '';
+  ranked.forEach((company, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'side-menu-stock-item';
+    btn.innerHTML = `<span class="rank">${String(i + 1).padStart(2, '0')}</span><span>${company.corp_name}</span>`;
+    btn.addEventListener('click', () => {
+      closeSideMenu();
+      openModal(company);
+    });
+    el.appendChild(btn);
+  });
+}
+
+const SIGNAL_LABELS = { disclosure: '공시', momentum: '모멘텀', supply: '수급', theme: '테마' };
+
+function renderSignalRow(key, signal) {
+  const label = SIGNAL_LABELS[key];
+  if (!signal || signal.score === null || signal.score === undefined) {
+    return `
+      <div class="signal-row">
+        <div class="signal-top"><span class="signal-label">${label}</span></div>
+        <div class="signal-summary">${(signal && signal.basis && signal.basis.join(' · ')) || (signal && signal.summary) || '데이터 없음'}</div>
+      </div>`;
+  }
+  const pct = Math.max(0, Math.min(100, signal.score));
+  const summary = signal.summary || (signal.basis ? signal.basis.join(' · ') : '');
+  return `
+    <div class="signal-row">
+      <div class="signal-top">
+        <span class="signal-label">${label}</span>
+        <span class="signal-value">${pct.toFixed(0)}</span>
+      </div>
+      <div class="meter-track"><div class="meter-fill" style="width:${pct}%"></div></div>
+      <div class="signal-summary">${summary}</div>
+    </div>`;
+}
+
+function renderSignalsBlock(company) {
+  const signals = company.signals;
+  if (!signals) return '';
+  const compositeText = company.composite_score != null
+    ? `종합점수 <span class="composite-value">${company.composite_score}</span>점`
+    : '종합점수 미적용 (공시가 호재로 분류되지 않음)';
+  return `
+    <div class="signals-block">
+      <div class="signals-head">${compositeText}</div>
+      ${renderSignalRow('disclosure', signals.disclosure)}
+      ${renderSignalRow('momentum', signals.momentum)}
+      ${renderSignalRow('supply', signals.supply)}
+      ${renderSignalRow('theme', signals.theme)}
+    </div>`;
+}
+
+function renderTradePlan(company) {
+  const tp = company.trade_plan;
+  if (tp === undefined) return '';  // 스키마 자체에 없는 옛 데이터(구버전 JSON) 호환
+  if (!tp) {
+    return `
+      <div class="trade-plan">
+        <div class="trade-plan-head">투자 전략</div>
+        <div class="trade-plan-pending">장 시작(09:05 이후) 시가가 반영되면 매수가/매도가/손절가가 표시됩니다.</div>
+      </div>`;
+  }
+  const optionsHtml = Object.keys(tp.target_sell_prices)
+    .sort((a, b) => Number(a) - Number(b))
+    .map(pct => `<option value="${pct}">${pct}%</option>`)
+    .join('');
+  return `
+    <div class="trade-plan">
+      <div class="trade-plan-head">투자 전략</div>
+      <div class="trade-plan-row">
+        <span>매수가(시가)</span><span class="mono">${tp.buy_price.toLocaleString()}원</span>
+      </div>
+      <div class="trade-plan-select-row">
+        <label for="target-profit-select">목표수익률</label>
+        <select id="target-profit-select">${optionsHtml}</select>
+      </div>
+      <div class="trade-plan-row">
+        <span>목표 매도가</span>
+        <span class="mono delta-up" id="target-sell-price">${tp.target_sell_prices['1'].toLocaleString()}원</span>
+      </div>
+      <div class="trade-plan-row">
+        <span>손절가(${tp.stop_loss_pct}%)</span>
+        <span class="mono delta-down">${tp.stop_loss_price.toLocaleString()}원</span>
+      </div>
+    </div>`;
+}
+
+function wireTradePlanSelect(company) {
+  const select = document.getElementById('target-profit-select');
+  if (!select || !company.trade_plan) return;
+  select.addEventListener('change', () => {
+    const price = company.trade_plan.target_sell_prices[select.value];
+    document.getElementById('target-sell-price').textContent = price.toLocaleString() + '원';
+  });
 }
 
 function openModal(company) {
@@ -319,6 +693,10 @@ function openModal(company) {
     container.innerHTML = '<div class="chart-empty">일봉 차트를 불러올 수 없습니다.</div>';
   }
 
+  document.getElementById('signals-container').innerHTML = renderSignalsBlock(company);
+  document.getElementById('trade-plan-container').innerHTML = renderTradePlan(company);
+  wireTradePlanSelect(company);
+
   const itemsEl = document.getElementById('modal-items');
   itemsEl.innerHTML = company.items.map(it => {
     const dir = it.score >= 0 ? 'up' : 'down';
@@ -349,6 +727,8 @@ function renderData(data) {
   document.getElementById('marquee-track').textContent = `${marqueeText}  ·  ${marqueeText}`;
 
   const cardsEl = document.getElementById('cards');
+  renderSideMenuStockList(ranked);
+
   if (ranked.length === 0) {
     cardsEl.innerHTML = '<div class="empty">해당 날짜에는 매칭된 공시가 없습니다.</div>';
     return;
@@ -359,12 +739,18 @@ function renderData(data) {
     const dir = company.score >= 0 ? 'up' : 'down';
     const arrow = company.score >= 0 ? '▲' : '▼';
     const sign = company.score > 0 ? '+' : '';
+    const compositeSub = company.composite_score != null
+      ? `<div class="composite-sub">종합점수 ${company.composite_score}</div>`
+      : '';
     const btn = document.createElement('button');
     btn.className = 'card';
     btn.innerHTML = `
       <div class="card-head">
         <span class="rank">${String(i + 1).padStart(2, '0')}</span>
-        <h2 class="corp">${company.corp_name}</h2>
+        <div class="corp">
+          <h2 class="corp-name">${company.corp_name}</h2>
+          ${compositeSub}
+        </div>
         <span class="delta delta-${dir} delta-total">${arrow} ${sign}${company.score}</span>
       </div>`;
     btn.addEventListener('click', () => openModal(company));
@@ -388,8 +774,13 @@ async function init() {
   document.getElementById('modal-backdrop').addEventListener('click', (e) => {
     if (e.target.id === 'modal-backdrop') closeModal();
   });
+  document.getElementById('hamburger-btn').addEventListener('click', openSideMenu);
+  document.getElementById('side-menu-close').addEventListener('click', closeSideMenu);
+  document.getElementById('side-menu-backdrop').addEventListener('click', closeSideMenu);
+  document.getElementById('tab-criteria').addEventListener('click', () => switchSideMenuTab('criteria'));
+  document.getElementById('tab-stocks').addEventListener('click', () => switchSideMenuTab('stocks'));
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') { closeModal(); closeSideMenu(); }
   });
 
   try {
