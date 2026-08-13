@@ -1036,6 +1036,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     --rise: #F0454F;
     --fall: #2F8FFF;
     --signal-on: #34D399;
+    --gold: #F2C14E;
     --ma5: #E8B339;
     --ma20: #B98AF2;
     --mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -1044,14 +1045,28 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   * { box-sizing: border-box; }
   html { background: var(--bg); }
   body {
+    position: relative;
     margin: 0;
     min-height: 100vh;
     background:
-      radial-gradient(ellipse 900px 480px at 50% -10%, var(--bg-glow) 0%, transparent 62%),
-      var(--bg);
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(242, 193, 78, 0.28) 0%, transparent 60%),
+      radial-gradient(ellipse 800px 480px at 85% 15%, rgba(240, 69, 79, 0.28) 0%, transparent 60%),
+      linear-gradient(rgba(5, 7, 10, 0.4), rgba(5, 7, 10, 0.4)),
+      url('images/stock-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text);
     font-family: var(--sans);
     -webkit-font-smoothing: antialiased;
+  }
+  .content-panel {
+    background: rgba(11, 15, 20, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
   }
   a { color: inherit; text-decoration: none; }
   a:focus-visible, button:focus-visible, select:focus-visible {
@@ -1062,7 +1077,8 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   .marquee {
     position: relative;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(242, 193, 78, 0.35);
+    box-shadow: 0 1px 12px rgba(242, 193, 78, 0.12);
     background: var(--surface);
     overflow: hidden;
     white-space: nowrap;
@@ -1114,6 +1130,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     gap: 16px;
     margin-bottom: 28px;
     flex-wrap: wrap;
+    padding: 16px 18px;
   }
   .masthead .eyebrow {
     display: inline-flex;
@@ -1241,6 +1258,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 12px;
     color: var(--text-muted);
     line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   }
 
   /* 추천 기준 패널 (탭으로 전환) */
@@ -1248,6 +1266,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 13px;
     line-height: 1.7;
     color: var(--text-muted);
+    padding: 16px 18px;
   }
   #panel-criteria strong { color: var(--text); }
   .criteria-list {
@@ -1416,15 +1435,15 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     border: 1px solid var(--line);
     border-radius: 20px 20px 0 0;
     width: 100%;
-    max-width: 720px;
+    max-width: 880px;
     min-height: 60vh;
     max-height: 97vh;
     overflow-y: auto;
-    padding: 22px;
+    padding: 26px;
   }
-  @media (min-width: 720px) {
+  @media (min-width: 880px) {
     .modal-backdrop { align-items: center; }
-    .modal { border-radius: 20px; margin: 20px; }
+    .modal { border-radius: 20px; margin: 24px; }
   }
   .modal-head {
     display: flex;
@@ -1432,7 +1451,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     justify-content: space-between;
     margin-bottom: 10px;
   }
-  .modal-head h2 { margin: 0; font-size: 20px; }
+  .modal-head h2 { margin: 0; font-size: 22px; }
   .modal-close {
     background: none;
     border: none;
@@ -1512,7 +1531,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
 <body>
   <div class="marquee"><div class="marquee-track" id="marquee-track">불러오는 중...</div></div>
   <main>
-    <div class="masthead">
+    <div class="masthead content-panel">
       <div>
         <div class="eyebrow">KOSPI DISCLOSURE SCAN</div>
         <h1>코스피 호재 스캐너</h1>
@@ -1531,7 +1550,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
       <div id="cards"><div class="loading">불러오는 중...</div></div>
     </div>
 
-    <div id="panel-criteria" hidden>
+    <div id="panel-criteria" class="content-panel" hidden>
       <p>이 사이트는 <strong>전일 코스피 공시가 있었던 종목만</strong> 후보로 삼아, 아래 4가지 신호를
       종합점수(0~100)로 합산해 상위 5종목을 뽑습니다.</p>
       <ul class="criteria-list">
@@ -1709,8 +1728,8 @@ function openModal(company) {
 
   if (company.ohlc && company.ohlc.length > 0 && window.LightweightCharts) {
     const chart = LightweightCharts.createChart(container, {
-      width: container.clientWidth || 560,
-      height: 220,
+      width: container.clientWidth || 700,
+      height: 320,
       layout: { background: { color: '#131A22' }, textColor: '#7C8898', fontFamily: 'JetBrains Mono, monospace' },
       grid: { vertLines: { color: '#1D2530' }, horzLines: { color: '#1D2530' } },
       timeScale: { borderColor: '#232D38' },
