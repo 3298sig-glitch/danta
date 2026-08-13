@@ -29,6 +29,9 @@ jobs:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
         run: python dart_top3.py
 
+      - name: 추천 종목 검증 데이터 생성 (과거 추천 정확도)
+        run: python build_verification_data.py
+
       - name: 닷홈으로 FTP 업로드
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

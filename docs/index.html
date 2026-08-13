@@ -232,6 +232,31 @@
   .delta-up { color: var(--rise); }
   .delta-down { color: var(--fall); }
 
+  /* 추천종목검증 탭 전용 - 여기만 국내 관례가 아니라 글로벌 관례(상승=초록/하락=빨강)를
+     쓰기로 사용자와 확정함. 위의 .delta-up/.delta-down(국내 관례, 상승=빨강)과 헷갈리지
+     않도록 별도 클래스로 분리해둔다. */
+  .verify-up { color: var(--signal-on); }
+  .verify-down { color: var(--rise); }
+  .verify-flat { color: var(--text-muted); }
+  .verify-summary {
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .verify-hit-rate {
+    color: var(--text);
+    font-size: 18px;
+    font-family: var(--mono);
+  }
+  .verify-item .card-head { align-items: center; }
+  .verify-meta {
+    margin-top: 3px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+  }
+
   .empty, .loading {
     color: var(--text-muted);
     font-size: 14px;
@@ -534,11 +559,17 @@
     <nav class="main-tabs">
       <button class="main-tab active" id="tab-stocks" data-tab="stocks">추천 종목 상세</button>
       <button class="main-tab" id="tab-criteria" data-tab="criteria">추천 기준</button>
+      <button class="main-tab" id="tab-verification" data-tab="verification">추천종목검증</button>
       <a class="main-tab main-tab-link" href="profit.html">내 수익 관리 &rarr;</a>
     </nav>
 
     <div id="panel-stocks">
       <div id="cards"><div class="loading">불러오는 중...</div></div>
+    </div>
+
+    <div id="panel-verification" hidden>
+      <div id="verification-summary" class="content-panel verify-summary"></div>
+      <div id="verification-list"><div class="loading">불러오는 중...</div></div>
     </div>
 
     <div id="panel-criteria" class="content-panel" hidden>
@@ -608,8 +639,51 @@ function closeModal() {
 function switchMainTab(tab) {
   document.getElementById('tab-stocks').classList.toggle('active', tab === 'stocks');
   document.getElementById('tab-criteria').classList.toggle('active', tab === 'criteria');
+  document.getElementById('tab-verification').classList.toggle('active', tab === 'verification');
   document.getElementById('panel-stocks').hidden = tab !== 'stocks';
   document.getElementById('panel-criteria').hidden = tab !== 'criteria';
+  document.getElementById('panel-verification').hidden = tab !== 'verification';
+  if (tab === 'verification' && !verificationLoaded) {
+    loadVerificationData();
+  }
+}
+
+let verificationLoaded = false;
+
+function renderVerificationEntry(e) {
+  const dirClass = e.direction === 'up' ? 'verify-up' : e.direction === 'down' ? 'verify-down' : 'verify-flat';
+  const dirArrow = e.direction === 'up' ? '▲' : e.direction === 'down' ? '▼' : '－';
+  const sign = e.change_amount > 0 ? '+' : '';
+  return `
+    <div class="card verify-item">
+      <div class="card-head">
+        <div class="corp">
+          <p class="corp-name">${e.corp_name}</p>
+          <div class="verify-meta">${e.rec_date} 추천 · 전일종가 ${e.prev_close.toLocaleString()} · 당일고가 ${e.day_high != null ? e.day_high.toLocaleString() : '-'}</div>
+        </div>
+        <span class="delta delta-total ${dirClass}">${dirArrow} ${sign}${e.change_pct}% (${sign}${e.change_amount.toLocaleString()})</span>
+      </div>
+    </div>`;
+}
+
+async function loadVerificationData() {
+  verificationLoaded = true;
+  const summaryEl = document.getElementById('verification-summary');
+  const listEl = document.getElementById('verification-list');
+  try {
+    const res = await fetch('data/verification.json');
+    const data = await res.json();
+    const entries = data.entries || [];
+    summaryEl.innerHTML = data.hit_rate != null
+      ? `적중률 <strong class="verify-hit-rate">${data.hit_rate}%</strong> (${data.up_count}/${data.total_count}) · 전일종가 대비 당일고가가 상승한 비율입니다`
+      : '검증할 과거 추천 이력이 아직 없습니다.';
+    listEl.innerHTML = entries.length
+      ? entries.map(renderVerificationEntry).join('')
+      : '<div class="empty">과거 추천 이력이 없습니다.</div>';
+  } catch (e) {
+    summaryEl.innerHTML = '';
+    listEl.innerHTML = '<div class="empty">검증 데이터를 불러오지 못했습니다.</div>';
+  }
 }
 
 const SIGNAL_LABELS = { disclosure: '공시', momentum: '모멘텀', supply: '수급', theme: '테마' };
@@ -887,6 +961,7 @@ async function init() {
   });
   document.getElementById('tab-stocks').addEventListener('click', () => switchMainTab('stocks'));
   document.getElementById('tab-criteria').addEventListener('click', () => switchMainTab('criteria'));
+  document.getElementById('tab-verification').addEventListener('click', () => switchMainTab('verification'));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
