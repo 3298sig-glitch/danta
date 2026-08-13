@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1786598795656,
+    "generatedTime": 1786598836732,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 3345,
-            "hash": "437ce5e745c2198231c4f35e635bc686a4c78a5a15a1a96f7146ef06e1ee1d02"
+            "hash": "4e7139b9974bafe8f795215c43e779dded980a33365677581b5458a177be2c0e"
         },
         {
             "type": "folder",
@@ -61,15 +61,15 @@
         },
         {
             "type": "file",
-            "name": "api/session.php",
-            "size": 225,
-            "hash": "5fa983aeed47756c9435e40ce422eda1eacca7f4e541f3ac597cca613aa1fdc1"
-        },
-        {
-            "type": "file",
             "name": "api/trades.php",
             "size": 3990,
             "hash": "0756aaca63aa96e008bf09a30981691d00181754aa55d5ccbefc33eeeefbdc74"
+        },
+        {
+            "type": "file",
+            "name": "api/session.php",
+            "size": 225,
+            "hash": "5fa983aeed47756c9435e40ce422eda1eacca7f4e541f3ac597cca613aa1fdc1"
         },
         {
             "type": "file",
@@ -85,15 +85,15 @@
         },
         {
             "type": "file",
-            "name": "data/dates.json",
-            "size": 50,
-            "hash": "cd659ef1140b767c15cfbffef96a3c1270bff2984aeb45b39ddb240e8690d412"
+            "name": "data/2026-08-13.json",
+            "size": 64508,
+            "hash": "8c9516eba396add3e4416c1c57168980fd2708e135cea7a665cb964c87aae587"
         },
         {
             "type": "file",
-            "name": "data/2026-08-13.json",
-            "size": 62590,
-            "hash": "fe38e0ec96d61d3ce9f8228fee2402422098f229fec077118343c05d48f873c3"
+            "name": "data/dates.json",
+            "size": 50,
+            "hash": "cd659ef1140b767c15cfbffef96a3c1270bff2984aeb45b39ddb240e8690d412"
         }
     ]
 }
