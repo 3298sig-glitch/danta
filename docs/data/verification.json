@@ -1,9 +1,64 @@
 {
-  "generated_at": "2026-08-14T22:53:59",
-  "total_count": 15,
-  "up_count": 15,
+  "generated_at": "2026-08-15T22:49:13",
+  "total_count": 20,
+  "up_count": 20,
   "hit_rate": 100.0,
   "entries": [
+    {
+      "corp_name": "삼성E&A",
+      "stock_code": "028050",
+      "rec_date": "2026-08-14",
+      "prev_close": 49000.0,
+      "day_high": 50800.0,
+      "current_price": 49800.0,
+      "change_pct": 3.67,
+      "change_amount": 1800.0,
+      "direction": "up"
+    },
+    {
+      "corp_name": "자이에스앤디",
+      "stock_code": "317400",
+      "rec_date": "2026-08-14",
+      "prev_close": 9490.0,
+      "day_high": 10390.0,
+      "current_price": 10030.0,
+      "change_pct": 9.48,
+      "change_amount": 900.0,
+      "direction": "up"
+    },
+    {
+      "corp_name": "한전산업",
+      "stock_code": "130660",
+      "rec_date": "2026-08-14",
+      "prev_close": 11900.0,
+      "day_high": 12300.0,
+      "current_price": 11980.0,
+      "change_pct": 3.36,
+      "change_amount": 400.0,
+      "direction": "up"
+    },
+    {
+      "corp_name": "SHD",
+      "stock_code": "001770",
+      "rec_date": "2026-08-14",
+      "prev_close": 7480.0,
+      "day_high": 9720.0,
+      "current_price": 9720.0,
+      "change_pct": 29.95,
+      "change_amount": 2240.0,
+      "direction": "up"
+    },
+    {
+      "corp_name": "씨케이솔루션",
+      "stock_code": "480370",
+      "rec_date": "2026-08-14",
+      "prev_close": 1512.0,
+      "day_high": 1619.0,
+      "current_price": 1458.0,
+      "change_pct": 7.08,
+      "change_amount": 107.0,
+      "direction": "up"
+    },
     {
       "corp_name": "두산퓨얼셀",
       "stock_code": "336260",
