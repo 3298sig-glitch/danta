@@ -1,9 +1,64 @@
 {
-  "generated_at": "2026-08-15T22:49:13",
-  "total_count": 20,
+  "generated_at": "2026-08-16T22:44:39",
+  "total_count": 25,
   "up_count": 20,
   "hit_rate": 100.0,
   "entries": [
+    {
+      "corp_name": "코오롱글로벌",
+      "stock_code": "003070",
+      "rec_date": "2026-08-15",
+      "prev_close": 10240.0,
+      "day_high": null,
+      "current_price": 10240.0,
+      "change_pct": null,
+      "change_amount": null,
+      "direction": "unknown"
+    },
+    {
+      "corp_name": "금호건설",
+      "stock_code": "002990",
+      "rec_date": "2026-08-15",
+      "prev_close": 13400.0,
+      "day_high": null,
+      "current_price": 13400.0,
+      "change_pct": null,
+      "change_amount": null,
+      "direction": "unknown"
+    },
+    {
+      "corp_name": "우진아이엔에스",
+      "stock_code": "010400",
+      "rec_date": "2026-08-15",
+      "prev_close": 4390.0,
+      "day_high": null,
+      "current_price": 4390.0,
+      "change_pct": null,
+      "change_amount": null,
+      "direction": "unknown"
+    },
+    {
+      "corp_name": "코오롱",
+      "stock_code": "002020",
+      "rec_date": "2026-08-15",
+      "prev_close": 28250.0,
+      "day_high": null,
+      "current_price": 28250.0,
+      "change_pct": null,
+      "change_amount": null,
+      "direction": "unknown"
+    },
+    {
+      "corp_name": "동아지질",
+      "stock_code": "028100",
+      "rec_date": "2026-08-15",
+      "prev_close": 17720.0,
+      "day_high": null,
+      "current_price": 17720.0,
+      "change_pct": null,
+      "change_amount": null,
+      "direction": "unknown"
+    },
     {
       "corp_name": "삼성E&A",
       "stock_code": "028050",
