@@ -5,7 +5,7 @@
       "corp_name": "코오롱글로벌",
       "stock_code": "003070",
       "score": 2,
-      "composite_score": 54.8,
+      "composite_score": 54.4,
       "signals": {
         "disclosure": {
           "score": 70.0,
@@ -14,12 +14,12 @@
           ]
         },
         "momentum": {
-          "score": 45.0,
-          "volume_ratio": 0.15,
-          "close_position": 0.33,
+          "score": 43.9,
+          "volume_ratio": 0.31,
+          "close_position": 0.3,
           "ma5_break": true,
           "ma20_break": true,
-          "summary": "거래량 0.2배 · 종가위치 33% · 5일선 위 · 20일선 위"
+          "summary": "거래량 0.3배 · 종가위치 30% · 5일선 위 · 20일선 위"
         },
         "supply": {
           "score": 65.0,
@@ -521,34 +521,17 @@
           "date": "20260818",
           "open": 10420.0,
           "high": 10420.0,
-          "low": 10060.0,
-          "close": 10180.0,
-          "volume": 7078
+          "low": 10050.0,
+          "close": 10160.0,
+          "volume": 14379
         }
-      ],
-      "trade_plan": {
-        "buy_price": 10420,
-        "stop_loss_price": 10107,
-        "stop_loss_pct": -3.0,
-        "target_sell_prices": {
-          "1": 10524,
-          "2": 10628,
-          "3": 10733,
-          "4": 10837,
-          "5": 10941,
-          "6": 11045,
-          "7": 11149,
-          "8": 11254,
-          "9": 11358,
-          "10": 11462
-        }
-      }
+      ]
     },
     {
       "corp_name": "금호건설",
       "stock_code": "002990",
       "score": 2,
-      "composite_score": 50.4,
+      "composite_score": 49.4,
       "signals": {
         "disclosure": {
           "score": 70.0,
@@ -557,12 +540,12 @@
           ]
         },
         "momentum": {
-          "score": 47.1,
-          "volume_ratio": 0.77,
-          "close_position": 0.18,
+          "score": 43.9,
+          "volume_ratio": 0.93,
+          "close_position": 0.0,
           "ma5_break": true,
           "ma20_break": true,
-          "summary": "거래량 0.8배 · 종가위치 18% · 5일선 위 · 20일선 위"
+          "summary": "거래량 0.9배 · 종가위치 0% · 5일선 위 · 20일선 위"
         },
         "supply": {
           "score": 45.0,
@@ -1064,34 +1047,17 @@
           "date": "20260818",
           "open": 14020.0,
           "high": 15300.0,
-          "low": 13990.0,
-          "close": 14230.0,
-          "volume": 6302864
+          "low": 13810.0,
+          "close": 13810.0,
+          "volume": 7552926
         }
-      ],
-      "trade_plan": {
-        "buy_price": 14020,
-        "stop_loss_price": 13599,
-        "stop_loss_pct": -3.0,
-        "target_sell_prices": {
-          "1": 14160,
-          "2": 14300,
-          "3": 14441,
-          "4": 14581,
-          "5": 14721,
-          "6": 14861,
-          "7": 15001,
-          "8": 15142,
-          "9": 15282,
-          "10": 15422
-        }
-      }
+      ]
     },
     {
       "corp_name": "코오롱",
       "stock_code": "002020",
       "score": 2,
-      "composite_score": 49.3,
+      "composite_score": 46.2,
       "signals": {
         "disclosure": {
           "score": 70.0,
@@ -1100,12 +1066,12 @@
           ]
         },
         "momentum": {
-          "score": 60.3,
-          "volume_ratio": 0.1,
-          "close_position": 0.84,
+          "score": 50.0,
+          "volume_ratio": 0.19,
+          "close_position": 0.5,
           "ma5_break": true,
           "ma20_break": true,
-          "summary": "거래량 0.1배 · 종가위치 84% · 5일선 위 · 20일선 위"
+          "summary": "거래량 0.2배 · 종가위치 50% · 5일선 위 · 20일선 위"
         },
         "supply": {
           "score": 25.0,
@@ -1606,35 +1572,18 @@
         {
           "date": "20260818",
           "open": 29300.0,
-          "high": 29300.0,
+          "high": 29950.0,
           "low": 28350.0,
           "close": 29150.0,
-          "volume": 18070
+          "volume": 34739
         }
-      ],
-      "trade_plan": {
-        "buy_price": 29300,
-        "stop_loss_price": 28421,
-        "stop_loss_pct": -3.0,
-        "target_sell_prices": {
-          "1": 29593,
-          "2": 29886,
-          "3": 30179,
-          "4": 30472,
-          "5": 30765,
-          "6": 31058,
-          "7": 31351,
-          "8": 31644,
-          "9": 31937,
-          "10": 32230
-        }
-      }
+      ]
     },
     {
       "corp_name": "우진아이엔에스",
       "stock_code": "010400",
       "score": 2,
-      "composite_score": 40.8,
+      "composite_score": 42.6,
       "signals": {
         "disclosure": {
           "score": 70.0,
@@ -1643,12 +1592,12 @@
           ]
         },
         "momentum": {
-          "score": 31.7,
-          "volume_ratio": 0.24,
-          "close_position": 0.22,
+          "score": 37.8,
+          "volume_ratio": 0.58,
+          "close_position": 0.3,
           "ma5_break": true,
           "ma20_break": false,
-          "summary": "거래량 0.2배 · 종가위치 22% · 5일선 위"
+          "summary": "거래량 0.6배 · 종가위치 30% · 5일선 위"
         },
         "supply": {
           "score": 25.0,
@@ -2149,35 +2098,18 @@
         {
           "date": "20260818",
           "open": 4395.0,
-          "high": 4455.0,
+          "high": 4550.0,
           "low": 4320.0,
-          "close": 4350.0,
-          "volume": 9131
+          "close": 4390.0,
+          "volume": 21683
         }
-      ],
-      "trade_plan": {
-        "buy_price": 4395,
-        "stop_loss_price": 4263,
-        "stop_loss_pct": -3.0,
-        "target_sell_prices": {
-          "1": 4439,
-          "2": 4483,
-          "3": 4527,
-          "4": 4571,
-          "5": 4615,
-          "6": 4659,
-          "7": 4703,
-          "8": 4747,
-          "9": 4791,
-          "10": 4834
-        }
-      }
+      ]
     },
     {
       "corp_name": "동아지질",
       "stock_code": "028100",
       "score": 2,
-      "composite_score": 40.4,
+      "composite_score": 40.1,
       "signals": {
         "disclosure": {
           "score": 70.0,
@@ -2186,12 +2118,12 @@
           ]
         },
         "momentum": {
-          "score": 26.3,
-          "volume_ratio": 0.11,
-          "close_position": 0.04,
+          "score": 25.4,
+          "volume_ratio": 0.25,
+          "close_position": 0.01,
           "ma5_break": false,
           "ma20_break": true,
-          "summary": "거래량 0.1배 · 종가위치 4% · 20일선 위"
+          "summary": "거래량 0.3배 · 종가위치 1% · 20일선 위"
         },
         "supply": {
           "score": 30.0,
@@ -2693,28 +2625,11 @@
           "date": "20260818",
           "open": 17720.0,
           "high": 17820.0,
-          "low": 17360.0,
-          "close": 17380.0,
-          "volume": 3448
+          "low": 17100.0,
+          "close": 17110.0,
+          "volume": 7953
         }
-      ],
-      "trade_plan": {
-        "buy_price": 17720,
-        "stop_loss_price": 17188,
-        "stop_loss_pct": -3.0,
-        "target_sell_prices": {
-          "1": 17897,
-          "2": 18074,
-          "3": 18252,
-          "4": 18429,
-          "5": 18606,
-          "6": 18783,
-          "7": 18960,
-          "8": 19138,
-          "9": 19315,
-          "10": 19492
-        }
-      }
+      ]
     }
   ]
 }
