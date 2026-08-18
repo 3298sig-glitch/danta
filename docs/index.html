@@ -17,7 +17,7 @@
     --line: #232D38;
     --line-strong: #2E3A48;
     --text: #E8ECF1;
-    --text-muted: #7C8898;
+    --text-muted: #B7C0CC;
     --rise: #F0454F;
     --fall: #2F8FFF;
     --signal-on: #34D399;
@@ -47,7 +47,7 @@
     -webkit-font-smoothing: antialiased;
   }
   .content-panel {
-    background: rgba(11, 15, 20, 0.72);
+    background: rgba(11, 15, 20, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -314,6 +314,15 @@
     flex-shrink: 0;
   }
   .criteria-desc { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); }
+  .kw-list {
+    margin: 8px 0 0;
+    padding-left: 16px;
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+  .kw-list li { margin-bottom: 4px; }
+  .kw-list strong { color: var(--text); font-weight: 600; }
   .criteria-notes {
     padding: 16px 18px;
     font-size: 12px;
@@ -666,7 +675,15 @@
             <span class="criteria-weight">35%</span>
           </div>
           <p class="criteria-desc">키워드 점수를 기본으로 하되, 가능하면 계약금액/시가총액 비율이나
-          매출액 대비 비율로 정규화해 규모를 반영합니다.</p>
+          매출액 대비 비율로 정규화해 규모를 반영합니다. 아래 공시 유형이 나오면 호재로 판단합니다.</p>
+          <ul class="kw-list">
+        <li><strong>자기주식취득</strong> &mdash; 회사가 자기 회사 주식을 사들이는 것 — 주가 방어·상승 신호로 봅니다</li>
+        <li><strong>단일판매ㆍ공급계약체결</strong> &mdash; 큰 금액의 납품·공급 계약을 새로 맺었다는 공시</li>
+        <li><strong>무상증자결정</strong> &mdash; 주주에게 대가 없이 새 주식을 나눠주는 것 — 통상 호재로 해석됩니다</li>
+        <li><strong>특허권</strong> &mdash; 신기술·기술력에 대한 특허를 새로 취득</li>
+        <li><strong>유형자산 양수</strong> &mdash; 공장·설비 등 자산을 사들여 사업을 확장하는 것</li>
+        <li><strong>자산재평가</strong> &mdash; 보유 자산의 장부가치를 시세에 맞게 올려 재평가하는 것</li>
+      </ul>
         </div>
         <div class="content-panel criteria-card" style="--accent: var(--gold)">
           <div class="criteria-card-head">

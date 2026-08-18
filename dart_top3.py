@@ -128,6 +128,28 @@ POSITIVE_KEYWORDS: Dict[str, int] = {
     "자산재평가": 1,
 }
 
+# "추천 기준" 화면의 공시 카드가 POSITIVE_KEYWORDS를 그대로 순회하며 이 설명을
+# 곁들여 렌더링한다(render_disclosure_keywords_html 참고) - 위 키워드를 추가/삭제하면
+# 여기도 같이 업데이트할 것. 혹시 빠뜨려도 화면에서 항목 자체가 안 없어지도록,
+# 설명이 없는 키워드는 이름만 표시되는 폴백 처리가 돼 있다.
+DISCLOSURE_KEYWORD_GLOSSARY: Dict[str, str] = {
+    KW_TREASURY_STOCK_ACQUISITION: "회사가 자기 회사 주식을 사들이는 것 — 주가 방어·상승 신호로 봅니다",
+    KW_SUPPLY_CONTRACT: "큰 금액의 납품·공급 계약을 새로 맺었다는 공시",
+    KW_BONUS_ISSUE: "주주에게 대가 없이 새 주식을 나눠주는 것 — 통상 호재로 해석됩니다",
+    "특허권": "신기술·기술력에 대한 특허를 새로 취득",
+    "유형자산 양수": "공장·설비 등 자산을 사들여 사업을 확장하는 것",
+    "자산재평가": "보유 자산의 장부가치를 시세에 맞게 올려 재평가하는 것",
+}
+
+
+def render_disclosure_keywords_html() -> str:
+    """POSITIVE_KEYWORDS를 그대로 순회해서 "추천 기준" 공시 카드에 들어갈 목록 HTML을 만든다."""
+    items = "\n        ".join(
+        f'<li><strong>{kw}</strong> &mdash; {DISCLOSURE_KEYWORD_GLOSSARY.get(kw, "")}</li>'
+        for kw in POSITIVE_KEYWORDS
+    )
+    return f'<ul class="kw-list">\n        {items}\n      </ul>'
+
 NEGATIVE_KEYWORDS: Dict[str, int] = {
     KW_RIGHTS_OFFERING: -3,
     "전환사채권발행결정": -2,   # CB 발행은 대체로 단기 악재로 해석되는 경우가 많음
@@ -1065,10 +1087,17 @@ def save_date_json(target_date: date, payload: Dict[str, Any]) -> None:
 
 
 def save_index_html() -> None:
-    """docs/index.html은 데이터에 의존하지 않는 고정 템플릿이라 매번 덮어써도 안전하다."""
+    """docs/index.html은 데이터에 의존하지 않는 고정 템플릿이라 매번 덮어써도 안전하다.
+
+    단, "추천 기준" 공시 카드의 키워드 목록만은 POSITIVE_KEYWORDS를 그대로
+    반영해야 하므로(하드코딩 이중관리 방지) 플레이스홀더를 실제 목록으로 치환한다.
+    """
+    html = INDEX_HTML_TEMPLATE.replace(
+        "<!--DISCLOSURE_KEYWORDS-->", render_disclosure_keywords_html()
+    )
     os.makedirs(DOCS_DIR, exist_ok=True)
     with open(os.path.join(DOCS_DIR, "index.html"), "w", encoding="utf-8") as f:
-        f.write(INDEX_HTML_TEMPLATE)
+        f.write(html)
 
 
 INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
@@ -1090,7 +1119,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     --line: #232D38;
     --line-strong: #2E3A48;
     --text: #E8ECF1;
-    --text-muted: #7C8898;
+    --text-muted: #B7C0CC;
     --rise: #F0454F;
     --fall: #2F8FFF;
     --signal-on: #34D399;
@@ -1120,7 +1149,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     -webkit-font-smoothing: antialiased;
   }
   .content-panel {
-    background: rgba(11, 15, 20, 0.72);
+    background: rgba(11, 15, 20, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -1387,6 +1416,15 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     flex-shrink: 0;
   }
   .criteria-desc { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); }
+  .kw-list {
+    margin: 8px 0 0;
+    padding-left: 16px;
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+  .kw-list li { margin-bottom: 4px; }
+  .kw-list strong { color: var(--text); font-weight: 600; }
   .criteria-notes {
     padding: 16px 18px;
     font-size: 12px;
@@ -1739,7 +1777,8 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
             <span class="criteria-weight">35%</span>
           </div>
           <p class="criteria-desc">키워드 점수를 기본으로 하되, 가능하면 계약금액/시가총액 비율이나
-          매출액 대비 비율로 정규화해 규모를 반영합니다.</p>
+          매출액 대비 비율로 정규화해 규모를 반영합니다. 아래 공시 유형이 나오면 호재로 판단합니다.</p>
+          <!--DISCLOSURE_KEYWORDS-->
         </div>
         <div class="content-panel criteria-card" style="--accent: var(--gold)">
           <div class="criteria-card-head">
