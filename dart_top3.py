@@ -41,7 +41,12 @@ from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
 from typing import List, Dict, Any, Optional, Tuple
 
+import holidays
 import requests
+
+# 한국 공휴일(설날/추석/대체공휴일 포함) - 연도를 안 정해줘도 조회 시점에 필요한
+# 연도를 알아서 계산해 확장하므로 매년 갱신할 필요가 없다.
+KR_HOLIDAYS = holidays.SouthKorea()
 
 # GitHub Actions 러너는 UTC로 돌기 때문에, KST 새벽 시간대(07:00/09:05)에 실행되는 배치가
 # date.today()(서버 타임존 기준 naive)를 쓰면 실제 KST 날짜보다 하루 이전을 가리키게 된다.
@@ -139,14 +144,13 @@ ALL_KEYWORDS: Dict[str, int] = {**POSITIVE_KEYWORDS, **NEGATIVE_KEYWORDS}
 
 
 def get_target_date() -> date:
-    """조회 대상 날짜(전일)를 KST 기준으로 반환한다.
+    """조회 대상 날짜(가장 최근 영업일 - 주말과 한국 공휴일 제외)를 KST 기준으로 반환한다.
 
-    주말이면 직전 영업일(금요일)까지 보정한다 - 예: 월요일 실행 시 '전일'인
-    일요일 대신 금요일을 스캔한다. 공휴일까지는 감안하지 않는다(설날/추석 등
-    평일 휴장일에는 여전히 공시가 없을 수 있음).
+    설날/추석처럼 연휴가 이어져도 while 루프가 영업일을 찾을 때까지
+    계속 하루씩 거슬러 올라간다.
     """
     d = kst_today() - timedelta(days=1)
-    while d.weekday() >= 5:  # 5=토, 6=일
+    while d.weekday() >= 5 or d in KR_HOLIDAYS:  # 5=토, 6=일
         d -= timedelta(days=1)
     return d
 

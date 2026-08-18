@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12"
 
       - name: 라이브러리 설치
-        run: pip install requests
+        run: pip install requests holidays
 
       - name: 스크립트 실행 (docs/ 결과 생성)
         env:

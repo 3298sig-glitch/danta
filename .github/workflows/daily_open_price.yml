@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12"
 
       - name: 라이브러리 설치
-        run: pip install requests
+        run: pip install requests holidays
 
       - name: 시가 반영 (매수가/매도가/손절가 계산, docs/data/{오늘}.json 갱신)
         run: python update_open_price.py
