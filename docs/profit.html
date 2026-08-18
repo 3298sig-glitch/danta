@@ -267,9 +267,28 @@ function fmtPct(n) {
   return `${sign}${n}%`;
 }
 
+function applyPendingTrade() {
+  // 메인 화면(index.html) 종목 상세의 "내 수익 관리에 등록" 버튼이
+  // localStorage에 남겨둔 값이 있으면 등록 폼에 미리 채워준다.
+  const raw = localStorage.getItem('dantaPendingTrade');
+  if (!raw) return;
+  localStorage.removeItem('dantaPendingTrade');
+  try {
+    const pending = JSON.parse(raw);
+    document.getElementById('f-corp-name').value = pending.corp_name || '';
+    document.getElementById('f-stock-code').value = pending.stock_code || '';
+    document.getElementById('f-buy-price').value = pending.buy_price || '';
+    document.getElementById('f-buy-date').value = new Date().toISOString().slice(0, 10);
+    document.getElementById('f-quantity').focus();
+  } catch (e) {
+    // 손상된 값이면 조용히 무시
+  }
+}
+
 async function showApp() {
   document.getElementById('pin-gate').hidden = true;
   document.getElementById('app').hidden = false;
+  applyPendingTrade();
   await loadTrades();
 }
 

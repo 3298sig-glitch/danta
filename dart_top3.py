@@ -1273,6 +1273,11 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 17px;
     font-weight: 600;
   }
+  .star-badge {
+    margin-left: 4px;
+    color: var(--gold);
+    text-shadow: 0 0 6px rgba(242, 193, 78, 0.7);
+  }
   .delta {
     font-family: var(--mono);
     font-size: 13px;
@@ -1514,6 +1519,55 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--text-muted);
     padding: 4px 0;
   }
+  .tp-tag {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    font-family: var(--sans);
+    font-weight: 400;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 2px;
+  }
+  .trade-plan-manual {
+    padding: 6px 0 8px;
+    border-top: 1px dashed var(--line);
+    border-bottom: 1px dashed var(--line);
+    margin: 4px 0;
+  }
+  .trade-plan-manual-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .trade-plan-manual-input {
+    width: 100%;
+    margin-top: 8px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-family: var(--mono);
+    font-size: 13.5px;
+  }
+  .trade-plan-register-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    background: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    color: var(--fall);
+    font-size: 12.5px;
+    font-family: inherit;
+    padding: 9px 0;
+    cursor: pointer;
+  }
+  .trade-plan-register-btn:hover { border-color: var(--fall); color: var(--text); }
 
   /* 상세 모달 */
   .modal-backdrop {
@@ -1852,6 +1906,8 @@ function renderSignalsBlock(company) {
     </div>`;
 }
 
+const MANUAL_STOP_LOSS_PCT = 3;  // update_open_price.py의 STOP_LOSS_PCT와 동일 - 직접입력 매수가 재계산용
+
 function renderTradePlan(company) {
   const tp = company.trade_plan;
   if (tp === undefined) return '';  // 스키마 자체에 없는 옛 데이터(구버전 JSON) 호환
@@ -1871,30 +1927,82 @@ function renderTradePlan(company) {
       <div class="trade-plan-head">투자 전략</div>
       <div class="trade-plan-grid">
         <div class="trade-plan-row">
-          <span>매수가(시가)</span><span class="mono">${tp.buy_price.toLocaleString()}원</span>
+          <span>매수가(시가) <span class="tp-tag">추천가</span></span><span class="mono">${tp.buy_price.toLocaleString()}원</span>
+        </div>
+        <div class="trade-plan-manual full">
+          <label class="trade-plan-manual-label">
+            <input type="checkbox" id="manual-buy-toggle"> 실제 매수가 직접 입력
+          </label>
+          <input type="number" id="manual-buy-input" class="trade-plan-manual-input" placeholder="내 매수가(원)" min="0" step="1" hidden>
         </div>
         <div class="trade-plan-row">
-          <span>손절가(${tp.stop_loss_pct}%)</span>
-          <span class="mono delta-down">${tp.stop_loss_price.toLocaleString()}원</span>
+          <span>손절가(${MANUAL_STOP_LOSS_PCT}%) <span class="tp-tag" id="tp-tag-stop">추천가</span></span>
+          <span class="mono delta-down" id="tp-stop-price">${tp.stop_loss_price.toLocaleString()}원</span>
         </div>
         <div class="trade-plan-select-row full">
           <label for="target-profit-select">목표수익률</label>
           <select id="target-profit-select">${optionsHtml}</select>
         </div>
         <div class="trade-plan-row full">
-          <span>목표 매도가</span>
+          <span>목표 매도가 <span class="tp-tag" id="tp-tag-sell">추천가</span></span>
           <span class="mono delta-up" id="target-sell-price">${tp.target_sell_prices['1'].toLocaleString()}원</span>
         </div>
       </div>
+      <button class="trade-plan-register-btn" id="tp-register-btn">내 수익 관리에 등록 &rarr;</button>
     </div>`;
+}
+
+function activeBuyPrice(company) {
+  const toggle = document.getElementById('manual-buy-toggle');
+  const input = document.getElementById('manual-buy-input');
+  if (toggle && toggle.checked) {
+    const v = Number(input.value);
+    if (v > 0) return v;
+  }
+  return company.trade_plan.buy_price;
+}
+
+function recomputeTradePlanDisplay(company) {
+  const tp = company.trade_plan;
+  const select = document.getElementById('target-profit-select');
+  const buyPrice = activeBuyPrice(company);
+  const manual = buyPrice !== tp.buy_price;
+  const tag = manual ? '내 매수가' : '추천가';
+
+  const stopLossPrice = Math.round(buyPrice * (1 - MANUAL_STOP_LOSS_PCT / 100));
+  document.getElementById('tp-stop-price').textContent = stopLossPrice.toLocaleString() + '원';
+  document.getElementById('tp-tag-stop').textContent = tag;
+
+  const pct = Number(select.value);
+  const sellPrice = manual
+    ? Math.round(buyPrice * (1 + pct / 100))
+    : tp.target_sell_prices[select.value];
+  document.getElementById('target-sell-price').textContent = sellPrice.toLocaleString() + '원';
+  document.getElementById('tp-tag-sell').textContent = tag;
 }
 
 function wireTradePlanSelect(company) {
   const select = document.getElementById('target-profit-select');
   if (!select || !company.trade_plan) return;
-  select.addEventListener('change', () => {
-    const price = company.trade_plan.target_sell_prices[select.value];
-    document.getElementById('target-sell-price').textContent = price.toLocaleString() + '원';
+
+  const toggle = document.getElementById('manual-buy-toggle');
+  const input = document.getElementById('manual-buy-input');
+
+  select.addEventListener('change', () => recomputeTradePlanDisplay(company));
+  toggle.addEventListener('change', () => {
+    input.hidden = !toggle.checked;
+    if (toggle.checked) input.focus();
+    recomputeTradePlanDisplay(company);
+  });
+  input.addEventListener('input', () => recomputeTradePlanDisplay(company));
+
+  document.getElementById('tp-register-btn').addEventListener('click', () => {
+    localStorage.setItem('dantaPendingTrade', JSON.stringify({
+      corp_name: company.corp_name,
+      stock_code: company.stock_code,
+      buy_price: activeBuyPrice(company),
+    }));
+    window.location.href = 'profit.html';
   });
 }
 
@@ -1909,7 +2017,7 @@ function computeMA(candleData, period) {
 }
 
 function openModal(company) {
-  document.getElementById('modal-title').textContent = company.corp_name;
+  document.getElementById('modal-title').innerHTML = company.corp_name + starBadge(company.signals);
   const container = document.getElementById('chart-container');
   const legend = document.getElementById('chart-legend');
   container.innerHTML = '';
@@ -1919,10 +2027,13 @@ function openModal(company) {
     const chart = LightweightCharts.createChart(container, {
       width: container.clientWidth || 700,
       height: 320,
-      layout: { background: { color: '#131A22' }, textColor: '#7C8898', fontFamily: 'JetBrains Mono, monospace' },
+      layout: { background: { color: '#131A22' }, textColor: '#7C8898', fontFamily: 'JetBrains Mono, monospace', fontSize: 10 },
       grid: { vertLines: { color: '#1D2530' }, horzLines: { color: '#1D2530' } },
       timeScale: { borderColor: '#232D38' },
       rightPriceScale: { borderColor: '#232D38' },
+      localization: {
+        priceFormatter: (p) => Math.round(p).toLocaleString() + '원',
+      },
     });
     const series = chart.addCandlestickSeries({
       upColor: '#F0454F', downColor: '#2F8FFF',
@@ -2015,6 +2126,20 @@ function renderSignalLights(signals) {
   return `<div class="signal-lights">${items}</div>`;
 }
 
+function countOnSignals(signals) {
+  if (!signals) return 0;
+  return CARD_LIGHT_LABELS.filter(([key]) => {
+    const sig = signals[key];
+    return sig && sig.score != null && sig.score >= 50;
+  }).length;
+}
+
+function starBadge(signals) {
+  return countOnSignals(signals) >= 3
+    ? '<span class="star-badge" title="신호 3개 이상 충족">&#9733;</span>'
+    : '';
+}
+
 function renderData(data) {
   const ranked = data.ranked || [];
   document.getElementById('sub-label').textContent =
@@ -2046,7 +2171,7 @@ function renderData(data) {
       <div class="card-head">
         <span class="rank">${String(i + 1).padStart(2, '0')}</span>
         <div class="corp">
-          <h2 class="corp-name">${company.corp_name}</h2>
+          <h2 class="corp-name">${company.corp_name}${starBadge(company.signals)}</h2>
           ${compositeSub}
           ${renderSignalLights(company.signals)}
         </div>
