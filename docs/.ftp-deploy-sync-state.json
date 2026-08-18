@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1787017231498,
+    "generatedTime": 1787017692118,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 4469,
-            "hash": "dc60b4a9136bd5db89c2429983f4ed659d6cc00c5e37fc2618211a2d90e806f4"
+            "hash": "60dfbd98fcead597ec59b9964e1ad16c44c565d7e609c5cf5cb54f1f7c7ceca8"
         },
         {
             "type": "folder",
@@ -89,15 +89,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-08-13.json",
-            "size": 64287,
-            "hash": "98b828cb5a413bd670ac643bd93d67b3fb6cc0eefbaabbb35a7e0e2b163125eb"
-        },
-        {
-            "type": "file",
             "name": "data/2026-08-14.json",
             "size": 61474,
             "hash": "982b414ffcd7ae0edd5429c5e1b5f655db8ca56074eade39fe3dae37a03ed738"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-08-13.json",
+            "size": 64287,
+            "hash": "98b828cb5a413bd670ac643bd93d67b3fb6cc0eefbaabbb35a7e0e2b163125eb"
         },
         {
             "type": "file",
@@ -108,8 +108,8 @@
         {
             "type": "file",
             "name": "data/2026-08-18.json",
-            "size": 63124,
-            "hash": "46240de8b0dd1537a0f903631ce58a1b8d3740814d194f49b1f9225661f8abb3"
+            "size": 61204,
+            "hash": "b9b8b5033533cf425e88694b23a7644db7bb47cac70dd526f99778f6abe3b26d"
         },
         {
             "type": "file",
@@ -121,7 +121,7 @@
             "type": "file",
             "name": "data/verification.json",
             "size": 7072,
-            "hash": "e800dce9f31976f0d62a3043438b5e2274298f51a9fdd6773fa538780596c88d"
+            "hash": "4faa465f6b0641d6fad2cb70b69e0835913c6fff72d96ff45a0f784101bd2ecb"
         },
         {
             "type": "file",
