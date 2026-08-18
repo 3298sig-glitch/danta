@@ -1024,6 +1024,27 @@ def build_date_json(
 def save_date_json(target_date: date, payload: Dict[str, Any]) -> None:
     os.makedirs(DATA_DIR, exist_ok=True)
     path = os.path.join(DATA_DIR, f"{target_date.isoformat()}.json")
+
+    # 이미 그 날짜 파일이 있으면(예: 09:05 시가 반영 배치가 먼저 돈 뒤 이 스크립트가
+    # 같은 날 재실행된 경우), 기존에 계산돼 있던 trade_plan을 새 데이터에 이어붙인다 -
+    # 그러지 않으면 재실행할 때마다 통째로 덮어써서 매수가/매도가/손절가가 조용히
+    # 사라진다(종목코드로 매칭, 후보 목록이 바뀌어도 안전).
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                old_payload = json.load(f)
+            old_trade_plans = {
+                item.get("stock_code"): item.get("trade_plan")
+                for item in old_payload.get("ranked", [])
+                if item.get("trade_plan")
+            }
+            for item in payload["ranked"]:
+                tp = old_trade_plans.get(item.get("stock_code"))
+                if tp:
+                    item["trade_plan"] = tp
+        except (OSError, json.JSONDecodeError):
+            pass  # 기존 파일이 손상됐어도 새로 쓰는 데는 지장 없게 조용히 무시
+
     with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
