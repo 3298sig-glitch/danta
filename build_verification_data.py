@@ -19,10 +19,10 @@ dart_top3.py의 fetch_daily_ohlc()를 다시 호출해 실제 캔들을 찾아
 
 import json
 import os
-from datetime import date, datetime
+from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from dart_top3 import DATA_DIR, fetch_daily_ohlc
+from dart_top3 import DATA_DIR, fetch_daily_ohlc, kst_today
 
 
 def _find_candle(ohlc: List[Dict[str, Any]], yyyymmdd: str) -> Optional[Dict[str, Any]]:
@@ -48,7 +48,7 @@ def load_history_entries() -> List[Dict[str, str]]:
     with open(dates_path, "r", encoding="utf-8") as f:
         dates = json.load(f)
 
-    today_str = date.today().isoformat()
+    today_str = kst_today().isoformat()
     entries: List[Dict[str, str]] = []
     for d in dates:
         if d == today_str:

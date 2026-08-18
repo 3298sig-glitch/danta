@@ -72,7 +72,8 @@ danta는 코스피 호재 공시 스캐너로, 매일 아침 공시 기반 TOP5 
 - `config.php`는 `.gitignore`돼 있고 `deploy_profit_backend.yml`이 배포 시점에만 GitHub Secrets로 생성함.
 - 그런데 `daily.yml`/`daily_open_price.yml`도 매번 `FTP-Deploy-Action`으로 `docs/` 전체를 서버와 동기화하는데, 이 두 워크플로우 체크아웃엔 `config.php`가 없어서(git에 없으니까) **이 action의 기본 sync/mirror 동작(로컬에 없는 원격 파일 삭제)에 의해 자동 실행될 때마다 `config.php`가 삭제됨**. `deploy_profit_backend.yml`을 수동 실행해서 살려놔도 다음 07:00/09:05 자동 배치가 바로 다시 지워버리는 구조였음.
 - **수정**: `daily.yml`/`daily_open_price.yml`의 `FTP-Deploy-Action` 스텝에 `exclude: api/config.php`(+ 기본 제외 3줄 재명시, `exclude`를 쓰면 기본값이 대체되는 방식이라) 추가. `deploy_profit_backend.yml`은 그대로 둠.
-- **남은 수동 작업**: 이 수정을 배포해도 지금 당장 서버엔 `config.php`가 없는 상태라, `Deploy Profit Backend`를 한 번 더 수동 실행해야 실제로 로그인이 복구됨.
+- **후속 1 (2026-08-13)**: 로그인 세션이 쿠키로 유지돼서 재접속 시 PIN 없이 바로 들어가지는 걸 "버그"로 오인함 — 실제론 정상적인 세션 유지 동작(쿠키 없는 상태에선 여전히 PIN 요구됨, curl로 검증). 그래도 매번 PIN을 요구하길 원해서 `profit.html`의 `init()`이 페이지 로드마다 `api/logout.php`를 호출해 세션을 강제 종료하도록 변경(`checkSession()` 제거).
+- **후속 2, 진짜 원인 (2026-08-14)**: config.php는 살아났는데 "등록 실패"/"목록이 안 쌓임" 문제가 또 나옴 → `trades.php`가 `PDOException: Host 'xxx' is not allowed to connect`로 전부 실패하고 있었음. **원인은 `DB_HOST` 시크릿이 `localhost`가 아니었던 것** — 닷홈 무료호스팅은 원격 DB 접속 UI 자체가 없고 `localhost` 소켓 접속만 지원함([[reference_danta_dothome_hosting]] 참고). `DB_HOST`를 `localhost`로 재등록 + `deploy_profit_backend.yml` 재실행으로 완전히 해결 — curl로 로그인/조회/한글 종목 등록/목록 누적까지 전부 재검증 완료.
 
 ## "추천 기준" 탭 위치 이동 + 카드형 디자인 (2026-08-13)
 
@@ -82,6 +83,12 @@ danta는 코스피 호재 공시 스캐너로, 매일 아침 공시 기반 TOP5 
 
 - `dart_top3.py`의 `compute_supply_score`/`compute_theme_score` 근처에 있는 `SUPPLY_BASE_SCORE`, `THEME_BASE_SCORE`, 신호등 임계값(50점)은 하루치 실측만으로 정한 값 — 며칠 더 지켜본 뒤 재조정 가능성 높음.
 
+## KST 타임존 버그로 3일간(8/16~8/18) 업데이트 안 되던 문제 (2026-08-18)
+
+"오늘 아침 업데이트가 안 된다"는 신고를 5단계로 조사 — GitHub Actions는 매일 정상 실행(초록)됐고, `dates.json`도 2026-08-15에서 멈춰있었음. **원인은 `dart_top3.py`가 `date.today()`(naive, 서버 타임존 기준)를 쓰는데 GitHub Actions 러너는 UTC로 돌아서**, KST 07:00(=UTC 전날 22:00) 크론이 실행되는 시점의 `date.today()`가 실제 KST 날짜보다 항상 하루 이전을 가리켰던 것. 그 결과 "전일 공시 스캔 대상"도 하루 더 밀려서, 화요일(8/18) 실행분이 월요일(정상 거래일, 실제 공시 있었을 것)이 아니라 일요일(휴장, 공시 없음)을 스캔해 조용히 빈 결과로 끝남.
+- **수정**: `dart_top3.py`에 `kst_today()` 헬퍼 신설(UTC+9 고정 오프셋 — 한국은 서머타임이 없어서 `zoneinfo` 대신 이 방식을 씀, Windows 로컬처럼 IANA tzdata가 없는 환경에서도 추가 설치 없이 동작). `get_target_date()`/`display_date`/OHLC 폴백 경로 전부 이걸로 교체. **주말 보정 로직도 추가**: 스캔 대상이 토/일이면 직전 금요일까지 당김(코드에 원래 있던 "필요하면 확장하자" 주석을 실제 구현). `update_open_price.py`/`build_verification_data.py`도 같은 기준으로 통일.
+- **주의**: 공휴일(설날/추석 등 평일 휴장일)까지는 보정 안 함 — 그런 날은 여전히 공시 없이 조용히 스킵될 수 있음, 다음에 비슷한 신고 들어오면 먼저 그 날짜가 공휴일인지부터 확인할 것.
+
 ## 겪었던 함정 / 재사용 가능한 교훈
 
 - **워크플로우는 push 전엔 존재하지 않음**: 새 `.yml` 워크플로우 파일을 로컬에만 두고 "커밋은 나중에" 미루면, GitHub Actions 탭에 아예 나타나지 않아 수동 실행이 불가능하다. 실행이 필요한 시점이 오면 먼저 push부터 해야 한다.
@@ -89,3 +96,4 @@ danta는 코스피 호재 공시 스캐너로, 매일 아침 공시 기반 TOP5 
 - **CSS stacking context 함정**: `position: fixed` 자식에 음수 `z-index`를 줘서 콘텐츠 뒤로 보내려 했는데, 부모(`body`)가 자기 stacking context를 안 만들면 부모 자신의 배경이 오히려 그 자식 위에 그려져서 완전히 가려질 수 있다. `isolation: isolate`(또는 `z-index`+`position`)로 부모에 stacking context를 만들어주면 해결.
 - **자동 배치와의 병합 패턴**: `daily.yml`/`daily_open_price.yml`이 수시로(예약 또는 수동 실행으로) `docs/data/*.json`+`docs/index.html`+`docs/.ftp-deploy-sync-state.json`을 커밋·푸시하기 때문에, 로컬에서 배경/기능 작업을 커밋하고 푸시하려 하면 거의 매번 원격에 새 커밋이 먼저 올라와 있어 병합이 필요하다. 패턴: `docs/index.html`은 항상 `dart_top3.py`의 `INDEX_HTML_TEMPLATE`에서 재생성해서 해결(소스 오브 트루스가 dart_top3.py이므로 안전), `docs/data/*.json`은 원격(최신 실데이터)을 채택(`git checkout --theirs`)한 뒤 그 위에 내 쪽 데이터 패치(예: 테마 링크)를 다시 적용.
 - **테스트 방법론** (브라우저 없는 환경에서 검증): (1) HTML 태그 균형 체크, (2) Node `--check`로 JS 문법 검사, (3) jsdom + Node 24 전역 fetch로 실제 DOM 클릭/입력 이벤트 실행, (4) PHP는 winget으로 로컬 설치(닷홈과 동일 8.4) 후 `php -S` 내장 서버 + SQLite(운영은 MySQL)로 실제 CRUD 끝까지 실행. **추가로 이번엔 Playwright+Chromium을 `npm install --no-save playwright` + `npx playwright install chromium`으로 로컬 설치해서 실제 스크린샷까지 찍어 눈으로 확인하는 방법도 씀** — `docs/` 폴더를 `python -m http.server`로 띄운 로컬 서버를 대상으로 함. 확인 후엔 `_screenshot_tmp.mjs`와 `node_modules`를 반드시 정리(git status에 안 걸리도록).
+- **GitHub Actions는 UTC, KST 새벽 배치는 항상 의심할 것**: `date.today()`/`datetime.now()`처럼 타임존 없는 날짜 계산은 로컬(한국) 개발자 눈엔 멀쩡해 보여도 UTC로 도는 CI에선 자정 근처 실행 시 하루 밀린다. KST 처리 시 `zoneinfo.ZoneInfo("Asia/Seoul")`은 Windows 로컬처럼 IANA tzdata가 없는 환경에서 `ZoneInfoNotFoundError`로 바로 깨짐 — 한국은 서머타임이 없으므로 `timezone(timedelta(hours=9))` 고정 오프셋을 쓰는 게 더 안전하고 이식성도 좋음.

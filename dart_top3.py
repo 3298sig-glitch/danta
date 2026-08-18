@@ -38,10 +38,22 @@ import sys
 import xml.etree.ElementTree as ET
 import zipfile
 from collections import defaultdict
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from typing import List, Dict, Any, Optional, Tuple
 
 import requests
+
+# GitHub Actions 러너는 UTC로 돌기 때문에, KST 새벽 시간대(07:00/09:05)에 실행되는 배치가
+# date.today()(서버 타임존 기준 naive)를 쓰면 실제 KST 날짜보다 하루 이전을 가리키게 된다.
+# 반드시 이 함수로 KST 기준 "오늘"을 명시적으로 구해야 한다. zoneinfo("Asia/Seoul") 대신
+# 고정 오프셋(UTC+9)을 쓰는 이유: 한국은 서머타임이 없어 오프셋이 연중 고정이고, IANA
+# tzdata가 없는 환경(예: Windows 로컬)에서도 추가 패키지 설치 없이 항상 동작해야 하므로.
+KST = timezone(timedelta(hours=9))
+
+
+def kst_today() -> date:
+    return datetime.now(KST).date()
+
 
 DART_LIST_URL = "https://opendart.fss.or.kr/api/list.json"
 DART_TSSTK_AQ_URL = "https://opendart.fss.or.kr/api/tsstkAqDecsn.json"       # 자기주식취득결정
@@ -127,13 +139,16 @@ ALL_KEYWORDS: Dict[str, int] = {**POSITIVE_KEYWORDS, **NEGATIVE_KEYWORDS}
 
 
 def get_target_date() -> date:
-    """조회 대상 날짜(전일)를 반환한다.
+    """조회 대상 날짜(전일)를 KST 기준으로 반환한다.
 
-    주의: 주말/공휴일 다음 영업일에 실행하면 '전일'이 휴장일이라
-    공시가 없을 수 있다. 필요하면 최근 영업일을 찾도록 확장하자
-    (예: 토/일이면 직전 금요일로 보정하는 로직 추가).
+    주말이면 직전 영업일(금요일)까지 보정한다 - 예: 월요일 실행 시 '전일'인
+    일요일 대신 금요일을 스캔한다. 공휴일까지는 감안하지 않는다(설날/추석 등
+    평일 휴장일에는 여전히 공시가 없을 수 있음).
     """
-    return date.today() - timedelta(days=1)
+    d = kst_today() - timedelta(days=1)
+    while d.weekday() >= 5:  # 5=토, 6=일
+        d -= timedelta(days=1)
+    return d
 
 
 def fetch_kospi_disclosures(api_key: str, target_date: date) -> List[Dict[str, Any]]:
@@ -369,7 +384,7 @@ def _fetch_ohlc_via_sisejson(stock_code: str, count: int = 60) -> List[Dict[str,
     ast.literal_eval로 안전하게 파싱한다.
     """
     try:
-        end = date.today()
+        end = kst_today()
         start = end - timedelta(days=int(count * 1.6) + 10)  # 주말/휴장일 감안해 여유있게 조회
         params = {
             "symbol": stock_code,
@@ -2088,7 +2103,7 @@ init();
 def main() -> None:
     api_key = get_api_key()
     target_date = get_target_date()  # 공시를 조회할 대상 날짜 (전일)
-    display_date = date.today()      # 화면/파일명에 쓸 날짜 (이 추천이 적용되는 당일)
+    display_date = kst_today()       # 화면/파일명에 쓸 날짜 (이 추천이 적용되는 당일)
     disclosures = fetch_kospi_disclosures(api_key, target_date)
 
     save_index_html()  # index.html은 데이터와 무관한 고정 템플릿이라 항상 최신으로 유지
