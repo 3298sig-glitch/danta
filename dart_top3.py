@@ -68,6 +68,8 @@ DART_DOCUMENT_URL = "https://opendart.fss.or.kr/api/document.xml"            # �
 NAVER_CHART_URL = "https://fchart.stock.naver.com/sise.nhn"
 NAVER_SISEJSON_URL = "https://api.finance.naver.com/siseJson.naver"
 NAVER_INTEGRATION_URL = "https://m.stock.naver.com/api/stock/{code}/integration"
+NAVER_INDEX_BASIC_URL = "https://m.stock.naver.com/api/index/{code}/basic"
+NAVER_INDEX_INTEGRATION_URL = "https://m.stock.naver.com/api/index/{code}/integration"
 NAVER_THEME_LIST_URL = "https://finance.naver.com/sise/theme.naver"
 NAVER_THEME_DETAIL_URL = "https://finance.naver.com/sise/sise_group_detail.naver"
 TOP_N = 5
@@ -584,6 +586,68 @@ def fetch_naver_integration(stock_code: str) -> Dict[str, Any]:
         )
 
     return result
+
+
+MARKET_BULLISH_RATIO = 60.0  # 상승 종목 비율이 이 이상이면 강세장
+MARKET_BEARISH_RATIO = 40.0  # 이 미만이면 약세장, 그 사이는 혼조
+
+
+def fetch_kospi_market_summary() -> Optional[Dict[str, Any]]:
+    """코스피 지수 현재가/등락률과 상승·보합·하락 종목 수(오늘의 시황)를 가져온다.
+
+    update_open_price.py(09:05 배치)에서만 호출한다 - 07:00 시점엔 아직 장이
+    안 열려서 의미 있는 값이 안 나온다. 실패하면 None을 반환해서 호출부가
+    시황 표시를 조용히 건너뛰게 한다(다른 네이버 조회 함수들과 같은 패턴).
+    """
+    try:
+        basic = requests.get(
+            NAVER_INDEX_BASIC_URL.format(code="KOSPI"),
+            headers=BROWSER_HEADERS,
+            timeout=15,
+        )
+        basic.raise_for_status()
+        basic_data = basic.json()
+
+        integration = requests.get(
+            NAVER_INDEX_INTEGRATION_URL.format(code="KOSPI"),
+            headers=BROWSER_HEADERS,
+            timeout=15,
+        )
+        integration.raise_for_status()
+        integration_data = integration.json()
+
+        index_price = float(str(basic_data["closePrice"]).replace(",", ""))
+        index_change = float(str(basic_data["compareToPreviousClosePrice"]).replace(",", ""))
+        index_change_pct = float(str(basic_data["fluctuationsRatio"]).replace(",", ""))
+        direction = "up" if index_change > 0 else "down" if index_change < 0 else "flat"
+
+        updown = integration_data.get("upDownStockInfo", {}) or {}
+        rise_count = int(updown.get("riseCount", 0) or 0) + int(updown.get("upperCount", 0) or 0)
+        fall_count = int(updown.get("fallCount", 0) or 0) + int(updown.get("lowerCount", 0) or 0)
+        flat_count = int(updown.get("steadyCount", 0) or 0)
+        total = rise_count + fall_count + flat_count
+        rise_ratio = (rise_count / total * 100) if total else 0.0
+
+        if rise_ratio >= MARKET_BULLISH_RATIO:
+            sentiment = "강세장"
+        elif rise_ratio >= MARKET_BEARISH_RATIO:
+            sentiment = "혼조"
+        else:
+            sentiment = "약세장"
+
+        return {
+            "index_price": index_price,
+            "index_change": index_change,
+            "index_change_pct": index_change_pct,
+            "direction": direction,
+            "rise_count": rise_count,
+            "fall_count": fall_count,
+            "flat_count": flat_count,
+            "sentiment": sentiment,
+        }
+    except Exception as e:
+        print(f"  (참고) 코스피 시황 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+        return None
 
 
 def compute_momentum_score(ohlc: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -1215,7 +1279,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     align-items: flex-end;
     justify-content: space-between;
     gap: 16px;
-    margin-bottom: 28px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
     padding: 16px 18px;
   }
@@ -1245,6 +1309,45 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .masthead .sub {
     font-size: 13px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+  }
+  .market-summary {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+  }
+  .market-summary-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .market-index {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .market-change {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .market-change.up { color: var(--rise); }
+  .market-change.down { color: var(--fall); }
+  .market-change.flat { color: var(--text-muted); }
+  .market-badge {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .market-badge.bullish { color: var(--signal-on); border: 1px solid var(--signal-on); }
+  .market-badge.mixed { color: var(--gold); border: 1px solid var(--gold); }
+  .market-badge.bearish { color: var(--rise); border: 1px solid var(--rise); }
+  .market-breadth {
+    margin-top: 8px;
+    font-size: 12.5px;
     color: var(--text-muted);
     font-family: var(--mono);
   }
@@ -1749,6 +1852,15 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
       <select id="date-select" aria-label="조회 날짜 선택"></select>
     </div>
 
+    <div id="market-summary" class="content-panel market-summary" hidden>
+      <div class="market-summary-row">
+        <span class="market-index">코스피 <span id="ms-price" class="mono">-</span></span>
+        <span class="market-change mono" id="ms-change">-</span>
+        <span class="market-badge" id="ms-badge">-</span>
+      </div>
+      <div class="market-breadth" id="ms-breadth">-</div>
+    </div>
+
     <nav class="main-tabs">
       <button class="main-tab" id="tab-criteria" data-tab="criteria">추천 기준</button>
       <button class="main-tab active" id="tab-stocks" data-tab="stocks">추천 종목 상세</button>
@@ -2200,7 +2312,36 @@ function starBadge(signals) {
     : '';
 }
 
+const MARKET_SENTIMENT_CLASS = { '강세장': 'bullish', '혼조': 'mixed', '약세장': 'bearish' };
+
+function renderMarketSummary(marketSummary) {
+  const el = document.getElementById('market-summary');
+  if (!marketSummary) {
+    el.hidden = true;
+    return;
+  }
+  el.hidden = false;
+
+  const dirClass = marketSummary.direction === 'up' ? 'up' : marketSummary.direction === 'down' ? 'down' : 'flat';
+  const arrow = marketSummary.direction === 'up' ? '▲' : marketSummary.direction === 'down' ? '▼' : '－';
+  const sign = marketSummary.index_change > 0 ? '+' : '';
+
+  document.getElementById('ms-price').textContent = marketSummary.index_price.toLocaleString();
+  const changeEl = document.getElementById('ms-change');
+  changeEl.className = `market-change mono ${dirClass}`;
+  changeEl.textContent = `${arrow} ${sign}${marketSummary.index_change.toLocaleString()} (${sign}${marketSummary.index_change_pct}%)`;
+
+  const badgeEl = document.getElementById('ms-badge');
+  badgeEl.className = `market-badge ${MARKET_SENTIMENT_CLASS[marketSummary.sentiment] || ''}`;
+  badgeEl.textContent = marketSummary.sentiment;
+
+  document.getElementById('ms-breadth').textContent =
+    `상승 ${marketSummary.rise_count} · 보합 ${marketSummary.flat_count} · 하락 ${marketSummary.fall_count}`;
+}
+
 function renderData(data) {
+  renderMarketSummary(data.market_summary);
+
   const ranked = data.ranked || [];
   document.getElementById('sub-label').textContent =
     `${formatDateKo(data.date)} 추천 · 전일 공시 기준 · TOP ${ranked.length}`;

@@ -15,6 +15,11 @@ dart_top3.py는 07:00(장 시작 전)에 실행되기 때문에 그 시점엔 '�
 한 번 더 실행해서, 실제로 열린 시가를 매수가 기준으로 삼아 투자 전략
 가격(매도가/손절가)을 확정한다.
 
+같은 이유로 07:00 시점의 일봉(ohlc)에도 당일 캔들이 없다 - fetch_daily_ohlc()를
+장중(09:00 이후)에 다시 호출하면 네이버 차트 API가 당일 캔들을 실시간(그 시점까지의
+시가/고가/저가/현재가/거래량)으로 포함해서 주므로, 이 스크립트가 그것도 같이
+갱신해서 상세 모달의 일봉차트에 당일 캔들이 보이게 한다.
+
 사용법:
     1) dart_top3.py가 그날 이미 실행되어 해당 날짜의 JSON이 있어야 한다.
     2) python update_open_price.py
@@ -31,7 +36,13 @@ import os
 import sys
 from typing import Any, Dict
 
-from dart_top3 import DATA_DIR, fetch_naver_integration, kst_today
+from dart_top3 import (
+    DATA_DIR,
+    fetch_daily_ohlc,
+    fetch_kospi_market_summary,
+    fetch_naver_integration,
+    kst_today,
+)
 
 STOP_LOSS_PCT = 3.0  # 고정 손절폭(%) - 목표수익률과 무관하게 항상 매수가의 -3%
 TARGET_PROFIT_OPTIONS_PCT = list(range(1, 11))  # 목표수익률 선택지: 1%~10%
@@ -89,6 +100,29 @@ def main() -> None:
 
         entry["trade_plan"] = build_trade_plan(open_price)
         print(f"  매수가(시가): {open_price:,}원 / 손절가: {entry['trade_plan']['stop_loss_price']:,}원")
+
+        # 일봉 차트에 당일 캔들이 보이도록 장중 기준으로 다시 조회해서 교체한다.
+        # 조회 실패로 빈 배열이 오면 기존(어제까지의) 데이터를 그대로 둔다 -
+        # trade_plan과 마찬가지로 실패했다고 있던 데이터를 지우면 안 된다.
+        fresh_ohlc = fetch_daily_ohlc(stock_code)
+        if fresh_ohlc:
+            entry["ohlc"] = fresh_ohlc
+        else:
+            print(f"  (참고) {corp_name} 당일 일봉 재조회 실패, 기존 일봉을 유지합니다.", file=sys.stderr)
+
+    print("오늘의 시황(코스피 지수/상승·하락 종목수) 조회 중...")
+    market_summary = fetch_kospi_market_summary()
+    if market_summary:
+        payload["market_summary"] = market_summary
+        print(
+            f"  코스피 {market_summary['index_price']:,}"
+            f" ({market_summary['index_change']:+,}, {market_summary['index_change_pct']:+.2f}%)"
+            f" - {market_summary['sentiment']}"
+            f" (상승 {market_summary['rise_count']}·보합 {market_summary['flat_count']}"
+            f"·하락 {market_summary['fall_count']})"
+        )
+    else:
+        print("  (참고) 오늘의 시황 조회 실패, 표시를 건너뜁니다.", file=sys.stderr)
 
     with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)

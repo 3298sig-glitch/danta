@@ -113,7 +113,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 16px;
-    margin-bottom: 28px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
     padding: 16px 18px;
   }
@@ -143,6 +143,45 @@
   }
   .masthead .sub {
     font-size: 13px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+  }
+  .market-summary {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+  }
+  .market-summary-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .market-index {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .market-change {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .market-change.up { color: var(--rise); }
+  .market-change.down { color: var(--fall); }
+  .market-change.flat { color: var(--text-muted); }
+  .market-badge {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .market-badge.bullish { color: var(--signal-on); border: 1px solid var(--signal-on); }
+  .market-badge.mixed { color: var(--gold); border: 1px solid var(--gold); }
+  .market-badge.bearish { color: var(--rise); border: 1px solid var(--rise); }
+  .market-breadth {
+    margin-top: 8px;
+    font-size: 12.5px;
     color: var(--text-muted);
     font-family: var(--mono);
   }
@@ -647,6 +686,15 @@
       <select id="date-select" aria-label="조회 날짜 선택"></select>
     </div>
 
+    <div id="market-summary" class="content-panel market-summary" hidden>
+      <div class="market-summary-row">
+        <span class="market-index">코스피 <span id="ms-price" class="mono">-</span></span>
+        <span class="market-change mono" id="ms-change">-</span>
+        <span class="market-badge" id="ms-badge">-</span>
+      </div>
+      <div class="market-breadth" id="ms-breadth">-</div>
+    </div>
+
     <nav class="main-tabs">
       <button class="main-tab" id="tab-criteria" data-tab="criteria">추천 기준</button>
       <button class="main-tab active" id="tab-stocks" data-tab="stocks">추천 종목 상세</button>
@@ -1105,7 +1153,36 @@ function starBadge(signals) {
     : '';
 }
 
+const MARKET_SENTIMENT_CLASS = { '강세장': 'bullish', '혼조': 'mixed', '약세장': 'bearish' };
+
+function renderMarketSummary(marketSummary) {
+  const el = document.getElementById('market-summary');
+  if (!marketSummary) {
+    el.hidden = true;
+    return;
+  }
+  el.hidden = false;
+
+  const dirClass = marketSummary.direction === 'up' ? 'up' : marketSummary.direction === 'down' ? 'down' : 'flat';
+  const arrow = marketSummary.direction === 'up' ? '▲' : marketSummary.direction === 'down' ? '▼' : '－';
+  const sign = marketSummary.index_change > 0 ? '+' : '';
+
+  document.getElementById('ms-price').textContent = marketSummary.index_price.toLocaleString();
+  const changeEl = document.getElementById('ms-change');
+  changeEl.className = `market-change mono ${dirClass}`;
+  changeEl.textContent = `${arrow} ${sign}${marketSummary.index_change.toLocaleString()} (${sign}${marketSummary.index_change_pct}%)`;
+
+  const badgeEl = document.getElementById('ms-badge');
+  badgeEl.className = `market-badge ${MARKET_SENTIMENT_CLASS[marketSummary.sentiment] || ''}`;
+  badgeEl.textContent = marketSummary.sentiment;
+
+  document.getElementById('ms-breadth').textContent =
+    `상승 ${marketSummary.rise_count} · 보합 ${marketSummary.flat_count} · 하락 ${marketSummary.fall_count}`;
+}
+
 function renderData(data) {
+  renderMarketSummary(data.market_summary);
+
   const ranked = data.ranked || [];
   document.getElementById('sub-label').textContent =
     `${formatDateKo(data.date)} 추천 · 전일 공시 기준 · TOP ${ranked.length}`;
