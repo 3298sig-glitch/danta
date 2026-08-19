@@ -1,16 +1,71 @@
 {
-  "generated_at": "2026-08-18T22:55:53",
-  "total_count": 30,
-  "up_count": 25,
-  "hit_rate": 100.0,
+  "generated_at": "2026-08-19T22:55:10",
+  "total_count": 35,
+  "up_count": 27,
+  "hit_rate": 90.0,
   "entries": [
+    {
+      "corp_name": "코오롱글로벌",
+      "stock_code": "003070",
+      "rec_date": "2026-08-19",
+      "prev_close": 10050.0,
+      "day_high": 10050.0,
+      "current_price": 9780.0,
+      "change_pct": 0.0,
+      "change_amount": 0.0,
+      "direction": "flat"
+    },
+    {
+      "corp_name": "티와이홀딩스",
+      "stock_code": "363280",
+      "rec_date": "2026-08-19",
+      "prev_close": 1922.0,
+      "day_high": 1921.0,
+      "current_price": 1920.0,
+      "change_pct": -0.05,
+      "change_amount": -1.0,
+      "direction": "down"
+    },
+    {
+      "corp_name": "남광토건",
+      "stock_code": "001260",
+      "rec_date": "2026-08-19",
+      "prev_close": 7910.0,
+      "day_high": 8300.0,
+      "current_price": 8000.0,
+      "change_pct": 4.93,
+      "change_amount": 390.0,
+      "direction": "up"
+    },
+    {
+      "corp_name": "HJ중공업",
+      "stock_code": "097230",
+      "rec_date": "2026-08-19",
+      "prev_close": 17630.0,
+      "day_high": 17470.0,
+      "current_price": 17010.0,
+      "change_pct": -0.91,
+      "change_amount": -160.0,
+      "direction": "down"
+    },
+    {
+      "corp_name": "에스케이바이오팜",
+      "stock_code": "326030",
+      "rec_date": "2026-08-19",
+      "prev_close": 85200.0,
+      "day_high": 85600.0,
+      "current_price": 85300.0,
+      "change_pct": 0.47,
+      "change_amount": 400.0,
+      "direction": "up"
+    },
     {
       "corp_name": "코오롱글로벌",
       "stock_code": "003070",
       "rec_date": "2026-08-18",
       "prev_close": 10240.0,
       "day_high": 10420.0,
-      "current_price": 10050.0,
+      "current_price": 9780.0,
       "change_pct": 1.76,
       "change_amount": 180.0,
       "direction": "up"
@@ -21,7 +76,7 @@
       "rec_date": "2026-08-18",
       "prev_close": 13400.0,
       "day_high": 15300.0,
-      "current_price": 13950.0,
+      "current_price": 12600.0,
       "change_pct": 14.18,
       "change_amount": 1900.0,
       "direction": "up"
@@ -32,7 +87,7 @@
       "rec_date": "2026-08-18",
       "prev_close": 28250.0,
       "day_high": 29950.0,
-      "current_price": 28150.0,
+      "current_price": 26150.0,
       "change_pct": 6.02,
       "change_amount": 1700.0,
       "direction": "up"
@@ -43,7 +98,7 @@
       "rec_date": "2026-08-18",
       "prev_close": 4390.0,
       "day_high": 4550.0,
-      "current_price": 4375.0,
+      "current_price": 4185.0,
       "change_pct": 3.64,
       "change_amount": 160.0,
       "direction": "up"
@@ -54,7 +109,7 @@
       "rec_date": "2026-08-18",
       "prev_close": 17720.0,
       "day_high": 17820.0,
-      "current_price": 17490.0,
+      "current_price": 17580.0,
       "change_pct": 0.56,
       "change_amount": 100.0,
       "direction": "up"
@@ -65,7 +120,7 @@
       "rec_date": "2026-08-15",
       "prev_close": 10240.0,
       "day_high": null,
-      "current_price": 10050.0,
+      "current_price": 9780.0,
       "change_pct": null,
       "change_amount": null,
       "direction": "unknown"
@@ -76,7 +131,7 @@
       "rec_date": "2026-08-15",
       "prev_close": 13400.0,
       "day_high": null,
-      "current_price": 13950.0,
+      "current_price": 12600.0,
       "change_pct": null,
       "change_amount": null,
       "direction": "unknown"
@@ -87,7 +142,7 @@
       "rec_date": "2026-08-15",
       "prev_close": 4390.0,
       "day_high": null,
-      "current_price": 4375.0,
+      "current_price": 4185.0,
       "change_pct": null,
       "change_amount": null,
       "direction": "unknown"
@@ -98,7 +153,7 @@
       "rec_date": "2026-08-15",
       "prev_close": 28250.0,
       "day_high": null,
-      "current_price": 28150.0,
+      "current_price": 26150.0,
       "change_pct": null,
       "change_amount": null,
       "direction": "unknown"
@@ -109,7 +164,7 @@
       "rec_date": "2026-08-15",
       "prev_close": 17720.0,
       "day_high": null,
-      "current_price": 17490.0,
+      "current_price": 17580.0,
       "change_pct": null,
       "change_amount": null,
       "direction": "unknown"
@@ -120,7 +175,7 @@
       "rec_date": "2026-08-14",
       "prev_close": 49000.0,
       "day_high": 50800.0,
-      "current_price": 47900.0,
+      "current_price": 48500.0,
       "change_pct": 3.67,
       "change_amount": 1800.0,
       "direction": "up"
@@ -131,7 +186,7 @@
       "rec_date": "2026-08-14",
       "prev_close": 9490.0,
       "day_high": 10390.0,
-      "current_price": 10100.0,
+      "current_price": 10900.0,
       "change_pct": 9.48,
       "change_amount": 900.0,
       "direction": "up"
@@ -142,7 +197,7 @@
       "rec_date": "2026-08-14",
       "prev_close": 11900.0,
       "day_high": 12300.0,
-      "current_price": 11280.0,
+      "current_price": 11090.0,
       "change_pct": 3.36,
       "change_amount": 400.0,
       "direction": "up"
@@ -153,7 +208,7 @@
       "rec_date": "2026-08-14",
       "prev_close": 7480.0,
       "day_high": 9720.0,
-      "current_price": 12630.0,
+      "current_price": 16410.0,
       "change_pct": 29.95,
       "change_amount": 2240.0,
       "direction": "up"
@@ -164,7 +219,7 @@
       "rec_date": "2026-08-14",
       "prev_close": 1512.0,
       "day_high": 1619.0,
-      "current_price": 1480.0,
+      "current_price": 1440.0,
       "change_pct": 7.08,
       "change_amount": 107.0,
       "direction": "up"
@@ -175,7 +230,7 @@
       "rec_date": "2026-08-13",
       "prev_close": 35800.0,
       "day_high": 41200.0,
-      "current_price": 36200.0,
+      "current_price": 39800.0,
       "change_pct": 15.08,
       "change_amount": 5400.0,
       "direction": "up"
@@ -186,7 +241,7 @@
       "rec_date": "2026-08-13",
       "prev_close": 1277.0,
       "day_high": 1326.0,
-      "current_price": 1256.0,
+      "current_price": 1211.0,
       "change_pct": 3.84,
       "change_amount": 49.0,
       "direction": "up"
@@ -208,7 +263,7 @@
       "rec_date": "2026-08-13",
       "prev_close": 3790.0,
       "day_high": 3940.0,
-      "current_price": 3550.0,
+      "current_price": 3365.0,
       "change_pct": 3.96,
       "change_amount": 150.0,
       "direction": "up"
@@ -219,7 +274,7 @@
       "rec_date": "2026-08-13",
       "prev_close": 5370.0,
       "day_high": 5650.0,
-      "current_price": 5390.0,
+      "current_price": 5230.0,
       "change_pct": 5.21,
       "change_amount": 280.0,
       "direction": "up"
@@ -230,7 +285,7 @@
       "rec_date": "2026-08-12",
       "prev_close": 1286.0,
       "day_high": 1294.0,
-      "current_price": 1256.0,
+      "current_price": 1211.0,
       "change_pct": 0.62,
       "change_amount": 8.0,
       "direction": "up"
@@ -241,7 +296,7 @@
       "rec_date": "2026-08-12",
       "prev_close": 35500.0,
       "day_high": 36350.0,
-      "current_price": 36200.0,
+      "current_price": 39800.0,
       "change_pct": 2.39,
       "change_amount": 850.0,
       "direction": "up"
@@ -252,7 +307,7 @@
       "rec_date": "2026-08-12",
       "prev_close": 69300.0,
       "day_high": 74100.0,
-      "current_price": 69400.0,
+      "current_price": 66600.0,
       "change_pct": 6.93,
       "change_amount": 4800.0,
       "direction": "up"
@@ -274,7 +329,7 @@
       "rec_date": "2026-08-12",
       "prev_close": 3650.0,
       "day_high": 4245.0,
-      "current_price": 3550.0,
+      "current_price": 3365.0,
       "change_pct": 16.3,
       "change_amount": 595.0,
       "direction": "up"
@@ -285,7 +340,7 @@
       "rec_date": "2026-08-11",
       "prev_close": 17490.0,
       "day_high": 17500.0,
-      "current_price": 17630.0,
+      "current_price": 17010.0,
       "change_pct": 0.06,
       "change_amount": 10.0,
       "direction": "up"
@@ -296,7 +351,7 @@
       "rec_date": "2026-08-11",
       "prev_close": 44800.0,
       "day_high": 45550.0,
-      "current_price": 43500.0,
+      "current_price": 43050.0,
       "change_pct": 1.67,
       "change_amount": 750.0,
       "direction": "up"
@@ -307,7 +362,7 @@
       "rec_date": "2026-08-11",
       "prev_close": 4930.0,
       "day_high": 5050.0,
-      "current_price": 4885.0,
+      "current_price": 4890.0,
       "change_pct": 2.43,
       "change_amount": 120.0,
       "direction": "up"
@@ -318,7 +373,7 @@
       "rec_date": "2026-08-11",
       "prev_close": 51700.0,
       "day_high": 52200.0,
-      "current_price": 50700.0,
+      "current_price": 50100.0,
       "change_pct": 0.97,
       "change_amount": 500.0,
       "direction": "up"
@@ -329,7 +384,7 @@
       "rec_date": "2026-08-11",
       "prev_close": 72900.0,
       "day_high": 75700.0,
-      "current_price": 70600.0,
+      "current_price": 71800.0,
       "change_pct": 3.84,
       "change_amount": 2800.0,
       "direction": "up"
