@@ -522,8 +522,8 @@
           "open": 10050.0,
           "high": 10050.0,
           "low": 9750.0,
-          "close": 9800.0,
-          "volume": 12196
+          "close": 9880.0,
+          "volume": 15682
         }
       ],
       "trade_plan": {
@@ -1065,8 +1065,8 @@
           "open": 1921.0,
           "high": 1921.0,
           "low": 1890.0,
-          "close": 1915.0,
-          "volume": 615
+          "close": 1914.0,
+          "volume": 809
         }
       ],
       "trade_plan": {
@@ -1615,8 +1615,8 @@
           "open": 7940.0,
           "high": 8300.0,
           "low": 7700.0,
-          "close": 7900.0,
-          "volume": 42975
+          "close": 8030.0,
+          "volume": 61871
         }
       ],
       "trade_plan": {
@@ -2158,8 +2158,8 @@
           "open": 17280.0,
           "high": 17470.0,
           "low": 16715.0,
-          "close": 17350.0,
-          "volume": 63423
+          "close": 17090.0,
+          "volume": 102862
         }
       ],
       "trade_plan": {
@@ -2699,10 +2699,10 @@
         {
           "date": "20260819",
           "open": 83600.0,
-          "high": 85300.0,
+          "high": 85600.0,
           "low": 82100.0,
-          "close": 84900.0,
-          "volume": 31800
+          "close": 85200.0,
+          "volume": 50952
         }
       ],
       "trade_plan": {
@@ -2725,25 +2725,25 @@
     }
   ],
   "market_summary": {
-    "index_price": 6593.77,
-    "index_change": -276.06,
-    "index_change_pct": -4.02,
+    "index_price": 6491.99,
+    "index_change": -377.84,
+    "index_change_pct": -5.5,
     "direction": "down",
-    "rise_count": 170,
-    "fall_count": 701,
-    "flat_count": 34,
+    "rise_count": 139,
+    "fall_count": 743,
+    "flat_count": 26,
     "sentiment": "약세장",
     "top_gainer_sector": {
-      "name": "인터넷과카탈로그소매",
-      "change_pct": 3.98
+      "name": "레저용장비와제품",
+      "change_pct": 3.02
     },
     "top_loser_sector": {
       "name": "생명보험",
-      "change_pct": -6.31
+      "change_pct": -8.83
     },
     "headlines": [
-      "美 장기 국채금리 급등…AI투자 축소 우려에 삼전닉스 '흔들'",
-      "\"반도체주 다시 시장 이끈다…바벨 전략 펼쳐야\""
+      "\"오래 쉬었고, 재반등의 시간\"…삼전닉스 흔들리자 '투심' 소외가 기회라는 이 종목",
+      "“코스피 올라도 불안” 개미, 다시 미국으로"
     ]
   }
 }
