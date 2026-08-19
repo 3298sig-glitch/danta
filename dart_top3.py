@@ -72,6 +72,8 @@ NAVER_INDEX_BASIC_URL = "https://m.stock.naver.com/api/index/{code}/basic"
 NAVER_INDEX_INTEGRATION_URL = "https://m.stock.naver.com/api/index/{code}/integration"
 NAVER_THEME_LIST_URL = "https://finance.naver.com/sise/theme.naver"
 NAVER_THEME_DETAIL_URL = "https://finance.naver.com/sise/sise_group_detail.naver"
+NAVER_SECTOR_LIST_URL = "https://finance.naver.com/sise/sise_group.naver"
+NAVER_MAIN_NEWS_URL = "https://finance.naver.com/news/mainnews.naver"
 TOP_N = 5
 HOT_THEME_COUNT = 15
 DOCS_DIR = "docs"
@@ -648,6 +650,67 @@ def fetch_kospi_market_summary() -> Optional[Dict[str, Any]]:
     except Exception as e:
         print(f"  (참고) 코스피 시황 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
         return None
+
+
+def fetch_sector_movers() -> Optional[Dict[str, Any]]:
+    """업종별 등락률 페이지에서 상승률 1위/하락률 1위 업종을 가져온다.
+
+    핫테마 목록(fetch_hot_theme_members)과 같은 페이지 구조(euc-kr, 정적 HTML
+    테이블)라 파싱 안정성도 비슷한 수준으로 본다. 실패하면 None.
+    """
+    try:
+        resp = requests.get(
+            NAVER_SECTOR_LIST_URL,
+            params={"type": "upjong"},
+            headers={**BROWSER_HEADERS, "Referer": "https://finance.naver.com/"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        html = resp.content.decode("euc-kr", errors="replace")
+
+        rows = re.findall(
+            r'sise_group_detail\.naver\?type=upjong&no=\d+">([^<]+)</a>.*?'
+            r'<span class="tah p11[^"]*">\s*([+-][\d.]+)%',
+            html,
+            re.S,
+        )
+        if not rows:
+            return None
+
+        sectors = [(name.strip(), float(pct)) for name, pct in rows]
+        sectors.sort(key=lambda x: x[1], reverse=True)
+        top_gainer = sectors[0]
+        top_loser = sectors[-1]
+
+        return {
+            "top_gainer_sector": {"name": top_gainer[0], "change_pct": top_gainer[1]},
+            "top_loser_sector": {"name": top_loser[0], "change_pct": top_loser[1]},
+        }
+    except Exception as e:
+        print(f"  (참고) 업종별 등락 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+        return None
+
+
+def fetch_market_headlines(count: int = 2) -> List[str]:
+    """네이버 금융 "주요뉴스" 코너에서 오늘자 헤드라인 제목을 가져온다.
+
+    실패하거나 페이지 구조가 바뀌어 하나도 못 찾으면 빈 리스트를 반환해서
+    호출부가 조용히 헤드라인 표시를 건너뛰게 한다.
+    """
+    try:
+        resp = requests.get(
+            NAVER_MAIN_NEWS_URL,
+            headers={**BROWSER_HEADERS, "Referer": "https://finance.naver.com/"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        html = resp.content.decode("euc-kr", errors="replace")
+
+        titles = re.findall(r'class="articleSubject">\s*<a href="[^"]+">([^<]+)</a>', html, re.S)
+        return [t.strip() for t in titles[:count]]
+    except Exception as e:
+        print(f"  (참고) 주요뉴스 헤드라인 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+        return []
 
 
 def compute_momentum_score(ohlc: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -1351,6 +1414,30 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--text-muted);
     font-family: var(--mono);
   }
+  .market-sectors {
+    margin-top: 6px;
+    font-size: 12px;
+    font-family: var(--mono);
+  }
+  .market-sectors .sector-up { color: var(--rise); }
+  .market-sectors .sector-down { color: var(--fall); }
+  .market-headlines {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line);
+  }
+  .market-headline-item {
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .market-headline-item::before {
+    content: '· ';
+    color: var(--gold);
+  }
   .main-tabs {
     display: flex;
     align-items: center;
@@ -1859,6 +1946,8 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
         <span class="market-badge" id="ms-badge">-</span>
       </div>
       <div class="market-breadth" id="ms-breadth">-</div>
+      <div class="market-sectors" id="ms-sectors" hidden></div>
+      <div class="market-headlines" id="ms-headlines" hidden></div>
     </div>
 
     <nav class="main-tabs">
@@ -2337,6 +2426,28 @@ function renderMarketSummary(marketSummary) {
 
   document.getElementById('ms-breadth').textContent =
     `상승 ${marketSummary.rise_count} · 보합 ${marketSummary.flat_count} · 하락 ${marketSummary.fall_count}`;
+
+  const sectorsEl = document.getElementById('ms-sectors');
+  if (marketSummary.top_gainer_sector && marketSummary.top_loser_sector) {
+    const g = marketSummary.top_gainer_sector;
+    const l = marketSummary.top_loser_sector;
+    sectorsEl.innerHTML =
+      `상승 업종 <span class="sector-up">${g.name} ${g.change_pct > 0 ? '+' : ''}${g.change_pct}%</span>` +
+      ` · 하락 업종 <span class="sector-down">${l.name} ${l.change_pct}%</span>`;
+    sectorsEl.hidden = false;
+  } else {
+    sectorsEl.hidden = true;
+  }
+
+  const headlinesEl = document.getElementById('ms-headlines');
+  if (marketSummary.headlines && marketSummary.headlines.length) {
+    headlinesEl.innerHTML = marketSummary.headlines
+      .map(h => `<div class="market-headline-item">${h}</div>`)
+      .join('');
+    headlinesEl.hidden = false;
+  } else {
+    headlinesEl.hidden = true;
+  }
 }
 
 function renderData(data) {

@@ -40,7 +40,9 @@ from dart_top3 import (
     DATA_DIR,
     fetch_daily_ohlc,
     fetch_kospi_market_summary,
+    fetch_market_headlines,
     fetch_naver_integration,
+    fetch_sector_movers,
     kst_today,
 )
 
@@ -113,7 +115,6 @@ def main() -> None:
     print("오늘의 시황(코스피 지수/상승·하락 종목수) 조회 중...")
     market_summary = fetch_kospi_market_summary()
     if market_summary:
-        payload["market_summary"] = market_summary
         print(
             f"  코스피 {market_summary['index_price']:,}"
             f" ({market_summary['index_change']:+,}, {market_summary['index_change_pct']:+.2f}%)"
@@ -121,6 +122,29 @@ def main() -> None:
             f" (상승 {market_summary['rise_count']}·보합 {market_summary['flat_count']}"
             f"·하락 {market_summary['fall_count']})"
         )
+
+        # 업종 등락/뉴스 헤드라인은 지수 조회와 완전히 독립적으로 실패 처리한다 -
+        # 하나가 깨져도 나머지(지수, 또는 업종/헤드라인 각각)는 그대로 살아남는다.
+        sector_movers = fetch_sector_movers()
+        if sector_movers:
+            market_summary.update(sector_movers)
+            print(
+                f"  업종: 상승 {sector_movers['top_gainer_sector']['name']}"
+                f" {sector_movers['top_gainer_sector']['change_pct']:+.2f}%"
+                f" · 하락 {sector_movers['top_loser_sector']['name']}"
+                f" {sector_movers['top_loser_sector']['change_pct']:+.2f}%"
+            )
+        else:
+            print("  (참고) 업종별 등락 조회 실패, 표시를 건너뜁니다.", file=sys.stderr)
+
+        headlines = fetch_market_headlines()
+        if headlines:
+            market_summary["headlines"] = headlines
+            print(f"  헤드라인 {len(headlines)}건 수집")
+        else:
+            print("  (참고) 헤드라인 조회 실패, 표시를 건너뜁니다.", file=sys.stderr)
+
+        payload["market_summary"] = market_summary
     else:
         print("  (참고) 오늘의 시황 조회 실패, 표시를 건너뜁니다.", file=sys.stderr)
 

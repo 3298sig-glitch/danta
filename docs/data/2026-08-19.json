@@ -522,8 +522,8 @@
           "open": 10050.0,
           "high": 10050.0,
           "low": 9750.0,
-          "close": 9850.0,
-          "volume": 11468
+          "close": 9800.0,
+          "volume": 12196
         }
       ],
       "trade_plan": {
@@ -1065,8 +1065,8 @@
           "open": 1921.0,
           "high": 1921.0,
           "low": 1890.0,
-          "close": 1919.0,
-          "volume": 604
+          "close": 1915.0,
+          "volume": 615
         }
       ],
       "trade_plan": {
@@ -1615,8 +1615,8 @@
           "open": 7940.0,
           "high": 8300.0,
           "low": 7700.0,
-          "close": 7840.0,
-          "volume": 39808
+          "close": 7900.0,
+          "volume": 42975
         }
       ],
       "trade_plan": {
@@ -2156,10 +2156,10 @@
         {
           "date": "20260819",
           "open": 17280.0,
-          "high": 17370.0,
+          "high": 17470.0,
           "low": 16715.0,
-          "close": 17070.0,
-          "volume": 49966
+          "close": 17350.0,
+          "volume": 63423
         }
       ],
       "trade_plan": {
@@ -2699,10 +2699,10 @@
         {
           "date": "20260819",
           "open": 83600.0,
-          "high": 84400.0,
+          "high": 85300.0,
           "low": 82100.0,
-          "close": 84200.0,
-          "volume": 27515
+          "close": 84900.0,
+          "volume": 31800
         }
       ],
       "trade_plan": {
@@ -2725,13 +2725,25 @@
     }
   ],
   "market_summary": {
-    "index_price": 6500.15,
-    "index_change": -369.68,
-    "index_change_pct": -5.38,
+    "index_price": 6593.77,
+    "index_change": -276.06,
+    "index_change_pct": -4.02,
     "direction": "down",
-    "rise_count": 102,
-    "fall_count": 778,
-    "flat_count": 25,
-    "sentiment": "약세장"
+    "rise_count": 170,
+    "fall_count": 701,
+    "flat_count": 34,
+    "sentiment": "약세장",
+    "top_gainer_sector": {
+      "name": "인터넷과카탈로그소매",
+      "change_pct": 3.98
+    },
+    "top_loser_sector": {
+      "name": "생명보험",
+      "change_pct": -6.31
+    },
+    "headlines": [
+      "美 장기 국채금리 급등…AI투자 축소 우려에 삼전닉스 '흔들'",
+      "\"반도체주 다시 시장 이끈다…바벨 전략 펼쳐야\""
+    ]
   }
 }

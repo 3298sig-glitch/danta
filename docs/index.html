@@ -185,6 +185,30 @@
     color: var(--text-muted);
     font-family: var(--mono);
   }
+  .market-sectors {
+    margin-top: 6px;
+    font-size: 12px;
+    font-family: var(--mono);
+  }
+  .market-sectors .sector-up { color: var(--rise); }
+  .market-sectors .sector-down { color: var(--fall); }
+  .market-headlines {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line);
+  }
+  .market-headline-item {
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .market-headline-item::before {
+    content: '· ';
+    color: var(--gold);
+  }
   .main-tabs {
     display: flex;
     align-items: center;
@@ -693,6 +717,8 @@
         <span class="market-badge" id="ms-badge">-</span>
       </div>
       <div class="market-breadth" id="ms-breadth">-</div>
+      <div class="market-sectors" id="ms-sectors" hidden></div>
+      <div class="market-headlines" id="ms-headlines" hidden></div>
     </div>
 
     <nav class="main-tabs">
@@ -1178,6 +1204,28 @@ function renderMarketSummary(marketSummary) {
 
   document.getElementById('ms-breadth').textContent =
     `상승 ${marketSummary.rise_count} · 보합 ${marketSummary.flat_count} · 하락 ${marketSummary.fall_count}`;
+
+  const sectorsEl = document.getElementById('ms-sectors');
+  if (marketSummary.top_gainer_sector && marketSummary.top_loser_sector) {
+    const g = marketSummary.top_gainer_sector;
+    const l = marketSummary.top_loser_sector;
+    sectorsEl.innerHTML =
+      `상승 업종 <span class="sector-up">${g.name} ${g.change_pct > 0 ? '+' : ''}${g.change_pct}%</span>` +
+      ` · 하락 업종 <span class="sector-down">${l.name} ${l.change_pct}%</span>`;
+    sectorsEl.hidden = false;
+  } else {
+    sectorsEl.hidden = true;
+  }
+
+  const headlinesEl = document.getElementById('ms-headlines');
+  if (marketSummary.headlines && marketSummary.headlines.length) {
+    headlinesEl.innerHTML = marketSummary.headlines
+      .map(h => `<div class="market-headline-item">${h}</div>`)
+      .join('');
+    headlinesEl.hidden = false;
+  } else {
+    headlinesEl.hidden = true;
+  }
 }
 
 function renderData(data) {
