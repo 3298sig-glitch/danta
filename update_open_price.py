@@ -67,6 +67,13 @@ def build_trade_plan(buy_price: int) -> Dict[str, Any]:
     }
 
 
+def warn(message: str) -> None:
+    """일반 stderr 로그와 함께, GitHub Actions가 실행 요약 화면에 바로 띄워주는
+    ::warning:: 어노테이션도 찍는다 - 스텝 로그를 안 열어봐도 실패를 바로 알 수 있게."""
+    print(f"::warning::{message}")
+    print(f"  (참고) {message}", file=sys.stderr)
+
+
 def get_today_json_path() -> str:
     # dart_top3.py가 오늘(kst_today()) 날짜로 저장한 파일과 반드시 같은 기준을 써야
     # 07:00이 방금 만든 파일을 09:05가 제대로 찾을 수 있다.
@@ -135,18 +142,18 @@ def main() -> None:
                 f" {sector_movers['top_loser_sector']['change_pct']:+.2f}%"
             )
         else:
-            print("  (참고) 업종별 등락 조회 실패, 표시를 건너뜁니다.", file=sys.stderr)
+            warn("업종별 등락 조회 실패, 오늘의 시황에서 업종 정보를 건너뜁니다.")
 
         headlines = fetch_market_headlines()
         if headlines:
             market_summary["headlines"] = headlines
             print(f"  헤드라인 {len(headlines)}건 수집")
         else:
-            print("  (참고) 헤드라인 조회 실패, 표시를 건너뜁니다.", file=sys.stderr)
+            warn("헤드라인 조회 실패, 오늘의 시황에서 헤드라인을 건너뜁니다.")
 
         payload["market_summary"] = market_summary
     else:
-        print("  (참고) 오늘의 시황 조회 실패, 표시를 건너뜁니다.", file=sys.stderr)
+        warn("오늘의 시황(코스피 지수) 조회 실패, 오늘의 시황 표시를 건너뜁니다.")
 
     with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)

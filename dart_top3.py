@@ -1379,6 +1379,10 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     margin-bottom: 20px;
     padding: 14px 18px;
   }
+  .market-empty {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
   .market-summary-row {
     display: flex;
     align-items: baseline;
@@ -1939,15 +1943,18 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
       <select id="date-select" aria-label="조회 날짜 선택"></select>
     </div>
 
-    <div id="market-summary" class="content-panel market-summary" hidden>
-      <div class="market-summary-row">
-        <span class="market-index">코스피 <span id="ms-price" class="mono">-</span></span>
-        <span class="market-change mono" id="ms-change">-</span>
-        <span class="market-badge" id="ms-badge">-</span>
+    <div id="market-summary" class="content-panel market-summary">
+      <div id="ms-empty" class="market-empty" hidden>오늘의 시황 정보를 아직 불러오지 못했습니다 (09:05 배치 이후 반영됩니다).</div>
+      <div id="ms-content">
+        <div class="market-summary-row">
+          <span class="market-index">코스피 <span id="ms-price" class="mono">-</span></span>
+          <span class="market-change mono" id="ms-change">-</span>
+          <span class="market-badge" id="ms-badge">-</span>
+        </div>
+        <div class="market-breadth" id="ms-breadth">-</div>
+        <div class="market-sectors" id="ms-sectors" hidden></div>
+        <div class="market-headlines" id="ms-headlines" hidden></div>
       </div>
-      <div class="market-breadth" id="ms-breadth">-</div>
-      <div class="market-sectors" id="ms-sectors" hidden></div>
-      <div class="market-headlines" id="ms-headlines" hidden></div>
     </div>
 
     <nav class="main-tabs">
@@ -2404,12 +2411,15 @@ function starBadge(signals) {
 const MARKET_SENTIMENT_CLASS = { '강세장': 'bullish', '혼조': 'mixed', '약세장': 'bearish' };
 
 function renderMarketSummary(marketSummary) {
-  const el = document.getElementById('market-summary');
+  const emptyEl = document.getElementById('ms-empty');
+  const contentEl = document.getElementById('ms-content');
   if (!marketSummary) {
-    el.hidden = true;
+    emptyEl.hidden = false;
+    contentEl.hidden = true;
     return;
   }
-  el.hidden = false;
+  emptyEl.hidden = true;
+  contentEl.hidden = false;
 
   const dirClass = marketSummary.direction === 'up' ? 'up' : marketSummary.direction === 'down' ? 'down' : 'flat';
   const arrow = marketSummary.direction === 'up' ? '▲' : marketSummary.direction === 'down' ? '▼' : '－';
