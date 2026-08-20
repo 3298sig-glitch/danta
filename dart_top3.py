@@ -169,6 +169,11 @@ NEGATIVE_KEYWORDS: Dict[str, int] = {
 ALL_KEYWORDS: Dict[str, int] = {**POSITIVE_KEYWORDS, **NEGATIVE_KEYWORDS}
 
 
+def is_trading_day(d: date) -> bool:
+    """주말/한국 공휴일이 아니면 True (KOSPI 영업일 여부, 실제 임시휴장 등은 감안 안 함)."""
+    return d.weekday() < 5 and d not in KR_HOLIDAYS
+
+
 def get_target_date() -> date:
     """조회 대상 날짜(가장 최근 영업일 - 주말과 한국 공휴일 제외)를 KST 기준으로 반환한다.
 
@@ -176,7 +181,7 @@ def get_target_date() -> date:
     계속 하루씩 거슬러 올라간다.
     """
     d = kst_today() - timedelta(days=1)
-    while d.weekday() >= 5 or d in KR_HOLIDAYS:  # 5=토, 6=일
+    while not is_trading_day(d):
         d -= timedelta(days=1)
     return d
 
@@ -2552,9 +2557,18 @@ init();
 
 
 def main() -> None:
+    display_date = kst_today()       # 화면/파일명에 쓸 날짜 (이 추천이 적용되는 당일)
+
+    # get_target_date()는 "전일 스캔 대상"만 영업일로 보정해줄 뿐, 오늘 자체가
+    # 휴장일(주말/공휴일)인지는 별개로 확인해야 한다 - 안 그러면 (예: 토요일 아침
+    # 배치가 그 전 금요일 공시를 정상적으로 스캔해버려서) 장이 안 열린 날짜에
+    # 그럴듯한 추천 목록이 만들어지는 문제가 생긴다.
+    if not is_trading_day(display_date):
+        print(f"{display_date.isoformat()}은(는) 휴장일(주말 또는 공휴일)이라 배치를 건너뜁니다.")
+        return
+
     api_key = get_api_key()
     target_date = get_target_date()  # 공시를 조회할 대상 날짜 (전일)
-    display_date = kst_today()       # 화면/파일명에 쓸 날짜 (이 추천이 적용되는 당일)
     disclosures = fetch_kospi_disclosures(api_key, target_date)
 
     save_index_html()  # index.html은 데이터와 무관한 고정 템플릿이라 항상 최신으로 유지
