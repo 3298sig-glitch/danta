@@ -30,11 +30,13 @@ docs/index.html 은 이 JSON들을 브라우저에서 자바스크립트로 불�
 
 import ast
 import getpass
+import html as html_lib
 import io
 import json
 import os
 import re
 import sys
+import urllib.parse
 import xml.etree.ElementTree as ET
 import zipfile
 from collections import defaultdict
@@ -74,10 +76,16 @@ NAVER_THEME_LIST_URL = "https://finance.naver.com/sise/theme.naver"
 NAVER_THEME_DETAIL_URL = "https://finance.naver.com/sise/sise_group_detail.naver"
 NAVER_SECTOR_LIST_URL = "https://finance.naver.com/sise/sise_group.naver"
 NAVER_MAIN_NEWS_URL = "https://finance.naver.com/news/mainnews.naver"
+NAVER_NEWS_SEARCH_URL = "https://search.naver.com/search.naver"
+IPO_LIST_URL = "http://www.38.co.kr/html/fund/?o=k"          # 공모청약일정 목록
+IPO_DEMAND_RESULT_URL = "http://www.38.co.kr/html/fund/?o=r1"  # 수요예측결과(기관경쟁률)
+IPO_DETAIL_URL = "http://www.38.co.kr/html/fund/"             # ?o=v&no=번호 로 상세 조회
 TOP_N = 5
 HOT_THEME_COUNT = 15
+POPULAR_THRESHOLD = 500  # 경쟁률(:1) 기준값 - 이 이상이면 "인기 공모주"로 분류 (조정하려면 이 값만 바꾸면 됨)
 DOCS_DIR = "docs"
 DATA_DIR = os.path.join(DOCS_DIR, "data")
+IPO_SCHEDULE_PATH = os.path.join(DATA_DIR, "ipo_schedule.json")
 
 # 종합 스코어링 가중치 (공시 있는 종목만 후보로 삼고, 4개 신호를 0~100 스케일로 합산)
 DISCLOSURE_WEIGHT = 0.35
@@ -716,6 +724,289 @@ def fetch_market_headlines(count: int = 2) -> List[str]:
     except Exception as e:
         print(f"  (참고) 주요뉴스 헤드라인 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
         return []
+
+
+# ----------------------------------------------------------------------------
+# 공모주 일정 ("공모주 일정" 탭) - 38커뮤니케이션(38.co.kr) 크롤링
+# 07:00 배치(main())에서 하루 한 번만 갱신한다. 자주 안 바뀌는 정보라 이 정도
+# 주기로 충분하고, 각 종목별 상세/뉴스 조회는 서로 독립적으로 실패 처리해서
+# 한 종목이 깨져도 나머지 종목·필드는 정상 저장되게 한다.
+# ----------------------------------------------------------------------------
+
+IPO_ROW_RE = re.compile(
+    r"<td height='30'>\s*&nbsp;<a href=\"/html/fund/\?o=v&amp;no=(\d+)[^\"]*\">"
+    r"<font[^>]*>([^<]+)</font></a></td>\s*"
+    r"<td>\s*([^<]+?)\s*</td>\s*"
+    r"<td align='center'>([^<]*)</td>\s*"
+    r"<td align='center'>([^<]*)</td>\s*"
+    r"<td align='center'>([^<]*)</td>\s*"
+    r"<td>([^<]*)</td>"
+)
+
+IPO_DEMAND_ROW_RE = re.compile(
+    r'<a href="\./\?o=v&amp;no=(\d+)[^"]*" class=menu>[^<]+</a></td>\s*'
+    r'<td\s+align="center">([^<]*)</td>\s*'
+    r'<td\s+align="center">[^<]*</td>\s*'
+    r'<td\s+align="center">[^<]*</td>\s*'
+    r'<td\s+align="center">[^<]*</td>\s*'
+    r'<td\s+align="center">([^<]*)</td>'
+)
+
+
+def _dot_to_iso(text: Optional[str]) -> Optional[str]:
+    """"2026.08.18" 같은 38.co.kr 날짜 표기를 "2026-08-18"(ISO)로 바꾼다."""
+    if not text:
+        return None
+    m = re.match(r"(\d{4})\.(\d{2})\.(\d{2})", text.strip())
+    if not m:
+        return None
+    y, mo, d = m.groups()
+    return f"{y}-{mo}-{d}"
+
+
+def _parse_ipo_period(text: str) -> Tuple[Optional[str], Optional[str]]:
+    """목록 페이지의 "2026.09.16~09.17" 형식(끝 날짜는 연도 생략)을 (시작, 끝) ISO로 변환."""
+    m = re.match(r"(\d{4})\.(\d{2})\.(\d{2})\s*~\s*(\d{2})\.(\d{2})", text.strip())
+    if not m:
+        return None, None
+    year, mo, d, mo2, d2 = m.groups()
+    end_year = int(year) + (1 if int(mo2) < int(mo) else 0)  # 연말~연초로 넘어가는 드문 경우 대비
+    return f"{year}-{mo}-{d}", f"{end_year}-{mo2}-{d2}"
+
+
+def _parse_won(text: str) -> Optional[int]:
+    text = text.strip().replace(",", "")
+    if not text or text == "-":
+        return None
+    try:
+        return int(text)
+    except ValueError:
+        return None
+
+
+def _parse_competition_rate(text: str) -> Optional[float]:
+    """"522.99:1" -> 522.99. 값이 없으면(청약 전) None."""
+    m = re.match(r"([\d.]+)\s*:\s*1", text.strip())
+    if not m:
+        return None
+    try:
+        return float(m.group(1))
+    except ValueError:
+        return None
+
+
+def fetch_ipo_list() -> List[Dict[str, Any]]:
+    """38.co.kr 공모청약일정 목록(?o=k)에서 종목별 기본 정보를 가져온다.
+
+    실패하면 빈 리스트를 반환해서 호출부(build_ipo_schedule)가 전체를 건너뛰게 한다.
+    """
+    try:
+        resp = requests.get(IPO_LIST_URL, headers=BROWSER_HEADERS, timeout=15)
+        resp.raise_for_status()
+        html = resp.content.decode("euc-kr", errors="replace")
+
+        result = []
+        for no, corp_name, period_text, fixed_price_text, price_band_text, sub_rate_text, underwriters_text in IPO_ROW_RE.findall(html):
+            start_iso, end_iso = _parse_ipo_period(period_text)
+            result.append({
+                "no": no,
+                "corp_name": corp_name.strip(),
+                "subscription_start": start_iso,
+                "subscription_end": end_iso,
+                "fixed_price": _parse_won(fixed_price_text),
+                "price_band": price_band_text.strip() or None,
+                "subscription_rate": _parse_competition_rate(sub_rate_text),
+                "underwriters": underwriters_text.strip() or None,
+            })
+        return result
+    except Exception as e:
+        print(f"  (참고) 공모주 목록 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+        return []
+
+
+def fetch_ipo_demand_results() -> Dict[str, Optional[float]]:
+    """38.co.kr 수요예측결과(?o=r1)에서 종목별 기관 경쟁률을 가져온다.
+
+    목록 페이지와 같은 no=번호로 매칭한다. 실패하면 빈 dict(모든 종목이
+    수요예측 경쟁률 없이 처리됨 - 청약경쟁률 등 나머지 정보는 영향 없음).
+    """
+    try:
+        resp = requests.get(IPO_DEMAND_RESULT_URL, headers=BROWSER_HEADERS, timeout=15)
+        resp.raise_for_status()
+        html = resp.content.decode("euc-kr", errors="replace")
+        return {
+            no: _parse_competition_rate(demand_rate_text)
+            for no, _demand_date_text, demand_rate_text in IPO_DEMAND_ROW_RE.findall(html)
+        }
+    except Exception as e:
+        print(f"  (참고) 수요예측결과 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+        return {}
+
+
+def fetch_ipo_detail(no: str) -> Dict[str, Any]:
+    """38.co.kr 공모주 상세 페이지(?o=v&no=번호)에서 회사 기본 정보 + 일정을 가져온다.
+
+    표 구조가 회사마다 동일해서 정규식으로 안정적으로 파싱 가능(38_fund 목록과
+    같은 사이트, 실제 응답으로 확인함). 필드 하나가 빠져도 나머지는 그대로 채워지도록
+    각 필드를 독립적으로 매칭한다. 통째로 실패하면 빈 dict(호출부가 "정보 없음"으로 처리).
+    """
+    detail: Dict[str, Any] = {}
+    try:
+        resp = requests.get(
+            IPO_DETAIL_URL,
+            params={"o": "v", "no": no, "l": "", "page": "1"},
+            headers=BROWSER_HEADERS,
+            timeout=15,
+        )
+        resp.raise_for_status()
+        raw = resp.content.decode("euc-kr", errors="replace")
+        # &nbsp;/탭/개행이 뒤섞여 있어 전부 단일 공백으로 정규화한 뒤 파싱한다.
+        norm = re.sub(r"&nbsp;", " ", raw)
+        norm = re.sub(r"[ \t\r\n]+", " ", norm)
+
+        def field(label_pattern: str) -> Optional[str]:
+            m = re.search(label_pattern + r"</td>\s*<td[^>]*>\s*([^<]+?)\s*</td>", norm)
+            return m.group(1).strip() if m else None
+
+        detail["market"] = field("시장구분")
+        detail["stock_code"] = field("종목코드")
+        detail["sector"] = field(r"업종\s*")
+        detail["ceo"] = field(r"대표자\s*")
+        detail["address"] = field("본점소재지")
+        detail["revenue"] = field(r"매출액\s*")
+        detail["net_income"] = field("순이익")
+
+        m = re.search(r"홈페이지\s*</td>\s*<td[^>]*>\s*<a href=['\"]([^'\"]+)['\"]", norm)
+        detail["homepage"] = m.group(1) if m else None
+
+        m = re.search(r"수요예측일</td>\s*<td[^>]*>\s*([\d.]+)\s*~\s*([\d.]+)\s*</td>", norm)
+        detail["demand_start"], detail["demand_end"] = (
+            (_dot_to_iso(m.group(1)), _dot_to_iso(m.group(2))) if m else (None, None)
+        )
+        m = re.search(r"공모청약일</td>\s*<td[^>]*>\s*([\d.]+)\s*~\s*([\d.]+)\s*</td>", norm)
+        detail["subscription_start"], detail["subscription_end"] = (
+            (_dot_to_iso(m.group(1)), _dot_to_iso(m.group(2))) if m else (None, None)
+        )
+        detail["refund_date"] = _dot_to_iso(field(r"환불일"))
+        detail["listing_date"] = _dot_to_iso(field(r"상장일"))
+    except Exception as e:
+        print(f"  (참고) 공모주 상세(no={no}) 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+    return detail
+
+
+def fetch_company_news(corp_name: str, count: int = 5) -> List[Dict[str, str]]:
+    """네이버 뉴스 검색(비공식 HTML)에서 회사명이 제목에 정확히 포함된 최신 기사를 가져온다.
+
+    검색 결과 페이지의 클래스명은 배포마다 바뀌는 해시값이라 믿을 수 없어서,
+    비교적 안정적인 data-heatmap-target=".tit" 속성을 앵커로 제목 링크를 찾는다
+    (실제 호출로 확인함). 본문은 가져오지 않고 제목+출처(도메인)+링크만 반환한다.
+    """
+    try:
+        resp = requests.get(
+            NAVER_NEWS_SEARCH_URL,
+            params={"where": "news", "query": corp_name},
+            headers=BROWSER_HEADERS,
+            timeout=15,
+        )
+        resp.raise_for_status()
+        html = resp.content.decode("utf-8", errors="replace")
+
+        rows = re.findall(
+            r'<a nocr="1" href="([^"]+)"[^>]*data-heatmap-target="\.tit"[^>]*>'
+            r"<span[^>]*>(.*?)</span>",
+            html,
+            re.S,
+        )
+        news = []
+        for href, inner in rows:
+            title = html_lib.unescape(re.sub(r"<[^>]+>", "", inner)).strip()
+            if corp_name not in title:
+                continue  # 회사명이 제목에 정확히 포함된 기사만 채택
+            domain = urllib.parse.urlparse(href).netloc.replace("www.", "")
+            news.append({"title": title, "source": domain, "url": href})
+            if len(news) >= count:
+                break
+        return news
+    except Exception as e:
+        print(f"  (참고) {corp_name} 관련 뉴스 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+        return []
+
+
+def build_ipo_schedule() -> None:
+    """공모주 일정 전체(목록+상세+수요예측결과+뉴스)를 모아 docs/data/ipo_schedule.json으로 저장한다."""
+    print("공모주 일정 조회 중...")
+    listing = fetch_ipo_list()
+    if not listing:
+        print("  (참고) 공모주 목록을 가져오지 못해 ipo_schedule.json 갱신을 건너뜁니다.", file=sys.stderr)
+        return
+
+    demand_results = fetch_ipo_demand_results()
+
+    entries = []
+    for row in listing:
+        no = row["no"]
+        corp_name = row["corp_name"]
+        print(f"  {corp_name} 상세/뉴스 조회 중...")
+
+        try:
+            detail = fetch_ipo_detail(no)
+        except Exception as e:
+            print(f"  (참고) {corp_name} 상세 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+            detail = {}
+
+        try:
+            news = fetch_company_news(corp_name)
+        except Exception as e:
+            print(f"  (참고) {corp_name} 뉴스 조회 실패: {type(e).__name__}: {e}", file=sys.stderr)
+            news = []
+
+        subscription_rate = row["subscription_rate"]
+        demand_rate = demand_results.get(no)
+        # 인기도 판정: 청약이 끝난 종목은 일반 청약경쟁률을 우선하고, 없으면(청약 전)
+        # 수요예측(기관) 경쟁률로 대체한다. 둘 다 없으면 "정보 없음" -> 수요예측 예정 탭.
+        if subscription_rate is not None:
+            competition_rate, competition_rate_source = subscription_rate, "subscription"
+        elif demand_rate is not None:
+            competition_rate, competition_rate_source = demand_rate, "demand"
+        else:
+            competition_rate, competition_rate_source = None, None
+
+        entries.append({
+            "no": no,
+            "corp_name": corp_name,
+            "stock_code": detail.get("stock_code"),
+            "market": detail.get("market"),
+            "sector": detail.get("sector"),
+            "ceo": detail.get("ceo"),
+            "address": detail.get("address"),
+            "homepage": detail.get("homepage"),
+            "revenue": detail.get("revenue"),
+            "net_income": detail.get("net_income"),
+            "price_band": row["price_band"],
+            "fixed_price": row["fixed_price"],
+            "underwriters": row["underwriters"],
+            "demand_period": {"start": detail.get("demand_start"), "end": detail.get("demand_end")},
+            "subscription_period": {
+                "start": detail.get("subscription_start") or row["subscription_start"],
+                "end": detail.get("subscription_end") or row["subscription_end"],
+            },
+            "refund_date": detail.get("refund_date"),
+            "listing_date": detail.get("listing_date"),
+            "demand_rate": demand_rate,
+            "subscription_rate": subscription_rate,
+            "competition_rate": competition_rate,
+            "competition_rate_source": competition_rate_source,
+            "is_popular": competition_rate is not None and competition_rate >= POPULAR_THRESHOLD,
+            "news": news,
+            "listing_open_price": None,     # 상장일 09:05 배치(update_open_price.py)가 채운다
+            "listing_change_pct": None,
+        })
+
+    payload = {"generated_at": datetime.now(KST).isoformat(), "entries": entries}
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(IPO_SCHEDULE_PATH, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+    print(f"  {IPO_SCHEDULE_PATH} 에 {len(entries)}건 저장했습니다.")
 
 
 def compute_momentum_score(ohlc: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -1476,6 +1767,9 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--fall);
   }
   .main-tab-link:hover { color: var(--text); }
+  /* "공모주 일정" 탭만 다른 메뉴들의 레드/골드 톤과 다르게 --ma20(보라, 이미 차트 이동평균선에
+     쓰던 색을 재사용 - 새 변수 안 만듦)로 포인트를 줘서 "별도 정보 공간" 느낌을 낸다. */
+  #tab-ipo.active { border-bottom-color: var(--ma20); color: var(--ma20); }
   #date-select {
     background: var(--surface);
     color: var(--text);
@@ -1930,6 +2224,137 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-family: var(--mono);
   }
 
+  /* 공모주 일정 - 다른 탭들의 레드/골드 톤과 구분되게 --ma20(보라) 포인트만 다르게 씀 */
+  .ipo-subtabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .ipo-subtab {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text-muted);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: 20px;
+  }
+  .ipo-subtab.active {
+    color: var(--bg);
+    background: var(--ma20);
+    border-color: var(--ma20);
+    font-weight: 600;
+  }
+  .ipo-card {
+    background: linear-gradient(180deg, var(--surface) 0%, #14101c 100%);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--ma20);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .ipo-card-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+    padding: 14px 16px;
+    cursor: pointer;
+  }
+  .ipo-card-name { font-size: 16px; font-weight: 600; }
+  .ipo-listed-tag {
+    margin-left: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    padding: 1px 6px;
+  }
+  .ipo-popular-badge {
+    margin-left: 6px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(185, 138, 242, 0.18);
+    color: var(--ma20);
+    font-weight: 600;
+  }
+  .ipo-card-meta {
+    flex: 1;
+    min-width: 160px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .ipo-rate {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ma20);
+    white-space: nowrap;
+  }
+  .ipo-rate.ipo-rate-empty {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  .ipo-card-body {
+    display: none;
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--line);
+  }
+  .ipo-card.open .ipo-card-body { display: block; }
+  .ipo-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .ipo-info-item span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  .ipo-news-head {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 14px 0 6px;
+  }
+  .ipo-news-item {
+    display: block;
+    padding: 7px 0;
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+  }
+  .ipo-news-item:hover { color: var(--ma20); }
+  .ipo-news-source {
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-left: 6px;
+  }
+  .ipo-news-empty, .ipo-empty {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 8px 0;
+  }
+  .ipo-completed-toggle {
+    display: block;
+    width: 100%;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 8px;
+    text-align: center;
+    margin-top: 4px;
+  }
+  .ipo-completed-toggle:hover { color: var(--text); border-color: #3A4656; }
+
   @media (max-width: 420px) {
     .corp-name { font-size: 15px; }
     .masthead h1 { font-size: 22px; }
@@ -1966,6 +2391,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
       <button class="main-tab" id="tab-criteria" data-tab="criteria">추천 기준</button>
       <button class="main-tab active" id="tab-stocks" data-tab="stocks">추천 종목 상세</button>
       <button class="main-tab" id="tab-verification" data-tab="verification">추천종목검증</button>
+      <button class="main-tab" id="tab-ipo" data-tab="ipo">공모주 일정</button>
       <a class="main-tab main-tab-link" href="profit.html">내 수익 관리 &rarr;</a>
     </nav>
 
@@ -1976,6 +2402,15 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div id="panel-verification" hidden>
       <div id="verification-summary" class="content-panel verify-summary"></div>
       <div id="verification-list"><div class="loading">불러오는 중...</div></div>
+    </div>
+
+    <div id="panel-ipo" hidden>
+      <nav class="ipo-subtabs">
+        <button class="ipo-subtab active" id="ipo-subtab-popular" data-ipo-tab="popular">🔥 인기 공모주</button>
+        <button class="ipo-subtab" id="ipo-subtab-pending" data-ipo-tab="pending">수요예측 예정</button>
+        <button class="ipo-subtab" id="ipo-subtab-all" data-ipo-tab="all">전체 일정</button>
+      </nav>
+      <div id="ipo-list"><div class="loading">불러오는 중...</div></div>
     </div>
 
     <div id="panel-criteria" hidden>
@@ -2077,11 +2512,16 @@ function switchMainTab(tab) {
   document.getElementById('tab-stocks').classList.toggle('active', tab === 'stocks');
   document.getElementById('tab-criteria').classList.toggle('active', tab === 'criteria');
   document.getElementById('tab-verification').classList.toggle('active', tab === 'verification');
+  document.getElementById('tab-ipo').classList.toggle('active', tab === 'ipo');
   document.getElementById('panel-stocks').hidden = tab !== 'stocks';
   document.getElementById('panel-criteria').hidden = tab !== 'criteria';
   document.getElementById('panel-verification').hidden = tab !== 'verification';
+  document.getElementById('panel-ipo').hidden = tab !== 'ipo';
   if (tab === 'verification' && !verificationLoaded) {
     loadVerificationData();
+  }
+  if (tab === 'ipo' && !ipoLoaded) {
+    loadIpoSchedule();
   }
 }
 
@@ -2124,6 +2564,138 @@ async function loadVerificationData() {
   } catch (e) {
     summaryEl.innerHTML = '';
     listEl.innerHTML = '<div class="empty">검증 데이터를 불러오지 못했습니다.</div>';
+  }
+}
+
+// 인기도 기준값 - build_ipo_schedule()의 POPULAR_THRESHOLD(dart_top3.py)와 반드시 같은 값으로
+// 맞춰야 한다(서버가 is_popular을 미리 계산해 주지만, 탭 카운트 표시 등에 클라이언트에서도 씀).
+const POPULAR_THRESHOLD = 500;
+
+let ipoLoaded = false;
+let ipoEntries = [];
+let ipoSubTab = 'popular';
+
+function todayIso() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function renderIpoInfoGrid(e) {
+  const items = [
+    ['시장구분', e.market || '-'],
+    ['공모가', e.fixed_price ? `${e.fixed_price.toLocaleString()}원` : (e.price_band ? `${e.price_band}원 (희망밴드)` : '-')],
+  ];
+  if (e.listing_open_price != null) {
+    const cls = e.listing_change_pct > 0 ? 'delta-up' : e.listing_change_pct < 0 ? 'delta-down' : '';
+    const sign = e.listing_change_pct > 0 ? '+' : '';
+    items.push(['상장일 시초가', `${e.listing_open_price.toLocaleString()}원 <span class="${cls}">(${sign}${e.listing_change_pct}%)</span>`]);
+  }
+  items.push(
+    ['수요예측일', e.demand_period && e.demand_period.start ? `${e.demand_period.start} ~ ${e.demand_period.end}` : '-'],
+    ['청약일', e.subscription_period && e.subscription_period.start ? `${e.subscription_period.start} ~ ${e.subscription_period.end}` : '-'],
+    ['환불일', e.refund_date || '-'],
+    ['상장일', e.listing_date || '-'],
+    ['주간사', e.underwriters || '-'],
+    ['업종', e.sector || '-'],
+    ['대표자', e.ceo || '-'],
+    ['본점소재지', e.address || '-'],
+  );
+  return items.map(([label, value]) => `<div class="ipo-info-item"><span>${label}</span>${value}</div>`).join('');
+}
+
+function renderIpoNews(news) {
+  if (!news || !news.length) {
+    return '<div class="ipo-news-empty">관련 뉴스를 찾지 못했습니다.</div>';
+  }
+  return news.map(n => `
+    <a class="ipo-news-item" href="${n.url}" target="_blank" rel="noopener noreferrer">
+      ${n.title}<span class="ipo-news-source">${n.source}</span>
+    </a>`).join('');
+}
+
+function renderIpoCard(e) {
+  const rateText = e.competition_rate != null
+    ? `<span class="ipo-rate">${e.competition_rate.toFixed(2)}:1</span>`
+    : '<span class="ipo-rate ipo-rate-empty">경쟁률 정보 없음</span>';
+  const badge = e.is_popular ? '<span class="ipo-popular-badge">🔥 인기</span>' : '';
+  const listedTag = e.listing_date && e.listing_date < todayIso() ? '<span class="ipo-listed-tag">상장완료</span>' : '';
+  const period = e.subscription_period && e.subscription_period.start
+    ? `청약 ${e.subscription_period.start} ~ ${e.subscription_period.end}`
+    : '청약일 미정';
+  return `
+    <div class="ipo-card" data-no="${e.no}">
+      <div class="ipo-card-head">
+        <div class="ipo-card-name">${e.corp_name}${badge}${listedTag}</div>
+        <div class="ipo-card-meta">${e.market || ''} · ${period}</div>
+        ${rateText}
+      </div>
+      <div class="ipo-card-body">
+        <div class="ipo-info-grid">${renderIpoInfoGrid(e)}</div>
+        <div class="ipo-news-head">관련 뉴스</div>
+        <div class="ipo-news-list">${renderIpoNews(e.news)}</div>
+      </div>
+    </div>`;
+}
+
+function wireIpoCards() {
+  document.querySelectorAll('#ipo-list .ipo-card-head').forEach((head) => {
+    head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+  });
+}
+
+function renderIpoList() {
+  const listEl = document.getElementById('ipo-list');
+  const today = todayIso();
+
+  if (ipoSubTab === 'all') {
+    const upcoming = ipoEntries.filter(e => !(e.listing_date && e.listing_date < today));
+    const completed = ipoEntries.filter(e => e.listing_date && e.listing_date < today);
+    upcoming.sort((a, b) => (a.subscription_period.start || '9999').localeCompare(b.subscription_period.start || '9999'));
+    completed.sort((a, b) => (b.listing_date || '').localeCompare(a.listing_date || ''));
+
+    const upcomingHtml = upcoming.length
+      ? upcoming.map(renderIpoCard).join('')
+      : '<div class="ipo-empty">예정된 공모주 일정이 없습니다.</div>';
+    const completedHtml = completed.length
+      ? `<button class="ipo-completed-toggle" id="ipo-completed-toggle">상장완료 ${completed.length}건 더보기 ▾</button>
+         <div id="ipo-completed-list" hidden>${completed.map(renderIpoCard).join('')}</div>`
+      : '';
+    listEl.innerHTML = upcomingHtml + completedHtml;
+
+    const toggleBtn = document.getElementById('ipo-completed-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const box = document.getElementById('ipo-completed-list');
+        box.hidden = !box.hidden;
+        toggleBtn.textContent = box.hidden ? `상장완료 ${completed.length}건 더보기 ▾` : '상장완료 접기 ▴';
+      });
+    }
+  } else {
+    let filtered;
+    if (ipoSubTab === 'popular') {
+      filtered = ipoEntries.filter(e => e.is_popular);
+      filtered.sort((a, b) => (b.competition_rate || 0) - (a.competition_rate || 0));
+    } else {
+      filtered = ipoEntries.filter(e => e.competition_rate == null);
+      filtered.sort((a, b) => (a.subscription_period.start || '9999').localeCompare(b.subscription_period.start || '9999'));
+    }
+    listEl.innerHTML = filtered.length
+      ? filtered.map(renderIpoCard).join('')
+      : '<div class="ipo-empty">해당하는 공모주가 없습니다.</div>';
+  }
+  wireIpoCards();
+}
+
+async function loadIpoSchedule() {
+  ipoLoaded = true;
+  const listEl = document.getElementById('ipo-list');
+  try {
+    const res = await fetch('data/ipo_schedule.json');
+    const data = await res.json();
+    ipoEntries = data.entries || [];
+    renderIpoList();
+  } catch (e) {
+    listEl.innerHTML = '<div class="ipo-empty">공모주 일정을 불러오지 못했습니다.</div>';
   }
 }
 
@@ -2528,6 +3100,14 @@ async function init() {
   document.getElementById('tab-stocks').addEventListener('click', () => switchMainTab('stocks'));
   document.getElementById('tab-criteria').addEventListener('click', () => switchMainTab('criteria'));
   document.getElementById('tab-verification').addEventListener('click', () => switchMainTab('verification'));
+  document.getElementById('tab-ipo').addEventListener('click', () => switchMainTab('ipo'));
+  document.querySelectorAll('.ipo-subtab').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      ipoSubTab = btn.dataset.ipoTab;
+      document.querySelectorAll('.ipo-subtab').forEach((b) => b.classList.toggle('active', b === btn));
+      renderIpoList();
+    });
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
@@ -2572,6 +3152,11 @@ def main() -> None:
     disclosures = fetch_kospi_disclosures(api_key, target_date)
 
     save_index_html()  # index.html은 데이터와 무관한 고정 템플릿이라 항상 최신으로 유지
+
+    try:
+        build_ipo_schedule()
+    except Exception as e:
+        print(f"  (참고) 공모주 일정 갱신 전체 실패: {type(e).__name__}: {e}", file=sys.stderr)
 
     if not disclosures:
         print(f"{target_date.isoformat()}(전일) 조회된 코스피 공시가 없습니다.")

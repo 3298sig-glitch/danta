@@ -242,6 +242,9 @@
     color: var(--fall);
   }
   .main-tab-link:hover { color: var(--text); }
+  /* "공모주 일정" 탭만 다른 메뉴들의 레드/골드 톤과 다르게 --ma20(보라, 이미 차트 이동평균선에
+     쓰던 색을 재사용 - 새 변수 안 만듦)로 포인트를 줘서 "별도 정보 공간" 느낌을 낸다. */
+  #tab-ipo.active { border-bottom-color: var(--ma20); color: var(--ma20); }
   #date-select {
     background: var(--surface);
     color: var(--text);
@@ -696,6 +699,137 @@
     font-family: var(--mono);
   }
 
+  /* 공모주 일정 - 다른 탭들의 레드/골드 톤과 구분되게 --ma20(보라) 포인트만 다르게 씀 */
+  .ipo-subtabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .ipo-subtab {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text-muted);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: 20px;
+  }
+  .ipo-subtab.active {
+    color: var(--bg);
+    background: var(--ma20);
+    border-color: var(--ma20);
+    font-weight: 600;
+  }
+  .ipo-card {
+    background: linear-gradient(180deg, var(--surface) 0%, #14101c 100%);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--ma20);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .ipo-card-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+    padding: 14px 16px;
+    cursor: pointer;
+  }
+  .ipo-card-name { font-size: 16px; font-weight: 600; }
+  .ipo-listed-tag {
+    margin-left: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    padding: 1px 6px;
+  }
+  .ipo-popular-badge {
+    margin-left: 6px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(185, 138, 242, 0.18);
+    color: var(--ma20);
+    font-weight: 600;
+  }
+  .ipo-card-meta {
+    flex: 1;
+    min-width: 160px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .ipo-rate {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ma20);
+    white-space: nowrap;
+  }
+  .ipo-rate.ipo-rate-empty {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  .ipo-card-body {
+    display: none;
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--line);
+  }
+  .ipo-card.open .ipo-card-body { display: block; }
+  .ipo-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .ipo-info-item span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  .ipo-news-head {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 14px 0 6px;
+  }
+  .ipo-news-item {
+    display: block;
+    padding: 7px 0;
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+  }
+  .ipo-news-item:hover { color: var(--ma20); }
+  .ipo-news-source {
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-left: 6px;
+  }
+  .ipo-news-empty, .ipo-empty {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 8px 0;
+  }
+  .ipo-completed-toggle {
+    display: block;
+    width: 100%;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 8px;
+    text-align: center;
+    margin-top: 4px;
+  }
+  .ipo-completed-toggle:hover { color: var(--text); border-color: #3A4656; }
+
   @media (max-width: 420px) {
     .corp-name { font-size: 15px; }
     .masthead h1 { font-size: 22px; }
@@ -732,6 +866,7 @@
       <button class="main-tab" id="tab-criteria" data-tab="criteria">추천 기준</button>
       <button class="main-tab active" id="tab-stocks" data-tab="stocks">추천 종목 상세</button>
       <button class="main-tab" id="tab-verification" data-tab="verification">추천종목검증</button>
+      <button class="main-tab" id="tab-ipo" data-tab="ipo">공모주 일정</button>
       <a class="main-tab main-tab-link" href="profit.html">내 수익 관리 &rarr;</a>
     </nav>
 
@@ -742,6 +877,15 @@
     <div id="panel-verification" hidden>
       <div id="verification-summary" class="content-panel verify-summary"></div>
       <div id="verification-list"><div class="loading">불러오는 중...</div></div>
+    </div>
+
+    <div id="panel-ipo" hidden>
+      <nav class="ipo-subtabs">
+        <button class="ipo-subtab active" id="ipo-subtab-popular" data-ipo-tab="popular">🔥 인기 공모주</button>
+        <button class="ipo-subtab" id="ipo-subtab-pending" data-ipo-tab="pending">수요예측 예정</button>
+        <button class="ipo-subtab" id="ipo-subtab-all" data-ipo-tab="all">전체 일정</button>
+      </nav>
+      <div id="ipo-list"><div class="loading">불러오는 중...</div></div>
     </div>
 
     <div id="panel-criteria" hidden>
@@ -850,11 +994,16 @@ function switchMainTab(tab) {
   document.getElementById('tab-stocks').classList.toggle('active', tab === 'stocks');
   document.getElementById('tab-criteria').classList.toggle('active', tab === 'criteria');
   document.getElementById('tab-verification').classList.toggle('active', tab === 'verification');
+  document.getElementById('tab-ipo').classList.toggle('active', tab === 'ipo');
   document.getElementById('panel-stocks').hidden = tab !== 'stocks';
   document.getElementById('panel-criteria').hidden = tab !== 'criteria';
   document.getElementById('panel-verification').hidden = tab !== 'verification';
+  document.getElementById('panel-ipo').hidden = tab !== 'ipo';
   if (tab === 'verification' && !verificationLoaded) {
     loadVerificationData();
+  }
+  if (tab === 'ipo' && !ipoLoaded) {
+    loadIpoSchedule();
   }
 }
 
@@ -897,6 +1046,138 @@ async function loadVerificationData() {
   } catch (e) {
     summaryEl.innerHTML = '';
     listEl.innerHTML = '<div class="empty">검증 데이터를 불러오지 못했습니다.</div>';
+  }
+}
+
+// 인기도 기준값 - build_ipo_schedule()의 POPULAR_THRESHOLD(dart_top3.py)와 반드시 같은 값으로
+// 맞춰야 한다(서버가 is_popular을 미리 계산해 주지만, 탭 카운트 표시 등에 클라이언트에서도 씀).
+const POPULAR_THRESHOLD = 500;
+
+let ipoLoaded = false;
+let ipoEntries = [];
+let ipoSubTab = 'popular';
+
+function todayIso() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function renderIpoInfoGrid(e) {
+  const items = [
+    ['시장구분', e.market || '-'],
+    ['공모가', e.fixed_price ? `${e.fixed_price.toLocaleString()}원` : (e.price_band ? `${e.price_band}원 (희망밴드)` : '-')],
+  ];
+  if (e.listing_open_price != null) {
+    const cls = e.listing_change_pct > 0 ? 'delta-up' : e.listing_change_pct < 0 ? 'delta-down' : '';
+    const sign = e.listing_change_pct > 0 ? '+' : '';
+    items.push(['상장일 시초가', `${e.listing_open_price.toLocaleString()}원 <span class="${cls}">(${sign}${e.listing_change_pct}%)</span>`]);
+  }
+  items.push(
+    ['수요예측일', e.demand_period && e.demand_period.start ? `${e.demand_period.start} ~ ${e.demand_period.end}` : '-'],
+    ['청약일', e.subscription_period && e.subscription_period.start ? `${e.subscription_period.start} ~ ${e.subscription_period.end}` : '-'],
+    ['환불일', e.refund_date || '-'],
+    ['상장일', e.listing_date || '-'],
+    ['주간사', e.underwriters || '-'],
+    ['업종', e.sector || '-'],
+    ['대표자', e.ceo || '-'],
+    ['본점소재지', e.address || '-'],
+  );
+  return items.map(([label, value]) => `<div class="ipo-info-item"><span>${label}</span>${value}</div>`).join('');
+}
+
+function renderIpoNews(news) {
+  if (!news || !news.length) {
+    return '<div class="ipo-news-empty">관련 뉴스를 찾지 못했습니다.</div>';
+  }
+  return news.map(n => `
+    <a class="ipo-news-item" href="${n.url}" target="_blank" rel="noopener noreferrer">
+      ${n.title}<span class="ipo-news-source">${n.source}</span>
+    </a>`).join('');
+}
+
+function renderIpoCard(e) {
+  const rateText = e.competition_rate != null
+    ? `<span class="ipo-rate">${e.competition_rate.toFixed(2)}:1</span>`
+    : '<span class="ipo-rate ipo-rate-empty">경쟁률 정보 없음</span>';
+  const badge = e.is_popular ? '<span class="ipo-popular-badge">🔥 인기</span>' : '';
+  const listedTag = e.listing_date && e.listing_date < todayIso() ? '<span class="ipo-listed-tag">상장완료</span>' : '';
+  const period = e.subscription_period && e.subscription_period.start
+    ? `청약 ${e.subscription_period.start} ~ ${e.subscription_period.end}`
+    : '청약일 미정';
+  return `
+    <div class="ipo-card" data-no="${e.no}">
+      <div class="ipo-card-head">
+        <div class="ipo-card-name">${e.corp_name}${badge}${listedTag}</div>
+        <div class="ipo-card-meta">${e.market || ''} · ${period}</div>
+        ${rateText}
+      </div>
+      <div class="ipo-card-body">
+        <div class="ipo-info-grid">${renderIpoInfoGrid(e)}</div>
+        <div class="ipo-news-head">관련 뉴스</div>
+        <div class="ipo-news-list">${renderIpoNews(e.news)}</div>
+      </div>
+    </div>`;
+}
+
+function wireIpoCards() {
+  document.querySelectorAll('#ipo-list .ipo-card-head').forEach((head) => {
+    head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+  });
+}
+
+function renderIpoList() {
+  const listEl = document.getElementById('ipo-list');
+  const today = todayIso();
+
+  if (ipoSubTab === 'all') {
+    const upcoming = ipoEntries.filter(e => !(e.listing_date && e.listing_date < today));
+    const completed = ipoEntries.filter(e => e.listing_date && e.listing_date < today);
+    upcoming.sort((a, b) => (a.subscription_period.start || '9999').localeCompare(b.subscription_period.start || '9999'));
+    completed.sort((a, b) => (b.listing_date || '').localeCompare(a.listing_date || ''));
+
+    const upcomingHtml = upcoming.length
+      ? upcoming.map(renderIpoCard).join('')
+      : '<div class="ipo-empty">예정된 공모주 일정이 없습니다.</div>';
+    const completedHtml = completed.length
+      ? `<button class="ipo-completed-toggle" id="ipo-completed-toggle">상장완료 ${completed.length}건 더보기 ▾</button>
+         <div id="ipo-completed-list" hidden>${completed.map(renderIpoCard).join('')}</div>`
+      : '';
+    listEl.innerHTML = upcomingHtml + completedHtml;
+
+    const toggleBtn = document.getElementById('ipo-completed-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const box = document.getElementById('ipo-completed-list');
+        box.hidden = !box.hidden;
+        toggleBtn.textContent = box.hidden ? `상장완료 ${completed.length}건 더보기 ▾` : '상장완료 접기 ▴';
+      });
+    }
+  } else {
+    let filtered;
+    if (ipoSubTab === 'popular') {
+      filtered = ipoEntries.filter(e => e.is_popular);
+      filtered.sort((a, b) => (b.competition_rate || 0) - (a.competition_rate || 0));
+    } else {
+      filtered = ipoEntries.filter(e => e.competition_rate == null);
+      filtered.sort((a, b) => (a.subscription_period.start || '9999').localeCompare(b.subscription_period.start || '9999'));
+    }
+    listEl.innerHTML = filtered.length
+      ? filtered.map(renderIpoCard).join('')
+      : '<div class="ipo-empty">해당하는 공모주가 없습니다.</div>';
+  }
+  wireIpoCards();
+}
+
+async function loadIpoSchedule() {
+  ipoLoaded = true;
+  const listEl = document.getElementById('ipo-list');
+  try {
+    const res = await fetch('data/ipo_schedule.json');
+    const data = await res.json();
+    ipoEntries = data.entries || [];
+    renderIpoList();
+  } catch (e) {
+    listEl.innerHTML = '<div class="ipo-empty">공모주 일정을 불러오지 못했습니다.</div>';
   }
 }
 
@@ -1301,6 +1582,14 @@ async function init() {
   document.getElementById('tab-stocks').addEventListener('click', () => switchMainTab('stocks'));
   document.getElementById('tab-criteria').addEventListener('click', () => switchMainTab('criteria'));
   document.getElementById('tab-verification').addEventListener('click', () => switchMainTab('verification'));
+  document.getElementById('tab-ipo').addEventListener('click', () => switchMainTab('ipo'));
+  document.querySelectorAll('.ipo-subtab').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      ipoSubTab = btn.dataset.ipoTab;
+      document.querySelectorAll('.ipo-subtab').forEach((b) => b.classList.toggle('active', b === btn));
+      renderIpoList();
+    });
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });

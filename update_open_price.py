@@ -38,6 +38,7 @@ from typing import Any, Dict
 
 from dart_top3 import (
     DATA_DIR,
+    IPO_SCHEDULE_PATH,
     fetch_daily_ohlc,
     fetch_kospi_market_summary,
     fetch_market_headlines,
@@ -78,6 +79,50 @@ def get_today_json_path() -> str:
     # dart_top3.py가 오늘(kst_today()) 날짜로 저장한 파일과 반드시 같은 기준을 써야
     # 07:00이 방금 만든 파일을 09:05가 제대로 찾을 수 있다.
     return os.path.join(DATA_DIR, f"{kst_today().isoformat()}.json")
+
+
+def update_ipo_listing_day_prices() -> None:
+    """오늘 상장하는 공모주가 있으면 시초가와 공모가 대비 등락률을 ipo_schedule.json에 반영한다.
+
+    이미 있는 시가 조회 로직(fetch_naver_integration)을 그대로 재사용한다 - 상장일
+    당일이면 이미 종목코드가 배정돼 있어 일반 종목과 조회 방식이 같기 때문.
+    ipo_schedule.json 자체(일정/회사소개/뉴스)는 07:00 배치(dart_top3.py)가 하루 한 번만
+    새로 만들고, 여기서는 상장일 종목의 시초가 필드만 추가로 채워 넣는다.
+    """
+    if not os.path.exists(IPO_SCHEDULE_PATH):
+        return
+    try:
+        with open(IPO_SCHEDULE_PATH, "r", encoding="utf-8") as f:
+            payload = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return
+
+    today = kst_today().isoformat()
+    changed = False
+    for entry in payload.get("entries", []):
+        if entry.get("listing_date") != today:
+            continue
+        stock_code = entry.get("stock_code")
+        fixed_price = entry.get("fixed_price")
+        if not stock_code or not fixed_price:
+            continue
+        print(f"{entry.get('corp_name')}({stock_code}) 상장일 시초가 조회 중...")
+        try:
+            naver = fetch_naver_integration(stock_code)
+            open_price = naver.get("open_price")
+            if not open_price:
+                warn(f"{entry.get('corp_name')} 상장일 시초가를 가져오지 못했습니다.")
+                continue
+            entry["listing_open_price"] = open_price
+            entry["listing_change_pct"] = round((open_price - fixed_price) / fixed_price * 100, 2)
+            changed = True
+            print(f"  시초가 {open_price:,}원 (공모가 대비 {entry['listing_change_pct']:+.2f}%)")
+        except Exception as e:
+            warn(f"{entry.get('corp_name')} 상장일 시초가 조회 실패: {type(e).__name__}: {e}")
+
+    if changed:
+        with open(IPO_SCHEDULE_PATH, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
 
 
 def main() -> None:
@@ -163,3 +208,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    # 오늘 공시 기반 추천이 없어 main()이 일찍 끝났더라도, 공모주 상장일 시초가
+    # 반영은 별개 데이터(ipo_schedule.json)라 항상 시도한다.
+    update_ipo_listing_day_prices()

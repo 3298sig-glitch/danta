@@ -1,0 +1,1521 @@
+{
+  "generated_at": "2026-08-20T14:40:15.680169+09:00",
+  "entries": [
+    {
+      "no": "2294",
+      "corp_name": "빅웨이브로보틱스",
+      "stock_code": "0035S0",
+      "market": "코스닥",
+      "sector": "포털 및 기타 인터넷 정보매개 서비스업",
+      "ceo": "김민교",
+      "address": "서울 강남구 영동대로106길 11, 501호, 501-1호, 501-에이호 (삼성동,현성빌딩)",
+      "homepage": "http://myrobotsolution.com/",
+      "revenue": "13,851 (백만원)",
+      "net_income": "-5,856 (백만원)",
+      "price_band": "20,000~24,000",
+      "fixed_price": null,
+      "underwriters": "유진투자증권,미래에셋증권",
+      "demand_period": {
+        "start": "2026-09-07",
+        "end": "2026-09-11"
+      },
+      "subscription_period": {
+        "start": "2026-09-16",
+        "end": "2026-09-17"
+      },
+      "refund_date": "2026-09-21",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "레인보우로보틱스, 빅웨이브로보틱스와 북미 시장 공략 MOU",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260820_0003755626"
+        },
+        {
+          "title": "레인보우로보틱스, 빅웨이브로보틱스와 북미 시장 진출 위한 업무협약 ...",
+          "source": "biz.chosun.com",
+          "url": "https://biz.chosun.com/industry/company/2026/08/20/KEQZ657HGRBO7ILRO3WJISUGFU/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
+        },
+        {
+          "title": "레인보우로보틱스-빅웨이브로보틱스, 북미 로봇시장 공략 ‘맞손’",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02902806645549288"
+        },
+        {
+          "title": "레인보우로보틱스-빅웨이브로보틱스, 통합 솔루션으로 북미 로봇 자동화...",
+          "source": "zdnet.co.kr",
+          "url": "https://zdnet.co.kr/view/?no=20260820093538"
+        },
+        {
+          "title": "빅웨이브로보틱스, 한국오므론제어기기와 MOU",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03099606645544368"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2309",
+      "corp_name": "덕산넵코어스(구.넵코어스)",
+      "stock_code": "266690",
+      "market": "코스닥",
+      "sector": "기타 무선 통신장비 제조업",
+      "ceo": "정해호",
+      "address": "대전광역시 유성구 테크노2로 66-6 (관평동)",
+      "homepage": "http://www.navcours.com",
+      "revenue": "45,242 (백만원)",
+      "net_income": "1,353 (백만원)",
+      "price_band": "12,400~14,600",
+      "fixed_price": null,
+      "underwriters": "대신증권",
+      "demand_period": {
+        "start": "2026-09-08",
+        "end": "2026-09-14"
+      },
+      "subscription_period": {
+        "start": "2026-09-16",
+        "end": "2026-09-17"
+      },
+      "refund_date": "2026-09-21",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2310",
+      "corp_name": "글로벌테크놀로지",
+      "stock_code": "486510",
+      "market": "코스닥",
+      "sector": "전기용 기계ㆍ장비 및 관련 기자재 도매업",
+      "ceo": "김민선",
+      "address": "경기도 화성시 동탄대로21길 10 303-1호(영천동 더퍼스트타워)",
+      "homepage": "http://www.glbltech.com",
+      "revenue": "29,689 (백만원)",
+      "net_income": "-25,889 (백만원)",
+      "price_band": "13,000~15,000",
+      "fixed_price": null,
+      "underwriters": "한국투자증권",
+      "demand_period": {
+        "start": "2026-09-07",
+        "end": "2026-09-11"
+      },
+      "subscription_period": {
+        "start": "2026-09-16",
+        "end": "2026-09-17"
+      },
+      "refund_date": "2026-09-21",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "[인터뷰] 글로벌테크놀로지 \"TV 넘어 車·차세대 디스플레이로…신사업...",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260819000948"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2311",
+      "corp_name": "와이즈플래닛컴퍼니",
+      "stock_code": "0010S0",
+      "market": "코스닥",
+      "sector": "광고물 문안, 도안, 설계 등 작성업",
+      "ceo": "주경민",
+      "address": "서울특별시 금천구 벚꽃로 244 (가산동, 벽산디지털밸리5차), 906호",
+      "homepage": "http://wplanet.co.kr",
+      "revenue": "64,848 (백만원)",
+      "net_income": "9,375 (백만원)",
+      "price_band": "10,000~12,000",
+      "fixed_price": null,
+      "underwriters": "대신증권",
+      "demand_period": {
+        "start": "2026-09-04",
+        "end": "2026-09-10"
+      },
+      "subscription_period": {
+        "start": "2026-09-14",
+        "end": "2026-09-15"
+      },
+      "refund_date": "2026-09-17",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "[와이즈플래닛컴퍼니 IPO] ①'1등' 문구 지우고 '재구매율 55%' 제시한 배...",
+          "source": "smarttoday.co.kr",
+          "url": "https://www.smarttoday.co.kr/ko-kr/articles/110493"
+        },
+        {
+          "title": "[IPO워치] 피어 에이피알 제외…보수적 산정 I 와이즈플래닛컴퍼니②",
+          "source": "bloter.net",
+          "url": "https://www.bloter.net/news/articleView.html?idxno=670379"
+        },
+        {
+          "title": "와이즈플래닛컴퍼니, 증권신고서 제출…코스닥 상장 본격화",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260730_0003729034"
+        },
+        {
+          "title": "와이즈플래닛컴퍼니, 증권신고서 제출…코스닥 상장 절차 본격화",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03165206645519768"
+        },
+        {
+          "title": "와이즈플래닛컴퍼니, 증권신고서 제출… 코스닥 상장 절차 본격화",
+          "source": "view.asiae.co.kr",
+          "url": "https://view.asiae.co.kr/article/2026073008090200324"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2308",
+      "corp_name": "네오사피엔스",
+      "stock_code": "0161M0",
+      "market": "코스닥",
+      "sector": "소프트웨어 개발 및 공급업",
+      "ceo": "김태수",
+      "address": "서울특별시 강남구 영동대로96길 20 5층 (삼성동, 대화빌딩)",
+      "homepage": "http://typecast.ai",
+      "revenue": "10,649 (백만원)",
+      "net_income": "-6,994 (백만원)",
+      "price_band": "13,800~15,800",
+      "fixed_price": null,
+      "underwriters": "대신증권",
+      "demand_period": {
+        "start": "2026-09-02",
+        "end": "2026-09-08"
+      },
+      "subscription_period": {
+        "start": "2026-09-10",
+        "end": "2026-09-11"
+      },
+      "refund_date": "2026-09-15",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "네오사피엔스, ‘타입캐스트’ 월 반복매출 4년간 11배↑",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02633846645548960"
+        },
+        {
+          "title": "네오사피엔스, 타입캐스트 월 반복매출 4년간 11배 성장",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260819000476"
+        },
+        {
+          "title": "네오사피엔스, 코스닥 상장 앞두고 '타입캐스트' 월 반복매출 4년 새 약...",
+          "source": "fntoday.co.kr",
+          "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=390834"
+        },
+        {
+          "title": "네오사피엔스, 코스닥 상장 증권신고서 제출",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260724_0003721376"
+        },
+        {
+          "title": "네오사피엔스, 증권신고서 제출…코스닥 상장 절차 본격화",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03280006645517800"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2313",
+      "corp_name": "KB스팩34호",
+      "stock_code": "0209J0",
+      "market": "코스닥",
+      "sector": "금융 지원 서비스업",
+      "ceo": "전성훈",
+      "address": "서울특별시 영등포구 여의나루로 50 (여의도동, 한국교직원공제회관)",
+      "homepage": "http://",
+      "revenue": "- (백만원)",
+      "net_income": "- (백만원)",
+      "price_band": "2,000~2,000",
+      "fixed_price": null,
+      "underwriters": "KB증권",
+      "demand_period": {
+        "start": "2026-09-04",
+        "end": "2026-09-07"
+      },
+      "subscription_period": {
+        "start": "2026-09-10",
+        "end": "2026-09-11"
+      },
+      "refund_date": "2026-09-15",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2314",
+      "corp_name": "한국스팩17호",
+      "stock_code": "0200G0",
+      "market": "코스닥",
+      "sector": "기타 금융업",
+      "ceo": "이호연",
+      "address": "서울특별시 영등포구 의사당대로 88 (여의도동, 한국투자증권빌딩)",
+      "homepage": "http://",
+      "revenue": "- (백만원)",
+      "net_income": "- (백만원)",
+      "price_band": "2,000~2,000",
+      "fixed_price": null,
+      "underwriters": "한국투자증권",
+      "demand_period": {
+        "start": "2026-09-07",
+        "end": "2026-09-08"
+      },
+      "subscription_period": {
+        "start": "2026-09-10",
+        "end": "2026-09-11"
+      },
+      "refund_date": "2026-09-15",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2307",
+      "corp_name": "브릴스",
+      "stock_code": "468670",
+      "market": "코스닥",
+      "sector": "그 외 기타 특수목적용 기계 제조업",
+      "ceo": "전진",
+      "address": "인천광역시 연수구 갯벌로 94 (송도동, (주)브릴스)",
+      "homepage": "http://www.brils.co.kr",
+      "revenue": "23,759 (백만원)",
+      "net_income": "1,744 (백만원)",
+      "price_band": "16,500~19,500",
+      "fixed_price": null,
+      "underwriters": "IBK투자증권",
+      "demand_period": {
+        "start": "2026-08-31",
+        "end": "2026-09-04"
+      },
+      "subscription_period": {
+        "start": "2026-09-08",
+        "end": "2026-09-09"
+      },
+      "refund_date": "2026-09-11",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "로봇도 레고처럼 조립…브릴스 \"피지컬AI 시장 공략\" [IPO톡톡]",
+          "source": "wowtv.co.kr",
+          "url": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202608130514&amp;t=NNv"
+        },
+        {
+          "title": "브릴스, 코스닥 상장 통해 사업 확장…송도 공장 증설·글로벌 공략",
+          "source": "kyeonggi.com",
+          "url": "https://www.kyeonggi.com/article/20260813580115"
+        },
+        {
+          "title": "전진 브릴스 대표 \"로봇 모듈화로 3년 후 '규모의 경제' 달성\"",
+          "source": "zdnet.co.kr",
+          "url": "https://zdnet.co.kr/view/?no=20260813140743"
+        },
+        {
+          "title": "브릴스, '레고형 로봇 플랫폼' 앞세워 피지컬 AI 시장 공략",
+          "source": "etnews.com",
+          "url": "https://www.etnews.com/20260813000276"
+        },
+        {
+          "title": "브릴스, 9월 코스닥 상장 도전…피지컬 AI로 글로벌 로봇 플랫폼 기업 도...",
+          "source": "inews24.com",
+          "url": "http://www.inews24.com/view/1994792"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2312",
+      "corp_name": "NH스팩34호",
+      "stock_code": "0197V0",
+      "market": "코스닥",
+      "sector": "그 외 기타 분류 안된 금융업",
+      "ceo": "유준수",
+      "address": "서울특별시 영등포구 여의대로 108 (여의도동, 파크원)",
+      "homepage": "http://",
+      "revenue": "- (백만원)",
+      "net_income": "- (백만원)",
+      "price_band": "2,000~2,000",
+      "fixed_price": null,
+      "underwriters": "NH투자증권",
+      "demand_period": {
+        "start": "2026-08-24",
+        "end": "2026-08-25"
+      },
+      "subscription_period": {
+        "start": "2026-09-01",
+        "end": "2026-09-02"
+      },
+      "refund_date": "2026-09-04",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2306",
+      "corp_name": "스카이랩스",
+      "stock_code": "386380",
+      "market": "코스닥",
+      "sector": "의료용 기기 제조업",
+      "ceo": "이병환",
+      "address": "경기 성남시 분당구 판교로255번길 58, 7층 703호 (삼평동,씨즈타워)",
+      "homepage": "http://i-skylabs.com",
+      "revenue": "4,091 (백만원)",
+      "net_income": "-12,668 (백만원)",
+      "price_band": "13,000~16,000",
+      "fixed_price": null,
+      "underwriters": "한국투자증권",
+      "demand_period": {
+        "start": "2026-08-14",
+        "end": "2026-08-21"
+      },
+      "subscription_period": {
+        "start": "2026-08-26",
+        "end": "2026-08-27"
+      },
+      "refund_date": "2026-08-31",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "'스카이랩스 공모주' 수요예측 흥행 기대...상장일 언제?",
+          "source": "gukjenews.com",
+          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3667774"
+        },
+        {
+          "title": "스카이랩스 공모주 수요예측 21일까지…상장일 9월4일",
+          "source": "vegannews.co.kr",
+          "url": "https://www.vegannews.co.kr/news/article.html?no=384826"
+        },
+        {
+          "title": "인제니아·기도산업 코스닥 입성⋯스카이랩스 수요예측",
+          "source": "inews24.com",
+          "url": "http://www.inews24.com/view/1995641"
+        },
+        {
+          "title": "[모닝 리포트] \"스카이랩스, 혈압측정 반지로 코스닥 입성\"",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260818000076"
+        },
+        {
+          "title": "다음 주 IPO 시장, 바이오·의류주 출격…스카이랩스 수요예측 [주간 IP...",
+          "source": "etoday.co.kr",
+          "url": "https://www.etoday.co.kr/news/view/2614688"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2303",
+      "corp_name": "니어스랩",
+      "stock_code": "417030",
+      "market": "코스닥",
+      "sector": "항공기,우주선 및 보조장치 제조업",
+      "ceo": "최재혁",
+      "address": "서울특별시 강남구 논현로 417 (역삼동, 화원빌딩) 5층",
+      "homepage": "http://www.nearthlab.com",
+      "revenue": "5,535 (백만원)",
+      "net_income": "-20,962 (백만원)",
+      "price_band": "30,000~41,200",
+      "fixed_price": 41200,
+      "underwriters": "삼성증권",
+      "demand_period": {
+        "start": "2026-08-03",
+        "end": "2026-08-07"
+      },
+      "subscription_period": {
+        "start": "2026-08-12",
+        "end": "2026-08-13"
+      },
+      "refund_date": "2026-08-18",
+      "listing_date": "2026-08-24",
+      "demand_rate": 743.49,
+      "subscription_rate": 522.99,
+      "competition_rate": 522.99,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "니어스랩, 청약 경쟁률 530대 1…청약 증거금 2.5조",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=05831846645546992"
+        },
+        {
+          "title": "니어스랩, 청약 증거금 2.5조…이달 24일 코스닥 상장 [시그널]",
+          "source": "sedaily.com",
+          "url": "https://www.sedaily.com/article/20079132?ref=naver"
+        },
+        {
+          "title": "니어스랩 2.5조 vs 해치텍 700억",
+          "source": "hankyung.com",
+          "url": "https://www.hankyung.com/article/2026081300971"
+        },
+        {
+          "title": "니어스랩, 청약 경쟁률 530대 1…증거금 2.5兆",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260813_0003748404"
+        },
+        {
+          "title": "니어스랩, 일반청약 경쟁률 530대 1…증거금 2조5000억원",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260813001291"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2304",
+      "corp_name": "해치텍",
+      "stock_code": "0155E0",
+      "market": "코스닥",
+      "sector": "비메모리용 및 기타 전자집적회로 제조업",
+      "ceo": "최성민",
+      "address": "충청북도 청주시 청원구 오창읍 연구단지로 40 (양청리, 충북테크노파크) 비동 307호",
+      "homepage": "http://",
+      "revenue": "14,079 (백만원)",
+      "net_income": "-8,030 (백만원)",
+      "price_band": "23,000~28,000",
+      "fixed_price": 23000,
+      "underwriters": "DB증권",
+      "demand_period": {
+        "start": "2026-08-03",
+        "end": "2026-08-07"
+      },
+      "subscription_period": {
+        "start": "2026-08-12",
+        "end": "2026-08-13"
+      },
+      "refund_date": "2026-08-18",
+      "listing_date": "2026-08-25",
+      "demand_rate": 101.91,
+      "subscription_rate": 25.73,
+      "competition_rate": 25.73,
+      "competition_rate_source": "subscription",
+      "is_popular": false,
+      "news": [
+        {
+          "title": "해치텍, 청약 경쟁률 25.73대 1…증거금 739억",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03768726645547320"
+        },
+        {
+          "title": "[공모주 현황] 해치텍, 반도체 센서 기업…공모가 2만3000원·IC 기술력 ...",
+          "source": "cbci.co.kr",
+          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=597548"
+        },
+        {
+          "title": "'반도체 센서 IC 팹리스' 해치텍, 일반 공모 돌입[오늘청약]",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02958566645546664"
+        },
+        {
+          "title": "'해치텍 공모주' 12~13일 수요예측...공모가와 상장일 체크",
+          "source": "gukjenews.com",
+          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3662043"
+        },
+        {
+          "title": "[상장 기대주 점검] 해치텍, 센서 설계부터 양산 품질 관리까지 내재화",
+          "source": "newstopkorea.com",
+          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=46968"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2305",
+      "corp_name": "기도산업",
+      "stock_code": "282620",
+      "market": "코스닥",
+      "sector": "기타 봉제의복 제조업",
+      "ceo": "박장희",
+      "address": "서울특별시 강서구 공항대로 395 (등촌동, 기도산업사옥)",
+      "homepage": "http://WWW.KIDO.CO.KR",
+      "revenue": "346,551 (백만원)",
+      "net_income": "35,334 (백만원)",
+      "price_band": "24,800~28,400",
+      "fixed_price": 28400,
+      "underwriters": "미래에셋증권,삼성증권",
+      "demand_period": {
+        "start": "2026-07-31",
+        "end": "2026-08-06"
+      },
+      "subscription_period": {
+        "start": "2026-08-11",
+        "end": "2026-08-12"
+      },
+      "refund_date": "2026-08-14",
+      "listing_date": "2026-08-21",
+      "demand_rate": 213.31,
+      "subscription_rate": 5.53,
+      "competition_rate": 5.53,
+      "competition_rate_source": "subscription",
+      "is_popular": false,
+      "news": [
+        {
+          "title": "[주간IPO] 인제니아테라퓨틱스·기도산업, 코스닥 상장",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260814000733"
+        },
+        {
+          "title": "인제니아·기도산업 코스닥 입성⋯스카이랩스 수요예측",
+          "source": "inews24.com",
+          "url": "http://www.inews24.com/view/1995641"
+        },
+        {
+          "title": "[IPO챗] 인제니아·기도산업, 다음주 코스닥 입성",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20260814117900008?input=1195m"
+        },
+        {
+          "title": "인제니아테라퓨틱스·기도산업 상장[증시캘린더]",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=01164406645547976"
+        },
+        {
+          "title": "기도산업, 일반청약 경쟁률 5.5대 1…증거금 330억",
+          "source": "newstopkorea.com",
+          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=46994"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2299",
+      "corp_name": "케이앤에스아이앤씨",
+      "stock_code": "487400",
+      "market": "코스닥",
+      "sector": "기타 무선 통신장비 제조업",
+      "ceo": "진병욱",
+      "address": "대전광역시 유성구 유성대로 1476-55 (화암동)",
+      "homepage": "http://www.kns-kr.com",
+      "revenue": "13,482 (백만원)",
+      "net_income": "-2,213 (백만원)",
+      "price_band": "9,000~11,000",
+      "fixed_price": 11000,
+      "underwriters": "IBK투자증권",
+      "demand_period": {
+        "start": "2026-07-27",
+        "end": "2026-07-31"
+      },
+      "subscription_period": {
+        "start": "2026-08-04",
+        "end": "2026-08-05"
+      },
+      "refund_date": "2026-08-07",
+      "listing_date": "2026-08-13",
+      "demand_rate": 938.24,
+      "subscription_rate": 1079.55,
+      "competition_rate": 1079.55,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "케이앤에스아이앤씨 코스닥시장 상장기념식",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/PYH20260813044400013?input=1196m"
+        },
+        {
+          "title": "케이앤에스아이앤씨 코스닥시장 상장기념식",
+          "source": "news1.kr",
+          "url": "https://www.news1.kr/photos/8053744"
+        },
+        {
+          "title": "케이앤에스아이앤씨, 상장 첫날 39% 상승 마감",
+          "source": "mk.co.kr",
+          "url": "https://www.mk.co.kr/article/12126689"
+        },
+        {
+          "title": "[특징주] 케이앤에스아이앤씨, 코스닥 상장 첫날 95%대 급등",
+          "source": "biz.chosun.com",
+          "url": "https://biz.chosun.com/stock/stock_general/2026/08/13/SWDPUFSKVJCUJDB2FUETHC47HQ/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
+        },
+        {
+          "title": "케이앤에스아이앤씨, 코스닥 상장 첫날 장중 '따블'[특징주]",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03844166645546992"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2302",
+      "corp_name": "딜리셔스",
+      "stock_code": "483350",
+      "market": "코스닥",
+      "sector": "전자상거래 소매 중개업",
+      "ceo": "김준호, 정창한",
+      "address": "서울특별시 종로구 대학로 57 (연건동, 홍익대학교대학로캠퍼스) 5층",
+      "homepage": "http://dealicious.kr/",
+      "revenue": "25,149 (백만원)",
+      "net_income": "-20,419 (백만원)",
+      "price_band": "5,000~7,000",
+      "fixed_price": 7000,
+      "underwriters": "한국투자증권",
+      "demand_period": {
+        "start": "2026-07-23",
+        "end": "2026-07-29"
+      },
+      "subscription_period": {
+        "start": "2026-08-03",
+        "end": "2026-08-04"
+      },
+      "refund_date": "2026-08-06",
+      "listing_date": "2026-08-12",
+      "demand_rate": 184.06,
+      "subscription_rate": 10.29,
+      "competition_rate": 10.29,
+      "competition_rate_source": "subscription",
+      "is_popular": false,
+      "news": [
+        {
+          "title": "독특한 맛 ‘딜리셔스’",
+          "source": "sports.khan.co.kr",
+          "url": "https://sports.khan.co.kr/article/202608200704003?pt=nv"
+        },
+        {
+          "title": "식인 로맨스 '딜리셔스', '한국판 한니발' 호평",
+          "source": "enews.imbc.com",
+          "url": "http://enews.imbc.com/News/RetrieveNewsInfo/515302"
+        },
+        {
+          "title": "‘딜리셔스’ 황우슬혜·김욱 식인 로맨스",
+          "source": "bntnews.co.kr",
+          "url": "https://www.bntnews.co.kr/article/view/bnt202608200019"
+        },
+        {
+          "title": "식인 로맨스까지 등장…황우슬혜·김욱 ‘딜리셔스’ 흥행",
+          "source": "newsen.com",
+          "url": "https://www.newsen.com/news_view.php?uid=202608200655592410"
+        },
+        {
+          "title": "'딜리셔스' 황우슬혜·김욱, 레진스낵 숏드라마서 호흡",
+          "source": "newscj.com",
+          "url": "https://www.newscj.com/news/articleView.html?idxno=3426447"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2298",
+      "corp_name": "인제니아테라퓨틱스",
+      "stock_code": "952509",
+      "market": "코스닥",
+      "sector": "자연과학 및 공학 연구개발업",
+      "ceo": "한상열",
+      "address": "490 Arsenal Way, Suite 100B, Watertown",
+      "homepage": "http://",
+      "revenue": "- (백만원)",
+      "net_income": "- (백만원)",
+      "price_band": "12,000~14,500",
+      "fixed_price": 12000,
+      "underwriters": "삼성증권",
+      "demand_period": {
+        "start": "2026-07-20",
+        "end": "2026-07-24"
+      },
+      "subscription_period": {
+        "start": "2026-07-30",
+        "end": "2026-07-31"
+      },
+      "refund_date": "2026-08-04",
+      "listing_date": "2026-08-18",
+      "demand_rate": 50.4,
+      "subscription_rate": 3.09,
+      "competition_rate": 3.09,
+      "competition_rate_source": "subscription",
+      "is_popular": false,
+      "news": [
+        {
+          "title": "인제니아테라퓨틱스, 오늘 코스닥 상장",
+          "source": "biz.chosun.com",
+          "url": "https://biz.chosun.com/science-chosun/bio/2026/08/18/XQDG7DDSXZEKTGKZZLBUQ6HM2A/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
+        },
+        {
+          "title": "'상장 첫날' 인제니아테라퓨틱스, 17% 급락 딛고 상승 전환[핫종목]",
+          "source": "news1.kr",
+          "url": "https://www.news1.kr/finance/market-exr/6261517"
+        },
+        {
+          "title": "'항체 신약 개발' 인제니아테라퓨틱스, 코스닥 데뷔[오늘상장]",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02614166645548632"
+        },
+        {
+          "title": "인제니아테라퓨틱스, 코스닥 상장…\"후속 파이프라인 개발 가속\"",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/thebio/2026/08/19/2026081809401495773"
+        },
+        {
+          "title": "인제니아테라퓨틱스, 상장 첫날 17% 급락 뒤 반등",
+          "source": "hankyung.com",
+          "url": "https://www.hankyung.com/article/2026081870906"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2301",
+      "corp_name": "에이치엘지노믹스",
+      "stock_code": "0156T0",
+      "market": "코스닥",
+      "sector": "기초 의약물질 제조업",
+      "ceo": "김호진",
+      "address": "경기도 용인시 처인구 원삼면 보개원삼로 1552",
+      "homepage": "http://www.hlgenomics.com",
+      "revenue": "28,877 (백만원)",
+      "net_income": "8,452 (백만원)",
+      "price_band": "18,500~21,500",
+      "fixed_price": 21500,
+      "underwriters": "KB증권,IBK투자증권",
+      "demand_period": {
+        "start": "2026-07-02",
+        "end": "2026-07-08"
+      },
+      "subscription_period": {
+        "start": "2026-07-13",
+        "end": "2026-07-14"
+      },
+      "refund_date": "2026-07-16",
+      "listing_date": "2026-07-24",
+      "demand_rate": null,
+      "subscription_rate": 666.78,
+      "competition_rate": 666.78,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "에이치엘지노믹스, 제2공장 내년 말 준공…원가절감·수출 확대 기대",
+          "source": "news.mtn.co.kr",
+          "url": "https://news.mtn.co.kr/news-detail/2026081415170117336"
+        },
+        {
+          "title": "에이치엘지노믹스, 548억원 규모 제2공장 신축",
+          "source": "medipana.com",
+          "url": "https://www.medipana.com/news/articleView.html?idxno=415888"
+        },
+        {
+          "title": "에이치엘지노믹스 주가, 급등세... 무슨 회사길래?",
+          "source": "ggilbo.com",
+          "url": "https://www.ggilbo.com/news/articleView.html?idxno=1174048"
+        },
+        {
+          "title": "[특징주] 에이치엘지노믹스, 코스닥 입성 첫날 4%대 상승",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20260724040500008?input=1195m"
+        },
+        {
+          "title": "에이치엘지노믹스, 코스닥 데뷔 '순항'…장 초반 공모가 상회",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260724_0003721728"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2296",
+      "corp_name": "레메디",
+      "stock_code": "387690",
+      "market": "코스닥",
+      "sector": "의료용 기기 제조업",
+      "ceo": "이레나",
+      "address": "강원도 춘천시 삭주로145번길 69-14 벤처비즈니스살롱 2층",
+      "homepage": "http://www.remedihc.com",
+      "revenue": "13,441 (백만원)",
+      "net_income": "741 (백만원)",
+      "price_band": "17,800~20,700",
+      "fixed_price": 20700,
+      "underwriters": "KB증권",
+      "demand_period": {
+        "start": "2026-06-17",
+        "end": "2026-06-23"
+      },
+      "subscription_period": {
+        "start": "2026-07-01",
+        "end": "2026-07-02"
+      },
+      "refund_date": "2026-07-06",
+      "listing_date": "2026-07-13",
+      "demand_rate": 1146.41,
+      "subscription_rate": 1706.71,
+      "competition_rate": 1706.71,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "실적 급상승 레메디 23%↑…中 진출 바이오솔루션도 주목[바이오맥짚기...",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03398086645548960"
+        },
+        {
+          "title": "[특징주] 레메디, LG전자 손잡고 배터리 검사시장 진입에 급등…핵심 X-...",
+          "source": "cstimes.com",
+          "url": "https://www.cstimes.com/news/articleView.html?idxno=717431"
+        },
+        {
+          "title": "레메디, LG전자 배터리 검사장비 핵심부품 양산 공급...현장 생산라인 ...",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=541407"
+        },
+        {
+          "title": "레메디, 상반기 영업이익 62억…전년比 489.3%↑",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260814_0003749435"
+        },
+        {
+          "title": "레메디, 상반기 영업익 61억…전년 연간 실적 2배 넘어",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/thebio/2026/08/14/2026081416150745715"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2293",
+      "corp_name": "레몬헬스케어",
+      "stock_code": "365660",
+      "market": "코스닥",
+      "sector": "소프트웨어 개발 및 공급업",
+      "ceo": "홍병진",
+      "address": "서울특별시 금천구 가산디지털1로 145",
+      "homepage": "http://www.lemonhc.com",
+      "revenue": "14,877 (백만원)",
+      "net_income": "-2,898 (백만원)",
+      "price_band": "7,500~10,000",
+      "fixed_price": 10000,
+      "underwriters": "KB증권",
+      "demand_period": {
+        "start": "2026-06-15",
+        "end": "2026-06-19"
+      },
+      "subscription_period": {
+        "start": "2026-06-24",
+        "end": "2026-06-25"
+      },
+      "refund_date": "2026-06-29",
+      "listing_date": "2026-07-06",
+      "demand_rate": 1238.0,
+      "subscription_rate": 1510.57,
+      "competition_rate": 1510.57,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "레몬헬스케어 주가, 8월 18일 장중 5,670원 4.42% 상승",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=540709"
+        },
+        {
+          "title": "[7월 신규상장] 매드업, 레몬헬스케어, 레메디 등",
+          "source": "junggi.co.kr",
+          "url": "https://www.junggi.co.kr/news/articleView.html?idxno=37447"
+        },
+        {
+          "title": "레몬헬스케어 주가, 8월 7일 장중 7,140원 7.05% 상승",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16157342"
+        },
+        {
+          "title": "레몬헬스케어 주가, 8월 6일 6,670원 9.34% 상승 마감",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16156620"
+        },
+        {
+          "title": "레몬헬스케어 주가, 8월 7일 장중 6,750원 1.20% 상승",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=538564"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2290",
+      "corp_name": "매드업",
+      "stock_code": "0039P0",
+      "market": "코스닥",
+      "sector": "소프트웨어 개발 및 공급업",
+      "ceo": "이주민, 이동호",
+      "address": "서울특별시 서초구 서초대로74길 4, 20층",
+      "homepage": "http://madup.com",
+      "revenue": "34,989 (백만원)",
+      "net_income": "-2,728 (백만원)",
+      "price_band": "7,000~8,000",
+      "fixed_price": 8000,
+      "underwriters": "미래에셋증권",
+      "demand_period": {
+        "start": "2026-06-12",
+        "end": "2026-06-18"
+      },
+      "subscription_period": {
+        "start": "2026-06-23",
+        "end": "2026-06-24"
+      },
+      "refund_date": "2026-06-26",
+      "listing_date": "2026-07-01",
+      "demand_rate": 1396.29,
+      "subscription_rate": 3304.76,
+      "competition_rate": 3304.76,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "[7월 신규상장] 매드업, 레몬헬스케어, 레메디 등",
+          "source": "junggi.co.kr",
+          "url": "https://www.junggi.co.kr/news/articleView.html?idxno=37447"
+        },
+        {
+          "title": "매드업 주가, 급등세... 왜?",
+          "source": "ggilbo.com",
+          "url": "https://www.ggilbo.com/news/articleView.html?idxno=1173750"
+        },
+        {
+          "title": "사람 대신 AI가 타깃팅… 매드업, 모바일 광고 효율 극대화 시동",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=474900"
+        },
+        {
+          "title": "힘 못쓰는 7월 새내기주들…'매드업'만 선방했다",
+          "source": "newsdream.kr",
+          "url": "http://www.newsdream.kr/news/articleView.html?idxno=115894"
+        },
+        {
+          "title": "[특징주] 하반기 신규상장株 강세…매드업 '상한가'",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260729000368"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2297",
+      "corp_name": "한국스팩16호",
+      "stock_code": "0164H0",
+      "market": "코스닥",
+      "sector": "그 외 기타 금융 지원 서비스업",
+      "ceo": "민명기",
+      "address": "서울특별시 영등포구 의사당대로 88 (여의도동, 한국투자증권빌딩)",
+      "homepage": "http://",
+      "revenue": "- (백만원)",
+      "net_income": "- (백만원)",
+      "price_band": "2,000~2,000",
+      "fixed_price": 2000,
+      "underwriters": "한국투자증권",
+      "demand_period": {
+        "start": "2026-06-17",
+        "end": "2026-06-18"
+      },
+      "subscription_period": {
+        "start": "2026-06-22",
+        "end": "2026-06-23"
+      },
+      "refund_date": "2026-06-25",
+      "listing_date": "2026-06-30",
+      "demand_rate": 1364.09,
+      "subscription_rate": 1274.77,
+      "competition_rate": 1274.77,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2289",
+      "corp_name": "스트라드비젼",
+      "stock_code": "475040",
+      "market": "코스닥",
+      "sector": "응용소프트웨어 개발 및 공급업",
+      "ceo": "김준환",
+      "address": "경북 포항시 남구 지곡로 394, 제5벤처동 304호, 305호, 306호, 307호, 308호(지곡동,포항테크노파크)",
+      "homepage": "http://www.stradvision.com",
+      "revenue": "11,539 (백만원)",
+      "net_income": "-65,529 (백만원)",
+      "price_band": "12,000~14,000",
+      "fixed_price": 12000,
+      "underwriters": "KB증권",
+      "demand_period": {
+        "start": "2026-06-09",
+        "end": "2026-06-15"
+      },
+      "subscription_period": {
+        "start": "2026-06-18",
+        "end": "2026-06-19"
+      },
+      "refund_date": "2026-06-23",
+      "listing_date": "2026-06-30",
+      "demand_rate": 381.3,
+      "subscription_rate": 45.83,
+      "competition_rate": 45.83,
+      "competition_rate_source": "subscription",
+      "is_popular": false,
+      "news": [
+        {
+          "title": "스트라드비젼, 상반기 매출 52% 증가·영업손실 20% 감소",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/future/2026/08/14/2026081412445397543"
+        },
+        {
+          "title": "스트라드비젼, 상반기 매출 52% 성장…성장·수익성 개선 본격화",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03585046645547320"
+        },
+        {
+          "title": "스트라드비젼, 상반기 매출 52% 증가…영업손실 21% 줄여",
+          "source": "it.chosun.com",
+          "url": "https://it.chosun.com/news/articleView.html?idxno=2023092168242"
+        },
+        {
+          "title": "매출 52% 늘린 스트라드비젼…적자도 64억원 줄였다",
+          "source": "dailian.co.kr",
+          "url": "https://www.dailian.co.kr/news/view/1678380/?sc=Naver"
+        },
+        {
+          "title": "스트라드비젼, 상반기 매출 52% 성장…영업손실 줄여 수익성 개선도",
+          "source": "etnews.com",
+          "url": "https://www.etnews.com/20260814000051"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2291",
+      "corp_name": "져스텍",
+      "stock_code": "153890",
+      "market": "코스닥",
+      "sector": "전동기 및 발전기 제조업",
+      "ceo": "김용일",
+      "address": "경기 평택시 진위면 동천리 613-9",
+      "homepage": "http://www.justek.com",
+      "revenue": "19,308 (백만원)",
+      "net_income": "257 (백만원)",
+      "price_band": "10,500~12,500",
+      "fixed_price": 12500,
+      "underwriters": "삼성증권",
+      "demand_period": {
+        "start": "2026-06-08",
+        "end": "2026-06-12"
+      },
+      "subscription_period": {
+        "start": "2026-06-18",
+        "end": "2026-06-19"
+      },
+      "refund_date": "2026-06-23",
+      "listing_date": "2026-06-29",
+      "demand_rate": 1294.99,
+      "subscription_rate": null,
+      "competition_rate": 1294.99,
+      "competition_rate_source": "demand",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "져스텍, 투자경고종목 지정 예고",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16167782"
+        },
+        {
+          "title": "져스텍 주가, 8월 19일 13,910원 17.68% 상승 마감",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16167526"
+        },
+        {
+          "title": "져스텍 주가, 웃음꽃 활짝... 왜?",
+          "source": "ggilbo.com",
+          "url": "https://www.ggilbo.com/news/articleView.html?idxno=1175279"
+        },
+        {
+          "title": "져스텍 주가, 8월 13일 장중 14,250원 12.38% 상승",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=539904"
+        },
+        {
+          "title": "[특징주] 져스텍, 삼성 '인간·로봇 상호작용' 핵심기술 낙점…협력사·...",
+          "source": "financialpost.co.kr",
+          "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=270303"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2295",
+      "corp_name": "메리츠스팩2호",
+      "stock_code": "0165X0",
+      "market": "코스닥",
+      "sector": "금융 지원 서비스업",
+      "ceo": "이율환",
+      "address": "서울특별시 영등포구 국제금융로 10",
+      "homepage": "http://",
+      "revenue": "- (백만원)",
+      "net_income": "- (백만원)",
+      "price_band": "2,000~2,000",
+      "fixed_price": 2000,
+      "underwriters": "메리츠증권",
+      "demand_period": {
+        "start": "2026-06-01",
+        "end": "2026-06-02"
+      },
+      "subscription_period": {
+        "start": "2026-06-09",
+        "end": "2026-06-10"
+      },
+      "refund_date": "2026-06-12",
+      "listing_date": "2026-06-19",
+      "demand_rate": 1087.58,
+      "subscription_rate": 1388.66,
+      "competition_rate": 1388.66,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2287",
+      "corp_name": "피스피스스튜디오",
+      "stock_code": "0117P0",
+      "market": "코스닥",
+      "sector": "편조의복 제조업",
+      "ceo": "박화목",
+      "address": "서울특별시 용산구 이태원로45길 28",
+      "homepage": "http://",
+      "revenue": "113,777 (백만원)",
+      "net_income": "17,007 (백만원)",
+      "price_band": "19,000~21,500",
+      "fixed_price": 21500,
+      "underwriters": "NH투자증권,미래에셋증권",
+      "demand_period": {
+        "start": "2026-05-14",
+        "end": "2026-05-20"
+      },
+      "subscription_period": {
+        "start": "2026-05-26",
+        "end": "2026-05-27"
+      },
+      "refund_date": "2026-05-29",
+      "listing_date": "2026-06-08",
+      "demand_rate": 847.76,
+      "subscription_rate": 1194.94,
+      "competition_rate": 1194.94,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "피스피스스튜디오, 中 직진출 본격화…상하이 안푸루에 첫 플래그십",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02804406645548632"
+        },
+        {
+          "title": "피스피스스튜디오, 상하이 안푸루에 첫 대형 플래그십 출점",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260818001014"
+        },
+        {
+          "title": "7조 몰렸던 IPO의 굴욕…피스피스스튜디오, 두 달 만에 공모가 4분의 1",
+          "source": "sportschosun.com",
+          "url": "https://www.sportschosun.com/life/2026-08-12/202608100100057850003605"
+        },
+        {
+          "title": "피스피스스튜디오, 상반기 매출 424억원 달성",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260814001172"
+        },
+        {
+          "title": "[코스닥] 피스피스스튜디오·애드포러스·모비릭스 등 64개사, 10일 자사...",
+          "source": "newstnt.com",
+          "url": "https://www.newstnt.com/news/articleView.html?idxno=713268"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2288",
+      "corp_name": "대신밸런스스팩20호",
+      "stock_code": "0134X0",
+      "market": "코스닥",
+      "sector": "그 외 기타 금융 지원 서비스업",
+      "ceo": "최종태",
+      "address": "서울특별시 중구 삼일대로 343 (저동1가, 대신파이낸스센터(DaishinFinanceCenter))",
+      "homepage": "http://",
+      "revenue": "- (백만원)",
+      "net_income": "- (백만원)",
+      "price_band": "2,000~2,000",
+      "fixed_price": 2000,
+      "underwriters": "대신증권",
+      "demand_period": {
+        "start": "2026-05-18",
+        "end": "2026-05-19"
+      },
+      "subscription_period": {
+        "start": "2026-05-22",
+        "end": "2026-05-26"
+      },
+      "refund_date": "2026-05-28",
+      "listing_date": "2026-06-05",
+      "demand_rate": 1327.13,
+      "subscription_rate": 1468.88,
+      "competition_rate": 1468.88,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2285",
+      "corp_name": "마키나락스",
+      "stock_code": "477850",
+      "market": "코스닥",
+      "sector": "응용 소프트웨어 개발 및 공급업",
+      "ceo": "윤성호, 이재혁",
+      "address": "서울 서초구 강남대로 343, 12층 (서초동, 신덕빌딩)",
+      "homepage": "http://www.makinarocks.ai",
+      "revenue": "8,294 (백만원)",
+      "net_income": "-6,073 (백만원)",
+      "price_band": "12,500~15,000",
+      "fixed_price": 15000,
+      "underwriters": "미래에셋증권,현대차증권",
+      "demand_period": {
+        "start": "2026-04-28",
+        "end": "2026-05-06"
+      },
+      "subscription_period": {
+        "start": "2026-05-11",
+        "end": "2026-05-12"
+      },
+      "refund_date": "2026-05-14",
+      "listing_date": "2026-05-20",
+      "demand_rate": null,
+      "subscription_rate": 2807.8,
+      "competition_rate": 2807.8,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "마키나락스 주가, 8월 20일 장중 27,500원 3.77% 상승",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16168371"
+        },
+        {
+          "title": "마키나락스 주가, 8월 20일 장중 27,100원 2.26% 상승",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=541312"
+        },
+        {
+          "title": "마키나락스, '어텐션 2026' 개최…\"피지컬 AI 현재와 미래 공유\"",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/stock/2026/08/20/2026082008220376800"
+        },
+        {
+          "title": "마키나락스 '어텐션2026' 개최…삼성·HD현대 피지컬AI 사례 공유",
+          "source": "bloter.net",
+          "url": "https://www.bloter.net/news/articleView.html?idxno=671355"
+        },
+        {
+          "title": "마키나락스, AI 컨퍼런스 '어텐션 2026' 개최",
+          "source": "hansbiz.co.kr",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=858066"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2286",
+      "corp_name": "폴레드",
+      "stock_code": "487580",
+      "market": "코스닥",
+      "sector": "자동차용 신품 의자 제조업",
+      "ceo": "이형무",
+      "address": "충남 서산시 운산면 장생동로 523 (수평리)",
+      "homepage": "http://poled.co.kr",
+      "revenue": "52,990 (백만원)",
+      "net_income": "543 (백만원)",
+      "price_band": "4,100~5,000",
+      "fixed_price": 5000,
+      "underwriters": "NH투자증권",
+      "demand_period": {
+        "start": "2026-04-22",
+        "end": "2026-04-28"
+      },
+      "subscription_period": {
+        "start": "2026-05-04",
+        "end": "2026-05-06"
+      },
+      "refund_date": "2026-05-08",
+      "listing_date": "2026-05-14",
+      "demand_rate": 1486.66,
+      "subscription_rate": 3169.86,
+      "competition_rate": 3169.86,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [
+        {
+          "title": "[VC 투자 포트폴리오] 폴레드 급락 전 126억 회수한 코오롱인베…멀티플...",
+          "source": "dealsite.co.kr",
+          "url": "https://dealsite.co.kr/articles/166909"
+        },
+        {
+          "title": "현대차 사내벤처서 코스닥까지…폴레드, 프리미엄 카시트 신화 쓴다",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=469061"
+        },
+        {
+          "title": "폴레드, 특정계좌 매매관여 과다→투자주의종목 지정",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16138139"
+        },
+        {
+          "title": "폴레드, 특정계좌 매매 관여 과다 지정→투자주의 환기",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16137033"
+        },
+        {
+          "title": "[IPO 뜯어보기] [폴레드] ‘따따블’이 3주만에 1/4 토막…오버행 우려도...",
+          "source": "news.dealsitetv.com",
+          "url": "https://news.dealsitetv.com/articles/171360"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2278",
+      "corp_name": "코스모로보틱스(구.엑소아틀레트아시아)",
+      "stock_code": "439960",
+      "market": "코스닥",
+      "sector": "의료용 기기 제조업",
+      "ceo": "오주영",
+      "address": "서울특별시 구로구 디지털로31길 20 (구로동, 에이스테크노타워5차) 801-1호",
+      "homepage": "http://www.exoatletasia.com",
+      "revenue": "7,019 (백만원)",
+      "net_income": "-11,982 (백만원)",
+      "price_band": "5,300~6,000",
+      "fixed_price": 6000,
+      "underwriters": "유진투자증권,NH투자증권,유안타증권",
+      "demand_period": {
+        "start": "2026-04-16",
+        "end": "2026-04-22"
+      },
+      "subscription_period": {
+        "start": "2026-04-27",
+        "end": "2026-04-28"
+      },
+      "refund_date": "2026-04-30",
+      "listing_date": "2026-05-11",
+      "demand_rate": 1140.11,
+      "subscription_rate": 2013.0,
+      "competition_rate": 2013.0,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2281",
+      "corp_name": "채비(구.대영채비)",
+      "stock_code": "0011T0",
+      "market": "코스닥",
+      "sector": "기타 발전기 및 전기변환장치 제조업",
+      "ceo": "정민교",
+      "address": "대구광역시 달성군 유가읍 테크노순환로7길 25",
+      "homepage": "http://www.chaevi.co.kr/",
+      "revenue": "85,082 (백만원)",
+      "net_income": "-54,495 (백만원)",
+      "price_band": "12,300~15,300",
+      "fixed_price": 12300,
+      "underwriters": "KB증권,삼성증권,대신증권,하나증권",
+      "demand_period": {
+        "start": "2026-04-10",
+        "end": "2026-04-16"
+      },
+      "subscription_period": {
+        "start": "2026-04-20",
+        "end": "2026-04-21"
+      },
+      "refund_date": "2026-04-23",
+      "listing_date": "2026-04-29",
+      "demand_rate": null,
+      "subscription_rate": 302.0,
+      "competition_rate": 302.0,
+      "competition_rate_source": "subscription",
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    }
+  ]
+}
