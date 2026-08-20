@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T14:40:15.680169+09:00",
+  "generated_at": "2026-08-21T08:01:18.852921+09:00",
   "entries": [
     {
       "no": "2294",
@@ -47,9 +47,9 @@
           "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02902806645549288"
         },
         {
-          "title": "레인보우로보틱스-빅웨이브로보틱스, 통합 솔루션으로 북미 로봇 자동화...",
-          "source": "zdnet.co.kr",
-          "url": "https://zdnet.co.kr/view/?no=20260820093538"
+          "title": "레인보우로보틱스-빅웨이브로보틱스, MOU 체결",
+          "source": "ggilbo.com",
+          "url": "https://www.ggilbo.com/news/articleView.html?idxno=1176489"
         },
         {
           "title": "빅웨이브로보틱스, 한국오므론제어기기와 MOU",
@@ -237,14 +237,14 @@
           "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=390834"
         },
         {
+          "title": "“말하는 AI 넘어 대화하는 AI로”…네오사피엔스, 내년 흑자 정조준[IP...",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=04801926645549288&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+        },
+        {
           "title": "네오사피엔스, 코스닥 상장 증권신고서 제출",
           "source": "newsis.com",
           "url": "https://www.newsis.com/view/NISX20260724_0003721376"
-        },
-        {
-          "title": "네오사피엔스, 증권신고서 제출…코스닥 상장 절차 본격화",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03280006645517800"
         }
       ],
       "listing_open_price": null,
@@ -439,6 +439,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[주간IPO] 8월 넷째 주, 스카이랩스 공모청약…수요예측 일정 없음",
+          "source": "consumernews.co.kr",
+          "url": "http://www.consumernews.co.kr/news/articleView.html?idxno=761891"
+        },
+        {
           "title": "'스카이랩스 공모주' 수요예측 흥행 기대...상장일 언제?",
           "source": "gukjenews.com",
           "url": "https://www.gukjenews.com/news/articleView.html?idxno=3667774"
@@ -457,11 +462,6 @@
           "title": "[모닝 리포트] \"스카이랩스, 혈압측정 반지로 코스닥 입성\"",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260818000076"
-        },
-        {
-          "title": "다음 주 IPO 시장, 바이오·의류주 출격…스카이랩스 수요예측 [주간 IP...",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2614688"
         }
       ],
       "listing_open_price": null,
@@ -498,29 +498,29 @@
       "is_popular": true,
       "news": [
         {
-          "title": "니어스랩, 청약 경쟁률 530대 1…청약 증거금 2.5조",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=05831846645546992"
+          "title": "유캐스트 등 3사 코스닥 상장예심 통과…니어스랩은 신규상장",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20260820177500008?input=1195m"
         },
         {
-          "title": "니어스랩, 청약 증거금 2.5조…이달 24일 코스닥 상장 [시그널]",
-          "source": "sedaily.com",
-          "url": "https://www.sedaily.com/article/20079132?ref=naver"
-        },
-        {
-          "title": "니어스랩 2.5조 vs 해치텍 700억",
-          "source": "hankyung.com",
-          "url": "https://www.hankyung.com/article/2026081300971"
-        },
-        {
-          "title": "니어스랩, 청약 경쟁률 530대 1…증거금 2.5兆",
-          "source": "newsis.com",
-          "url": "https://www.newsis.com/view/NISX20260813_0003748404"
-        },
-        {
-          "title": "니어스랩, 일반청약 경쟁률 530대 1…증거금 2조5000억원",
+          "title": "니어스랩, 코스닥시장 신규상장 승인",
           "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260813001291"
+          "url": "https://www.newspim.com/news/view/20260820001308"
+        },
+        {
+          "title": "한국거래소, 니어스랩 24일 코스닥 거래 개시",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=479159"
+        },
+        {
+          "title": "상장예심 3곳 통과, 니어스랩 24일 거래",
+          "source": "tokenpost.kr",
+          "url": "https://www.tokenpost.kr/news/market/394295"
+        },
+        {
+          "title": "자율비행 드론기업 니어스랩, 24일 코스닥 상장 [위클리 마켓]",
+          "source": "mk.co.kr",
+          "url": "https://www.mk.co.kr/article/12132354"
         }
       ],
       "listing_open_price": null,
@@ -616,29 +616,29 @@
       "is_popular": false,
       "news": [
         {
+          "title": "'고기능성 의류 OEM' 기도산업, 코스닥 데뷔[오늘상장]",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02437046645549616&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+        },
+        {
+          "title": "'기도산업 공모주 상장일' 청약 흥행 업고 따따상 갈까?",
+          "source": "gukjenews.com",
+          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3670235"
+        },
+        {
+          "title": "[공모주 현황] 기도산업 상장 디데이…따따블 문턱 두드리나",
+          "source": "cbci.co.kr",
+          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=599735"
+        },
+        {
+          "title": "기도산업, 21일 코스닥 입성…기관 흥행에도 확약 '0%대'",
+          "source": "m-i.kr",
+          "url": "https://www.m-i.kr/news/articleView.html?idxno=1404208"
+        },
+        {
           "title": "[주간IPO] 인제니아테라퓨틱스·기도산업, 코스닥 상장",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260814000733"
-        },
-        {
-          "title": "인제니아·기도산업 코스닥 입성⋯스카이랩스 수요예측",
-          "source": "inews24.com",
-          "url": "http://www.inews24.com/view/1995641"
-        },
-        {
-          "title": "[IPO챗] 인제니아·기도산업, 다음주 코스닥 입성",
-          "source": "yna.co.kr",
-          "url": "https://www.yna.co.kr/view/AKR20260814117900008?input=1195m"
-        },
-        {
-          "title": "인제니아테라퓨틱스·기도산업 상장[증시캘린더]",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=01164406645547976"
-        },
-        {
-          "title": "기도산업, 일반청약 경쟁률 5.5대 1…증거금 330억",
-          "source": "newstopkorea.com",
-          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=46994"
         }
       ],
       "listing_open_price": null,
@@ -813,9 +813,9 @@
           "url": "https://www.mt.co.kr/thebio/2026/08/19/2026081809401495773"
         },
         {
-          "title": "인제니아테라퓨틱스, 상장 첫날 17% 급락 뒤 반등",
-          "source": "hankyung.com",
-          "url": "https://www.hankyung.com/article/2026081870906"
+          "title": "인제니아테라퓨틱스 주가, 상한가... 왜?",
+          "source": "ggilbo.com",
+          "url": "https://www.ggilbo.com/news/articleView.html?idxno=1176556"
         }
       ],
       "listing_open_price": null,
@@ -911,29 +911,29 @@
       "is_popular": true,
       "news": [
         {
+          "title": "레메디 주가 급반등",
+          "source": "bntnews.co.kr",
+          "url": "https://www.bntnews.co.kr/article/view/bnt202608200267"
+        },
+        {
+          "title": "레메디 오후들어 급등",
+          "source": "cbci.co.kr",
+          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=599696"
+        },
+        {
+          "title": "레메디, 투자경고종목 지정 사전 예고",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16168876"
+        },
+        {
+          "title": "레메디 주가, 8월 20일 14,820원 15.33% 상승 마감",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16168700"
+        },
+        {
           "title": "실적 급상승 레메디 23%↑…中 진출 바이오솔루션도 주목[바이오맥짚기...",
           "source": "edaily.co.kr",
           "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03398086645548960"
-        },
-        {
-          "title": "[특징주] 레메디, LG전자 손잡고 배터리 검사시장 진입에 급등…핵심 X-...",
-          "source": "cstimes.com",
-          "url": "https://www.cstimes.com/news/articleView.html?idxno=717431"
-        },
-        {
-          "title": "레메디, LG전자 배터리 검사장비 핵심부품 양산 공급...현장 생산라인 ...",
-          "source": "joongangenews.com",
-          "url": "https://www.joongangenews.com/news/articleView.html?idxno=541407"
-        },
-        {
-          "title": "레메디, 상반기 영업이익 62억…전년比 489.3%↑",
-          "source": "newsis.com",
-          "url": "https://www.newsis.com/view/NISX20260814_0003749435"
-        },
-        {
-          "title": "레메디, 상반기 영업익 61억…전년 연간 실적 2배 넘어",
-          "source": "mt.co.kr",
-          "url": "https://www.mt.co.kr/thebio/2026/08/14/2026081416150745715"
         }
       ],
       "listing_open_price": null,
@@ -1364,14 +1364,9 @@
       "is_popular": true,
       "news": [
         {
-          "title": "마키나락스 주가, 8월 20일 장중 27,500원 3.77% 상승",
-          "source": "topstarnews.net",
-          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16168371"
-        },
-        {
-          "title": "마키나락스 주가, 8월 20일 장중 27,100원 2.26% 상승",
-          "source": "joongangenews.com",
-          "url": "https://www.joongangenews.com/news/articleView.html?idxno=541312"
+          "title": "제조 공정부터 국방 전장까지…마키나락스 ‘ATTENTION 2026’서 피지컬...",
+          "source": "venturesquare.net",
+          "url": "https://www.venturesquare.net/1107288/"
         },
         {
           "title": "마키나락스, '어텐션 2026' 개최…\"피지컬 AI 현재와 미래 공유\"",
@@ -1379,14 +1374,19 @@
           "url": "https://www.mt.co.kr/stock/2026/08/20/2026082008220376800"
         },
         {
+          "title": "마키나락스 주가, 8월 20일 장중 27,100원 2.26% 상승",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=541312"
+        },
+        {
+          "title": "마키나락스, AI 컨퍼런스 '어텐션' 9월 개최…“AI 주권 확보해야”",
+          "source": "etnews.com",
+          "url": "https://www.etnews.com/20260820000362"
+        },
+        {
           "title": "마키나락스 '어텐션2026' 개최…삼성·HD현대 피지컬AI 사례 공유",
           "source": "bloter.net",
           "url": "https://www.bloter.net/news/articleView.html?idxno=671355"
-        },
-        {
-          "title": "마키나락스, AI 컨퍼런스 '어텐션 2026' 개최",
-          "source": "hansbiz.co.kr",
-          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=858066"
         }
       ],
       "listing_open_price": null,
