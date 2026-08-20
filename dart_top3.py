@@ -1741,35 +1741,67 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   .main-tabs {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     border-bottom: 1px solid var(--line);
     margin-bottom: 20px;
+    background: rgba(11, 15, 20, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 12px 12px 0 0;
+    padding: 6px 10px 0;
   }
   .main-tab {
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     font-family: var(--sans);
     font-size: 13px;
-    padding: 10px 4px;
-    margin-right: 18px;
+    padding: 10px 14px;
+    border-radius: 8px 8px 0 0;
     border-bottom: 2px solid transparent;
     cursor: pointer;
+    transition: color 0.12s ease, background 0.12s ease;
+  }
+  .main-tab:not(.active):hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
   }
   .main-tab.active {
-    color: var(--text);
-    font-weight: 600;
+    color: var(--rise);
+    font-weight: 700;
+    background: rgba(240, 69, 79, 0.14);
     border-bottom-color: var(--rise);
   }
   .main-tab-link {
     margin-left: auto;
-    margin-right: 0;
     color: var(--fall);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   }
-  .main-tab-link:hover { color: var(--text); }
+  .main-tab-link:hover { color: var(--text); background: rgba(255, 255, 255, 0.08); }
   /* "공모주 일정" 탭만 다른 메뉴들의 레드/골드 톤과 다르게 --ma20(보라, 이미 차트 이동평균선에
      쓰던 색을 재사용 - 새 변수 안 만듦)로 포인트를 줘서 "별도 정보 공간" 느낌을 낸다. */
-  #tab-ipo.active { border-bottom-color: var(--ma20); color: var(--ma20); }
+  #tab-ipo.active {
+    color: var(--ma20);
+    background: rgba(185, 138, 242, 0.14);
+    border-bottom-color: var(--ma20);
+  }
+
+  @media (max-width: 480px) {
+    .main-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 4px;
+      padding: 4px 6px 0;
+    }
+    .main-tab, .main-tab-link {
+      font-size: 12px;
+      padding: 8px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  }
   #date-select {
     background: var(--surface);
     color: var(--text);
@@ -2225,6 +2257,32 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
 
   /* 공모주 일정 - 다른 탭들의 레드/골드 톤과 구분되게 --ma20(보라) 포인트만 다르게 씀 */
+  .ipo-month-nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .ipo-month-nav button {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .ipo-month-nav button:hover { border-color: var(--ma20); color: var(--ma20); }
+  #ipo-month-label { font-size: 15px; font-weight: 600; }
+  .ipo-status-label {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    border: 1px solid var(--line-strong);
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
   .ipo-subtabs {
     display: flex;
     gap: 8px;
@@ -2340,20 +2398,6 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--text-muted);
     padding: 8px 0;
   }
-  .ipo-completed-toggle {
-    display: block;
-    width: 100%;
-    background: none;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    color: var(--text-muted);
-    font-size: 12px;
-    font-family: var(--mono);
-    padding: 8px;
-    text-align: center;
-    margin-top: 4px;
-  }
-  .ipo-completed-toggle:hover { color: var(--text); border-color: #3A4656; }
 
   @media (max-width: 420px) {
     .corp-name { font-size: 15px; }
@@ -2405,9 +2449,13 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     </div>
 
     <div id="panel-ipo" hidden>
+      <div class="ipo-month-nav">
+        <button id="ipo-month-prev" aria-label="이전 달">&lsaquo;</button>
+        <span id="ipo-month-label" class="mono"></span>
+        <button id="ipo-month-next" aria-label="다음 달">&rsaquo;</button>
+      </div>
       <nav class="ipo-subtabs">
         <button class="ipo-subtab active" id="ipo-subtab-popular" data-ipo-tab="popular">🔥 인기 공모주</button>
-        <button class="ipo-subtab" id="ipo-subtab-pending" data-ipo-tab="pending">수요예측 예정</button>
         <button class="ipo-subtab" id="ipo-subtab-all" data-ipo-tab="all">전체 일정</button>
       </nav>
       <div id="ipo-list"><div class="loading">불러오는 중...</div></div>
@@ -2574,10 +2622,43 @@ const POPULAR_THRESHOLD = 500;
 let ipoLoaded = false;
 let ipoEntries = [];
 let ipoSubTab = 'popular';
+let ipoMonth = '';  // "YYYY-MM" - init()에서 이번 달로 채움
 
 function todayIso() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+// 카드의 월 필터 기준: 상장일이 확정됐으면 그 달, 아직 없으면(청약 전) 청약일 시작월로 대신한다
+// (38.co.kr이 청약일은 상장일보다 훨씬 먼저 미리 공개해두기 때문에 항상 값이 있음).
+function ipoBucketMonth(e) {
+  const d = e.listing_date || (e.subscription_period && e.subscription_period.start);
+  return d ? d.slice(0, 7) : null;
+}
+
+function shiftMonth(ym, delta) {
+  const [y, m] = ym.split('-').map(Number);
+  const total = y * 12 + (m - 1) + delta;
+  const newY = Math.floor(total / 12);
+  const newM = (total % 12) + 1;
+  return `${newY}-${String(newM).padStart(2, '0')}`;
+}
+
+function formatMonthKo(ym) {
+  const [y, m] = ym.split('-').map(Number);
+  return `${y}년 ${m}월`;
+}
+
+// 오늘 날짜가 수요예측/청약/상장 타임라인 중 어디에 있는지로 상태 라벨을 계산한다.
+// (listing_date가 지난 종목은 renderIpoList 단계에서 이미 제외되므로 여기서는 고려 안 함)
+function ipoStatusLabel(e, today) {
+  const dp = e.demand_period || {};
+  const sp = e.subscription_period || {};
+  if (dp.start && today < dp.start) return '수요예측 예정';
+  if (dp.start && dp.end && today >= dp.start && today <= dp.end) return '수요예측 진행중';
+  if (sp.start && today < sp.start) return '결과 대기';
+  if (sp.start && sp.end && today >= sp.start && today <= sp.end) return '청약중';
+  return '상장예정';
 }
 
 function renderIpoInfoGrid(e) {
@@ -2613,20 +2694,21 @@ function renderIpoNews(news) {
     </a>`).join('');
 }
 
-function renderIpoCard(e) {
+function renderIpoCard(e, today) {
   const rateText = e.competition_rate != null
     ? `<span class="ipo-rate">${e.competition_rate.toFixed(2)}:1</span>`
     : '<span class="ipo-rate ipo-rate-empty">경쟁률 정보 없음</span>';
   const badge = e.is_popular ? '<span class="ipo-popular-badge">🔥 인기</span>' : '';
-  const listedTag = e.listing_date && e.listing_date < todayIso() ? '<span class="ipo-listed-tag">상장완료</span>' : '';
+  const statusLabel = `<span class="ipo-status-label">${ipoStatusLabel(e, today)}</span>`;
   const period = e.subscription_period && e.subscription_period.start
     ? `청약 ${e.subscription_period.start} ~ ${e.subscription_period.end}`
     : '청약일 미정';
   return `
     <div class="ipo-card" data-no="${e.no}">
       <div class="ipo-card-head">
-        <div class="ipo-card-name">${e.corp_name}${badge}${listedTag}</div>
+        <div class="ipo-card-name">${e.corp_name}${badge}</div>
         <div class="ipo-card-meta">${e.market || ''} · ${period}</div>
+        ${statusLabel}
         ${rateText}
       </div>
       <div class="ipo-card-body">
@@ -2646,43 +2728,23 @@ function wireIpoCards() {
 function renderIpoList() {
   const listEl = document.getElementById('ipo-list');
   const today = todayIso();
+  document.getElementById('ipo-month-label').textContent = formatMonthKo(ipoMonth);
 
-  if (ipoSubTab === 'all') {
-    const upcoming = ipoEntries.filter(e => !(e.listing_date && e.listing_date < today));
-    const completed = ipoEntries.filter(e => e.listing_date && e.listing_date < today);
-    upcoming.sort((a, b) => (a.subscription_period.start || '9999').localeCompare(b.subscription_period.start || '9999'));
-    completed.sort((a, b) => (b.listing_date || '').localeCompare(a.listing_date || ''));
+  // 상장이 이미 끝난 종목은 어느 탭·어느 달을 보든 항상 제외한다.
+  const notListed = ipoEntries.filter(e => !(e.listing_date && e.listing_date < today));
+  const inMonth = notListed.filter(e => ipoBucketMonth(e) === ipoMonth);
 
-    const upcomingHtml = upcoming.length
-      ? upcoming.map(renderIpoCard).join('')
-      : '<div class="ipo-empty">예정된 공모주 일정이 없습니다.</div>';
-    const completedHtml = completed.length
-      ? `<button class="ipo-completed-toggle" id="ipo-completed-toggle">상장완료 ${completed.length}건 더보기 ▾</button>
-         <div id="ipo-completed-list" hidden>${completed.map(renderIpoCard).join('')}</div>`
-      : '';
-    listEl.innerHTML = upcomingHtml + completedHtml;
-
-    const toggleBtn = document.getElementById('ipo-completed-toggle');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', () => {
-        const box = document.getElementById('ipo-completed-list');
-        box.hidden = !box.hidden;
-        toggleBtn.textContent = box.hidden ? `상장완료 ${completed.length}건 더보기 ▾` : '상장완료 접기 ▴';
-      });
-    }
+  let filtered;
+  if (ipoSubTab === 'popular') {
+    filtered = inMonth.filter(e => e.is_popular);
+    filtered.sort((a, b) => (b.competition_rate || 0) - (a.competition_rate || 0));
   } else {
-    let filtered;
-    if (ipoSubTab === 'popular') {
-      filtered = ipoEntries.filter(e => e.is_popular);
-      filtered.sort((a, b) => (b.competition_rate || 0) - (a.competition_rate || 0));
-    } else {
-      filtered = ipoEntries.filter(e => e.competition_rate == null);
-      filtered.sort((a, b) => (a.subscription_period.start || '9999').localeCompare(b.subscription_period.start || '9999'));
-    }
-    listEl.innerHTML = filtered.length
-      ? filtered.map(renderIpoCard).join('')
-      : '<div class="ipo-empty">해당하는 공모주가 없습니다.</div>';
+    filtered = inMonth.slice();
+    filtered.sort((a, b) => (a.subscription_period.start || '9999').localeCompare(b.subscription_period.start || '9999'));
   }
+  listEl.innerHTML = filtered.length
+    ? filtered.map(e => renderIpoCard(e, today)).join('')
+    : '<div class="ipo-empty">해당 월에 예정된 공모주가 없습니다.</div>';
   wireIpoCards();
 }
 
@@ -3107,6 +3169,15 @@ async function init() {
       document.querySelectorAll('.ipo-subtab').forEach((b) => b.classList.toggle('active', b === btn));
       renderIpoList();
     });
+  });
+  ipoMonth = todayIso().slice(0, 7);
+  document.getElementById('ipo-month-prev').addEventListener('click', () => {
+    ipoMonth = shiftMonth(ipoMonth, -1);
+    renderIpoList();
+  });
+  document.getElementById('ipo-month-next').addEventListener('click', () => {
+    ipoMonth = shiftMonth(ipoMonth, 1);
+    renderIpoList();
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
