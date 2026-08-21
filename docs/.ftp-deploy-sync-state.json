@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1787266930548,
+    "generatedTime": 1787283120640,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
-            "size": 4884,
-            "hash": "d28baa1ca231092ab792a88b6f22479bf5081a47ae601ba005871403d71c27f0"
+            "size": 5093,
+            "hash": "58eea347267f86b926909d4d0c31f9fc28f7b20ca2da333f64152e8ee1707b82"
         },
         {
             "type": "folder",
@@ -120,8 +120,8 @@
         {
             "type": "file",
             "name": "data/2026-08-21.json",
-            "size": 62252,
-            "hash": "ee2f8fe50f0ada9cd2fc829fdd86a509c49384e48f7512bf8f668d95d311499f"
+            "size": 64807,
+            "hash": "7f00ee6de42983955bc6b3a5620c299e09d9eebdb18663b396362b93c932a8d8"
         },
         {
             "type": "file",
@@ -132,8 +132,8 @@
         {
             "type": "file",
             "name": "data/ipo_schedule.json",
-            "size": 55515,
-            "hash": "ee60b671dad004a301940af537446c02d6b9151edb41c52f4ea9ea2056f4aaf1"
+            "size": 55517,
+            "hash": "4d63e1ca844a8ced353b816b8668974d05e4dd0aee0b1e6a92abf9467a56a3db"
         },
         {
             "type": "file",
