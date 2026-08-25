@@ -24,6 +24,8 @@ from typing import Any, Dict, List, Optional
 
 from dart_top3 import DATA_DIR, fetch_daily_ohlc, kst_today
 
+HIT_THRESHOLD = 3  # 적중 판정 기준(%) - 전일종가 대비 당일고가 등락률이 이 값 이상이면 "적중"
+
 
 def _find_candle(ohlc: List[Dict[str, Any]], yyyymmdd: str) -> Optional[Dict[str, Any]]:
     for c in ohlc:
@@ -122,6 +124,12 @@ def main() -> None:
             else:
                 direction = "flat"
 
+        # "적중" 여부는 방향(direction, 화살표·색상 표시용)과 별개로 판정한다 - 0% 초과
+        # 상승이면 무조건 적중으로 치던 기존 로직 대신, 등락률이 HIT_THRESHOLD(%) 이상인
+        # 경우만 적중으로 인정한다(사용자 확정, 2026-08-20). change_pct가 없으면(당일고가
+        # 조회 실패) 적중 여부 자체를 판정할 수 없으므로 None(미판정)으로 남긴다.
+        is_hit = None if change_pct is None else change_pct >= HIT_THRESHOLD
+
         results.append({
             "corp_name": e["corp_name"],
             "stock_code": stock_code,
@@ -132,19 +140,21 @@ def main() -> None:
             "change_pct": change_pct,
             "change_amount": change_amount,
             "direction": direction,
+            "is_hit": is_hit,
         })
 
     results.sort(key=lambda r: r["rec_date"], reverse=True)
 
-    judged = [r for r in results if r["direction"] in ("up", "down", "flat")]
-    up_count = sum(1 for r in judged if r["direction"] == "up")
-    hit_rate = round(up_count / len(judged) * 100, 1) if judged else None
+    judged = [r for r in results if r["is_hit"] is not None]
+    hit_count = sum(1 for r in judged if r["is_hit"])
+    hit_rate = round(hit_count / len(judged) * 100, 1) if judged else None
 
     payload = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "total_count": len(results),
-        "up_count": up_count,
+        "hit_count": hit_count,
         "hit_rate": hit_rate,
+        "hit_threshold_pct": HIT_THRESHOLD,
         "entries": results,
     }
 

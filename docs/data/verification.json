@@ -1,19 +1,81 @@
 {
-  "generated_at": "2026-08-20T13:12:59",
-  "total_count": 30,
-  "up_count": 27,
-  "hit_rate": 90.0,
+  "generated_at": "2026-08-25T09:24:34",
+  "total_count": 35,
+  "hit_count": 17,
+  "hit_rate": 48.6,
+  "hit_threshold_pct": 3,
   "entries": [
+    {
+      "corp_name": "대우건설",
+      "stock_code": "047040",
+      "rec_date": "2026-08-20",
+      "prev_close": 17200.0,
+      "day_high": 17320.0,
+      "current_price": 15610.0,
+      "change_pct": 0.7,
+      "change_amount": 120.0,
+      "direction": "up",
+      "is_hit": false
+    },
+    {
+      "corp_name": "삼성E&A",
+      "stock_code": "028050",
+      "rec_date": "2026-08-20",
+      "prev_close": 48500.0,
+      "day_high": 49950.0,
+      "current_price": 43850.0,
+      "change_pct": 2.99,
+      "change_amount": 1450.0,
+      "direction": "up",
+      "is_hit": false
+    },
+    {
+      "corp_name": "IPARK현대산업개발",
+      "stock_code": "294870",
+      "rec_date": "2026-08-20",
+      "prev_close": 22050.0,
+      "day_high": 22450.0,
+      "current_price": 21750.0,
+      "change_pct": 1.81,
+      "change_amount": 400.0,
+      "direction": "up",
+      "is_hit": false
+    },
+    {
+      "corp_name": "HDC",
+      "stock_code": "012630",
+      "rec_date": "2026-08-20",
+      "prev_close": 21650.0,
+      "day_high": 22000.0,
+      "current_price": 21100.0,
+      "change_pct": 1.62,
+      "change_amount": 350.0,
+      "direction": "up",
+      "is_hit": false
+    },
+    {
+      "corp_name": "삼성물산",
+      "stock_code": "028260",
+      "rec_date": "2026-08-20",
+      "prev_close": 347000.0,
+      "day_high": 377500.0,
+      "current_price": 361500.0,
+      "change_pct": 8.79,
+      "change_amount": 30500.0,
+      "direction": "up",
+      "is_hit": true
+    },
     {
       "corp_name": "코오롱글로벌",
       "stock_code": "003070",
       "rec_date": "2026-08-19",
       "prev_close": 10050.0,
       "day_high": 10050.0,
-      "current_price": 9900.0,
+      "current_price": 9680.0,
       "change_pct": 0.0,
       "change_amount": 0.0,
-      "direction": "flat"
+      "direction": "flat",
+      "is_hit": false
     },
     {
       "corp_name": "티와이홀딩스",
@@ -21,10 +83,11 @@
       "rec_date": "2026-08-19",
       "prev_close": 1922.0,
       "day_high": 1921.0,
-      "current_price": 1948.0,
+      "current_price": 1879.0,
       "change_pct": -0.05,
       "change_amount": -1.0,
-      "direction": "down"
+      "direction": "down",
+      "is_hit": false
     },
     {
       "corp_name": "남광토건",
@@ -32,10 +95,11 @@
       "rec_date": "2026-08-19",
       "prev_close": 7910.0,
       "day_high": 8300.0,
-      "current_price": 8210.0,
+      "current_price": 7440.0,
       "change_pct": 4.93,
       "change_amount": 390.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "HJ중공업",
@@ -43,10 +107,11 @@
       "rec_date": "2026-08-19",
       "prev_close": 17630.0,
       "day_high": 17470.0,
-      "current_price": 17640.0,
+      "current_price": 16450.0,
       "change_pct": -0.91,
       "change_amount": -160.0,
-      "direction": "down"
+      "direction": "down",
+      "is_hit": false
     },
     {
       "corp_name": "에스케이바이오팜",
@@ -54,10 +119,11 @@
       "rec_date": "2026-08-19",
       "prev_close": 85200.0,
       "day_high": 85600.0,
-      "current_price": 87100.0,
+      "current_price": 83800.0,
       "change_pct": 0.47,
       "change_amount": 400.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "코오롱글로벌",
@@ -65,10 +131,11 @@
       "rec_date": "2026-08-18",
       "prev_close": 10240.0,
       "day_high": 10420.0,
-      "current_price": 9900.0,
+      "current_price": 9680.0,
       "change_pct": 1.76,
       "change_amount": 180.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "금호건설",
@@ -76,10 +143,11 @@
       "rec_date": "2026-08-18",
       "prev_close": 13400.0,
       "day_high": 15300.0,
-      "current_price": 16290.0,
+      "current_price": 15340.0,
       "change_pct": 14.18,
       "change_amount": 1900.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "코오롱",
@@ -87,10 +155,11 @@
       "rec_date": "2026-08-18",
       "prev_close": 28250.0,
       "day_high": 29950.0,
-      "current_price": 25400.0,
+      "current_price": 23950.0,
       "change_pct": 6.02,
       "change_amount": 1700.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "우진아이엔에스",
@@ -98,10 +167,11 @@
       "rec_date": "2026-08-18",
       "prev_close": 4390.0,
       "day_high": 4550.0,
-      "current_price": 4165.0,
+      "current_price": 4095.0,
       "change_pct": 3.64,
       "change_amount": 160.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "동아지질",
@@ -109,10 +179,11 @@
       "rec_date": "2026-08-18",
       "prev_close": 17720.0,
       "day_high": 17820.0,
-      "current_price": 17490.0,
+      "current_price": 17340.0,
       "change_pct": 0.56,
       "change_amount": 100.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "삼성E&A",
@@ -120,10 +191,11 @@
       "rec_date": "2026-08-14",
       "prev_close": 49000.0,
       "day_high": 50800.0,
-      "current_price": 48350.0,
+      "current_price": 43850.0,
       "change_pct": 3.67,
       "change_amount": 1800.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "자이에스앤디",
@@ -131,10 +203,11 @@
       "rec_date": "2026-08-14",
       "prev_close": 9490.0,
       "day_high": 10390.0,
-      "current_price": 10240.0,
+      "current_price": 9650.0,
       "change_pct": 9.48,
       "change_amount": 900.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "한전산업",
@@ -142,10 +215,11 @@
       "rec_date": "2026-08-14",
       "prev_close": 11900.0,
       "day_high": 12300.0,
-      "current_price": 11130.0,
+      "current_price": 10780.0,
       "change_pct": 3.36,
       "change_amount": 400.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "SHD",
@@ -153,10 +227,11 @@
       "rec_date": "2026-08-14",
       "prev_close": 7480.0,
       "day_high": 9720.0,
-      "current_price": 14875.0,
+      "current_price": 10510.0,
       "change_pct": 29.95,
       "change_amount": 2240.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "씨케이솔루션",
@@ -164,10 +239,11 @@
       "rec_date": "2026-08-14",
       "prev_close": 1512.0,
       "day_high": 1619.0,
-      "current_price": 1368.0,
+      "current_price": 1324.0,
       "change_pct": 7.08,
       "change_amount": 107.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "두산퓨얼셀",
@@ -175,10 +251,11 @@
       "rec_date": "2026-08-13",
       "prev_close": 35800.0,
       "day_high": 41200.0,
-      "current_price": 40350.0,
+      "current_price": 37250.0,
       "change_pct": 15.08,
       "change_amount": 5400.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "영진약품",
@@ -186,10 +263,11 @@
       "rec_date": "2026-08-13",
       "prev_close": 1277.0,
       "day_high": 1326.0,
-      "current_price": 1220.0,
+      "current_price": 1150.0,
       "change_pct": 3.84,
       "change_amount": 49.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "계룡건설산업",
@@ -197,10 +275,11 @@
       "rec_date": "2026-08-13",
       "prev_close": 21350.0,
       "day_high": 21750.0,
-      "current_price": 23200.0,
+      "current_price": 21650.0,
       "change_pct": 1.87,
       "change_amount": 400.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "다스코",
@@ -208,10 +287,11 @@
       "rec_date": "2026-08-13",
       "prev_close": 3790.0,
       "day_high": 3940.0,
-      "current_price": 3905.0,
+      "current_price": 3020.0,
       "change_pct": 3.96,
       "change_amount": 150.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "인지컨트롤스",
@@ -219,10 +299,11 @@
       "rec_date": "2026-08-13",
       "prev_close": 5370.0,
       "day_high": 5650.0,
-      "current_price": 5230.0,
+      "current_price": 5290.0,
       "change_pct": 5.21,
       "change_amount": 280.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "영진약품",
@@ -230,10 +311,11 @@
       "rec_date": "2026-08-12",
       "prev_close": 1286.0,
       "day_high": 1294.0,
-      "current_price": 1220.0,
+      "current_price": 1150.0,
       "change_pct": 0.62,
       "change_amount": 8.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "두산퓨얼셀",
@@ -241,10 +323,11 @@
       "rec_date": "2026-08-12",
       "prev_close": 35500.0,
       "day_high": 36350.0,
-      "current_price": 40350.0,
+      "current_price": 37250.0,
       "change_pct": 2.39,
       "change_amount": 850.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "케이씨텍",
@@ -252,10 +335,11 @@
       "rec_date": "2026-08-12",
       "prev_close": 69300.0,
       "day_high": 74100.0,
-      "current_price": 67800.0,
+      "current_price": 61800.0,
       "change_pct": 6.93,
       "change_amount": 4800.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "계룡건설산업",
@@ -263,10 +347,11 @@
       "rec_date": "2026-08-12",
       "prev_close": 20950.0,
       "day_high": 21550.0,
-      "current_price": 23200.0,
+      "current_price": 21650.0,
       "change_pct": 2.86,
       "change_amount": 600.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "다스코",
@@ -274,10 +359,11 @@
       "rec_date": "2026-08-12",
       "prev_close": 3650.0,
       "day_high": 4245.0,
-      "current_price": 3905.0,
+      "current_price": 3020.0,
       "change_pct": 16.3,
       "change_amount": 595.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     },
     {
       "corp_name": "HJ중공업",
@@ -285,10 +371,11 @@
       "rec_date": "2026-08-11",
       "prev_close": 17490.0,
       "day_high": 17500.0,
-      "current_price": 17640.0,
+      "current_price": 16450.0,
       "change_pct": 0.06,
       "change_amount": 10.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "미스토홀딩스",
@@ -296,10 +383,11 @@
       "rec_date": "2026-08-11",
       "prev_close": 44800.0,
       "day_high": 45550.0,
-      "current_price": 41300.0,
+      "current_price": 42150.0,
       "change_pct": 1.67,
       "change_amount": 750.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "SIMPAC",
@@ -307,10 +395,11 @@
       "rec_date": "2026-08-11",
       "prev_close": 4930.0,
       "day_high": 5050.0,
-      "current_price": 4915.0,
+      "current_price": 4855.0,
       "change_pct": 2.43,
       "change_amount": 120.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "DL",
@@ -318,10 +407,11 @@
       "rec_date": "2026-08-11",
       "prev_close": 51700.0,
       "day_high": 52200.0,
-      "current_price": 49850.0,
+      "current_price": 46850.0,
       "change_pct": 0.97,
       "change_amount": 500.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": false
     },
     {
       "corp_name": "DL이앤씨",
@@ -329,10 +419,11 @@
       "rec_date": "2026-08-11",
       "prev_close": 72900.0,
       "day_high": 75700.0,
-      "current_price": 71950.0,
+      "current_price": 67300.0,
       "change_pct": 3.84,
       "change_amount": 2800.0,
-      "direction": "up"
+      "direction": "up",
+      "is_hit": true
     }
   ]
 }

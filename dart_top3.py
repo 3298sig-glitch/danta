@@ -1882,6 +1882,16 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-family: var(--mono);
   }
   .verify-item .card-head { align-items: center; }
+  .verify-hit-badge {
+    margin-left: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    vertical-align: middle;
+  }
+  .verify-hit-yes { color: var(--signal-on); background: rgba(52, 211, 153, 0.14); }
+  .verify-hit-no { color: var(--text-muted); background: rgba(255, 255, 255, 0.06); }
   .verify-meta {
     margin-top: 3px;
     font-size: 12px;
@@ -2583,11 +2593,18 @@ function renderVerificationEntry(e) {
   const changeText = hasChange
     ? `${sign}${e.change_pct}% (${sign}${e.change_amount.toLocaleString()}원)`
     : '데이터 없음';
+  // "적중" 여부는 direction(방향 화살표)과 별개 판정이라 배지를 따로 붙인다 -
+  // 예: 상승(▲)했어도 3% 미만이면 미적중으로 표시될 수 있다.
+  const hitBadge = e.is_hit == null
+    ? ''
+    : e.is_hit
+      ? '<span class="verify-hit-badge verify-hit-yes">✓ 적중</span>'
+      : '<span class="verify-hit-badge verify-hit-no">미적중</span>';
   return `
     <div class="card verify-item">
       <div class="card-head">
         <div class="corp">
-          <p class="corp-name">${e.corp_name}</p>
+          <p class="corp-name">${e.corp_name}${hitBadge}</p>
           <div class="verify-meta">${e.rec_date} 추천 · 전일종가 ${e.prev_close.toLocaleString()}원 · 당일고가 ${e.day_high != null ? e.day_high.toLocaleString() + '원' : '-'}</div>
         </div>
         <span class="delta delta-total ${dirClass}">${dirArrow} ${changeText}</span>
@@ -2604,7 +2621,7 @@ async function loadVerificationData() {
     const data = await res.json();
     const entries = data.entries || [];
     summaryEl.innerHTML = data.hit_rate != null
-      ? `적중률 <strong class="verify-hit-rate">${data.hit_rate}%</strong> (${data.up_count}/${data.total_count}) · 전일종가 대비 당일고가가 상승한 비율입니다`
+      ? `적중률 <strong class="verify-hit-rate">${data.hit_rate}%</strong> (${data.hit_count}/${data.total_count}) · 전일 종가 대비 금일 고가 ${data.hit_threshold_pct}% 이상 상승 종목 기준`
       : '검증할 과거 추천 이력이 아직 없습니다.';
     listEl.innerHTML = entries.length
       ? entries.map(renderVerificationEntry).join('')
