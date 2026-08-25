@@ -679,8 +679,8 @@
           "url": "http://www.inews24.com/view/1997473"
         }
       ],
-      "listing_open_price": null,
-      "listing_change_pct": null
+      "listing_open_price": 20500,
+      "listing_change_pct": -10.87
     },
     {
       "no": "2305",
