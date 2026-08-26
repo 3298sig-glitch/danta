@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1787698930471,
+    "generatedTime": 1787715444529,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
-            "size": 5508,
-            "hash": "2d0d846271ed476ff565d24d312b3adaf29d0cf8278dbba5b47ffeeae75fac2c"
+            "size": 5715,
+            "hash": "351a1f4b3d6e3c2b58c4958d03953f50c685501c7b3419a3cf3e0b89e6ac1bc8"
         },
         {
             "type": "folder",
@@ -24,8 +24,8 @@
         {
             "type": "file",
             "name": "index.html",
-            "size": 58789,
-            "hash": "61f94f038045759c5b56f7d2c38f3c3ad32b91a9c005ad149929ae7233082b41"
+            "size": 59901,
+            "hash": "3a9174679002bedccefc50f9df674f6ff6e7d5f57db185445f6959742d559fdb"
         },
         {
             "type": "file",
@@ -62,6 +62,12 @@
             "name": "api/logout.php",
             "size": 226,
             "hash": "01f5e522ad6b1636257edbcfbece785ba7ecb890a12bb12e859ebc44232fe42d"
+        },
+        {
+            "type": "file",
+            "name": "api/market_summary.php",
+            "size": 5988,
+            "hash": "16737eb0c7f5c856c42049ccfc1b13dfdff6473a6d68fdbaddf8feb36f769d79"
         },
         {
             "type": "file",
@@ -138,8 +144,8 @@
         {
             "type": "file",
             "name": "data/2026-08-26.json",
-            "size": 62499,
-            "hash": "c189085de90a040de5e3d6a8b3476b5f18cddc67f7cacbdf179795141323bdb8"
+            "size": 65024,
+            "hash": "387b572aa63b09c8b5a6d33f7ea804e32a61a6a4512ba31f601815dc3d3efa59"
         },
         {
             "type": "file",
