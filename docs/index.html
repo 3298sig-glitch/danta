@@ -903,7 +903,7 @@
     </div>
 
     <div id="market-summary" class="content-panel market-summary">
-      <div id="ms-empty" class="market-empty" hidden>오늘의 시황 정보를 아직 불러오지 못했습니다 (09:05 배치 이후 반영됩니다).</div>
+      <div id="ms-empty" class="market-empty" hidden>오늘의 시황 정보를 잠시 불러오지 못했습니다. 새로고침하면 다시 시도합니다.</div>
       <div id="ms-content">
         <div class="market-summary-row">
           <span class="market-index">코스피 <span id="ms-price" class="mono">-</span></span>
@@ -1598,8 +1598,32 @@ function renderMarketSummary(marketSummary) {
   }
 }
 
+async function loadMarketSummaryForDate(isoDate, bakedInSummary) {
+  // "오늘"만 실시간 프록시(api/market_summary.php)로 시도한다 - 과거 날짜는 그날의
+  // 스냅샷(배치가 구워둔 market_summary)이 유일한 정답이라 실시간 조회 대상이 아니다.
+  // 09:05 배치의 GitHub Actions 예약 실행이 매일 3시간 이상 늦게 도는 문제가 있어서,
+  // 배치 결과를 기다리는 대신 페이지 로드 시점에 우리 서버(PHP)가 네이버에서 직접
+  // 가져오게 했다 - 네이버가 브라우저의 교차 출처 요청은 403으로 막아서 프론트가
+  // 직접 호출할 수는 없다(실제 확인함).
+  if (isoDate === todayIso()) {
+    try {
+      const res = await fetch('api/market_summary.php');
+      if (res.ok) {
+        const live = await res.json();
+        if (live && live.index_price != null) {
+          renderMarketSummary(live);
+          return;
+        }
+      }
+    } catch (e) {
+      // 무시하고 아래에서 배치 데이터로 폴백
+    }
+  }
+  renderMarketSummary(bakedInSummary);
+}
+
 function renderData(data) {
-  renderMarketSummary(data.market_summary);
+  loadMarketSummaryForDate(data.date, data.market_summary);
 
   const ranked = data.ranked || [];
   document.getElementById('sub-label').textContent =
