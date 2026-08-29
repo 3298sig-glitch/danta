@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1787962315358,
+    "generatedTime": 1788040922922,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 6337,
-            "hash": "4a91b19d802855259db6fcd63c0c1080d69443722e3421b9550acb5aedcd40fe"
+            "hash": "799303ea5c3cce0ff1289177897ecdaaece7d1156e426f8d474e0c50e7dbeedd"
         },
         {
             "type": "folder",
@@ -95,15 +95,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-08-14.json",
-            "size": 61474,
-            "hash": "982b414ffcd7ae0edd5429c5e1b5f655db8ca56074eade39fe3dae37a03ed738"
-        },
-        {
-            "type": "file",
             "name": "data/2026-08-13.json",
             "size": 64287,
             "hash": "98b828cb5a413bd670ac643bd93d67b3fb6cc0eefbaabbb35a7e0e2b163125eb"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-08-14.json",
+            "size": 61474,
+            "hash": "982b414ffcd7ae0edd5429c5e1b5f655db8ca56074eade39fe3dae37a03ed738"
         },
         {
             "type": "file",
@@ -155,15 +155,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-08-28.json",
-            "size": 65182,
-            "hash": "4d9c7d7dfa6b920236194b4b0326ddc781ff1319109a6c237ca35236f839329c"
-        },
-        {
-            "type": "file",
             "name": "data/dates.json",
             "size": 210,
             "hash": "e0943a533489dcb20cd846aa34a46db3baba6b77ce9b1ab091743eb0addd4339"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-08-28.json",
+            "size": 65182,
+            "hash": "4d9c7d7dfa6b920236194b4b0326ddc781ff1319109a6c237ca35236f839329c"
         },
         {
             "type": "file",
@@ -175,7 +175,7 @@
             "type": "file",
             "name": "data/verification.json",
             "size": 19787,
-            "hash": "1c8009ab82e9ca6b6869139aa36ec0874f6231c742fccecac880dfe209c0d9f6"
+            "hash": "11676dd70cf733293e07e3f7f21f2b0668fc79548e50cbaf32577aa71b9759ed"
         },
         {
             "type": "file",
