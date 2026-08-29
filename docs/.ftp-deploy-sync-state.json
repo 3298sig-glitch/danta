@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1787954500614,
+    "generatedTime": 1787962315358,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 6337,
-            "hash": "c85a8e653ba90ee125e8f4efff0354ec256a3143c6cee704820861526c84cada"
+            "hash": "4a91b19d802855259db6fcd63c0c1080d69443722e3421b9550acb5aedcd40fe"
         },
         {
             "type": "folder",
@@ -95,15 +95,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-08-13.json",
-            "size": 64287,
-            "hash": "98b828cb5a413bd670ac643bd93d67b3fb6cc0eefbaabbb35a7e0e2b163125eb"
-        },
-        {
-            "type": "file",
             "name": "data/2026-08-14.json",
             "size": 61474,
             "hash": "982b414ffcd7ae0edd5429c5e1b5f655db8ca56074eade39fe3dae37a03ed738"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-08-13.json",
+            "size": 64287,
+            "hash": "98b828cb5a413bd670ac643bd93d67b3fb6cc0eefbaabbb35a7e0e2b163125eb"
         },
         {
             "type": "file",
@@ -131,6 +131,12 @@
         },
         {
             "type": "file",
+            "name": "data/2026-08-24.json",
+            "size": 64809,
+            "hash": "4d400e3eaaddcdc98512f9e17e42cbd17dfe7730e169a703a6b8fa403f5a1d98"
+        },
+        {
+            "type": "file",
             "name": "data/2026-08-25.json",
             "size": 64940,
             "hash": "917ffb026889daca5f99c24d53df8019c982bf7f4dda8f1633302fac9fd3996c"
@@ -140,12 +146,6 @@
             "name": "data/2026-08-26.json",
             "size": 65024,
             "hash": "387b572aa63b09c8b5a6d33f7ea804e32a61a6a4512ba31f601815dc3d3efa59"
-        },
-        {
-            "type": "file",
-            "name": "data/2026-08-24.json",
-            "size": 64809,
-            "hash": "4d400e3eaaddcdc98512f9e17e42cbd17dfe7730e169a703a6b8fa403f5a1d98"
         },
         {
             "type": "file",
