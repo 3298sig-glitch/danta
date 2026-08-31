@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T07:03:05.821258+09:00",
+  "generated_at": "2026-09-01T07:03:00.029944+09:00",
   "entries": [
     {
       "no": "2319",
@@ -85,9 +85,68 @@
           "url": "https://www.venturesquare.net/1108377/"
         },
         {
-          "title": "래블업, 증권신고서 제출...코스닥 상장 행보 가속",
-          "source": "digitaltoday.co.kr",
-          "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=695407"
+          "title": "래블업, 증권신고서 제출…코스닥 상장 공모절차 착수",
+          "source": "itdaily.kr",
+          "url": "https://www.itdaily.kr/news/articleView.html?idxno=241196"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2321",
+      "corp_name": "엠비디",
+      "stock_code": "498150",
+      "market": "코스닥",
+      "sector": "물질 검사, 측정 및 분석기구 제조업",
+      "ceo": "구보성",
+      "address": "경기도 수원시 영통구 이의동 864-1",
+      "homepage": "http://www.mbdbiotech.com",
+      "revenue": "1,524 (백만원)",
+      "net_income": "-2,125 (백만원)",
+      "price_band": "9,400~11,500",
+      "fixed_price": null,
+      "underwriters": "하나증권",
+      "demand_period": {
+        "start": "2026-09-21",
+        "end": "2026-09-29"
+      },
+      "subscription_period": {
+        "start": "2026-10-06",
+        "end": "2026-10-07"
+      },
+      "refund_date": "2026-10-12",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "엠비디, 증권신고서 제출",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260831000442"
+        },
+        {
+          "title": "엠비디, 증권신고서 제출…코스닥 상장 초읽기",
+          "source": "cstimes.com",
+          "url": "https://www.cstimes.com/news/articleView.html?idxno=718629"
+        },
+        {
+          "title": "엠비디, 증권신고서 제출…코스닥 상장 절차 본격화",
+          "source": "newstopkorea.com",
+          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47361"
+        },
+        {
+          "title": "엠비디, 코스닥 상장 본격화…3차원 세포배양 자동화 기술 승부수",
+          "source": "ebn.co.kr",
+          "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1722359"
+        },
+        {
+          "title": "엠비디, 코스닥 10월 상장 추진...공모절차 본격화",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=482280"
         }
       ],
       "listing_open_price": null,
@@ -216,6 +275,16 @@
       "is_popular": false,
       "news": [
         {
+          "title": "엘리스그룹, IPO 자금 활용 '모듈 데이터센터' 전국 확대한다",
+          "source": "etnews.com",
+          "url": "https://www.etnews.com/20260831000262"
+        },
+        {
+          "title": "[더벨][엘리스그룹 IPO] 주요주주 자발적 락업, '품절주' 구조 만들었다",
+          "source": "thebell.co.kr",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202608271427352360102534"
+        },
+        {
           "title": "'AI 풀스택' 엘리스그룹, 증권신고서 제출…코스닥 상장 목표",
           "source": "newsis.com",
           "url": "https://www.newsis.com/view/NISX20260823_0003758711"
@@ -224,16 +293,6 @@
           "title": "[IPO 워치] 엘리스그룹, 코스닥 도전…최대 2011억 조달",
           "source": "bloter.net",
           "url": "https://www.bloter.net/news/articleView.html?idxno=671570"
-        },
-        {
-          "title": "AI 인프라 기업 엘리스그룹, 코스닥 상장 추진… IPO 통해 약 2000억원 조...",
-          "source": "biz.chosun.com",
-          "url": "https://biz.chosun.com/stock/stock_general/2026/08/23/JRSPSWUM25DX3OVOFGNIQBQ5HE/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
-        },
-        {
-          "title": "엘리스그룹, 코스닥 상장 본격화…최대 2000억 규모 공모",
-          "source": "shinailbo.co.kr",
-          "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5053709"
         },
         {
           "title": "‘AI 인프라’ 엘리스그룹, 상장 본격화…몸값 1조원 조준",
@@ -285,19 +344,19 @@
           "url": "https://sports.hankooki.com/news/articleView.html?idxno=6937970"
         },
         {
-          "title": "코스닥 도전하는 브릴스 \"피지컬AI 시대 핵심 플랫폼으로 성장\"[IPO출사...",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=05441526645546992"
-        },
-        {
           "title": "[초대석] 전진 브릴스 대표",
           "source": "cstimes.com",
           "url": "https://www.cstimes.com/news/articleView.html?idxno=716717"
         },
         {
-          "title": "브릴스 \"로봇 모듈화 플랫폼 구축...코스닥 상장 통해 글로벌 기업 도약...",
-          "source": "daily.hankooki.com",
-          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1395714"
+          "title": "[브릴스 IPO] 모듈화로 일군 흑자…비결은 기술 재활용 솔루션",
+          "source": "dealsite.co.kr",
+          "url": "https://dealsite.co.kr/articles/167157"
+        },
+        {
+          "title": "[현장 포토] 브릴스 IPO 기자 간담회",
+          "source": "newsclaim.co.kr",
+          "url": "https://www.newsclaim.co.kr/news/articleView.html?idxno=3071974"
         }
       ],
       "listing_open_price": null,
@@ -367,29 +426,9 @@
       "is_popular": false,
       "news": [
         {
-          "title": "'상장 도전' 글로벌테크놀로지, 실적 관건은 \"삼성 미니 LED TV 추가 채택...",
-          "source": "zdnet.co.kr",
-          "url": "https://zdnet.co.kr/view/?no=20260823233523"
-        },
-        {
-          "title": "글로벌테크놀로지, 상반기 매출 288억원…전년比 88.8% 증가",
-          "source": "view.asiae.co.kr",
-          "url": "https://view.asiae.co.kr/article/2026082608284968103"
-        },
-        {
-          "title": "글로벌테크놀로지, 상반기 매출 288억원·전년比 88.8%↑",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260826000125"
-        },
-        {
-          "title": "글로벌테크놀로지, 상반기 영업이익 11.6억원…전년比 '흑자 전환'",
-          "source": "etnews.com",
-          "url": "https://www.etnews.com/20260826000105"
-        },
-        {
-          "title": "[글로벌테크놀로지 인터뷰] 김민선 대표 “LDI에서 차량·Micro LED로 확장...",
-          "source": "smarttoday.co.kr",
-          "url": "https://www.smarttoday.co.kr/ko-kr/articles/110775"
+          "title": "[더벨][글로벌테크놀로지 IPO] 신고서 정정 후 피어그룹 추가…공모밴드...",
+          "source": "thebell.co.kr",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202608271037376360105029"
         }
       ],
       "listing_open_price": null,
@@ -441,14 +480,14 @@
           "url": "https://biz.chosun.com/industry/company/2026/08/20/KEQZ657HGRBO7ILRO3WJISUGFU/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
         },
         {
-          "title": "레인보우로보틱스-빅웨이브로보틱스, 북미 로봇시장 공략 ‘맞손’",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02902806645549288"
-        },
-        {
           "title": "레인보우로보틱스-빅웨이브로보틱스, MOU 체결",
           "source": "ggilbo.com",
           "url": "https://www.ggilbo.com/news/articleView.html?idxno=1176489"
+        },
+        {
+          "title": "레인보우로보틱스-빅웨이브로보틱스, 북미 로봇시장 공략 ‘맞손’",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02902806645549288"
         }
       ],
       "listing_open_price": null,
@@ -544,29 +583,29 @@
       "is_popular": false,
       "news": [
         {
+          "title": "'최저 경쟁률' 스카이랩스, 코스닥 입성⋯네오사피엔스 수요예측 [IPO 돋...",
+          "source": "inews24.com",
+          "url": "http://www.inews24.com/view/1999833"
+        },
+        {
+          "title": "[상장 기대주 점검] 2028년 순익 끌어 공모가 산정한 네오사피엔스, 적자...",
+          "source": "newstopkorea.com",
+          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47369"
+        },
+        {
           "title": "스카이랩스, 코스닥 입성…네오사피엔스·와이즈플래닛 수요예측 주목 ...",
           "source": "etoday.co.kr",
           "url": "https://www.etoday.co.kr/news/view/2619166"
         },
         {
+          "title": "[더벨][네오사피엔스 IPO] 인공지능·로봇에 쏠린 공모주 수요…음성 AI...",
+          "source": "thebell.co.kr",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202608272107551920107512"
+        },
+        {
           "title": "이번주 스카이랩스 코스닥 상장…네오사피엔스·와이즈플래닛은 수요예...",
           "source": "news.einfomax.co.kr",
           "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4432523"
-        },
-        {
-          "title": "AI 미디어기술기업 '네오사피엔스' 수요예측 [위클리 마켓]",
-          "source": "mk.co.kr",
-          "url": "https://www.mk.co.kr/article/12137836"
-        },
-        {
-          "title": "네오사피엔스·플러그링크, 24시간 음성 AI 상담 도입…“전기차 고객 ...",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/News/Read?newsId=02666646645550928&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
-        },
-        {
-          "title": "네오사피엔스·플러그링크, 전기차 충전 상담에 24시간 음성 AI 에이전트...",
-          "source": "mhns.co.kr",
-          "url": "https://www.mhns.co.kr/news/articleView.html?idxno=757590"
         }
       ],
       "listing_open_price": null,
@@ -702,29 +741,29 @@
       "is_popular": false,
       "news": [
         {
+          "title": "‘반지형 혈압계’ 스카이랩스, 유럽 진출…초도 매출 26억",
+          "source": "biz.chosun.com",
+          "url": "https://biz.chosun.com/science-chosun/bio/2026/08/31/AQNGCBRTURB2BOUBAIOKD6MLD4/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
+        },
+        {
+          "title": "스카이랩스, 독일 IEM과 손잡고 유럽 병·의원 시장 진출",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=03434166645552896&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+        },
+        {
+          "title": "스카이랩스, 독일 IEM과 손잡고 유럽 병·의원 시장 진출",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/thebio/2026/08/31/2026083108432636209"
+        },
+        {
+          "title": "스카이랩스, 독일 IEM과 손잡고 유럽 진출",
+          "source": "etnews.com",
+          "url": "https://www.etnews.com/20260831000146"
+        },
+        {
           "title": "[주간IPO] '반지형 혈압계' 개발사 스카이랩스, 4일 코스닥 상장",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260828000877"
-        },
-        {
-          "title": "[IPO챗] 스카이랩스, 몸값 낮춰 내주 코스닥 입성",
-          "source": "yna.co.kr",
-          "url": "https://www.yna.co.kr/view/AKR20260828096200008?input=1195m"
-        },
-        {
-          "title": "스카이랩스, 코스닥 입성…네오사피엔스·와이즈플래닛 수요예측 주목 ...",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2619166"
-        },
-        {
-          "title": "스카이랩스 코스닥 데뷔···공모주 시장 시험대",
-          "source": "hansbiz.co.kr",
-          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=860512"
-        },
-        {
-          "title": "스카이랩스 공모가 1만원, 희망 범위 하단 밑돌아",
-          "source": "tokenpost.kr",
-          "url": "https://www.tokenpost.kr/news/market/400154"
         }
       ],
       "listing_open_price": null,
@@ -766,24 +805,24 @@
           "url": "https://www.news1.kr/photos/8068744"
         },
         {
-          "title": "니어스랩 코스닥시장 상장기념식",
-          "source": "yna.co.kr",
-          "url": "https://www.yna.co.kr/view/PYH20260824059800013?input=1196m"
-        },
-        {
           "title": "니어스랩, 코스닥 상장 첫날 공모가 대비 10%↓[특징주]",
           "source": "edaily.co.kr",
           "url": "https://www.edaily.co.kr/News/Read?newsId=02286166645550600&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
-          "title": "'피지컬 AI 기반 자율비행 드론' 니어스랩, 코스닥 데뷔[오늘 상장]",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/News/Read?newsId=02027046645550600&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
-        },
-        {
           "title": "[특징주] 니어스랩, 코스닥 상장 첫날 30% 하락(종합)",
           "source": "yna.co.kr",
           "url": "https://www.yna.co.kr/view/AKR20260824036251008?input=1195m"
+        },
+        {
+          "title": "[특징주] 니어스랩, 코스닥 상장 첫날 장 초반 13%대 하락",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20260824036200008?input=1195m"
+        },
+        {
+          "title": "[특징주] 니어스랩, 코스닥 상장 첫날.. 공모가 13.47% '하회'",
+          "source": "g-enews.com",
+          "url": "https://www.g-enews.com/view.php?ud=20260824092034718044093b5d4e_1"
         }
       ],
       "listing_open_price": null,
@@ -820,6 +859,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[코스닥 입성 해치텍] ② 풋백옵션 째깍째깍…DB증권 \"환매 유입 시 적극...",
+          "source": "suwonilbo.kr",
+          "url": "http://www.suwonilbo.kr/news/articleView.html?idxno=317807"
+        },
+        {
           "title": "'반도체 센서 IC 팹리스' 해치텍, 코스닥 데뷔[오늘상장]",
           "source": "edaily.co.kr",
           "url": "https://www.edaily.co.kr/News/Read?newsId=02374726645550928&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
@@ -830,19 +874,14 @@
           "url": "https://www.mt.co.kr/stock/2026/08/25/2026082509123059427"
         },
         {
-          "title": "[특징주] 해치텍, 코스닥 상장 첫날 공모가 대비 20%대 하락",
-          "source": "ajunews.com",
-          "url": "https://www.ajunews.com/view/20260825095113232"
+          "title": "반도체 센서 IC기업 해치텍 코스닥 상장 첫날 장중 주가 공모가보다 23%...",
+          "source": "businesspost.co.kr",
+          "url": "https://www.businesspost.co.kr/BP?command=article_view&amp;num=445513"
         },
         {
-          "title": "[특징주] 해치텍, 코스닥 상장 첫날 공모가 대비 23%대 하회",
-          "source": "metroseoul.co.kr",
-          "url": "http://www.metroseoul.co.kr/article/20260825500164"
-        },
-        {
-          "title": "해치텍, 코스닥 상장 첫날 공모가 대비 16% 하락",
-          "source": "hankyung.com",
-          "url": "https://www.hankyung.com/article/2026082504426"
+          "title": "상장 첫날 25% 빠진 '해치텍' … 밴드 최하단 공모가도 과했나 [박정은의...",
+          "source": "biz.newdaily.co.kr",
+          "url": "https://biz.newdaily.co.kr/site/data/html/2026/08/25/2026082500099.html"
         }
       ],
       "listing_open_price": null,
@@ -884,11 +923,6 @@
           "url": "https://www.newsis.com/view/NISX20260821_0003757064"
         },
         {
-          "title": "기도산업, 코스닥 상장 첫날 장 초반 10% 급락",
-          "source": "hankyung.com",
-          "url": "https://www.hankyung.com/article/2026082140036"
-        },
-        {
           "title": "출렁이는 증시에…기도산업, 코스닥 데뷔 첫날 14%대 급락",
           "source": "imaeil.com",
           "url": "https://www.imaeil.com/page/view/2026082110063529444"
@@ -902,6 +936,11 @@
           "title": "[특징주] 기도산업, 코스닥 상장 첫날 14%대 급락",
           "source": "metroseoul.co.kr",
           "url": "http://www.metroseoul.co.kr/article/20260821500025"
+        },
+        {
+          "title": "기도산업 코스닥 상장 첫날 주가 장중 공모가보다 8%대 내려 약세",
+          "source": "businesspost.co.kr",
+          "url": "https://www.businesspost.co.kr/BP?command=article_view&amp;num=445267"
         }
       ],
       "listing_open_price": null,
@@ -1061,24 +1100,24 @@
           "url": "https://www.topstarnews.net/news/articleView.html?idxno=16176120"
         },
         {
+          "title": "인제니아테라퓨틱스(Reg.S) 주가, 8월 27일 17,350원 0.06% 상승 거래 마...",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16175070"
+        },
+        {
           "title": "인제니아테라퓨틱스, 오늘 코스닥 상장",
           "source": "biz.chosun.com",
           "url": "https://biz.chosun.com/science-chosun/bio/2026/08/18/XQDG7DDSXZEKTGKZZLBUQ6HM2A/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
         },
         {
-          "title": "'상장 첫날' 인제니아테라퓨틱스, 17% 급락 딛고 상승 전환[핫종목]",
-          "source": "news1.kr",
-          "url": "https://www.news1.kr/finance/market-exr/6261517"
+          "title": "인제니아테라퓨틱스 코스닥 입성...글로벌 임상·후속 파이프라인 개발...",
+          "source": "fnnews.com",
+          "url": "http://www.fnnews.com/news/202608180938455867"
         },
         {
-          "title": "인제니아테라퓨틱스, 코스닥 상장…\"후속 파이프라인 개발 가속\"",
-          "source": "mt.co.kr",
-          "url": "https://www.mt.co.kr/thebio/2026/08/19/2026081809401495773"
-        },
-        {
-          "title": "인제니아테라퓨틱스, 상장 첫날 17% 급락 뒤 반등",
-          "source": "hankyung.com",
-          "url": "https://www.hankyung.com/article/2026081870906"
+          "title": "[주간IPO] 인제니아테라퓨틱스·기도산업, 코스닥 상장",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260814000733"
         }
       ],
       "listing_open_price": null,
@@ -1164,29 +1203,29 @@
       "is_popular": true,
       "news": [
         {
+          "title": "레메디 주가, 8월 31일 14,560원 14.20% 상승 마감",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16178315"
+        },
+        {
+          "title": "강원 상장사 희비...레메디 14.20% 급등·파마리서치는 7.69% 하락",
+          "source": "kado.net",
+          "url": "https://www.kado.net/news/articleView.html?idxno=2069604"
+        },
+        {
+          "title": "레메디, 2.8조 인도네시아 영상진단 시장 공략… “1만 개 보건소에 AI ...",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02358326645552896&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+        },
+        {
+          "title": "레메디 주가, 8월 31일 장중 14,380원 12.78% 상승",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=544170"
+        },
+        {
           "title": "[시연기] 레메디 역대 최고의 액션-속도감, '컨트롤 레조넌트'",
           "source": "inven.co.kr",
           "url": "https://www.inven.co.kr/webzine/news/?news=320175"
-        },
-        {
-          "title": "레메디 주가, 급등세... 무슨 회사길래?",
-          "source": "ggilbo.com",
-          "url": "https://www.ggilbo.com/news/articleView.html?idxno=1178166"
-        },
-        {
-          "title": "하락장 돌파 나선 레메디…‘수출·캐파’ 확장 초점",
-          "source": "dealsite.co.kr",
-          "url": "https://dealsite.co.kr/articles/167715"
-        },
-        {
-          "title": "레메디 엔터테인먼트, '컨트롤 레조넌트'로 '도쿄게임쇼 2026' 출전... 일...",
-          "source": "gamefocus.co.kr",
-          "url": "https://gamefocus.co.kr/detail.php?number=178642"
-        },
-        {
-          "title": "레메디, 투자경고종목 지정 사전 예고",
-          "source": "topstarnews.net",
-          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16168876"
         }
       ],
       "listing_open_price": null,
@@ -1379,14 +1418,14 @@
           "url": "https://www.kbsm.net/news/view.php?idx=532013"
         },
         {
-          "title": "포항시, 2026년 강소기업 선정⋯스트라드비젼·옴니코트 등 성과 발표",
-          "source": "gukjenews.com",
-          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3678199"
-        },
-        {
           "title": "포항 스트라드비젼, 스톡옵션 31만여 주 부여 추진",
           "source": "tbc.co.kr",
           "url": "https://www.tbc.co.kr/news/view?pno=20260826093458AE04544&amp;id=210258"
+        },
+        {
+          "title": "포항시, 2026년 강소기업 선정⋯스트라드비젼·옴니코트 등 성과 발표",
+          "source": "gukjenews.com",
+          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3678199"
         },
         {
           "title": "스트라드비젼, 인도서 ADAS 수주 확대",
@@ -1491,60 +1530,6 @@
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
-    },
-    {
-      "no": "2287",
-      "corp_name": "피스피스스튜디오",
-      "stock_code": "0117P0",
-      "market": "코스닥",
-      "sector": "편조의복 제조업",
-      "ceo": "박화목",
-      "address": "서울특별시 용산구 이태원로45길 28",
-      "homepage": "http://",
-      "revenue": "113,777 (백만원)",
-      "net_income": "17,007 (백만원)",
-      "price_band": "19,000~21,500",
-      "fixed_price": 21500,
-      "underwriters": "NH투자증권,미래에셋증권",
-      "demand_period": {
-        "start": "2026-05-14",
-        "end": "2026-05-20"
-      },
-      "subscription_period": {
-        "start": "2026-05-26",
-        "end": "2026-05-27"
-      },
-      "refund_date": "2026-05-29",
-      "listing_date": "2026-06-08",
-      "demand_rate": 847.76,
-      "subscription_rate": 1194.94,
-      "competition_rate": 1194.94,
-      "competition_rate_source": "subscription",
-      "is_popular": true,
-      "news": [
-        {
-          "title": "피스피스스튜디오, 中 직진출 본격화…상하이 안푸루에 첫 플래그십",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02804406645548632"
-        },
-        {
-          "title": "피스피스스튜디오, 상하이 안푸루에 첫 대형 플래그십 출점",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260818001014"
-        },
-        {
-          "title": "7조 몰렸던 IPO의 굴욕…피스피스스튜디오, 두 달 만에 공모가 4분의 1",
-          "source": "sportschosun.com",
-          "url": "https://www.sportschosun.com/life/2026-08-12/202608100100057850003605"
-        },
-        {
-          "title": "피스피스스튜디오, 상반기 매출 424억원 달성",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260814001172"
-        }
-      ],
       "listing_open_price": null,
       "listing_change_pct": null
     }
