@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T08:51:12.462548+09:00",
+  "generated_at": "2026-09-09T08:45:14.331472+09:00",
   "entries": [
     {
       "no": "2322",
@@ -37,11 +37,6 @@
           "url": "https://www.fetv.co.kr/news/articleView.html?idxno=309767"
         },
         {
-          "title": "[티앤이코리아 IPO] '7년 동행' 초기투자 벤처캐피털 4곳, 최대 6배 회수...",
-          "source": "topdaily.kr",
-          "url": "https://www.topdaily.kr/articles/111817"
-        },
-        {
           "title": "티앤이코리아, 증권신고서 제출 ··· 코스닥 상장 시동",
           "source": "datanet.co.kr",
           "url": "https://www.datanet.co.kr/news/articleView.html?idxno=214272"
@@ -55,6 +50,11 @@
           "title": "[장외시황] 티앤이코리아, 증권신고서 제출",
           "source": "etoday.co.kr",
           "url": "https://www.etoday.co.kr/news/view/2622071"
+        },
+        {
+          "title": "[티앤이코리아 IPO] '7년 동행' 초기투자 벤처캐피털 4곳, 최대 6배 회수...",
+          "source": "topdaily.kr",
+          "url": "https://www.topdaily.kr/articles/111817"
         }
       ],
       "listing_open_price": null,
@@ -188,11 +188,6 @@
           "url": "https://www.edaily.co.kr/News/Read?newsId=03253766645577824&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
-          "title": "[래블업 IPO] 매출 99억인데…몸값 3000억 쳐달라는 레블업",
-          "source": "dealsite.co.kr",
-          "url": "https://dealsite.co.kr/articles/168502"
-        },
-        {
           "title": "래블업, PyTorch Foundation 실버 멤버 합류",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260903000322"
@@ -206,6 +201,70 @@
           "title": "래블업, 파이토치 재단 실버 멤버로 합류",
           "source": "pinpointnews.co.kr",
           "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=483679"
+        },
+        {
+          "title": "래블업, 파이토치 재단 실버 멤버 합류…오픈소스 AI 협력 확대",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=03155366645576512&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2324",
+      "corp_name": "엠에스바이오",
+      "stock_code": "0013Y0",
+      "market": "코스닥",
+      "sector": "그 외 기타 의료용 기기 제조업",
+      "ceo": "김성포",
+      "address": "경기도 성남시 중원구 사기막골로 124 (상대원동, SKn테크노파크) 테크동1413",
+      "homepage": "http://msbio.co.kr/",
+      "revenue": "23,787 (백만원)",
+      "net_income": "7,288 (백만원)",
+      "price_band": "6,800~7,800",
+      "fixed_price": null,
+      "underwriters": "KB증권",
+      "demand_period": {
+        "start": "2026-09-28",
+        "end": "2026-10-02"
+      },
+      "subscription_period": {
+        "start": "2026-10-12",
+        "end": "2026-10-13"
+      },
+      "refund_date": "2026-10-15",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "엠에스바이오, 증권신고서 제출…내달 코스닥 상장 목표",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260908_0003780045"
+        },
+        {
+          "title": "엠에스바이오, 증권신고서 제출…10월 코스닥 상장 추진",
+          "source": "view.asiae.co.kr",
+          "url": "https://view.asiae.co.kr/article/2026090808222555620"
+        },
+        {
+          "title": "엠에스바이오, 증권신고서 제출…코스닥 상장 추진",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260908000141"
+        },
+        {
+          "title": "6년째 영업이익률 30%대⋯엠에스바이오, 코스닥 상장 도전",
+          "source": "kormedi.com",
+          "url": "https://kormedi.com/?p=2862061"
+        },
+        {
+          "title": "엠에스바이오, 최대 312억원 공모…10월 코스닥 상장 목표",
+          "source": "newsway.co.kr",
+          "url": "https://www.newsway.co.kr/news/view?ud=2026090810405737900"
         }
       ],
       "listing_open_price": null,
@@ -242,11 +301,6 @@
       "is_popular": false,
       "news": [
         {
-          "title": "[엘리스그룹 IPO] AI 교육업체가 인프라 기업으로…마진율 68% 몸값 1조",
-          "source": "dealsite.co.kr",
-          "url": "https://dealsite.co.kr/articles/168131"
-        },
-        {
           "title": "'AI 풀스택' 엘리스그룹, 증권신고서 제출…코스닥 상장 목표",
           "source": "newsis.com",
           "url": "https://www.newsis.com/view/NISX20260823_0003758711"
@@ -265,6 +319,11 @@
           "title": "엘리스그룹, 코스닥 상장 본격화…최대 2000억 규모 공모",
           "source": "shinailbo.co.kr",
           "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5053709"
+        },
+        {
+          "title": "[엘리스그룹 IPO] AI 교육업체가 인프라 기업으로…마진율 68% 몸값 1조",
+          "source": "dealsite.co.kr",
+          "url": "https://dealsite.co.kr/articles/168131"
         }
       ],
       "listing_open_price": null,
@@ -452,29 +511,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "브릴스, 포스코센터에 '무인 바리스타 로봇 카페' 구현",
+          "title": "브릴스, 상반기 매출 136억원·수출 비중 57% 달성",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02650246645578152&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+        },
+        {
+          "title": "브릴스, 상반기 매출 절반 이상 해외서…미국 매출 40% 돌파",
           "source": "etnews.com",
-          "url": "https://www.etnews.com/20260903000209"
+          "url": "https://www.etnews.com/20260908000263"
         },
         {
-          "title": "브릴스, 포스코센터에 '무인 바리스타 로봇 카페' 구현",
+          "title": "브릴스, 상반기 매출 136억원·수출 비중 56.7%…흑자 지속",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260908000748"
+        },
+        {
+          "title": "브릴스, 상반기 매출 136억원…수출 131% 급증",
+          "source": "epnc.co.kr",
+          "url": "https://www.epnc.co.kr/news/articleView.html?idxno=406658"
+        },
+        {
+          "title": "브릴스, 상반기 매출 136억원·수출비중 57% 달성…수익성·글로벌 성장...",
           "source": "irobotnews.com",
-          "url": "https://www.irobotnews.com/news/articleView.html?idxno=48267"
-        },
-        {
-          "title": "브릴스, 포스코센터에 '무인 바리스타 로봇 카페' 구현",
-          "source": "snmnews.com",
-          "url": "http://www.snmnews.com/news/articleView.html?idxno=574217"
-        },
-        {
-          "title": "브릴스, 포스코센터에 '무인 바리스타 로봇 카페' 구현",
-          "source": "industrynews.co.kr",
-          "url": "https://www.industrynews.co.kr/news/articleView.html?idxno=85461"
-        },
-        {
-          "title": "포스코가 투자한 브릴스, 포스코센터서 첫 실증…로봇카페 가동",
-          "source": "greened.kr",
-          "url": "https://www.greened.kr/news/articleView.html?idxno=349132"
+          "url": "https://www.irobotnews.com/news/articleView.html?idxno=48356"
         }
       ],
       "listing_open_price": null,
@@ -603,29 +662,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "몸값 두 번 낮춘 빅웨이브로보틱스, 7차 정정신고서 제출…PSR 정당성 보...",
-          "source": "hankyung.com",
-          "url": "https://www.hankyung.com/article/202609044064r"
+          "title": "빅웨이브로보틱스, 모듈러 주택 생산에 휴머노이드 투입",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02187766645578152&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
-          "title": "[공모주달력]빅웨이브로보틱스 몸값 낮춰 재도전…공모주 '슈퍼위크'",
-          "source": "news.bizwatch.co.kr",
-          "url": "https://news.bizwatch.co.kr/article/market/2026/09/04/0029"
+          "title": "빅웨이브로보틱스, 모듈러 주택 제작에 휴머노이드 투입",
+          "source": "zdnet.co.kr",
+          "url": "https://zdnet.co.kr/view/?no=20260908092314"
         },
         {
-          "title": "'빅웨이브로보틱스 공모주' 어떤 기업? 수요예측과 청약일정 확인",
-          "source": "gukjenews.com",
-          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3686378"
+          "title": "빅웨이브로보틱스, 모듈러 주택 생산에 휴머노이드 투입",
+          "source": "ggilbo.com",
+          "url": "https://www.ggilbo.com/news/articleView.html?idxno=1180395"
         },
         {
-          "title": "기대감과 거품론 사이… 로봇주 '빅웨이브로보틱스'에 쏠린 눈",
-          "source": "weekly.chosun.com",
-          "url": "http://weekly.chosun.com/news/articleView.html?idxno=54951"
+          "title": "빅웨이브로보틱스, 모듈러 주택 생산에 휴머노이드 로봇 단계적 투입",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260908000137"
         },
         {
-          "title": "[주간IPO] 9월 둘째 주, 네오사피엔스 공모청약…빅웨이브로보틱스·글...",
-          "source": "consumernews.co.kr",
-          "url": "http://www.consumernews.co.kr/news/articleView.html?idxno=763049"
+          "title": "빅웨이브로보틱스, 모듈러 주택 공장에 휴머노이드 투입",
+          "source": "digitaltoday.co.kr",
+          "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=698875"
         }
       ],
       "listing_open_price": null,
@@ -682,9 +741,9 @@
           "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47479"
         },
         {
-          "title": "[더벨][와이즈플래닛컴퍼니 IPO] IR서 나온 '성장성' 질문, 회사가 내놓...",
-          "source": "thebell.co.kr",
-          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202609011345594400101625"
+          "title": "와이즈플래닛컴퍼니, IPO 앞두고 상반기 호실적…영업이익 131%↑",
+          "source": "etoday.co.kr",
+          "url": "https://www.etoday.co.kr/news/view/2617696"
         }
       ],
       "listing_open_price": null,
@@ -761,7 +820,7 @@
       "revenue": "- (백만원)",
       "net_income": "- (백만원)",
       "price_band": "2,000~2,000",
-      "fixed_price": null,
+      "fixed_price": 2000,
       "underwriters": "KB증권",
       "demand_period": {
         "start": "2026-09-04",
@@ -773,11 +832,11 @@
       },
       "refund_date": "2026-09-15",
       "listing_date": null,
-      "demand_rate": null,
+      "demand_rate": 1232.51,
       "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
-      "is_popular": false,
+      "competition_rate": 1232.51,
+      "competition_rate_source": "demand",
+      "is_popular": true,
       "news": [],
       "listing_open_price": null,
       "listing_change_pct": null
@@ -845,6 +904,11 @@
       "competition_rate_source": "subscription",
       "is_popular": false,
       "news": [
+        {
+          "title": "한국거래소, NH스팩34호 코스닥 신규상장 승인",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=485149"
+        },
         {
           "title": "NH스팩34호 신규 상장…'타입캐스트 운영' 네오사피엔스 일반 공모 [주간...",
           "source": "etoday.co.kr",
@@ -944,29 +1008,29 @@
       "is_popular": true,
       "news": [
         {
+          "title": "[특징주] 요격 드론 호평 속 니어스랩 12%대 급등...새로운 파병株 되나...",
+          "source": "etoday.co.kr",
+          "url": "https://www.etoday.co.kr/news/view/2622964"
+        },
+        {
+          "title": "[특징주] 니어스랩, \"방산 수출 전망 긍정적\".. 6%대 '강세'",
+          "source": "g-enews.com",
+          "url": "https://www.g-enews.com/view.php?ud=20260908095629499244093b5d4e_1"
+        },
+        {
+          "title": "니어스랩 주가, 9월 8일 장중 34,300원 10.47% 상승",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=546412"
+        },
+        {
           "title": "니어스랩 주가, 급등세... 무슨 회사길래?",
           "source": "ggilbo.com",
           "url": "https://www.ggilbo.com/news/articleView.html?idxno=1179720"
         },
         {
-          "title": "니어스랩 코스닥시장 상장기념",
-          "source": "news1.kr",
-          "url": "https://www.news1.kr/photos/8068744"
-        },
-        {
           "title": "[특징주] 니어스랩, 코스닥 상장 첫날 30% 하락(종합)",
           "source": "yna.co.kr",
           "url": "https://www.yna.co.kr/view/AKR20260824036251008?input=1195m"
-        },
-        {
-          "title": "[특징주] 니어스랩, 상장 첫날 13%대 급락…이후 소폭 반등",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260824000252"
-        },
-        {
-          "title": "[특징주] 니어스랩, 코스닥 상장 첫날 장 초반 13%대 하락",
-          "source": "yna.co.kr",
-          "url": "https://www.yna.co.kr/view/AKR20260824036200008?input=1195m"
         }
       ],
       "listing_open_price": null,
@@ -1013,9 +1077,9 @@
           "url": "https://www.etoday.co.kr/news/view/2621185"
         },
         {
-          "title": "[특징주] 해치텍, 코스닥 상장 첫날 장 초반 13% 하락",
+          "title": "[특징주] 해치텍, 코스닥 상장 첫날 39.4% 하락(종합)",
           "source": "yna.co.kr",
-          "url": "https://www.yna.co.kr/view/AKR20260825039200008?input=1195m"
+          "url": "https://www.yna.co.kr/view/AKR20260825039251008?input=1195m"
         },
         {
           "title": "[특징주] 해치텍, 코스닥 상장 첫날 20%대 급락",
@@ -1352,14 +1416,14 @@
           "url": "https://www.edaily.co.kr/News/Read?newsId=02637126645576840&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
+          "title": "[코스닥 루키즈 점검] 레메디, 인도 조달 잭팟…사업 다변화 승부수",
+          "source": "bloter.net",
+          "url": "https://www.bloter.net/news/articleView.html?idxno=672495"
+        },
+        {
           "title": "레메디, 인도·印尼 등 결핵 검진시장 공략",
           "source": "dailymedi.com",
           "url": "https://www.dailymedi.com/news/news_view.php?wr_id=940168"
-        },
-        {
-          "title": "강원 상장사 약세 속 제테마 3.88% 상승…레메디는 8.88% 급락",
-          "source": "kado.net",
-          "url": "https://www.kado.net/news/articleView.html?idxno=2070433"
         }
       ],
       "listing_open_price": null,
@@ -1396,24 +1460,29 @@
       "is_popular": true,
       "news": [
         {
+          "title": "레몬헬스케어, ‘레몬케어 7.0’ 출시…국립소방병원에 첫 구축",
+          "source": "seoul.co.kr",
+          "url": "https://www.seoul.co.kr/news/economy/2026/09/08/20260908500088?wlog_tag3=naver"
+        },
+        {
+          "title": "레몬헬스케어, 스마트병원 플랫폼 '레몬케어 7.0' 출시",
+          "source": "it.chosun.com",
+          "url": "https://it.chosun.com/news/articleView.html?idxno=2023092169682"
+        },
+        {
+          "title": "레몬헬스케어, '원격진료 완결형' 차세대 스마트병원 플랫폼 '레몬케어...",
+          "source": "etnews.com",
+          "url": "https://www.etnews.com/20260908000167"
+        },
+        {
           "title": "[코스닥 루키즈 점검] 레몬헬스케어, 상장 직후 전환점…공공SI 관건",
           "source": "bloter.net",
           "url": "https://www.bloter.net/news/articleView.html?idxno=672840"
         },
         {
-          "title": "레몬헬스케어 주가, 급등세... 무슨 회사길래?",
-          "source": "ggilbo.com",
-          "url": "https://www.ggilbo.com/news/articleView.html?idxno=1178758"
-        },
-        {
-          "title": "비대면 진료 연계 모멘텀 부각… 레몬헬스케어, 의료 플랫폼 시장서 '기...",
-          "source": "pinpointnews.co.kr",
-          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=482689"
-        },
-        {
-          "title": "레몬헬스케어 주가, 8월 24일 4,955원 4.34% 하락 마감",
-          "source": "topstarnews.net",
-          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16172021"
+          "title": "레몬헬스케어 주가, 9월 8일 장중 5,010원 7.86% 상승",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=546471"
         }
       ],
       "listing_open_price": null,
@@ -1508,65 +1577,6 @@
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
-    },
-    {
-      "no": "2289",
-      "corp_name": "스트라드비젼",
-      "stock_code": "475040",
-      "market": "코스닥",
-      "sector": "응용소프트웨어 개발 및 공급업",
-      "ceo": "김준환",
-      "address": "경북 포항시 남구 지곡로 394, 제5벤처동 304호, 305호, 306호, 307호, 308호(지곡동,포항테크노파크)",
-      "homepage": "http://www.stradvision.com",
-      "revenue": "11,539 (백만원)",
-      "net_income": "-65,529 (백만원)",
-      "price_band": "12,000~14,000",
-      "fixed_price": 12000,
-      "underwriters": "KB증권",
-      "demand_period": {
-        "start": "2026-06-09",
-        "end": "2026-06-15"
-      },
-      "subscription_period": {
-        "start": "2026-06-18",
-        "end": "2026-06-19"
-      },
-      "refund_date": "2026-06-23",
-      "listing_date": "2026-06-30",
-      "demand_rate": 381.3,
-      "subscription_rate": 45.83,
-      "competition_rate": 45.83,
-      "competition_rate_source": "subscription",
-      "is_popular": false,
-      "news": [
-        {
-          "title": "[더벨][Board Change] 스트라드비젼, 상장 맞춰 이사회 확장…추가재편 ...",
-          "source": "thebell.co.kr",
-          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202608271706478240104751"
-        },
-        {
-          "title": "포항 스트라드비젼, 스톡옵션 31만여 주 부여 추진",
-          "source": "tbc.co.kr",
-          "url": "https://www.tbc.co.kr/news/view?pno=20260826093458AE04544&amp;id=210258"
-        },
-        {
-          "title": "포항시, 2026년 강소기업 선정⋯스트라드비젼·옴니코트 등 성과 발표",
-          "source": "gukjenews.com",
-          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3678199"
-        },
-        {
-          "title": "스트라드비젼·디에스텍, 포항시 우수유망강소기업 선정",
-          "source": "kbsm.net",
-          "url": "https://www.kbsm.net/news/view.php?idx=532013"
-        },
-        {
-          "title": "스트라드비젼, 인도서 ADAS 수주 확대",
-          "source": "autotimes.co.kr",
-          "url": "http://autotimes.co.kr/detail.php?number=688843&amp;thread=27"
-        }
-      ],
       "listing_open_price": null,
       "listing_change_pct": null
     }
