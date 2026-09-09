@@ -1683,10 +1683,50 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   .geo-risk-icon { font-size: 20px; line-height: 1.3; }
   .geo-risk-text { font-size: 14px; font-weight: 700; }
   .geo-risk-evidence {
-    margin-top: 2px;
+    margin-top: 4px;
     font-size: 12px;
     font-family: var(--mono);
-    opacity: 0.85;
+  }
+  .geo-evidence-sep { color: var(--text-muted); margin: 0 5px; }
+  .geo-evidence-hit { font-weight: 700; }
+  .geo-evidence-muted { color: var(--text-muted); opacity: 0.8; }
+  .geo-evidence-news-toggle {
+    cursor: pointer;
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+  }
+  .geo-evidence-news-toggle:hover { opacity: 0.75; }
+  .geo-risk-news-list {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .geo-news-item {
+    display: block;
+    padding: 7px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    font-family: var(--sans);
+  }
+  .geo-news-item:first-child { border-top: none; padding-top: 0; }
+  .geo-news-item:hover .geo-news-title { text-decoration: underline; }
+  .geo-news-title { font-size: 13px; font-weight: 600; }
+  .geo-news-source {
+    margin-left: 6px;
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--text-muted);
+  }
+  .geo-news-summary {
+    margin-top: 3px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
   }
   .geo-risk-banner.caution {
     background: rgba(242, 193, 78, 0.14);
@@ -2464,6 +2504,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
       <div class="geo-risk-body">
         <div class="geo-risk-text" id="geo-risk-text"></div>
         <div class="geo-risk-evidence" id="geo-risk-evidence"></div>
+        <div class="geo-risk-news-list" id="geo-risk-news-list" hidden></div>
       </div>
     </div>
 
@@ -3185,20 +3226,46 @@ const GEO_RISK_LABEL = {
   warning: { icon: '🚨', text: '지정학적 리스크 + 시장 급변 감지 — 단타 신중 권고' },
 };
 
+// 근거 지표 하나를 칩으로 렌더링한다 - 자체 기준을 충족한 항목만 강조(hit),
+// 미충족이거나 아예 못 가져온 항목은 회색으로 구분해서 "무엇 때문에 떴는지" 한눈에 보이게 한다.
+function geoEvidenceChip(hit, text) {
+  return `<span class="${hit ? 'geo-evidence-hit' : 'geo-evidence-muted'}">${text}</span>`;
+}
+
 function renderGeoRiskEvidence(data) {
   const parts = [];
   if (data.sp500_change_pct != null) {
     const sign = data.sp500_change_pct > 0 ? '+' : '';
-    parts.push(`S&P500 ${sign}${data.sp500_change_pct}%`);
+    parts.push(geoEvidenceChip(data.sp500_hit, `S&P500 ${sign}${data.sp500_change_pct}%`));
+  } else {
+    parts.push(geoEvidenceChip(false, 'S&P500 정보없음'));
   }
   if (data.kospi_change_pct != null) {
     const sign = data.kospi_change_pct > 0 ? '+' : '';
-    parts.push(`코스피 ${sign}${data.kospi_change_pct}%`);
+    parts.push(geoEvidenceChip(data.kospi_hit, `코스피 ${sign}${data.kospi_change_pct}%`));
+  } else {
+    parts.push(geoEvidenceChip(false, '코스피 정보없음'));
   }
-  if (data.matched_keywords && data.matched_keywords.length) {
-    parts.push(`관련 뉴스 ${data.news_count}건(${data.matched_keywords.join('·')})`);
+  if (data.wti_change_pct != null) {
+    const sign = data.wti_change_pct > 0 ? '+' : '';
+    parts.push(geoEvidenceChip(data.wti_hit, `WTI ${sign}${data.wti_change_pct}%`));
+  } else {
+    parts.push(geoEvidenceChip(false, 'WTI 정보없음'));
   }
-  return parts.join(' · ');
+  const newsText = `관련 뉴스 ${data.news_count}건${data.matched_keywords && data.matched_keywords.length ? `(${data.matched_keywords.join('·')})` : ''}`;
+  const newsChip = (data.news && data.news.length)
+    ? `<button type="button" class="geo-evidence-news-toggle" id="geo-news-toggle">${geoEvidenceChip(data.condition_a, newsText)}</button>`
+    : geoEvidenceChip(data.condition_a, newsText);
+  parts.push(newsChip);
+  return parts.join('<span class="geo-evidence-sep">·</span>');
+}
+
+function renderGeoNewsList(news) {
+  return news.map(n => `
+    <a class="geo-news-item" href="${n.url}" target="_blank" rel="noopener noreferrer">
+      <span class="geo-news-title">${n.title}</span><span class="geo-news-source">${n.source}</span>
+      ${n.summary ? `<div class="geo-news-summary">${n.summary}</div>` : ''}
+    </a>`).join('');
 }
 
 async function loadGeoRisk(isoDate) {
@@ -3206,6 +3273,7 @@ async function loadGeoRisk(isoDate) {
   // 지나간 날짜에 다시 보여주는 게 의미가 없다(market_summary와 달리 배치 스냅샷
   // 폴백 자체가 없음 - 애초에 배치를 거치지 않는 실시간 전용 기능이라 그렇다).
   const bannerEl = document.getElementById('geo-risk-banner');
+  const newsListEl = document.getElementById('geo-risk-news-list');
   if (isoDate !== todayIso()) {
     bannerEl.hidden = true;
     return;
@@ -3226,7 +3294,19 @@ async function loadGeoRisk(isoDate) {
     bannerEl.hidden = false;
     document.getElementById('geo-risk-icon').textContent = label.icon;
     document.getElementById('geo-risk-text').textContent = label.text;
-    document.getElementById('geo-risk-evidence').textContent = renderGeoRiskEvidence(data);
+    document.getElementById('geo-risk-evidence').innerHTML = renderGeoRiskEvidence(data);
+
+    newsListEl.hidden = true;
+    newsListEl.innerHTML = '';
+    const toggleBtn = document.getElementById('geo-news-toggle');
+    if (toggleBtn && data.news && data.news.length) {
+      toggleBtn.addEventListener('click', () => {
+        if (newsListEl.hidden) {
+          newsListEl.innerHTML = renderGeoNewsList(data.news);
+        }
+        newsListEl.hidden = !newsListEl.hidden;
+      });
+    }
   } catch (e) {
     bannerEl.hidden = true;  // 조회 실패 시 오탐 방지를 위해 표시 안 함(설계 문서 원칙)
   }
