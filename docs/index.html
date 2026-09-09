@@ -1669,16 +1669,16 @@ const GEO_RISK_LABEL = {
 
 function renderGeoRiskEvidence(data) {
   const parts = [];
-  if (data.matched_keywords && data.matched_keywords.length) {
-    parts.push(`관련 뉴스 ${data.news_count}건(${data.matched_keywords.join('·')})`);
-  }
-  if (data.wti_change_pct != null) {
-    const sign = data.wti_change_pct > 0 ? '+' : '';
-    parts.push(`WTI ${sign}${data.wti_change_pct}%`);
+  if (data.sp500_change_pct != null) {
+    const sign = data.sp500_change_pct > 0 ? '+' : '';
+    parts.push(`S&P500 ${sign}${data.sp500_change_pct}%`);
   }
   if (data.kospi_change_pct != null) {
     const sign = data.kospi_change_pct > 0 ? '+' : '';
     parts.push(`코스피 ${sign}${data.kospi_change_pct}%`);
+  }
+  if (data.matched_keywords && data.matched_keywords.length) {
+    parts.push(`관련 뉴스 ${data.news_count}건(${data.matched_keywords.join('·')})`);
   }
   return parts.join(' · ');
 }
