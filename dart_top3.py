@@ -1671,6 +1671,38 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--text-muted);
     font-family: var(--mono);
   }
+  .geo-risk-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+  }
+  .geo-risk-icon { font-size: 20px; line-height: 1.3; }
+  .geo-risk-text { font-size: 14px; font-weight: 700; }
+  .geo-risk-evidence {
+    margin-top: 2px;
+    font-size: 12px;
+    font-family: var(--mono);
+    opacity: 0.85;
+  }
+  .geo-risk-banner.caution {
+    background: rgba(242, 193, 78, 0.14);
+    border-color: rgba(242, 193, 78, 0.45);
+    color: var(--gold);
+  }
+  .geo-risk-banner.warning {
+    background: rgba(240, 69, 79, 0.16);
+    border-color: rgba(240, 69, 79, 0.55);
+    color: var(--rise);
+    animation: geo-risk-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes geo-risk-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(240, 69, 79, 0.35); }
+    50% { box-shadow: 0 0 0 6px rgba(240, 69, 79, 0); }
+  }
   .market-summary {
     margin-bottom: 20px;
     padding: 14px 18px;
@@ -2427,6 +2459,14 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
       <select id="date-select" aria-label="조회 날짜 선택"></select>
     </div>
 
+    <div id="geo-risk-banner" class="geo-risk-banner" hidden>
+      <span class="geo-risk-icon" id="geo-risk-icon"></span>
+      <div class="geo-risk-body">
+        <div class="geo-risk-text" id="geo-risk-text"></div>
+        <div class="geo-risk-evidence" id="geo-risk-evidence"></div>
+      </div>
+    </div>
+
     <div id="market-summary" class="content-panel market-summary">
       <div id="ms-empty" class="market-empty" hidden>오늘의 시황 정보를 잠시 불러오지 못했습니다. 새로고침하면 다시 시도합니다.</div>
       <div id="ms-content">
@@ -3140,8 +3180,61 @@ async function loadMarketSummaryForDate(isoDate, bakedInSummary) {
   renderMarketSummary(bakedInSummary);
 }
 
+const GEO_RISK_LABEL = {
+  caution: { icon: '⚠️', text: '지정학적 이슈 감지 — 시장 변동성 확대 가능' },
+  warning: { icon: '🚨', text: '지정학적 리스크 + 시장 급변 감지 — 단타 신중 권고' },
+};
+
+function renderGeoRiskEvidence(data) {
+  const parts = [];
+  if (data.matched_keywords && data.matched_keywords.length) {
+    parts.push(`관련 뉴스 ${data.news_count}건(${data.matched_keywords.join('·')})`);
+  }
+  if (data.wti_change_pct != null) {
+    const sign = data.wti_change_pct > 0 ? '+' : '';
+    parts.push(`WTI ${sign}${data.wti_change_pct}%`);
+  }
+  if (data.kospi_change_pct != null) {
+    const sign = data.kospi_change_pct > 0 ? '+' : '';
+    parts.push(`코스피 ${sign}${data.kospi_change_pct}%`);
+  }
+  return parts.join(' · ');
+}
+
+async function loadGeoRisk(isoDate) {
+  // 과거 날짜에는 표시하지 않는다 - 지정학 리스크 배너는 "지금 이 순간의 경고"라
+  // 지나간 날짜에 다시 보여주는 게 의미가 없다(market_summary와 달리 배치 스냅샷
+  // 폴백 자체가 없음 - 애초에 배치를 거치지 않는 실시간 전용 기능이라 그렇다).
+  const bannerEl = document.getElementById('geo-risk-banner');
+  if (isoDate !== todayIso()) {
+    bannerEl.hidden = true;
+    return;
+  }
+  try {
+    const res = await fetch('api/geo_risk.php');
+    if (!res.ok) {
+      bannerEl.hidden = true;
+      return;
+    }
+    const data = await res.json();
+    if (!data || data.level === 'none' || !GEO_RISK_LABEL[data.level]) {
+      bannerEl.hidden = true;
+      return;
+    }
+    const label = GEO_RISK_LABEL[data.level];
+    bannerEl.className = `geo-risk-banner ${data.level}`;
+    bannerEl.hidden = false;
+    document.getElementById('geo-risk-icon').textContent = label.icon;
+    document.getElementById('geo-risk-text').textContent = label.text;
+    document.getElementById('geo-risk-evidence').textContent = renderGeoRiskEvidence(data);
+  } catch (e) {
+    bannerEl.hidden = true;  // 조회 실패 시 오탐 방지를 위해 표시 안 함(설계 문서 원칙)
+  }
+}
+
 function renderData(data) {
   loadMarketSummaryForDate(data.date, data.market_summary);
+  loadGeoRisk(data.date);
 
   const ranked = data.ranked || [];
   document.getElementById('sub-label').textContent =
