@@ -1,6 +1,65 @@
 {
-  "generated_at": "2026-09-09T08:45:14.331472+09:00",
+  "generated_at": "2026-09-10T08:38:44.759256+09:00",
   "entries": [
+    {
+      "no": "2325",
+      "corp_name": "바로팜",
+      "stock_code": "952366",
+      "market": "코스닥",
+      "sector": "전자상거래 소매 중개업",
+      "ceo": "김슬기",
+      "address": "서울특별시 강남구 역삼로 169 3층(역삼동, 명우빌딩)",
+      "homepage": "http://baropharm.com",
+      "revenue": "96,724 (백만원)",
+      "net_income": "-9,679 (백만원)",
+      "price_band": "16,400~20,200",
+      "fixed_price": null,
+      "underwriters": "미래에셋증권",
+      "demand_period": {
+        "start": "2026-10-22",
+        "end": "2026-10-28"
+      },
+      "subscription_period": {
+        "start": "2026-11-02",
+        "end": "2026-11-03"
+      },
+      "refund_date": "2026-11-05",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "바로팜, 증권신고서 제출…연내 코스닥 상장 목표",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260909_0003781785"
+        },
+        {
+          "title": "바로팜, 코스닥 상장 공모 절차 돌입",
+          "source": "view.asiae.co.kr",
+          "url": "https://view.asiae.co.kr/article/2026090908162991014"
+        },
+        {
+          "title": "바로팜 증권신고서 제출…희망 공모가 1만6400원~2만200원",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/stock/2026/09/09/2026090910063059853"
+        },
+        {
+          "title": "바로팜, 증권신고서 제출…연내 코스닥 상장 추진",
+          "source": "daily.hankooki.com",
+          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1404181"
+        },
+        {
+          "title": "바로팜, 최대 360억 공모로 코스닥 상장 본격화",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260909000160"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
     {
       "no": "2322",
       "corp_name": "티앤이코리아",
@@ -32,11 +91,6 @@
       "is_popular": false,
       "news": [
         {
-          "title": "신한투자증권, 티앤이코리아 IPO 'IB 역량' 가늠자된다",
-          "source": "fetv.co.kr",
-          "url": "https://www.fetv.co.kr/news/articleView.html?idxno=309767"
-        },
-        {
           "title": "티앤이코리아, 증권신고서 제출 ··· 코스닥 상장 시동",
           "source": "datanet.co.kr",
           "url": "https://www.datanet.co.kr/news/articleView.html?idxno=214272"
@@ -50,6 +104,11 @@
           "title": "[장외시황] 티앤이코리아, 증권신고서 제출",
           "source": "etoday.co.kr",
           "url": "https://www.etoday.co.kr/news/view/2622071"
+        },
+        {
+          "title": "신한투자증권, 티앤이코리아 IPO 'IB 역량' 가늠자된다",
+          "source": "fetv.co.kr",
+          "url": "https://www.fetv.co.kr/news/articleView.html?idxno=309767"
         },
         {
           "title": "[티앤이코리아 IPO] '7년 동행' 초기투자 벤처캐피털 4곳, 최대 6배 회수...",
@@ -91,16 +150,6 @@
       "is_popular": false,
       "news": [
         {
-          "title": "[장외시황] 크리에이츠, 증권신고서 제출",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2622718"
-        },
-        {
-          "title": "크리에이츠, 증권신고서 제출…코스닥 상장 공모 절차 본격화",
-          "source": "bloter.net",
-          "url": "https://www.bloter.net/news/articleView.html?idxno=672825"
-        },
-        {
           "title": "크리에이츠, 코스닥 상장 절차 본격화…증권신고서 제출",
           "source": "edaily.co.kr",
           "url": "https://www.edaily.co.kr/News/Read?newsId=04142646645576840&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
@@ -114,6 +163,16 @@
           "title": "크리에이츠, 증권신고서 제출…코스닥 상장 '초읽기'",
           "source": "cstimes.com",
           "url": "https://www.cstimes.com/news/articleView.html?idxno=719489"
+        },
+        {
+          "title": "크리에이츠, 코스닥 IPO 돌입...최대 252억원 공모",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=484073"
+        },
+        {
+          "title": "[크리에이츠 IPO] 몸값 할인 배경은 할인율…PER은 그대로",
+          "source": "the-stock.kr",
+          "url": "https://www.the-stock.kr/news/articleView.html?idxno=33344"
         }
       ],
       "listing_open_price": null,
@@ -183,29 +242,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "“AI 인프라계 안드로이드 될 것”…래블업, ‘GPU 효율화’로 승부수",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/News/Read?newsId=03253766645577824&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+          "title": "래블업이 제시한 AI 모델·인프라 통합 운영 전략은",
+          "source": "zdnet.co.kr",
+          "url": "https://zdnet.co.kr/view/?no=20260909163344"
         },
         {
-          "title": "래블업, PyTorch Foundation 실버 멤버 합류",
+          "title": "래블업, 코엑스서 연례 기술 컨퍼런스 'conf/6' 개최",
           "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260903000322"
+          "url": "https://www.newspim.com/news/view/20260909000527"
         },
         {
-          "title": "래블업, PyTorch Foundation 실버 멤버 합류…글로벌 AI 생태계 협력 확대",
-          "source": "view.asiae.co.kr",
-          "url": "https://view.asiae.co.kr/article/2026090314211180042"
+          "title": "래블업, 여섯번째 기술 컨퍼런스 29일 개최",
+          "source": "byline.network",
+          "url": "https://byline.network/?p=9004111222619166"
         },
         {
-          "title": "래블업, 파이토치 재단 실버 멤버로 합류",
+          "title": "래블업, AI 인프라 기술 컨퍼런스 29일 개최",
           "source": "pinpointnews.co.kr",
-          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=483679"
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=485428"
         },
         {
-          "title": "래블업, 파이토치 재단 실버 멤버 합류…오픈소스 AI 협력 확대",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/News/Read?newsId=03155366645576512&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+          "title": "래블업, 기술 컨퍼런스 'lab | up > /conf/6' 개최…\"AI산업 시대의 엔드...",
+          "source": "aitimes.com",
+          "url": "https://www.aitimes.com/news/articleView.html?idxno=215035"
         }
       ],
       "listing_open_price": null,
@@ -419,6 +478,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "진코스텍, 하이드로겔 호황에 올인…단일품목 의존은 ‘양날의 검’ [장...",
+          "source": "ekn.kr",
+          "url": "https://www.ekn.kr/web/view.php?key=20260909029131885"
+        },
+        {
           "title": "[IPO 워치] 진코스텍, ODM보다 브랜드사 무게…몸값 높인 셈법",
           "source": "bloter.net",
           "url": "https://www.bloter.net/news/articleView.html?idxno=672767"
@@ -437,11 +501,6 @@
           "title": "진코스텍, 코스닥 이전상장 본격화…'3공장·차세대 하이드로겔' 승부수",
           "source": "news.tf.co.kr",
           "url": "https://news.tf.co.kr/read/economy/2359120.htm"
-        },
-        {
-          "title": "진코스텍, 증권신고서 제출…코스닥 이전상장 절차 돌입",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260828000311"
         }
       ],
       "listing_open_price": null,
@@ -713,7 +772,7 @@
         "end": "2026-09-15"
       },
       "refund_date": "2026-09-17",
-      "listing_date": null,
+      "listing_date": "2026-09-23",
       "demand_rate": null,
       "subscription_rate": null,
       "competition_rate": null,
@@ -721,29 +780,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "[디깅노트] 와이즈플래닛컴퍼니 정체성 지킨 대신증권의 묘수",
-          "source": "bloter.net",
-          "url": "https://www.bloter.net/news/articleView.html?idxno=672847"
+          "title": "닥터피엘·누잠 만든 와이즈플래닛컴퍼니 \"美 본격 진출\"[IPO출사표]",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=03857286645578480&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
-          "title": "'와이즈플래닛컴퍼니 공모주' 수요예측 시작...상장일 언제?",
-          "source": "gukjenews.com",
-          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3684225"
+          "title": "와이즈플래닛컴퍼니 \"코스닥 상장으로 글로벌 브랜드 빌더 도약\"",
+          "source": "daily.hankooki.com",
+          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1404367"
         },
         {
-          "title": "와이즈플래닛컴퍼니 수요예측 돌입…상장일은 미정",
-          "source": "vegannews.co.kr",
-          "url": "https://www.vegannews.co.kr/news/article.html?no=385820"
+          "title": "와이즈플래닛컴퍼니, 코스닥 상장 출사표…美 진출·M&A 추진",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260909000834"
         },
         {
-          "title": "[상장 기대주 점검] '브랜드 빌더' 와이즈플래닛컴퍼니, 피어는 화장품...",
-          "source": "newstopkorea.com",
-          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47479"
+          "title": "와이즈플래닛컴퍼니, 포트폴리오 확장 속도⋯ “글로벌 브랜드 빌더 도...",
+          "source": "viva100.com",
+          "url": "https://www.viva100.com/article/20260909500806"
         },
         {
-          "title": "와이즈플래닛컴퍼니, IPO 앞두고 상반기 호실적…영업이익 131%↑",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2617696"
+          "title": "코스닥 입성 앞둔 '와이즈플래닛컴퍼니', 글로벌 카테고리 브랜드 리더...",
+          "source": "datanet.co.kr",
+          "url": "https://www.datanet.co.kr/news/articleView.html?idxno=214374"
         }
       ],
       "listing_open_price": null,
@@ -761,7 +820,7 @@
       "revenue": "10,649 (백만원)",
       "net_income": "-6,994 (백만원)",
       "price_band": "13,800~15,800",
-      "fixed_price": null,
+      "fixed_price": 10000,
       "underwriters": "대신증권",
       "demand_period": {
         "start": "2026-09-02",
@@ -772,17 +831,22 @@
         "end": "2026-09-11"
       },
       "refund_date": "2026-09-15",
-      "listing_date": null,
-      "demand_rate": null,
+      "listing_date": "2026-09-21",
+      "demand_rate": 219.56,
       "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
+      "competition_rate": 219.56,
+      "competition_rate_source": "demand",
       "is_popular": false,
       "news": [
         {
-          "title": "“B2B·네오나로 이익 체력 키운다”…네오사피엔스, 흑전 로드맵 제시...",
+          "title": "네오사피엔스, 공모가 1만원 확정…일반 청약 개시",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260910_0003783541"
+        },
+        {
+          "title": "'음성 AI' 네오사피엔스, 일반공모 돌입[오늘청약]",
           "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/News/Read?newsId=03450566645577824&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02715846645578808&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
           "title": "[IPO챗] 네오사피엔스 \"음성 생성 넘어 대화형 AI로\"…코스닥 출사표",
@@ -790,19 +854,14 @@
           "url": "https://www.yna.co.kr/view/AKR20260907085000008?input=1195m"
         },
         {
+          "title": "“B2B·네오나로 이익 체력 키운다”…네오사피엔스, 흑전 로드맵 제시...",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=03450566645577824&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+        },
+        {
           "title": "네오사피엔스, 코스닥 상장 나선다… \"내년 흑자 전환\"",
           "source": "newscj.com",
           "url": "https://www.newscj.com/news/articleView.html?idxno=3430754"
-        },
-        {
-          "title": "네오사피엔스, 코스닥 출사표…\"내년 흑자전환·글로벌 AI 에이전트 선점...",
-          "source": "daily.hankooki.com",
-          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1403425"
-        },
-        {
-          "title": "네오사피엔스, '타입캐스트' 넘어 '네오나'로…B2B·글로벌 확장",
-          "source": "epnc.co.kr",
-          "url": "https://www.epnc.co.kr/news/articleView.html?idxno=406634"
         }
       ],
       "listing_open_price": null,
@@ -831,7 +890,7 @@
         "end": "2026-09-11"
       },
       "refund_date": "2026-09-15",
-      "listing_date": null,
+      "listing_date": "2026-09-22",
       "demand_rate": 1232.51,
       "subscription_rate": null,
       "competition_rate": 1232.51,
@@ -853,7 +912,7 @@
       "revenue": "- (백만원)",
       "net_income": "- (백만원)",
       "price_band": "2,000~2,000",
-      "fixed_price": null,
+      "fixed_price": 2000,
       "underwriters": "한국투자증권",
       "demand_period": {
         "start": "2026-09-07",
@@ -864,12 +923,12 @@
         "end": "2026-09-11"
       },
       "refund_date": "2026-09-15",
-      "listing_date": null,
-      "demand_rate": null,
+      "listing_date": "2026-09-22",
+      "demand_rate": 1270.51,
       "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
-      "is_popular": false,
+      "competition_rate": 1270.51,
+      "competition_rate_source": "demand",
+      "is_popular": true,
       "news": [],
       "listing_open_price": null,
       "listing_change_pct": null
@@ -949,6 +1008,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[바이오e종목] ‘혈압 반지’ 스카이랩스, 흥행 부진 딛고 상승…해외 ...",
+          "source": "biz.chosun.com",
+          "url": "https://biz.chosun.com/science-chosun/bio/2026/09/10/FMBNARWHAZCU5B3RHWHRISCL64/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
+        },
+        {
           "title": "스카이랩스, ESC서 커프리스 혈압계 임상 데이터 공개",
           "source": "fnnews.com",
           "url": "https://www.fnnews.com/news/202609070932441192"
@@ -967,11 +1031,6 @@
           "title": "스카이랩스 'CART', 심방세동·심부전 환자 활용 가능성 확인",
           "source": "medipana.com",
           "url": "https://www.medipana.com/news/articleView.html?idxno=417140"
-        },
-        {
-          "title": "스카이랩스, 심방세동·심부전 환자 24시간 혈압 측정 가능성 제시",
-          "source": "docdocdoc.co.kr",
-          "url": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3042511"
         }
       ],
       "listing_open_price": null,
@@ -1008,6 +1067,11 @@
       "is_popular": true,
       "news": [
         {
+          "title": "니어스랩 분기 첫 흑자 냈지만 지속가능성은 '글쎄'",
+          "source": "sidae.com",
+          "url": "https://www.sidae.com/article/2026090713144853091"
+        },
+        {
           "title": "[특징주] 요격 드론 호평 속 니어스랩 12%대 급등...새로운 파병株 되나...",
           "source": "etoday.co.kr",
           "url": "https://www.etoday.co.kr/news/view/2622964"
@@ -1026,11 +1090,6 @@
           "title": "니어스랩 주가, 급등세... 무슨 회사길래?",
           "source": "ggilbo.com",
           "url": "https://www.ggilbo.com/news/articleView.html?idxno=1179720"
-        },
-        {
-          "title": "[특징주] 니어스랩, 코스닥 상장 첫날 30% 하락(종합)",
-          "source": "yna.co.kr",
-          "url": "https://www.yna.co.kr/view/AKR20260824036251008?input=1195m"
         }
       ],
       "listing_open_price": null,
@@ -1072,11 +1131,6 @@
           "url": "https://www.joongangenews.com/news/articleView.html?idxno=546228"
         },
         {
-          "title": "해치텍, 로봇 관절용 인코더 IC 개발 완료…10월 샘플 제작",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2621185"
-        },
-        {
           "title": "[특징주] 해치텍, 코스닥 상장 첫날 39.4% 하락(종합)",
           "source": "yna.co.kr",
           "url": "https://www.yna.co.kr/view/AKR20260825039251008?input=1195m"
@@ -1090,6 +1144,11 @@
           "title": "[특징주] 해치텍, 코스닥 상장 첫날 '급락'",
           "source": "cstimes.com",
           "url": "https://www.cstimes.com/news/articleView.html?idxno=717890"
+        },
+        {
+          "title": "[특징주] 해치텍, 코스닥 상장 첫날 장 초반 13% 하락",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20260825039200008?input=1195m"
         }
       ],
       "listing_open_price": null,
@@ -1185,6 +1244,11 @@
       "is_popular": true,
       "news": [
         {
+          "title": "코스닥 신규 상장주 잔혹사⋯케이앤에스아이앤씨ㆍ레몬헬스케어 ‘반토...",
+          "source": "etoday.co.kr",
+          "url": "https://www.etoday.co.kr/news/view/2623684"
+        },
+        {
           "title": "케이앤에스아이앤씨, 독일 ‘SMM 2026’ 참가…저궤도 위성 안테나 공개",
           "source": "edaily.co.kr",
           "url": "https://www.edaily.co.kr/News/Read?newsId=02817526645575856&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
@@ -1203,11 +1267,6 @@
           "title": "케이앤에스아이앤씨, 상장 첫날 39% 상승 마감",
           "source": "mk.co.kr",
           "url": "https://www.mk.co.kr/article/12126689"
-        },
-        {
-          "title": "'위성 안테나' 케이앤에스아이앤씨, 상장 첫날 공모가 2배 [핫종목]",
-          "source": "news1.kr",
-          "url": "https://www.news1.kr/finance/market-exr/6257841"
         }
       ],
       "listing_open_price": null,
@@ -1303,14 +1362,14 @@
       "is_popular": false,
       "news": [
         {
+          "title": "인제니아테라퓨틱스. '두 팔 항체'로 혈관치료제 판도 바꾼다",
+          "source": "mk.co.kr",
+          "url": "https://www.mk.co.kr/article/12148355"
+        },
+        {
           "title": "[주식도락] 공모가 웃도는 인제니아테라퓨틱스…새내기주 '체면치레'",
           "source": "newsdream.kr",
           "url": "http://www.newsdream.kr/news/articleView.html?idxno=117627"
-        },
-        {
-          "title": "MSD, 인제니아테라퓨틱스 MK-8748 3상 모집 시작",
-          "source": "press9.kr",
-          "url": "http://www.press9.kr/news/articleView.html?idxno=82120"
         },
         {
           "title": "인제니아테라퓨틱스(Reg.S) 주가, 9월 2일 장중 18,830원 2.38% 하락",
@@ -1323,9 +1382,9 @@
           "url": "https://www.cbci.co.kr/news/articleView.html?idxno=603057"
         },
         {
-          "title": "인제니아테라퓨틱스(Reg.S) 주가, 9월 1일 19,290원 9.35% 상승 마감",
-          "source": "topstarnews.net",
-          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16179566"
+          "title": "MSD, 인제니아테라퓨틱스 MK-8748 3상 모집 시작",
+          "source": "press9.kr",
+          "url": "http://www.press9.kr/news/articleView.html?idxno=82120"
         }
       ],
       "listing_open_price": null,
@@ -1365,6 +1424,11 @@
           "title": "[모닝 리포트] \"에이치엘지노믹스, 만성질환 API 성장…CMO·CDMO 신사업 ...",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260908000045"
+        },
+        {
+          "title": "에이치엘지노믹스, 548억원 규모 제2공장 신축",
+          "source": "medipana.com",
+          "url": "https://www.medipana.com/news/articleView.html?idxno=415888"
         }
       ],
       "listing_open_price": null,
@@ -1475,14 +1539,14 @@
           "url": "https://www.etnews.com/20260908000167"
         },
         {
+          "title": "코스닥 신규 상장주 잔혹사⋯케이앤에스아이앤씨ㆍ레몬헬스케어 ‘반토...",
+          "source": "etoday.co.kr",
+          "url": "https://www.etoday.co.kr/news/view/2623684"
+        },
+        {
           "title": "[코스닥 루키즈 점검] 레몬헬스케어, 상장 직후 전환점…공공SI 관건",
           "source": "bloter.net",
           "url": "https://www.bloter.net/news/articleView.html?idxno=672840"
-        },
-        {
-          "title": "레몬헬스케어 주가, 9월 8일 장중 5,010원 7.86% 상승",
-          "source": "joongangenews.com",
-          "url": "https://www.joongangenews.com/news/articleView.html?idxno=546471"
         }
       ],
       "listing_open_price": null,
@@ -1544,39 +1608,6 @@
           "url": "https://www.yna.co.kr/view/AKR20260901029800008?input=1195m"
         }
       ],
-      "listing_open_price": null,
-      "listing_change_pct": null
-    },
-    {
-      "no": "2297",
-      "corp_name": "한국스팩16호",
-      "stock_code": "0164H0",
-      "market": "코스닥",
-      "sector": "그 외 기타 금융 지원 서비스업",
-      "ceo": "민명기",
-      "address": "서울특별시 영등포구 의사당대로 88 (여의도동, 한국투자증권빌딩)",
-      "homepage": "http://",
-      "revenue": "- (백만원)",
-      "net_income": "- (백만원)",
-      "price_band": "2,000~2,000",
-      "fixed_price": 2000,
-      "underwriters": "한국투자증권",
-      "demand_period": {
-        "start": "2026-06-17",
-        "end": "2026-06-18"
-      },
-      "subscription_period": {
-        "start": "2026-06-22",
-        "end": "2026-06-23"
-      },
-      "refund_date": "2026-06-25",
-      "listing_date": "2026-06-30",
-      "demand_rate": 1364.09,
-      "subscription_rate": 1274.77,
-      "competition_rate": 1274.77,
-      "competition_rate_source": "subscription",
-      "is_popular": true,
-      "news": [],
       "listing_open_price": null,
       "listing_change_pct": null
     }
