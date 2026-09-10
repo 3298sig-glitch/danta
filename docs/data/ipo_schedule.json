@@ -974,8 +974,8 @@
           "url": "https://www.etoday.co.kr/news/view/2622123"
         }
       ],
-      "listing_open_price": null,
-      "listing_change_pct": null
+      "listing_open_price": 4000,
+      "listing_change_pct": 100.0
     },
     {
       "no": "2306",
