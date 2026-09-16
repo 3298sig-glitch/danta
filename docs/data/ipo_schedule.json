@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T08:49:11.618125+09:00",
+  "generated_at": "2026-09-17T08:58:14.967290+09:00",
   "entries": [
     {
       "no": "2325",
@@ -90,6 +90,39 @@
         "end": "2026-10-21"
       },
       "refund_date": "2026-10-23",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2327",
+      "corp_name": "다비오",
+      "stock_code": "0012G0",
+      "market": "코스닥",
+      "sector": "응용 소프트웨어 개발 및 공급업",
+      "ceo": "박주흠",
+      "address": "서울특별시 마포구 마포대로 144 (공덕동, 마포T타운) 8층",
+      "homepage": "http://www.dabeeo.com",
+      "revenue": "9,257 (백만원)",
+      "net_income": "-3,490 (백만원)",
+      "price_band": "12,300~16,600",
+      "fixed_price": null,
+      "underwriters": "대신증권",
+      "demand_period": {
+        "start": "2026-10-07",
+        "end": "2026-10-14"
+      },
+      "subscription_period": {
+        "start": "2026-10-19",
+        "end": "2026-10-20"
+      },
+      "refund_date": "2026-10-22",
       "listing_date": null,
       "demand_rate": null,
       "subscription_rate": null,
@@ -376,7 +409,7 @@
       "revenue": "23,759 (백만원)",
       "net_income": "1,744 (백만원)",
       "price_band": "16,500~19,500",
-      "fixed_price": null,
+      "fixed_price": 19500,
       "underwriters": "IBK투자증권",
       "demand_period": {
         "start": "2026-09-09",
@@ -387,12 +420,12 @@
         "end": "2026-09-18"
       },
       "refund_date": "2026-09-22",
-      "listing_date": null,
-      "demand_rate": null,
+      "listing_date": "2026-10-01",
+      "demand_rate": 1187.74,
       "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
-      "is_popular": false,
+      "competition_rate": 1187.74,
+      "competition_rate_source": "demand",
+      "is_popular": true,
       "news": [],
       "listing_open_price": null,
       "listing_change_pct": null
@@ -952,39 +985,6 @@
       "demand_rate": 1146.41,
       "subscription_rate": 1706.71,
       "competition_rate": 1706.71,
-      "competition_rate_source": "subscription",
-      "is_popular": true,
-      "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
-    },
-    {
-      "no": "2293",
-      "corp_name": "레몬헬스케어",
-      "stock_code": "365660",
-      "market": "코스닥",
-      "sector": "소프트웨어 개발 및 공급업",
-      "ceo": "홍병진",
-      "address": "서울특별시 금천구 가산디지털1로 145",
-      "homepage": "http://www.lemonhc.com",
-      "revenue": "14,877 (백만원)",
-      "net_income": "-2,898 (백만원)",
-      "price_band": "7,500~10,000",
-      "fixed_price": 10000,
-      "underwriters": "KB증권",
-      "demand_period": {
-        "start": "2026-06-15",
-        "end": "2026-06-19"
-      },
-      "subscription_period": {
-        "start": "2026-06-24",
-        "end": "2026-06-25"
-      },
-      "refund_date": "2026-06-29",
-      "listing_date": "2026-07-06",
-      "demand_rate": 1238.0,
-      "subscription_rate": 1510.57,
-      "competition_rate": 1510.57,
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
