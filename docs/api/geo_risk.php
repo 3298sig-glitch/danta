@@ -117,50 +117,38 @@ function fetch_geo_news(): array
     ];
 }
 
-/** 조건 B: 국제유가(WTI) 전일 대비 등락률. finance.naver.com/marketindex/의
- * "유가·금시세" 카드에서 절대 변동폭(항상 양수로 표기)과 방향(class)을 같이
- * 읽어서 부호 있는 등락률로 환산한다(변동폭만으로는 부호를 알 수 없음). */
+/** 조건 B: 국제유가(WTI) 전일 대비 등락률.
+ *
+ * 2026-09-17: 기존에 쓰던 finance.naver.com/marketindex/ 페이지가 네이버
+ * 개편으로 stock.naver.com(React/Next.js SPA)로 302 리다이렉트되도록 바뀌어서
+ * (curl은 리다이렉트를 안 따라가게 해뒀으므로 항상 실패) 값을 못 가져오고
+ * 있었다. 그 새 페이지가 실제로 호출하는 실시간 API
+ * (polling.finance.naver.com)를 브라우저 네트워크 탭으로 직접 확인해서
+ * 교체 - 정적 HTML 파싱보다 오히려 더 간단하고 안정적인 순수 JSON API다. */
 function fetch_wti_change_pct(): ?float
 {
-    $raw = fetch_url('https://finance.naver.com/marketindex/');
+    $raw = fetch_url('https://polling.finance.naver.com/api/realtime/marketindex/energy/CLcv1');
     if ($raw === null) {
         return null;
     }
-    $html = iconv('EUC-KR', 'UTF-8//IGNORE', $raw);
-    $pattern = '/<span class="blind">WTI<\/span><\/h3>.*?<div class="head_info (point_up|point_dn)">\s*'
-        . '<span class="value">([\d,.]+)<\/span>.*?<span class="change">\s*([\d.]+)<\/span>/s';
-    if (!preg_match($pattern, $html, $m)) {
-        return null;
-    }
-    [, $direction_class, $value_text, $change_text] = $m;
-    $value = (float)str_replace(',', '', $value_text);
-    $change = (float)$change_text;
-    if ($value <= 0) {
-        return null;
-    }
-    if ($direction_class === 'point_up') {
-        $prev = $value - $change;
-        return $prev > 0 ? round($change / $prev * 100, 2) : null;
-    }
-    $prev = $value + $change;
-    return $prev > 0 ? round(-$change / $prev * 100, 2) : null;
+    $data = json_decode($raw, true);
+    $pct = $data['datas'][0]['fluctuationsRatio'] ?? null;
+    return $pct !== null ? (float)$pct : null;
 }
 
-/** 조건 B: S&P500 전일 종가 기준 등락률. finance.naver.com/world/(해외증시)
- * 페이지는 지수 데이터를 별도 AJAX 없이 <script> 안에 JSON 형태로 그대로
- * 담고 있어서("var americaData = jindo.$H({...})"), 그 안의 "SPI@SPX" 항목의
- * rate 필드(이미 부호 있는 등락률로 계산돼 있음)를 정규식으로 바로 뽑는다. */
+/** 조건 B: S&P500 전일 종가 기준 등락률. WTI와 같은 이유(네이버 개편)로
+ * finance.naver.com/world/ 대신 실제 네트워크 호출로 확인한 실시간 API를
+ * 쓴다. 네이버 내부 코드가 ".INX"라 처음엔 못 찾았는데(".SPX"는 빈 결과),
+ * 실제 브라우저 요청을 그대로 재현해서 알아냄. */
 function fetch_sp500_change_pct(): ?float
 {
-    $raw = fetch_url('https://finance.naver.com/world/');
+    $raw = fetch_url('https://polling.finance.naver.com/api/realtime/worldstock/index/.INX');
     if ($raw === null) {
         return null;
     }
-    // 이 페이지는 EUC-KR이 아니라 UTF-8이라(실제 확인함) 별도 인코딩 변환이 필요 없다.
-    if (!preg_match('/"SPI@SPX":\{[^}]*"rate":(-?[\d.]+)/', $raw, $m)) {
-        return null;
-    }
-    return (float)$m[1];
+    $data = json_decode($raw, true);
+    $pct = $data['datas'][0]['fluctuationsRatio'] ?? null;
+    return $pct !== null ? (float)$pct : null;
 }
 
 /** 조건 B: 코스피 지수 전일 대비 등락률. */
