@@ -1633,7 +1633,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
 
   main {
-    max-width: 640px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 32px 20px 48px;
   }
@@ -1888,11 +1888,20 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 13px;
   }
 
+  /* 넓은 화면에서 카드가 여러 열로 배치되도록 그리드 컨테이너로 만든다(2026-09-17) -
+     좁은 화면에서는 minmax의 최소폭(360px)보다 좁아지는 순간 자동으로 1열이 되므로
+     별도 모바일 미디어쿼리가 필요 없다. align-items: start로 한 카드(예: 공모주
+     아코디언)가 펼쳐져도 같은 행의 다른 카드가 늘어나 보이지 않게 한다. */
+  #cards, #verification-list, #ipo-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    align-items: start;
+    gap: 14px;
+  }
   .card {
     background: linear-gradient(180deg, var(--surface) 0%, #111820 100%);
     border: 1px solid var(--line);
     border-radius: 10px;
-    margin-bottom: 14px;
     overflow: hidden;
     width: 100%;
     text-align: left;
@@ -1976,6 +1985,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
 
   .empty, .loading {
+    grid-column: 1 / -1;
     color: var(--text-muted);
     font-size: 14px;
     padding: 24px 0;
@@ -2395,7 +2405,6 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     border: 1px solid var(--line);
     border-left: 3px solid var(--ma20);
     border-radius: 10px;
-    margin-bottom: 12px;
     overflow: hidden;
   }
   .ipo-card-head {
@@ -2480,6 +2489,7 @@ INDEX_HTML_TEMPLATE = r"""<!DOCTYPE html>
     margin-left: 6px;
   }
   .ipo-news-empty, .ipo-empty {
+    grid-column: 1 / -1;
     font-size: 13px;
     color: var(--text-muted);
     padding: 8px 0;
