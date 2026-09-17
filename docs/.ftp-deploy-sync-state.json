@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1789620279302,
+    "generatedTime": 1789688943308,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 9231,
-            "hash": "c04d66fb4aad41ae4c7f1a8a662a0684cf4e1315c13d25f927b4f2c2c73e9a86"
+            "hash": "8af28631852f206ca3796595ccfb73cc956b7d5e19b853df6bd52568fa89c0fb"
         },
         {
             "type": "folder",
@@ -24,8 +24,8 @@
         {
             "type": "file",
             "name": "index.html",
-            "size": 66467,
-            "hash": "b350b1bf36284d5bfd9fe69539af1a92db1cda7c94233b2b2b669efa1c52416a"
+            "size": 67073,
+            "hash": "2306705fffad6a5a5a95ee704c935d3ce4903b15bcd4b29cf693e4f4a8853a96"
         },
         {
             "type": "file",
@@ -89,15 +89,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-08-11.json",
-            "size": 57808,
-            "hash": "434542726e6221e656851cba5074fa566cdd24db10259fbab30b6c5e10e5628e"
-        },
-        {
-            "type": "file",
             "name": "data/2026-08-12.json",
             "size": 64312,
             "hash": "831679f0e311a86111b1b946aa02f9c2834177c20468e5027961eac30d0ae9c2"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-08-11.json",
+            "size": 57808,
+            "hash": "434542726e6221e656851cba5074fa566cdd24db10259fbab30b6c5e10e5628e"
         },
         {
             "type": "file",
@@ -185,15 +185,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-09-04.json",
-            "size": 65308,
-            "hash": "1256f100b25cf7b2a9046e433c23500d86a020afa1a946ee8f14cd5f78bcfe61"
-        },
-        {
-            "type": "file",
             "name": "data/2026-09-03.json",
             "size": 63654,
             "hash": "96dcbfa5fa67d560c8da3c1b8f3d3f586c57d8653c01c54576361e85454fed37"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-09-04.json",
+            "size": 65308,
+            "hash": "1256f100b25cf7b2a9046e433c23500d86a020afa1a946ee8f14cd5f78bcfe61"
         },
         {
             "type": "file",
@@ -221,15 +221,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-09-11.json",
-            "size": 65150,
-            "hash": "fbccf92eb2f94f19cfe5584c402cdfd800983615e6af1f13239e43a67089c11c"
-        },
-        {
-            "type": "file",
             "name": "data/2026-09-15.json",
             "size": 63667,
             "hash": "308babb39da10d602b814684f5c7a965851b69d44d42ee7cc0d220979ebd0f17"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-09-11.json",
+            "size": 65150,
+            "hash": "fbccf92eb2f94f19cfe5584c402cdfd800983615e6af1f13239e43a67089c11c"
         },
         {
             "type": "file",
@@ -239,27 +239,33 @@
         },
         {
             "type": "file",
-            "name": "data/dates.json",
-            "size": 418,
-            "hash": "7e3c7ec9908761815f51e0907fb302d671baf0553c6628fb9cf9238c69511361"
-        },
-        {
-            "type": "file",
             "name": "data/2026-09-17.json",
             "size": 63568,
             "hash": "231e3ae7e9206f95b27e5ede9c4a4d52a9f65a728808d49d5246a7fd13d2e927"
         },
         {
             "type": "file",
+            "name": "data/2026-09-18.json",
+            "size": 62324,
+            "hash": "681d26d5bef21a4b88a8852daf6f8feb3d2629a86d1094014c7ae9c78f824f15"
+        },
+        {
+            "type": "file",
+            "name": "data/dates.json",
+            "size": 434,
+            "hash": "ed45a45f8e4524ce7d9b62d7afa8d1bac709caea56e7eedaeffed78c750785ee"
+        },
+        {
+            "type": "file",
             "name": "data/ipo_schedule.json",
-            "size": 31579,
-            "hash": "b30a318bdb5d2ba90fb74175819d4043316b6012305049ba558dccda8f853193"
+            "size": 58960,
+            "hash": "bb68d4eef5496b720b28b35bd4ee94aa45437f7433e7d2c159d715f6e4573055"
         },
         {
             "type": "file",
             "name": "data/verification.json",
-            "size": 37848,
-            "hash": "d5551b855d2312a0882b80a78cab5ca76cb075057525fbafd95a1d23e1acf848"
+            "size": 39363,
+            "hash": "c078a93464d73b1f8beef3dc48fc7fb3421a26b40e0b16989088d8d0c0d76f26"
         },
         {
             "type": "file",
