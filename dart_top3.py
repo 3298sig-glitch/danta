@@ -911,8 +911,12 @@ def fetch_company_news(corp_name: str, count: int = 5) -> List[Dict[str, str]]:
         resp.raise_for_status()
         html = resp.content.decode("utf-8", errors="replace")
 
+        # 2026-09-17: 네이버가 <a> 태그에 class 속성을 끼워넣으면서 nocr="1" 바로
+        # 뒤에 href가 오지 않게 순서가 바뀌어서(예: <a nocr="1" class="..." href="...">)
+        # 매치가 통째로 0건이 되고 있었다 - href 앞에 다른 속성이 끼어들 수 있다고
+        # 보고 순서 무관하게 매치하도록 수정(geo_risk.php와 동일한 원인/수정).
         rows = re.findall(
-            r'<a nocr="1" href="([^"]+)"[^>]*data-heatmap-target="\.tit"[^>]*>'
+            r'<a nocr="1"[^>]*href="([^"]+)"[^>]*data-heatmap-target="\.tit"[^>]*>'
             r"<span[^>]*>(.*?)</span>",
             html,
             re.S,

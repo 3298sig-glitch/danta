@@ -71,7 +71,11 @@ function fetch_geo_news(): array
             continue;  // 이 키워드 하나 실패해도 나머지 키워드는 계속 진행
         }
 
-        $title_pattern = '/<a nocr="1" href="([^"]+)"[^>]*data-heatmap-target="\.tit"[^>]*>'
+        // 2026-09-17: 네이버가 <a> 태그에 class 속성을 추가하면서 nocr="1" 바로
+        // 뒤에 href가 오지 않게 순서가 바뀌어서(예: <a nocr="1" class="..." href="...">),
+        // href 앞에 다른 속성이 끼어들 수 있다고 가정하고 [^>]*를 앞에도 넣어 순서
+        // 무관하게 매치하도록 고침 - 이 변경 전엔 매치가 통째로 0건이 되고 있었다.
+        $title_pattern = '/<a nocr="1"[^>]*href="([^"]+)"[^>]*data-heatmap-target="\.tit"[^>]*>'
             . '<span[^>]*>(.*?)<\/span>/s';
         if (!preg_match_all($title_pattern, $raw, $titles, PREG_SET_ORDER)) {
             continue;
@@ -80,7 +84,7 @@ function fetch_geo_news(): array
         // 본문 요약(.body)은 일부 결과에만 붙어있어서, url -> 요약 맵을 미리 만들어두고
         // 있으면 붙이고 없으면 생략한다(제목만으로도 충분히 의미 전달됨).
         $summaries = [];
-        $body_pattern = '/<a nocr="1" href="([^"]+)"[^>]*data-heatmap-target="\.body"[^>]*>'
+        $body_pattern = '/<a nocr="1"[^>]*href="([^"]+)"[^>]*data-heatmap-target="\.body"[^>]*>'
             . '<span[^>]*>(.*?)<\/span>/s';
         if (preg_match_all($body_pattern, $raw, $bodies, PREG_SET_ORDER)) {
             foreach ($bodies as $b) {
