@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1789774997324,
+    "generatedTime": 1789792164740,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 9438,
-            "hash": "9e893bfa2287faad1654cd092527db8858668fd4fe32187e707bb8da4a379e65"
+            "hash": "922d26ba6ac556f41d91f872a8583a193644b5199237920fcc94dcf9c6e1ea85"
         },
         {
             "type": "folder",
@@ -15,11 +15,11 @@
         },
         {
             "type": "folder",
-            "name": "images"
+            "name": "data"
         },
         {
             "type": "folder",
-            "name": "data"
+            "name": "images"
         },
         {
             "type": "file",
@@ -86,12 +86,6 @@
             "name": "api/session.php",
             "size": 225,
             "hash": "5fa983aeed47756c9435e40ce422eda1eacca7f4e541f3ac597cca613aa1fdc1"
-        },
-        {
-            "type": "file",
-            "name": "images/stock-background.jpg",
-            "size": 162352,
-            "hash": "d73b9c03d624d08f713ed19c264976e4e5a92146d01d939db99fa4e15587e8f6"
         },
         {
             "type": "file",
@@ -239,27 +233,27 @@
         },
         {
             "type": "file",
-            "name": "data/2026-09-17.json",
-            "size": 63568,
-            "hash": "231e3ae7e9206f95b27e5ede9c4a4d52a9f65a728808d49d5246a7fd13d2e927"
-        },
-        {
-            "type": "file",
-            "name": "data/2026-09-18.json",
-            "size": 64497,
-            "hash": "4f395032ce27c9272d493dcd285507c470c88c850dc241e2291f4cab398acaed"
-        },
-        {
-            "type": "file",
             "name": "data/2026-09-16.json",
             "size": 63923,
             "hash": "4ae0c55b6f321a0eaf061d9172716f52a9b8fb34b94f8c34f5abd96dc77f3d59"
         },
         {
             "type": "file",
+            "name": "data/2026-09-17.json",
+            "size": 63568,
+            "hash": "231e3ae7e9206f95b27e5ede9c4a4d52a9f65a728808d49d5246a7fd13d2e927"
+        },
+        {
+            "type": "file",
             "name": "data/dates.json",
             "size": 434,
             "hash": "ed45a45f8e4524ce7d9b62d7afa8d1bac709caea56e7eedaeffed78c750785ee"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-09-18.json",
+            "size": 64497,
+            "hash": "4f395032ce27c9272d493dcd285507c470c88c850dc241e2291f4cab398acaed"
         },
         {
             "type": "file",
@@ -272,6 +266,12 @@
             "name": "data/verification.json",
             "size": 40877,
             "hash": "39d7f89f4d320a50ae59e3109d38a68d51d3a02d036e34965bc957e1ddae4295"
+        },
+        {
+            "type": "file",
+            "name": "images/stock-background.jpg",
+            "size": 162352,
+            "hash": "d73b9c03d624d08f713ed19c264976e4e5a92146d01d939db99fa4e15587e8f6"
         }
     ]
 }
