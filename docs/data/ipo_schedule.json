@@ -1173,8 +1173,8 @@
       "competition_rate_source": "subscription",
       "is_popular": false,
       "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
+      "listing_open_price": 4000,
+      "listing_change_pct": 100.0
     },
     {
       "no": "2314",
@@ -1206,8 +1206,8 @@
       "competition_rate_source": "subscription",
       "is_popular": false,
       "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
+      "listing_open_price": 3415,
+      "listing_change_pct": 70.75
     },
     {
       "no": "2312",
