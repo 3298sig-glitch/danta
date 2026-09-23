@@ -1173,8 +1173,8 @@
           "url": "https://biz.heraldcorp.com/article/10881437?ref=naver"
         }
       ],
-      "listing_open_price": null,
-      "listing_change_pct": null
+      "listing_open_price": 42750,
+      "listing_change_pct": 256.25
     },
     {
       "no": "2308",
