@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1790467197408,
+    "generatedTime": 1790485790700,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 10060,
-            "hash": "61314f5f11bb27221e473914c9c9acb5b9f51356d3913e80557b24ad2b80309e"
+            "hash": "eb1ef6d9ab38d3071fc0db24733616b8e3be67b13af5ff33b00a68ffd5346bad"
         },
         {
             "type": "folder",
@@ -53,27 +53,27 @@
         },
         {
             "type": "file",
-            "name": "api/geo_risk.php",
-            "size": 10089,
-            "hash": "b422fcd13a68d87e9462fd34c1b04c5259dc0915c20d5964224e810803949e6f"
-        },
-        {
-            "type": "file",
             "name": "api/login.php",
             "size": 592,
             "hash": "e7655441962b48483f699f9bf8f4e97c8f2fc8e9ac11d6a3213f2e3723a49b25"
         },
         {
             "type": "file",
-            "name": "api/logout.php",
-            "size": 226,
-            "hash": "01f5e522ad6b1636257edbcfbece785ba7ecb890a12bb12e859ebc44232fe42d"
+            "name": "api/geo_risk.php",
+            "size": 10089,
+            "hash": "b422fcd13a68d87e9462fd34c1b04c5259dc0915c20d5964224e810803949e6f"
         },
         {
             "type": "file",
             "name": "api/market_summary.php",
             "size": 5988,
             "hash": "16737eb0c7f5c856c42049ccfc1b13dfdff6473a6d68fdbaddf8feb36f769d79"
+        },
+        {
+            "type": "file",
+            "name": "api/logout.php",
+            "size": 226,
+            "hash": "01f5e522ad6b1636257edbcfbece785ba7ecb890a12bb12e859ebc44232fe42d"
         },
         {
             "type": "file",
@@ -89,15 +89,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-08-11.json",
-            "size": 57808,
-            "hash": "434542726e6221e656851cba5074fa566cdd24db10259fbab30b6c5e10e5628e"
-        },
-        {
-            "type": "file",
             "name": "data/2026-08-12.json",
             "size": 64312,
             "hash": "831679f0e311a86111b1b946aa02f9c2834177c20468e5027961eac30d0ae9c2"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-08-11.json",
+            "size": 57808,
+            "hash": "434542726e6221e656851cba5074fa566cdd24db10259fbab30b6c5e10e5628e"
         },
         {
             "type": "file",
@@ -209,15 +209,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-09-10.json",
-            "size": 63928,
-            "hash": "773bacbe22be432e87ad416f78a3d8a60c67f0c1133a41ec4b161119f491409d"
-        },
-        {
-            "type": "file",
             "name": "data/2026-09-09.json",
             "size": 64755,
             "hash": "dbaa6e3ebe67642bd0edb67b65a163166b380d3f1956cec4de27137a494e0756"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-09-10.json",
+            "size": 63928,
+            "hash": "773bacbe22be432e87ad416f78a3d8a60c67f0c1133a41ec4b161119f491409d"
         },
         {
             "type": "file",
@@ -245,15 +245,15 @@
         },
         {
             "type": "file",
-            "name": "data/2026-09-21.json",
-            "size": 64071,
-            "hash": "057c956619b5fe003c7c384a5c8b00c92334cfc469dedcbdb91bc2aba024f946"
-        },
-        {
-            "type": "file",
             "name": "data/2026-09-18.json",
             "size": 64497,
             "hash": "4f395032ce27c9272d493dcd285507c470c88c850dc241e2291f4cab398acaed"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-09-21.json",
+            "size": 64071,
+            "hash": "057c956619b5fe003c7c384a5c8b00c92334cfc469dedcbdb91bc2aba024f946"
         },
         {
             "type": "file",
