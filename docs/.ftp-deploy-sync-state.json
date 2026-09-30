@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1790660134756,
+    "generatedTime": 1790729522210,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 10474,
-            "hash": "9e6732d82146de67b235b268d631f32b0c4653fab39332f1117fc7912073cc0a"
+            "hash": "296137f70183d5b1eb7b9a348ed04a5c2997ee6caed33c6374574aa396a24271"
         },
         {
             "type": "folder",
@@ -155,12 +155,6 @@
         },
         {
             "type": "file",
-            "name": "data/2026-08-28.json",
-            "size": 65182,
-            "hash": "4d9c7d7dfa6b920236194b4b0326ddc781ff1319109a6c237ca35236f839329c"
-        },
-        {
-            "type": "file",
             "name": "data/2026-08-27.json",
             "size": 62428,
             "hash": "344e06f8d90e8c314b932ef161e38e0f90301be5cfdd3453c95d98319f204e77"
@@ -170,6 +164,12 @@
             "name": "data/2026-08-31.json",
             "size": 64841,
             "hash": "76d856aeda1ca5462f3ff252869c0a79b3a7f0ac610fbd8f78a398e304262e74"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-08-28.json",
+            "size": 65182,
+            "hash": "4d9c7d7dfa6b920236194b4b0326ddc781ff1319109a6c237ca35236f839329c"
         },
         {
             "type": "file",
@@ -233,12 +233,6 @@
         },
         {
             "type": "file",
-            "name": "data/2026-09-16.json",
-            "size": 63923,
-            "hash": "4ae0c55b6f321a0eaf061d9172716f52a9b8fb34b94f8c34f5abd96dc77f3d59"
-        },
-        {
-            "type": "file",
             "name": "data/2026-09-17.json",
             "size": 63568,
             "hash": "231e3ae7e9206f95b27e5ede9c4a4d52a9f65a728808d49d5246a7fd13d2e927"
@@ -248,6 +242,12 @@
             "name": "data/2026-09-18.json",
             "size": 64497,
             "hash": "4f395032ce27c9272d493dcd285507c470c88c850dc241e2291f4cab398acaed"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-09-16.json",
+            "size": 63923,
+            "hash": "4ae0c55b6f321a0eaf061d9172716f52a9b8fb34b94f8c34f5abd96dc77f3d59"
         },
         {
             "type": "file",
@@ -275,27 +275,33 @@
         },
         {
             "type": "file",
-            "name": "data/dates.json",
-            "size": 514,
-            "hash": "d2a51a959d75a8ccc98d44c40c172131430584985caf998f7329673eefdf8e13"
-        },
-        {
-            "type": "file",
             "name": "data/2026-09-29.json",
             "size": 64377,
             "hash": "8da4f54a2eccd9714f0923be12dd3881435a01e42d3cd6987df71f9d02624165"
         },
         {
             "type": "file",
-            "name": "data/ipo_schedule.json",
-            "size": 55678,
-            "hash": "988e5982d2d08185b3e84694fd2b2d428d30b6962ae09b7ac3085a19bb81f4e1"
+            "name": "data/2026-09-30.json",
+            "size": 62442,
+            "hash": "86964011faa2312a39b3172dc0179c3ce52ab659f2223ca4dbadf036eb7ff7bb"
+        },
+        {
+            "type": "file",
+            "name": "data/dates.json",
+            "size": 530,
+            "hash": "63691c8a3b85c293c859b48022db421764f6bcca9d1b8039bd5accec50869f78"
         },
         {
             "type": "file",
             "name": "data/verification.json",
-            "size": 46920,
-            "hash": "d225c643b8eb6b2873fcf903d30e2cf64fc7bbea87109d4982705ab4fe0784a9"
+            "size": 48435,
+            "hash": "97003ae9692e8b80380b7e867ea12896915cbf7ef6a0d65b825e14b5932082ae"
+        },
+        {
+            "type": "file",
+            "name": "data/ipo_schedule.json",
+            "size": 56283,
+            "hash": "04aba1e905c1b04f4e785b75295266e34a675991d323f02b6c8b476939688471"
         },
         {
             "type": "file",
