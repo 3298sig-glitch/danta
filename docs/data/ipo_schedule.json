@@ -1227,8 +1227,8 @@
       "competition_rate_source": "subscription",
       "is_popular": false,
       "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
+      "listing_open_price": 27100,
+      "listing_change_pct": 85.62
     },
     {
       "no": "2310",
