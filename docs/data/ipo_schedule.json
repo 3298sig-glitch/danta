@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T09:50:43.856131+09:00",
+  "generated_at": "2026-10-01T09:54:52.109127+09:00",
   "entries": [
     {
       "no": "2334",
@@ -32,6 +32,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "하나에어로다이내믹스, 한화에어로스페이스와 양해각서…무인기 생산 ...",
+          "source": "view.asiae.co.kr",
+          "url": "https://view.asiae.co.kr/article/2026100108342620929"
+        },
+        {
           "title": "하나에어로다이내믹스, 코스닥 상장 증권신고서 제출",
           "source": "newsis.com",
           "url": "https://www.newsis.com/view/NISX20260922_0003799384"
@@ -50,11 +55,6 @@
           "title": "하나에어로다이내믹스, 증권신고서 제출…코스닥 IPO 돌입",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260922000208"
-        },
-        {
-          "title": "하나에어로다이내믹스, 코스닥 상장 증권신고서 제출",
-          "source": "newstopkorea.com",
-          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47797"
         }
       ],
       "listing_open_price": null,
@@ -91,29 +91,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "옵토닉스, 코스닥 예심 승인…방산 광학 앞세워 상장 채비",
-          "source": "bloter.net",
-          "url": "https://www.bloter.net/news/articleView.html?idxno=674395"
+          "title": "옵토닉스, 증권신고서 제출…코스닥 상장 절차 본격화",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=04526406645585368&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
-          "title": "옵토닉스, 코스닥 상장 예비심사 승인",
-          "source": "view.asiae.co.kr",
-          "url": "https://view.asiae.co.kr/article/2026092308060060257"
-        },
-        {
-          "title": "옵토닉스, 코스닥 상장 예비심사 승인…연내 상장 목표",
-          "source": "biz.heraldcorp.com",
-          "url": "https://biz.heraldcorp.com/article/10882878?ref=naver"
-        },
-        {
-          "title": "옵토닉스, 코스닥 상장 예비심사 승인",
+          "title": "옵토닉스, 증권신고서 제출",
           "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260923000163"
+          "url": "https://www.newspim.com/news/view/20260930000917"
         },
         {
-          "title": "옵토닉스, 코스닥 상장예심 승인",
-          "source": "newsis.com",
-          "url": "https://www.newsis.com/view/NISX20260923_0003801299"
+          "title": "옵토닉스, 코스닥 상장 추진...최대 264억 공모",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491599"
+        },
+        {
+          "title": "'방산에 기여' 광학기업 옵토닉스, 증권신고서 제출",
+          "source": "financialpost.co.kr",
+          "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=278098"
+        },
+        {
+          "title": "옵토닉스, 증권신고서 제출 '코스닥 상장 본격화'",
+          "source": "the-stock.kr",
+          "url": "https://www.the-stock.kr/news/articleView.html?idxno=33474"
         }
       ],
       "listing_open_price": null,
@@ -209,6 +209,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[바로팜 IPO] 약국 인프라 선점에도···저마진 구조 '고심'",
+          "source": "topdaily.kr",
+          "url": "https://www.topdaily.kr/articles/112161"
+        },
+        {
           "title": "바로팜, 코스닥 상장 공모 절차 돌입",
           "source": "view.asiae.co.kr",
           "url": "https://view.asiae.co.kr/article/2026090908162991014"
@@ -227,11 +232,6 @@
           "title": "바로팜, 증권신고서 제출…연내 코스닥 상장 추진",
           "source": "daily.hankooki.com",
           "url": "https://daily.hankooki.com/news/articleView.html?idxno=1404181"
-        },
-        {
-          "title": "바로팜, 최대 360억 공모로 코스닥 상장 본격화",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260909000160"
         }
       ],
       "listing_open_price": null,
@@ -278,11 +278,6 @@
           "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47789"
         },
         {
-          "title": "[엠비디 IPO] 단독 주관 맡은 하나증권, 실적 반등할까",
-          "source": "topdaily.kr",
-          "url": "https://www.topdaily.kr/articles/112024"
-        },
-        {
           "title": "엠비디, 증권신고서 제출",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260831000442"
@@ -291,6 +286,11 @@
           "title": "엠비디, 증권신고서 제출…코스닥 상장 초읽기",
           "source": "cstimes.com",
           "url": "https://www.cstimes.com/news/articleView.html?idxno=718629"
+        },
+        {
+          "title": "엠비디, 증권신고서 제출…코스닥 상장 절차 본격화",
+          "source": "newstopkorea.com",
+          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47361"
         }
       ],
       "listing_open_price": null,
@@ -360,11 +360,6 @@
       "is_popular": false,
       "news": [
         {
-          "title": "[에이엘로봇 IPO] 에이엘로봇, 실적 정체에도 몸값 높여…2000억 IPO 도전",
-          "source": "dealsite.co.kr",
-          "url": "https://dealsite.co.kr/articles/169635"
-        },
-        {
           "title": "에이엘로봇, 증권신고서 제출…코스닥 상장 절차 돌입",
           "source": "newsis.com",
           "url": "https://www.newsis.com/view/NISX20260921_0003798801"
@@ -383,6 +378,11 @@
           "title": "에이엘로봇, 코스닥 상장 증권신고서 제출",
           "source": "newstopkorea.com",
           "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47790"
+        },
+        {
+          "title": "[공시]에이엘로봇, 코스닥 상장 증권신고서 제출",
+          "source": "hansbiz.co.kr",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=867276"
         }
       ],
       "listing_open_price": null,
@@ -424,24 +424,24 @@
           "url": "https://www.newspim.com/news/view/20260930000125"
         },
         {
-          "title": "신정규 래블업 대표 \"에이전트 운영 플랫폼으로 확장… 지능 민주화 이...",
-          "source": "ddaily.co.kr",
-          "url": "https://www.ddaily.co.kr/page/view/2026092915140878270"
+          "title": "래블업, 연례 기술 컨퍼런스 성료",
+          "source": "hansbiz.co.kr",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=868919"
         },
         {
-          "title": "래블업, GPU 관리 넘어 'AI 운영체계'로 간다",
-          "source": "epnc.co.kr",
-          "url": "https://www.epnc.co.kr/news/articleView.html?idxno=407488"
+          "title": "래블업, AI 추론·에이전트 인프라 운영전략 공유",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491595"
         },
         {
-          "title": "\"GPU보다 CPU가 문제\"… 래블업, AI 인프라 사업 에이전트로 확장",
-          "source": "newscj.com",
-          "url": "https://www.newscj.com/news/articleView.html?idxno=3436624"
+          "title": "“AI는 복잡해져도 쓰는 건 단순해야”…신정규 래블업 대표가 그리는 ...",
+          "source": "venturesquare.net",
+          "url": "https://www.venturesquare.net/1116965/"
         },
         {
-          "title": "신정규 래블업 대표 “AI 인프라 복잡성 낮춰 지능의 민주화 앞당길 것...",
-          "source": "it.donga.com",
-          "url": "https://it.donga.com/109613/"
+          "title": "래블업, AI 모델·토큰 통합관리 승부수...'컨티넘' 공개",
+          "source": "joongangenews.com",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=551680"
         }
       ],
       "listing_open_price": null,
@@ -570,29 +570,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "인텔리빅스-제9보병사단, AI 영상감시 기술 군 현장 실증 맞손",
-          "source": "boannews.com",
-          "url": "https://www.boannews.com/news/articleView.html?idxno=146052"
+          "title": "\"동남아 본격진출\"…인텔리빅스, 업체 4곳과 제휴",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260930_0003809044"
         },
         {
-          "title": "인텔리빅스, 9사단과 국방 AI 기술 실증 협력",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/News/Read?newsId=03457126645584712&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
+          "title": "인텔리빅스, 동남아 보안 4개사와 MOU 체결...아세안 시장 공략",
+          "source": "dailysecu.com",
+          "url": "https://www.dailysecu.com/news/articleView.html?idxno=208655"
         },
         {
-          "title": "인텔리빅스, 제9보병사단과 AI 국방기술 실증 협력",
-          "source": "etnews.com",
-          "url": "https://www.etnews.com/20260928000351"
-        },
-        {
-          "title": "인텔리빅스, 제9보병사단과 AI 국방기술 실증 협력",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20260928000703"
-        },
-        {
-          "title": "인텔리빅스, 제9보병사단과 AI 국방 기술 협약",
+          "title": "인텔리빅스, 동남아 보안 4개사와 MOU",
           "source": "hansbiz.co.kr",
-          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=868414"
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=869186"
+        },
+        {
+          "title": "인텔리빅스, 동남아 보안 4개사와 업무협약 체결",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20260930000892"
+        },
+        {
+          "title": "인텔리빅스, 동남아 보안 4개사와 MOU…'아세안 안전 AI' 수출 본격화",
+          "source": "ebn.co.kr",
+          "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1726272"
         }
       ],
       "listing_open_price": null,
@@ -688,9 +688,14 @@
       "is_popular": false,
       "news": [
         {
-          "title": "[더벨][크리에이츠 IPO] 원재료 리스크 대폭 보강, 밸류·공모일정은 유...",
-          "source": "thebell.co.kr",
-          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202609181111574760104832"
+          "title": "크리에이츠 자회사 UNEEKOR, GSPro와 골프 시뮬레이션 협력",
+          "source": "view.asiae.co.kr",
+          "url": "https://view.asiae.co.kr/article/2026100108234942645"
+        },
+        {
+          "title": "크리에이츠 \"UNEEKOR, 골프 시뮬레이션 SW 기업 GSPro와 협력\"",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20261001000257"
         },
         {
           "title": "크리에이츠, 코스닥 상장 절차 본격화…증권신고서 제출",
@@ -706,11 +711,6 @@
           "title": "크리에이츠, 증권신고서 제출…코스닥 상장 '초읽기'",
           "source": "cstimes.com",
           "url": "https://www.cstimes.com/news/articleView.html?idxno=719489"
-        },
-        {
-          "title": "크리에이츠, 코스닥 IPO 돌입...최대 252억원 공모",
-          "source": "pinpointnews.co.kr",
-          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=484073"
         }
       ],
       "listing_open_price": null,
@@ -984,9 +984,9 @@
           "url": "https://www.the-stock.kr/news/articleView.html?idxno=33464"
         },
         {
-          "title": "[장외시황] 엠에스바이오, 수요예측 진행",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2629975"
+          "title": "[더벨][엠에스바이오 IPO] 기간 정정없이 속도전…수요예측 순항",
+          "source": "thebell.co.kr",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202609291710216960108565"
         }
       ],
       "listing_open_price": null,
@@ -1023,24 +1023,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "[상장의 꿈] 'IPO 도전장' 엘리스그룹…시장 이목은 'AI PMDC'로",
-          "source": "newsdream.kr",
-          "url": "http://www.newsdream.kr/news/articleView.html?idxno=119051"
+          "title": "[IPO챗] 엘리스그룹 \"AI 데이터센터 확충…글로벌 AI 인프라 공략\"",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20260930122500008?input=1195m"
         },
         {
-          "title": "코딩 교육하던 엘리스그룹, 지난해 매출 395억인데 IPO 몸값 1조 인정받...",
-          "source": "biz.chosun.com",
-          "url": "https://biz.chosun.com/stock/market_trend/2026/09/28/V2XAOHXJLFGRZCSJBFAGRK2IM4/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
+          "title": "몸값 1조원 노리는 엘리스그룹, 코스닥 상장 출사표",
+          "source": "mk.co.kr",
+          "url": "https://www.mk.co.kr/article/12164901"
         },
         {
-          "title": "이번주 코스닥 새내기 4곳 몰린다…엘리스그룹 등 3곳 수요예측",
-          "source": "news.einfomax.co.kr",
-          "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4436571"
+          "title": "'코스닥 출사표' 엘리스그룹 \"AI 데이터센터 3개월 구축…비용 40% 절감...",
+          "source": "hankyung.com",
+          "url": "https://www.hankyung.com/article/2026093047326"
         },
         {
-          "title": "엘리스그룹·엠에스바이오 수요예측…덕산넵코어스 코스닥 입성 [주간 ...",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2628844"
+          "title": "엘리스그룹, 상반기 영업익 103억…AI 데이터센터로 글로벌 공략",
+          "source": "hankyung.com",
+          "url": "https://www.hankyung.com/article/202609305140r"
+        },
+        {
+          "title": "엘리스그룹, 코스닥 상장 출사표",
+          "source": "mk.co.kr",
+          "url": "https://www.mk.co.kr/article/12165115"
         }
       ],
       "listing_open_price": null,
@@ -1169,29 +1174,29 @@
       "is_popular": true,
       "news": [
         {
-          "title": "브릴스, 소프트웨어 중심 피지컬 AI 청사진 제시",
-          "source": "zdnet.co.kr",
-          "url": "https://zdnet.co.kr/view/?no=20260929102005"
+          "title": "[특징주] 브릴스, 코스닥 상장 첫날 장 초반 급등",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20261001038700008?input=1195m"
         },
         {
-          "title": "브릴스, 코스닥 상장 앞두고 '피지컬 AI' 공개 … 로보월드 최대 규모 참...",
-          "source": "worktoday.co.kr",
-          "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=89856"
+          "title": "[특징주] 브릴스, 코스닥 입성 첫날 공모가 대비 140%↑",
+          "source": "ekn.kr",
+          "url": "https://www.ekn.kr/web/view.php?key=20261001021290951"
         },
         {
-          "title": "브릴스, 피지컬 AI·SDR 차세대 기술 쏟아낸다…'2026 로보월드' 최대 규...",
-          "source": "irobotnews.com",
-          "url": "https://www.irobotnews.com/news/articleView.html?idxno=48730"
+          "title": "브릴스, 코스닥 상장 첫날 130%대 급등…장중 6만원 돌파[특징주]",
+          "source": "newsway.co.kr",
+          "url": "https://www.newsway.co.kr/news/view?ud=2026100109224341619"
         },
         {
-          "title": "\"자율제조 미래 연다\"…브릴스, 2026 로보월드서 피지컬 AI 공개",
-          "source": "thefairnews.co.kr",
-          "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=89240"
+          "title": "[특징주] 브릴스, 코스닥 상장 첫날 130%↑",
+          "source": "hansbiz.co.kr",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=869283"
         },
         {
-          "title": "브릴스, '2026 로보월드' 참가…AI 작업제어·소프트웨어 중심 로봇 선봬",
-          "source": "m-i.kr",
-          "url": "https://www.m-i.kr/news/articleView.html?idxno=2000653"
+          "title": "브릴스, 송도에 휴머노이드 센터…내년 상반기 목표",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=04250886645585368&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         }
       ],
       "listing_open_price": null,
@@ -1227,8 +1232,8 @@
       "competition_rate_source": "subscription",
       "is_popular": false,
       "news": [],
-      "listing_open_price": 27100,
-      "listing_change_pct": 85.62
+      "listing_open_price": null,
+      "listing_change_pct": null
     },
     {
       "no": "2310",
@@ -1266,14 +1271,14 @@
           "url": "https://www.yna.co.kr/view/PYH20260929059300013?input=1196m"
         },
         {
-          "title": "글로벌테크놀로지 코스닥시장 상장기념식",
-          "source": "news1.kr",
-          "url": "https://www.news1.kr/photos/8131161"
-        },
-        {
           "title": "글로벌테크놀로지 코스닥 상장 첫날 주가 장중 강세, 공모가보다 170%대...",
           "source": "businesspost.co.kr",
           "url": "https://www.businesspost.co.kr/BP?command=article_view&amp;num=448134"
+        },
+        {
+          "title": "글로벌테크놀로지 코스닥시장 상장기념식",
+          "source": "news1.kr",
+          "url": "https://www.news1.kr/photos/8131161"
         },
         {
           "title": "[특징주] 빅웨이브로보틱스·글로벌테크놀로지, 코스닥 입성 첫날 강세",
@@ -1379,29 +1384,29 @@
       "is_popular": true,
       "news": [
         {
-          "title": "[특징주] 상장 첫날 280% 급등 와이즈플래닛컴퍼니 이틀 새 46% 급락",
-          "source": "ajunews.com",
-          "url": "https://www.ajunews.com/view/20260929094615905"
+          "title": "[특징주] 와이즈플래닛컴퍼니, 상장 첫날 장 초반 260%↑",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20260923043300008?input=1195m"
         },
         {
-          "title": "[특징주] 와이즈플래닛컴퍼니, 코스닥 상장 이틀째 17%대 '급락'",
-          "source": "g-enews.com",
-          "url": "https://www.g-enews.com/view.php?ud=2026092810181192044093b5d4e_1"
+          "title": "와이즈플래닛컴퍼니, 코스닥 상장 첫날 240%대 급등",
+          "source": "newsis.com",
+          "url": "https://www.newsis.com/view/NISX20260923_0003801452"
         },
         {
-          "title": "[특징주] 와이즈플래닛컴퍼니, 상장 첫날 280% 급등 뒤 17%대 급락",
-          "source": "ajunews.com",
-          "url": "https://www.ajunews.com/view/20260928101418255"
+          "title": "와이즈플래닛컴퍼니, 코스닥 상장 첫날 249% 급등",
+          "source": "hankyung.com",
+          "url": "https://www.hankyung.com/article/2026092326836"
         },
         {
-          "title": "와이즈플래닛컴퍼니 26% 급락…신규 상장 변동성 확대",
-          "source": "job-post.co.kr",
-          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=229400"
+          "title": "[특징주] 와이즈플래닛컴퍼니, 코스닥 상장 첫날 285%↑(종합)",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20260923043351008?input=1195m"
         },
         {
-          "title": "와이즈플래닛컴퍼니 주가, 9월 29일 22,750원 29.89% 하락",
-          "source": "joongangenews.com",
-          "url": "https://www.joongangenews.com/news/articleView.html?idxno=551327"
+          "title": "'닥터피엘·누잠' 와이즈플래닛컴퍼니, 상장 첫날 250%대 급등[핫종목]",
+          "source": "news1.kr",
+          "url": "https://www.news1.kr/finance/market-exr/6299912"
         }
       ],
       "listing_open_price": null,
@@ -1438,9 +1443,14 @@
       "is_popular": true,
       "news": [
         {
-          "title": "네오사피엔스 주가, 9월 29일 장중 17,080원 20.19% 하락",
+          "title": "네오사피엔스 주가, 9월 30일 애프터마켓 17,130원 1.54% 상승",
+          "source": "topstarnews.net",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16229595"
+        },
+        {
+          "title": "네오사피엔스 주가, 9월 30일 장중 17,060원 1.13% 상승",
           "source": "joongangenews.com",
-          "url": "https://www.joongangenews.com/news/articleView.html?idxno=551268"
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=551603"
         },
         {
           "title": "네오사피엔스, 코스닥 입성…북미 공략·음성 AI 사업 확대",
@@ -1456,11 +1466,6 @@
           "title": "하반기 IPO 한파 뚫고 3배 '잭팟'…네오사피엔스, 코스닥 데뷔",
           "source": "edaily.co.kr",
           "url": "https://www.edaily.co.kr/News/Read?newsId=03660486645582416&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
-        },
-        {
-          "title": "AI 음성 플랫폼 네오사피엔스, 상장 첫날 공모가 3배 '급등' [IPO톡톡]",
-          "source": "wowtv.co.kr",
-          "url": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202609210180&amp;t=NN"
         }
       ],
       "listing_open_price": null,
