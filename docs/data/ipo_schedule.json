@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T11:46:16.085841+09:00",
+  "generated_at": "2026-10-14T09:44:04.723021+09:00",
   "entries": [
     {
       "no": "2340",
@@ -268,6 +268,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[더벨][다비오 IPO] 피어그룹 교체…공모가 방어 나섰다",
+          "source": "thebell.co.kr",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610120824417960101695"
+        },
+        {
           "title": "'다비오 공모주' 10월 수요예측 시작...어떤 기업일까?",
           "source": "gukjenews.com",
           "url": "https://www.gukjenews.com/news/articleView.html?idxno=3714570"
@@ -286,11 +291,6 @@
           "title": "'지구데이터 인텔리전스' 다비오, 증권신고서 제출…IPO 본격화",
           "source": "edaily.co.kr",
           "url": "https://www.edaily.co.kr/News/Read?newsId=02774886645580776&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
-        },
-        {
-          "title": "다비오, 코스닥 상장 본격화…123억원 규모 증권신고서 제출",
-          "source": "mhns.co.kr",
-          "url": "https://www.mhns.co.kr/news/articleView.html?idxno=760558"
         }
       ],
       "listing_open_price": null,
@@ -327,6 +327,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "에이엘로봇, 증권신고서 정정… IPO 일정 연기",
+          "source": "hansbiz.co.kr",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=872337"
+        },
+        {
           "title": "에이엘로봇, 증권신고서 제출…코스닥 상장 절차 돌입",
           "source": "newsis.com",
           "url": "https://www.newsis.com/view/NISX20260921_0003798801"
@@ -345,11 +350,6 @@
           "title": "에이엘로봇, 코스닥 상장 증권신고서 제출",
           "source": "newstopkorea.com",
           "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47790"
-        },
-        {
-          "title": "[공시]에이엘로봇, 코스닥 상장 증권신고서 제출",
-          "source": "hansbiz.co.kr",
-          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=867276"
         }
       ],
       "listing_open_price": null,
@@ -445,14 +445,14 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[더벨][제논 IPO] 전년 매출 넘는 수주잔고…'고성장' 지속 전망",
+          "source": "thebell.co.kr",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610121523030840103563"
+        },
+        {
           "title": "제논, 코스닥 상장 공모 돌입…최대 268억 조달",
           "source": "bloter.net",
           "url": "https://www.bloter.net/news/articleView.html?idxno=675337"
-        },
-        {
-          "title": "[더벨][제논 IPO] 미래실적 추정 없이 2분기 LTM으로 '정면승부'",
-          "source": "thebell.co.kr",
-          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610081117325360103062"
         },
         {
           "title": "제논, 코스닥 상장 공모 돌입…희망가 9700~1만2200원",
@@ -573,6 +573,11 @@
           "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610070839066080106168"
         },
         {
+          "title": "[넥스아이 IPO] L/O 기대 선반영한 몸값…계약 지연 리스크 '눈길'",
+          "source": "the-stock.kr",
+          "url": "https://www.the-stock.kr/news/articleView.html?idxno=33552"
+        },
+        {
           "title": "[넥스아이 IPO] L/O 기다릴 필요 없는 FI, 오버행 '부담'",
           "source": "the-stock.kr",
           "url": "https://www.the-stock.kr/news/articleView.html?idxno=33547"
@@ -581,11 +586,6 @@
           "title": "면역항암 신약 기업 넥스아이, 증권신고서 제출…코스닥 상장 도전",
           "source": "hankyung.com",
           "url": "https://www.hankyung.com/article/202609280056r"
-        },
-        {
-          "title": "'신약개발' 넥스아이, 증권신고서 제출…공모 규모 최대 650억원",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/News/Read?newsId=03696566645584712&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         }
       ],
       "listing_open_price": null,
@@ -632,19 +632,19 @@
           "url": "https://new.dailypharm.com/user/news/343350?REFERER=NP"
         },
         {
+          "title": "바로팜-CHD제약, '레비클'로 日 공식 진출… 도쿄 드럭스토어 입점",
+          "source": "bokuennews.com",
+          "url": "http://www.bokuennews.com/news/article.html?no=285426"
+        },
+        {
           "title": "바로팜-CHD제약, 약국 전용 코스메슈티컬 '레비클' 일본 진출",
           "source": "view.asiae.co.kr",
           "url": "https://view.asiae.co.kr/article/2026101311394450548"
         },
         {
-          "title": "바로팜 '레비클', 일본 도쿄 매장 입점…국내 약국 넘어 해외로",
-          "source": "mdtoday.co.kr",
-          "url": "https://www.mdtoday.co.kr/news/articleView.html?idxno=618440"
-        },
-        {
-          "title": "바로팜·CHD제약, 더마 화장품 '레비클' 일본 진출... 아인즈앤툴페 입점",
-          "source": "pharmnews.com",
-          "url": "https://www.pharmnews.com/news/articleView.html?idxno=306875"
+          "title": "바로팜 \"CHD제약, 약국 코스메슈티컬 '레비클' 日 진출\"",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20261013001133"
         }
       ],
       "listing_open_price": null,
@@ -983,6 +983,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "7·8월 적자 전환, 해외 성과 미미…IPO 앞둔 인텔리빅스 과제 산적",
+          "source": "bloter.net",
+          "url": "https://www.bloter.net/news/articleView.html?idxno=675505"
+        },
+        {
           "title": "인텔리빅스 12일부터 수요예측...매출과 기업정보 '주목'",
           "source": "gukjenews.com",
           "url": "https://www.gukjenews.com/news/articleView.html?idxno=3717934"
@@ -991,11 +996,6 @@
           "title": "인텔리빅스 코스닥 공모 수요예측 12일 시작",
           "source": "vegannews.co.kr",
           "url": "https://www.vegannews.co.kr/news/article.html?no=392075"
-        },
-        {
-          "title": "인텔리빅스·래블업 등 수요예측…멜콘·진코스텍 상장[증시캘린더]",
-          "source": "edaily.co.kr",
-          "url": "https://www.edaily.co.kr/News/Read?newsId=01180806645611936&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
           "title": "인텔리빅스, 62억 규모 국방 AI 과제 수주로 GOP·해안초소 투입 'AI 경계...",
@@ -1042,19 +1042,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "'티앤이코리아 공모주' 7~14일 수요예측...예상 공모가와 청약일정은?",
-          "source": "gukjenews.com",
-          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3714566"
+          "title": "티앤이코리아, 고속 터보기계로 IPO 도전…핵심 무기는",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02863446645612920&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         },
         {
-          "title": "티앤이코리아 희망 공모가 1만2600~1만5300원",
-          "source": "vegannews.co.kr",
-          "url": "https://www.vegannews.co.kr/news/article.html?no=391523"
+          "title": "티앤이코리아 \"고속 터보기계 앞세워 AI 데이터센터 시장 공략\"",
+          "source": "daily.hankooki.com",
+          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1414287"
         },
         {
-          "title": "엘리스그룹·진코스텍 일반청약…티앤이코리아·다비오 수요예측 [주간...",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2632232"
+          "title": "티앤이코리아 \"AI 데이터센터에 산소 공급…수익 다각화\" [IPO톡톡]",
+          "source": "wowtv.co.kr",
+          "url": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202610130161&amp;t=NN"
+        },
+        {
+          "title": "[IPO] 티앤이코리아, 이달 상장…\"글로벌 고속 터보기계 플랫폼 도약\"",
+          "source": "hansbiz.co.kr",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=872477"
+        },
+        {
+          "title": "티앤이코리아, IPO 출격…AI 데이터센터 전력 수요 겨냥해 사업 영역 확...",
+          "source": "ekn.kr",
+          "url": "https://www.ekn.kr/web/view.php?key=20261013020175597"
         }
       ],
       "listing_open_price": null,
@@ -1175,7 +1185,7 @@
         "end": "2026-10-16"
       },
       "refund_date": "2026-10-20",
-      "listing_date": null,
+      "listing_date": "2026-10-27",
       "demand_rate": null,
       "subscription_rate": null,
       "competition_rate": null,
@@ -1243,35 +1253,35 @@
       "refund_date": "2026-10-15",
       "listing_date": "2026-10-22",
       "demand_rate": 1096.56,
-      "subscription_rate": null,
-      "competition_rate": 1096.56,
-      "competition_rate_source": "demand",
+      "subscription_rate": 1538.51,
+      "competition_rate": 1538.51,
+      "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [
         {
-          "title": "엠에스바이오·디티에스 공모 청약… 진코스텍·멜콘 상장 [이번주 증시...",
-          "source": "sedaily.com",
-          "url": "https://www.sedaily.com/article/20100109?ref=naver"
+          "title": "엠에스바이오, 일반청약 1539대 1…증거금 6조원 몰려",
+          "source": "biz.chosun.com",
+          "url": "https://biz.chosun.com/science-chosun/bio/2026/10/13/SAYBDVBFHVDGBMLUS53XGPUJHI/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
         },
         {
-          "title": "[장외시황] 엠에스바이오, 공모청약 진행",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2634750"
+          "title": "엠에스바이오, 일반청약 경쟁률 1,539 대 1…증거금 6조원 유입",
+          "source": "newsprime.co.kr",
+          "url": "http://www.newsprime.co.kr/news/article.html?no=750809"
         },
         {
-          "title": "따블 가면 얼마 벌까…'엠에스바이오' 청약, 오늘 시작",
-          "source": "wikitree.co.kr",
-          "url": "https://www.wikitree.co.kr/articles/1165415"
+          "title": "'재생의료 플랫폼' 엠에스바이오, IPO 일반청약 증거금 6兆",
+          "source": "hankyung.com",
+          "url": "https://www.hankyung.com/article/202610139242r"
         },
         {
-          "title": "[공모주 현황] 엠에스바이오 청약 마감일…인체조직 기반 의료기기 사업",
-          "source": "cbci.co.kr",
-          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=614780"
+          "title": "엠에스바이오, 일반청약 경쟁률 1539대 1 기록...22일 상장",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=494984"
         },
         {
-          "title": "[공모주 현황] 엠에스바이오, 공모주 청약 첫날…기관 경쟁률 1096.56대 ...",
-          "source": "cbci.co.kr",
-          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=614365"
+          "title": "엠에스바이오, 일반청약 경쟁률 1,539 대 1…증거금 6조원 상회",
+          "source": "fetv.co.kr",
+          "url": "https://www.fetv.co.kr/news/articleView.html?idxno=311693"
         }
       ],
       "listing_open_price": null,
@@ -1367,29 +1377,29 @@
       "is_popular": true,
       "news": [
         {
-          "title": "엠에스바이오·디티에스 공모 청약… 진코스텍·멜콘 상장 [이번주 증시...",
-          "source": "sedaily.com",
-          "url": "https://www.sedaily.com/article/20100109?ref=naver"
+          "title": "진코스텍·멜콘, 코스닥 신규상장…오는 15일 거래 개시",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/AKR20261013178400008?input=1195m"
         },
         {
-          "title": "[IPO 워치] 멜콘·진코스텍 코스닥 입성…수요예측 10곳",
-          "source": "news2day.co.kr",
-          "url": "https://www.news2day.co.kr/article/20261011500012"
+          "title": "진코스텍·멜콘, 코스닥 신규상장…15일 거래 개시",
+          "source": "biz.sbs.co.kr",
+          "url": "https://biz.sbs.co.kr/article_hub/20000339748?division=NAVER"
         },
         {
-          "title": "[공모주달력]공모가 상단 확정, 멜콘·진코스텍 코스닥 입성",
-          "source": "news.bizwatch.co.kr",
-          "url": "https://news.bizwatch.co.kr/article/market/2026/10/08/0024"
+          "title": "기관 확약률 비슷한데…멜콘·진코스텍, 유통가능 비율 두 배 차이",
+          "source": "ajunews.com",
+          "url": "https://www.ajunews.com/view/20261013152139826"
         },
         {
-          "title": "이번주 진코스텍·멜콘 코스닥시장 입성…수요예측도 줄이어",
-          "source": "news.einfomax.co.kr",
-          "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4438565"
+          "title": "한국거래소, 진코스텍·멜콘 코스닥 신규상장 승인",
+          "source": "pinpointnews.co.kr",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=495012"
         },
         {
-          "title": "[올 IPO] 연휴 끝나자 IPO 큰 장…진코스텍·멜콘 15일 코스닥 입성",
-          "source": "cbci.co.kr",
-          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=614029"
+          "title": "진코스텍·멜콘, 15일 코스닥 상장…공모금액 총 507억원",
+          "source": "koreareport.co.kr",
+          "url": "https://www.koreareport.co.kr/news/articleView.html?idxno=53606"
         }
       ],
       "listing_open_price": null,
@@ -1459,6 +1469,11 @@
       "is_popular": true,
       "news": [
         {
+          "title": "새내기주 브릴스 1만9810원…코스닥 상장 후 변동성 지속",
+          "source": "job-post.co.kr",
+          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=231949"
+        },
+        {
           "title": "브릴스, 상장 첫날 공모가 대비 66% 상승",
           "source": "zdnet.co.kr",
           "url": "https://zdnet.co.kr/view/?no=20261001172252"
@@ -1477,11 +1492,6 @@
           "title": "피지컬 AI 로봇 기업 브릴스, 상장 이튿날에도 상승세",
           "source": "getnews.co.kr",
           "url": "https://www.getnews.co.kr/news/articleView.html?idxno=882494"
-        },
-        {
-          "title": "브릴스 상장 이틀째 장 초반 10%대 상승",
-          "source": "vegannews.co.kr",
-          "url": "https://www.vegannews.co.kr/news/article.html?no=390319"
         }
       ],
       "listing_open_price": null,
