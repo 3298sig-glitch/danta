@@ -1402,8 +1402,8 @@
           "url": "http://www.newswell.co.kr/news/articleView.html?idxno=22689"
         }
       ],
-      "listing_open_price": null,
-      "listing_change_pct": null
+      "listing_open_price": 24000,
+      "listing_change_pct": 2.13
     },
     {
       "no": "2315",
@@ -1435,8 +1435,8 @@
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
+      "listing_open_price": 27400,
+      "listing_change_pct": 122.76
     },
     {
       "no": "2307",
