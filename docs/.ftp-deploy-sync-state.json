@@ -1,21 +1,21 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1791953039730,
+    "generatedTime": 1792023202756,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
             "size": 12337,
-            "hash": "5b87f55cb95ddd77913b13599e054fa65e23ff343c150dca91695f07abd180ff"
-        },
-        {
-            "type": "folder",
-            "name": "api"
+            "hash": "b099d0e20a8d74d1526e29b59c0dcc8310103f7b378425a704383d46f5f399b4"
         },
         {
             "type": "folder",
             "name": "data"
+        },
+        {
+            "type": "folder",
+            "name": "api"
         },
         {
             "type": "folder",
@@ -32,60 +32,6 @@
             "name": "profit.html",
             "size": 15011,
             "hash": "b2a75a7194ffbef152295d96884f8188eca76354b58e74a8420e53471bbc3434"
-        },
-        {
-            "type": "file",
-            "name": "api/auth.php",
-            "size": 690,
-            "hash": "dcea722641bb7ffd3468a31a2a56888b920d3d0eaf4a40a8b80de191afc7af52"
-        },
-        {
-            "type": "file",
-            "name": "api/config.example.php",
-            "size": 675,
-            "hash": "02a6e6d6e4cc0cd066052b10adfed5622cb7a4610e4be4ae9d2bc6b9797523d2"
-        },
-        {
-            "type": "file",
-            "name": "api/db.php",
-            "size": 1220,
-            "hash": "f5607bbbe087bd979161edac6ff96fdefce7dccebe45f59b5efff62c69b574f4"
-        },
-        {
-            "type": "file",
-            "name": "api/geo_risk.php",
-            "size": 10089,
-            "hash": "b422fcd13a68d87e9462fd34c1b04c5259dc0915c20d5964224e810803949e6f"
-        },
-        {
-            "type": "file",
-            "name": "api/login.php",
-            "size": 592,
-            "hash": "e7655441962b48483f699f9bf8f4e97c8f2fc8e9ac11d6a3213f2e3723a49b25"
-        },
-        {
-            "type": "file",
-            "name": "api/logout.php",
-            "size": 226,
-            "hash": "01f5e522ad6b1636257edbcfbece785ba7ecb890a12bb12e859ebc44232fe42d"
-        },
-        {
-            "type": "file",
-            "name": "api/market_summary.php",
-            "size": 5988,
-            "hash": "16737eb0c7f5c856c42049ccfc1b13dfdff6473a6d68fdbaddf8feb36f769d79"
-        },
-        {
-            "type": "file",
-            "name": "api/session.php",
-            "size": 225,
-            "hash": "5fa983aeed47756c9435e40ce422eda1eacca7f4e541f3ac597cca613aa1fdc1"
-        },
-        {
-            "type": "file",
-            "name": "api/trades.php",
-            "size": 3990,
-            "hash": "0756aaca63aa96e008bf09a30981691d00181754aa55d5ccbefc33eeeefbdc74"
         },
         {
             "type": "file",
@@ -149,12 +95,6 @@
         },
         {
             "type": "file",
-            "name": "data/2026-08-26.json",
-            "size": 65024,
-            "hash": "387b572aa63b09c8b5a6d33f7ea804e32a61a6a4512ba31f601815dc3d3efa59"
-        },
-        {
-            "type": "file",
             "name": "data/2026-08-27.json",
             "size": 62428,
             "hash": "344e06f8d90e8c314b932ef161e38e0f90301be5cfdd3453c95d98319f204e77"
@@ -173,15 +113,21 @@
         },
         {
             "type": "file",
-            "name": "data/2026-09-01.json",
-            "size": 65657,
-            "hash": "f07f6df9ce35c3858fd03f3cb029c7c7d87df057b71fb6d6a80c02b1eeb934a2"
+            "name": "data/2026-08-26.json",
+            "size": 65024,
+            "hash": "387b572aa63b09c8b5a6d33f7ea804e32a61a6a4512ba31f601815dc3d3efa59"
         },
         {
             "type": "file",
             "name": "data/2026-09-02.json",
             "size": 63853,
             "hash": "8789c00aa177c1592205d2d7fa362efd5c05b2d6ec9caac0501a16cb2c18ea86"
+        },
+        {
+            "type": "file",
+            "name": "data/2026-09-01.json",
+            "size": 65657,
+            "hash": "f07f6df9ce35c3858fd03f3cb029c7c7d87df057b71fb6d6a80c02b1eeb934a2"
         },
         {
             "type": "file",
@@ -233,15 +179,21 @@
         },
         {
             "type": "file",
+            "name": "data/2026-09-16.json",
+            "size": 63923,
+            "hash": "4ae0c55b6f321a0eaf061d9172716f52a9b8fb34b94f8c34f5abd96dc77f3d59"
+        },
+        {
+            "type": "file",
             "name": "data/2026-09-17.json",
             "size": 63568,
             "hash": "231e3ae7e9206f95b27e5ede9c4a4d52a9f65a728808d49d5246a7fd13d2e927"
         },
         {
             "type": "file",
-            "name": "data/2026-09-16.json",
-            "size": 63923,
-            "hash": "4ae0c55b6f321a0eaf061d9172716f52a9b8fb34b94f8c34f5abd96dc77f3d59"
+            "name": "data/2026-09-21.json",
+            "size": 64071,
+            "hash": "057c956619b5fe003c7c384a5c8b00c92334cfc469dedcbdb91bc2aba024f946"
         },
         {
             "type": "file",
@@ -254,12 +206,6 @@
             "name": "data/2026-09-22.json",
             "size": 63845,
             "hash": "3def0c40d800ba367590290526ca0213c46c277a5bd9f5faa66693c4280f396a"
-        },
-        {
-            "type": "file",
-            "name": "data/2026-09-21.json",
-            "size": 64071,
-            "hash": "057c956619b5fe003c7c384a5c8b00c92334cfc469dedcbdb91bc2aba024f946"
         },
         {
             "type": "file",
@@ -335,21 +281,81 @@
         },
         {
             "type": "file",
+            "name": "data/2026-10-15.json",
+            "size": 62138,
+            "hash": "ca027859dcc74fae707d0771255b8dab40441d77790c19a25fb6ec77ae13c66c"
+        },
+        {
+            "type": "file",
             "name": "data/dates.json",
-            "size": 658,
-            "hash": "f73b01d101f44a6ce82a4f0a73d9a73b1bcb874cd205d0819c24f9a0a4362d4c"
+            "size": 674,
+            "hash": "1aab72bf5f291e05d1594ce511cb953166ec87f6acc287b1a6fe711ce505077c"
         },
         {
             "type": "file",
             "name": "data/verification.json",
-            "size": 60452,
-            "hash": "835e68c0a1f8df7525b23d8900e09a223b30a2d2fd87db447993183d138d2c8d"
+            "size": 61957,
+            "hash": "673ab650fba45bab63723ed6a1dadb29c985381b1f1661de721ee36afe53aa47"
         },
         {
             "type": "file",
             "name": "data/ipo_schedule.json",
-            "size": 59225,
-            "hash": "1f8d4734473e5f2e628b6ca0ad2bc64502c631fd7eb60c8a5fe42f5d006943f6"
+            "size": 59270,
+            "hash": "c369f4ca86df8a2a2890eed97e5f2bfcf0a2e37e775e4e8513142fed6f15d28c"
+        },
+        {
+            "type": "file",
+            "name": "api/auth.php",
+            "size": 690,
+            "hash": "dcea722641bb7ffd3468a31a2a56888b920d3d0eaf4a40a8b80de191afc7af52"
+        },
+        {
+            "type": "file",
+            "name": "api/config.example.php",
+            "size": 675,
+            "hash": "02a6e6d6e4cc0cd066052b10adfed5622cb7a4610e4be4ae9d2bc6b9797523d2"
+        },
+        {
+            "type": "file",
+            "name": "api/db.php",
+            "size": 1220,
+            "hash": "f5607bbbe087bd979161edac6ff96fdefce7dccebe45f59b5efff62c69b574f4"
+        },
+        {
+            "type": "file",
+            "name": "api/geo_risk.php",
+            "size": 10089,
+            "hash": "b422fcd13a68d87e9462fd34c1b04c5259dc0915c20d5964224e810803949e6f"
+        },
+        {
+            "type": "file",
+            "name": "api/login.php",
+            "size": 592,
+            "hash": "e7655441962b48483f699f9bf8f4e97c8f2fc8e9ac11d6a3213f2e3723a49b25"
+        },
+        {
+            "type": "file",
+            "name": "api/logout.php",
+            "size": 226,
+            "hash": "01f5e522ad6b1636257edbcfbece785ba7ecb890a12bb12e859ebc44232fe42d"
+        },
+        {
+            "type": "file",
+            "name": "api/trades.php",
+            "size": 3990,
+            "hash": "0756aaca63aa96e008bf09a30981691d00181754aa55d5ccbefc33eeeefbdc74"
+        },
+        {
+            "type": "file",
+            "name": "api/session.php",
+            "size": 225,
+            "hash": "5fa983aeed47756c9435e40ce422eda1eacca7f4e541f3ac597cca613aa1fdc1"
+        },
+        {
+            "type": "file",
+            "name": "api/market_summary.php",
+            "size": 5988,
+            "hash": "16737eb0c7f5c856c42049ccfc1b13dfdff6473a6d68fdbaddf8feb36f769d79"
         },
         {
             "type": "file",
