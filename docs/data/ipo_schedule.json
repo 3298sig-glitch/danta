@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T09:11:57.409313+09:00",
+  "generated_at": "2026-10-16T08:58:46.287466+09:00",
   "entries": [
     {
       "no": "2340",
@@ -32,6 +32,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[케이엠에프 IPO] 항비만 소재로 성장축 확대…사업화 성과 '관건'",
+          "source": "the-stock.kr",
+          "url": "https://www.the-stock.kr/news/articleView.html?idxno=33570"
+        },
+        {
           "title": "[케이엠에프 IPO] 최대 매출처 의존도 75%…성장 양날의 검 되나",
           "source": "the-stock.kr",
           "url": "https://www.the-stock.kr/news/articleView.html?idxno=33562"
@@ -50,11 +55,6 @@
           "title": "케이엠에프, 코스닥 상장예비심사 승인…발효 기반 기능성 소재 사업 확...",
           "source": "biotimes.co.kr",
           "url": "https://www.biotimes.co.kr/news/articleView.html?idxno=34584"
-        },
-        {
-          "title": "케이엠에프, 코스닥 상장예비심사 승인",
-          "source": "newsis.com",
-          "url": "https://www.newsis.com/view/NISX20260918_0003795145"
         }
       ],
       "listing_open_price": null,
@@ -91,29 +91,88 @@
       "is_popular": false,
       "news": [
         {
-          "title": "사노피가 검증한 아델, 코스닥 도전…'후속 기술이전' 기업가치 좌우",
-          "source": "docdocdoc.co.kr",
-          "url": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3043584"
+          "title": "'코스닥행' 아델, 몸값 최대 5665억… 후속 기술이전 관건",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/thebio/2026/10/16/2026101519222437354"
         },
         {
-          "title": "아델, 유한·한미·종근당 비교기업 선정…5400억 몸값 도전",
-          "source": "dailypharm.com",
-          "url": "https://www.dailypharm.com/user/news/343370?REFERER=NP"
+          "title": "[더벨][아델 IPO] '5400억 몸값' Y04 물질 기술이전 반영…근거는 실사 진...",
+          "source": "thebell.co.kr",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610131628230120107085"
+        },
+        {
+          "title": "아델, 5665억 IPO 바이오 대어…\"사노피 1.4조 거래 후속 곧 나온다\"",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/thebio/2026/10/16/2026101510223512653"
+        },
+        {
+          "title": "제주 영어교육도시 '휴온 아델리브', 오는 30일 현장 일반 공개",
+          "source": "ksilbo.co.kr",
+          "url": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1069669"
         },
         {
           "title": "아델, 코스닥 상장 시동…최대 543억원 공모",
           "source": "biz.chosun.com",
           "url": "https://biz.chosun.com/science-chosun/bio/2026/10/12/HVZIG4PI5VF4VLSIHDGYGWJ2XQ/?utm_source=naver&amp;utm_medium=original&amp;utm_campaign=biz"
+        }
+      ],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2321",
+      "corp_name": "엠비디",
+      "stock_code": "498150",
+      "market": "코스닥",
+      "sector": "물질 검사, 측정 및 분석기구 제조업",
+      "ceo": "구보성",
+      "address": "경기도 수원시 영통구 이의동 864-1",
+      "homepage": "http://www.mbdbiotech.com",
+      "revenue": "1,524 (백만원)",
+      "net_income": "-2,125 (백만원)",
+      "price_band": "9,600~11,700",
+      "fixed_price": null,
+      "underwriters": "하나증권",
+      "demand_period": {
+        "start": "2026-11-02",
+        "end": "2026-11-06"
+      },
+      "subscription_period": {
+        "start": "2026-11-12",
+        "end": "2026-11-13"
+      },
+      "refund_date": "2026-11-17",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [
+        {
+          "title": "[장외시황] 엠비디, 수요예측 진행",
+          "source": "etoday.co.kr",
+          "url": "https://www.etoday.co.kr/news/view/2636297"
         },
         {
-          "title": "﻿[BIO톡]애스톤사이언스 AST-301, 美 패스트트랙 지정 外 아델·아이센...",
-          "source": "getnews.co.kr",
-          "url": "https://www.getnews.co.kr/news/articleView.html?idxno=883295"
+          "title": "엠비디, 네덜란드 렘바와 80만유로 연구계약",
+          "source": "newspim.com",
+          "url": "https://www.newspim.com/news/view/20261012001167"
         },
         {
-          "title": "아델, 사노피에 1조4000억원 기술이전 이어 코스닥 도전…최대 543억원 ...",
-          "source": "venturesquare.net",
-          "url": "https://www.venturesquare.net/1119199/"
+          "title": "엠비디, 네덜란드 렘바와 80만유로 연구계약 체결",
+          "source": "mt.co.kr",
+          "url": "https://www.mt.co.kr/industry/2026/10/12/2026101215320254524"
+        },
+        {
+          "title": "'엠비디 공모주' 수요예측과 청약 일정...어떤 기업일까?",
+          "source": "gukjenews.com",
+          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3701384"
+        },
+        {
+          "title": "[엠비디 IPO] 단독 주관 맡은 하나증권, 실적 반등할까",
+          "source": "topdaily.kr",
+          "url": "https://www.topdaily.kr/articles/112024"
         }
       ],
       "listing_open_price": null,
@@ -327,6 +386,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[더벨][에이엘로봇 IPO] 글로벌 파이프라인 공개 승부수, 공모 구조는 유...",
+          "source": "thebell.co.kr",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610140850445960105015"
+        },
+        {
           "title": "에이엘로봇, 증권신고서 정정… IPO 일정 연기",
           "source": "hansbiz.co.kr",
           "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=872337"
@@ -345,11 +409,6 @@
           "title": "에이엘로봇, 코스닥 공모 돌입",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260921001254"
-        },
-        {
-          "title": "에이엘로봇, 코스닥 상장 증권신고서 제출",
-          "source": "newstopkorea.com",
-          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47790"
         }
       ],
       "listing_open_price": null,
@@ -391,6 +450,11 @@
           "url": "https://www.etnews.com/20261015000024"
         },
         {
+          "title": "GIST-옵토닉스-화순전남대병원, 맞춤형 침상 재활로봇 개발",
+          "source": "irobotnews.com",
+          "url": "https://www.irobotnews.com/news/articleView.html?idxno=49014"
+        },
+        {
           "title": "[옵토닉스 IPO] 상장 한달 뒤부터 36만주 물량 터진다…오버행 부담",
           "source": "dealsite.co.kr",
           "url": "https://dealsite.co.kr/articles/170096"
@@ -404,11 +468,6 @@
           "title": "옵토닉스, 증권신고서 제출",
           "source": "newspim.com",
           "url": "https://www.newspim.com/news/view/20260930000917"
-        },
-        {
-          "title": "옵토닉스, 코스닥 상장 추진...최대 264억 공모",
-          "source": "pinpointnews.co.kr",
-          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491599"
         }
       ],
       "listing_open_price": null,
@@ -445,29 +504,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "제논, AI 에이전트 플랫폼 '제나' 정식 출시",
-          "source": "beyondpost.co.kr",
-          "url": "http://www.beyondpost.co.kr/view.php?ud=20261015081738576946a9e4dd7f_30"
-        },
-        {
-          "title": "제논, 코스닥 상장 공모 돌입…최대 268억 조달",
-          "source": "bloter.net",
-          "url": "https://www.bloter.net/news/articleView.html?idxno=675337"
-        },
-        {
-          "title": "[더벨][제논 IPO] 전년 매출 넘는 수주잔고…'고성장' 지속 전망",
-          "source": "thebell.co.kr",
-          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610121523030840103563"
-        },
-        {
-          "title": "제논, 코스닥 상장 공모 돌입…희망가 9700~1만2200원",
-          "source": "it.chosun.com",
-          "url": "https://it.chosun.com/news/articleView.html?idxno=2023092171637"
-        },
-        {
-          "title": "제논, 코스닥 상장 공모 돌입…최대 268억 조달",
+          "title": "제논, AI 에이전트 포털 '제나' 모바일로 확장",
           "source": "zdnet.co.kr",
-          "url": "https://zdnet.co.kr/view/?no=20261008130912"
+          "url": "https://zdnet.co.kr/view/?no=20261015142730"
+        },
+        {
+          "title": "제논, AI 포털 '제나' 출시",
+          "source": "hansbiz.co.kr",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=872998"
+        },
+        {
+          "title": "제논, AI 에이전트 통합 포털 '제나(GenA)' 정식 출시",
+          "source": "inews24.com",
+          "url": "http://www.inews24.com/view/2015210"
+        },
+        {
+          "title": "제논, AI 에이전트 통합 포털 '제나' 출시",
+          "source": "datanet.co.kr",
+          "url": "https://www.datanet.co.kr/news/articleView.html?idxno=215131"
+        },
+        {
+          "title": "제논, AI 에이전트 통합 포털 '제나' 정식 출시",
+          "source": "digitaltoday.co.kr",
+          "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=707262"
         }
       ],
       "listing_open_price": null,
@@ -524,9 +583,9 @@
           "url": "https://www.hankyung.com/article/2026092911571"
         },
         {
-          "title": "동원파츠·영광와이케이엠씨, 코스닥 상장예심 통과",
-          "source": "yna.co.kr",
-          "url": "https://www.yna.co.kr/view/AKR20260914159900008?input=1195m"
+          "title": "'SBI인베 투자' 영광와이케이엠씨, 상장예심 승인…연내 코스닥 입성 목...",
+          "source": "etoday.co.kr",
+          "url": "https://www.etoday.co.kr/news/view/2626018"
         }
       ],
       "listing_open_price": null,
@@ -578,14 +637,14 @@
           "url": "https://www.the-stock.kr/news/articleView.html?idxno=33552"
         },
         {
-          "title": "[넥스아이 IPO] L/O 기다릴 필요 없는 FI, 오버행 '부담'",
-          "source": "the-stock.kr",
-          "url": "https://www.the-stock.kr/news/articleView.html?idxno=33547"
-        },
-        {
           "title": "면역항암 신약 기업 넥스아이, 증권신고서 제출…코스닥 상장 도전",
           "source": "hankyung.com",
           "url": "https://www.hankyung.com/article/202609280056r"
+        },
+        {
+          "title": "'신약개발' 넥스아이, 증권신고서 제출…공모 규모 최대 650억원",
+          "source": "edaily.co.kr",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=03696566645584712&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
         }
       ],
       "listing_open_price": null,
@@ -622,29 +681,29 @@
       "is_popular": false,
       "news": [
         {
-          "title": "바로팜-CHD제약, 코스메슈티컬 '레비클' 日 진출",
+          "title": "바로팜 子 비알피랩스, 산리오캐릭터즈 협업 신제품 출시",
           "source": "newsis.com",
-          "url": "https://www.newsis.com/view/NISX20261013_0003823705"
+          "url": "https://www.newsis.com/view/NISX20261015_0003826922"
+        },
+        {
+          "title": "바로팜 자회사 비알피랩스, '바로타민 키즈 츄정 딸기맛' 출시",
+          "source": "pharmnews.com",
+          "url": "https://www.pharmnews.com/news/articleView.html?idxno=306956"
+        },
+        {
+          "title": "바로팜 자회사 비알피랩스, 산리오캐릭터즈 협업 어린이 츄어블 제품 선...",
+          "source": "lawissue.co.kr",
+          "url": "https://www.lawissue.co.kr/view.php?ud=202610151555556458204ead0791_12"
+        },
+        {
+          "title": "바로팜·CHD제약 '레비클', 日 진출…해외 판로 확대",
+          "source": "medipana.com",
+          "url": "https://www.medipana.com/news/articleView.html?idxno=419393"
         },
         {
           "title": "바로팜-CHD제약 약국 코스메슈티컬 '레비클' 일본 진출",
           "source": "new.dailypharm.com",
           "url": "https://new.dailypharm.com/user/news/343350?REFERER=NP"
-        },
-        {
-          "title": "바로팜-CHD제약, '레비클'로 日 공식 진출… 도쿄 드럭스토어 입점",
-          "source": "bokuennews.com",
-          "url": "http://www.bokuennews.com/news/article.html?no=285426"
-        },
-        {
-          "title": "바로팜-CHD제약, 약국 전용 코스메슈티컬 '레비클' 일본 진출",
-          "source": "view.asiae.co.kr",
-          "url": "https://view.asiae.co.kr/article/2026101311394450548"
-        },
-        {
-          "title": "바로팜 \"CHD제약, 약국 코스메슈티컬 '레비클' 日 진출\"",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20261013001133"
         }
       ],
       "listing_open_price": null,
@@ -704,65 +763,6 @@
           "title": "반도체 부품기업 동원파츠, 인천 남동 도시첨단산업단지에 신규 공장 착...",
           "source": "fnnews.com",
           "url": "https://www.fnnews.com/news/202610121058407459"
-        }
-      ],
-      "listing_open_price": null,
-      "listing_change_pct": null
-    },
-    {
-      "no": "2321",
-      "corp_name": "엠비디",
-      "stock_code": "498150",
-      "market": "코스닥",
-      "sector": "물질 검사, 측정 및 분석기구 제조업",
-      "ceo": "구보성",
-      "address": "경기도 수원시 영통구 이의동 864-1",
-      "homepage": "http://www.mbdbiotech.com",
-      "revenue": "1,524 (백만원)",
-      "net_income": "-2,125 (백만원)",
-      "price_band": "9,600~11,700",
-      "fixed_price": null,
-      "underwriters": "하나증권",
-      "demand_period": {
-        "start": "2026-10-16",
-        "end": "2026-10-22"
-      },
-      "subscription_period": {
-        "start": "2026-10-28",
-        "end": "2026-10-29"
-      },
-      "refund_date": "2026-11-02",
-      "listing_date": null,
-      "demand_rate": null,
-      "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
-      "is_popular": false,
-      "news": [
-        {
-          "title": "엠비디, 네덜란드 렘바와 80만유로 연구계약",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20261012001167"
-        },
-        {
-          "title": "엠비디, 네덜란드 렘바와 80만유로 연구계약 체결",
-          "source": "mt.co.kr",
-          "url": "https://www.mt.co.kr/industry/2026/10/12/2026101215320254524"
-        },
-        {
-          "title": "'엠비디 공모주' 수요예측과 청약 일정...어떤 기업일까?",
-          "source": "gukjenews.com",
-          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3701384"
-        },
-        {
-          "title": "[엠비디 IPO] 단독 주관 맡은 하나증권, 실적 반등할까",
-          "source": "topdaily.kr",
-          "url": "https://www.topdaily.kr/articles/112024"
-        },
-        {
-          "title": "[상장 기대주 점검] 엠비디, 상장 4년 뒤 매출 46배 증가 목표…국내외...",
-          "source": "newstopkorea.com",
-          "url": "https://www.newstopkorea.com/news/articleView.html?idxno=47789"
         }
       ],
       "listing_open_price": null,
@@ -1101,6 +1101,11 @@
       "is_popular": false,
       "news": [
         {
+          "title": "[주간IPO] 10월 넷째 주, 유캐스트·티앤이코리아·크리에이츠 등 공모청...",
+          "source": "consumernews.co.kr",
+          "url": "http://www.consumernews.co.kr/news/articleView.html?idxno=765987"
+        },
+        {
           "title": "크리에이츠, 몸값 깎고 할인율 최대 57%…스팩 철회 2년 만에 코스닥 재...",
           "source": "ekn.kr",
           "url": "https://www.ekn.kr/web/view.php?key=20261014020316189"
@@ -1119,11 +1124,6 @@
           "title": "[주간IPO] 10월 셋째 주, 엠에스바이오·디티에스 공모청약…크리에이츠...",
           "source": "consumernews.co.kr",
           "url": "http://www.consumernews.co.kr/news/articleView.html?idxno=765367"
-        },
-        {
-          "title": "크리에이츠 \"UNEEKOR, 골프 시뮬레이션 SW 기업 GSPro와 협력\"",
-          "source": "newspim.com",
-          "url": "https://www.newspim.com/news/view/20261001000257"
         }
       ],
       "listing_open_price": null,
@@ -1220,8 +1220,8 @@
       "refund_date": "2026-10-16",
       "listing_date": "2026-10-23",
       "demand_rate": 983.98,
-      "subscription_rate": 987.0,
-      "competition_rate": 987.0,
+      "subscription_rate": 986.99,
+      "competition_rate": 986.99,
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
@@ -1377,33 +1377,33 @@
       "is_popular": true,
       "news": [
         {
+          "title": "진코스텍, 코스닥 이전상장 첫날 약세",
+          "source": "hankyung.com",
+          "url": "https://www.hankyung.com/article/2026101531066"
+        },
+        {
+          "title": "진코스텍 코스닥시장 상장기념식",
+          "source": "yna.co.kr",
+          "url": "https://www.yna.co.kr/view/PYH20261015094100013?input=1196m"
+        },
+        {
+          "title": "진코스텍 코스닥시장 상장기념식",
+          "source": "news1.kr",
+          "url": "https://www.news1.kr/photos/8160215"
+        },
+        {
+          "title": "진코스텍, 코스닥 이전상장 첫날 장 초반 7%대 하락[특징주]",
+          "source": "newsway.co.kr",
+          "url": "https://www.newsway.co.kr/news/view?ud=2026101509402410208"
+        },
+        {
           "title": "‘하이드로겔 화장품 ODM’ 진코스텍, 코스닥 이전상장[오늘상장]",
           "source": "edaily.co.kr",
           "url": "https://www.edaily.co.kr/News/Read?newsId=02633846645613248&amp;mediaCodeNo=257&amp;utm_source=naver&amp;utm_medium=referral&amp;utm_campaign=news_syndication&amp;utm_content=original_article"
-        },
-        {
-          "title": "[특징주] 진코스텍, 코스닥 상장 첫날 공모가 대비 17% 상승 출발",
-          "source": "etoday.co.kr",
-          "url": "https://www.etoday.co.kr/news/view/2635993"
-        },
-        {
-          "title": "[속보] 진코스텍 코스닥 상장, 주가 22%↑",
-          "source": "cbci.co.kr",
-          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=615665"
-        },
-        {
-          "title": "'진코스텍 상장일' 따따블 갈까...공모주 청약·수요예측 성공",
-          "source": "gukjenews.com",
-          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3721921"
-        },
-        {
-          "title": "화장품주 '진코스텍' 오늘(15일) 코스닥 상장, 첫 주가는?",
-          "source": "newswell.co.kr",
-          "url": "http://www.newswell.co.kr/news/articleView.html?idxno=22689"
         }
       ],
-      "listing_open_price": 24000,
-      "listing_change_pct": 2.13
+      "listing_open_price": null,
+      "listing_change_pct": null
     },
     {
       "no": "2315",
@@ -1435,8 +1435,8 @@
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
-      "listing_open_price": 27400,
-      "listing_change_pct": 122.76
+      "listing_open_price": null,
+      "listing_change_pct": null
     },
     {
       "no": "2307",
