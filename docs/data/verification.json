@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T23:35:41",
+  "generated_at": "2026-10-18T23:48:50",
   "total_count": 215,
   "hit_count": 85,
   "hit_rate": 39.5,
@@ -489,11 +489,11 @@
       "corp_name": "MH에탄올",
       "stock_code": "023150",
       "rec_date": "2026-10-02",
-      "prev_close": 4530.0,
-      "day_high": 4800.0,
-      "current_price": 4660.0,
+      "prev_close": 2267.0,
+      "day_high": 2402.0,
+      "current_price": 2332.0,
       "change_pct": 5.96,
-      "change_amount": 270.0,
+      "change_amount": 135.0,
       "direction": "up",
       "is_hit": true
     },
