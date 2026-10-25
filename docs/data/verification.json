@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T23:51:24",
+  "generated_at": "2026-10-25T23:43:16",
   "total_count": 240,
   "hit_count": 98,
   "hit_rate": 40.8,
@@ -2843,7 +2843,7 @@
       "rec_date": "2026-08-11",
       "prev_close": 44800.0,
       "day_high": 45550.0,
-      "current_price": 36700.0,
+      "current_price": 37000.0,
       "change_pct": 1.67,
       "change_amount": 750.0,
       "direction": "up",
