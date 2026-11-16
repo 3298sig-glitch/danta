@@ -1,6 +1,39 @@
 {
-  "generated_at": "2026-11-13T11:15:31.518391+09:00",
+  "generated_at": "2026-11-16T10:28:55.087379+09:00",
   "entries": [
+    {
+      "no": "2341",
+      "corp_name": "제논",
+      "stock_code": "0158J0",
+      "market": "코스닥",
+      "sector": "컴퓨터시스템 통합 자문, 구축 및 관리업",
+      "ceo": "고석태",
+      "address": "서울특별시 강남구 남부순환로 2621 (도곡동, 디앤오강남빌딩) 플래그원 13층",
+      "homepage": "http://genon.ai/",
+      "revenue": "11,744 (백만원)",
+      "net_income": "1,139 (백만원)",
+      "price_band": "9,700~12,200",
+      "fixed_price": null,
+      "underwriters": "삼성증권",
+      "demand_period": {
+        "start": "2026-12-03",
+        "end": "2026-12-09"
+      },
+      "subscription_period": {
+        "start": "2026-12-14",
+        "end": "2026-12-15"
+      },
+      "refund_date": "2026-12-17",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
     {
       "no": "2360",
       "corp_name": "태석광학",
@@ -365,39 +398,6 @@
       "listing_change_pct": null
     },
     {
-      "no": "2341",
-      "corp_name": "제논",
-      "stock_code": "0158J0",
-      "market": "코스닥",
-      "sector": "컴퓨터시스템 통합 자문, 구축 및 관리업",
-      "ceo": "고석태",
-      "address": "서울특별시 강남구 남부순환로 2621 (도곡동, 디앤오강남빌딩) 플래그원 13층",
-      "homepage": "http://genon.ai/",
-      "revenue": "11,744 (백만원)",
-      "net_income": "1,139 (백만원)",
-      "price_band": "9,700~12,200",
-      "fixed_price": null,
-      "underwriters": "삼성증권",
-      "demand_period": {
-        "start": "2026-11-16",
-        "end": "2026-11-20"
-      },
-      "subscription_period": {
-        "start": "2026-11-24",
-        "end": "2026-11-25"
-      },
-      "refund_date": "2026-11-27",
-      "listing_date": null,
-      "demand_rate": null,
-      "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
-      "is_popular": false,
-      "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
-    },
-    {
       "no": "2340",
       "corp_name": "케이엠에프",
       "stock_code": "0103V0",
@@ -554,9 +554,9 @@
       "refund_date": "2026-11-17",
       "listing_date": "2026-11-24",
       "demand_rate": null,
-      "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
+      "subscription_rate": 172.0,
+      "competition_rate": 172.0,
+      "competition_rate_source": "subscription",
       "is_popular": false,
       "news": [],
       "listing_open_price": null,
