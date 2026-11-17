@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T10:28:55.087379+09:00",
+  "generated_at": "2026-11-17T13:14:58.511546+09:00",
   "entries": [
     {
       "no": "2341",
@@ -119,10 +119,10 @@
         "end": "2026-12-08"
       },
       "subscription_period": {
-        "start": "2026-12-14",
-        "end": "2026-12-15"
+        "start": "2026-12-11",
+        "end": "2026-12-14"
       },
-      "refund_date": "2026-12-17",
+      "refund_date": "2026-12-16",
       "listing_date": null,
       "demand_rate": null,
       "subscription_rate": null,
@@ -691,8 +691,8 @@
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
-      "listing_open_price": 16170,
-      "listing_change_pct": 47.0
+      "listing_open_price": null,
+      "listing_change_pct": null
     },
     {
       "no": "2336",
