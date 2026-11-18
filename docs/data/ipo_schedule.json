@@ -1,6 +1,39 @@
 {
-  "generated_at": "2026-11-17T13:14:58.511546+09:00",
+  "generated_at": "2026-11-18T12:13:26.497821+09:00",
   "entries": [
+    {
+      "no": "2361",
+      "corp_name": "이나인페이",
+      "stock_code": "0013H0",
+      "market": "코스닥",
+      "sector": "금융 지원 서비스업",
+      "ceo": "전혁구",
+      "address": "서울특별시 관악구 남부순환로 1793 (봉천동, 백광빌딩) 803호",
+      "homepage": "http://",
+      "revenue": "64,711 (백만원)",
+      "net_income": "19,586 (백만원)",
+      "price_band": "7,500~10,500",
+      "fixed_price": null,
+      "underwriters": "한국투자증권",
+      "demand_period": {
+        "start": "2026-12-07",
+        "end": "2026-12-11"
+      },
+      "subscription_period": {
+        "start": "2026-12-16",
+        "end": "2026-12-17"
+      },
+      "refund_date": "2026-12-21",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
     {
       "no": "2341",
       "corp_name": "제논",
@@ -48,6 +81,39 @@
       "price_band": "17,500~20,200",
       "fixed_price": null,
       "underwriters": "신한투자증권,대신증권",
+      "demand_period": {
+        "start": "2026-12-03",
+        "end": "2026-12-09"
+      },
+      "subscription_period": {
+        "start": "2026-12-14",
+        "end": "2026-12-15"
+      },
+      "refund_date": "2026-12-17",
+      "listing_date": null,
+      "demand_rate": null,
+      "subscription_rate": null,
+      "competition_rate": null,
+      "competition_rate_source": null,
+      "is_popular": false,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2362",
+      "corp_name": "엠디에스코리아",
+      "stock_code": "0159M0",
+      "market": "코스닥",
+      "sector": "기타 식료품 제조업",
+      "ceo": "문동준",
+      "address": "경기 파주시 파주읍 파주읍 가마울길 212-17",
+      "homepage": "http://mdskorea.co.kr",
+      "revenue": "97,972 (백만원)",
+      "net_income": "6,512 (백만원)",
+      "price_band": "9,500~11,500",
+      "fixed_price": null,
+      "underwriters": "미래에셋증권",
       "demand_period": {
         "start": "2026-12-03",
         "end": "2026-12-09"
@@ -508,7 +574,7 @@
       "revenue": "5,934 (백만원)",
       "net_income": "-3,556 (백만원)",
       "price_band": "19,000~23,000",
-      "fixed_price": null,
+      "fixed_price": 19000,
       "underwriters": "유진투자증권,신영증권",
       "demand_period": {
         "start": "2026-11-09",
@@ -520,10 +586,10 @@
       },
       "refund_date": "2026-11-23",
       "listing_date": "2026-11-30",
-      "demand_rate": null,
+      "demand_rate": 173.42,
       "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
+      "competition_rate": 173.42,
+      "competition_rate_source": "demand",
       "is_popular": false,
       "news": [],
       "listing_open_price": null,
@@ -658,8 +724,8 @@
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
-      "listing_open_price": 31000,
-      "listing_change_pct": 158.33
+      "listing_open_price": null,
+      "listing_change_pct": null
     },
     {
       "no": "2342",
@@ -919,39 +985,6 @@
       "demand_rate": 1000.07,
       "subscription_rate": 684.73,
       "competition_rate": 684.73,
-      "competition_rate_source": "subscription",
-      "is_popular": true,
-      "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
-    },
-    {
-      "no": "2328",
-      "corp_name": "인텔리빅스",
-      "stock_code": "420610",
-      "market": "코스닥",
-      "sector": "방송장비 제조업",
-      "ceo": "장정훈",
-      "address": "서울 서초구 효령로34길 4, 6층 601호(방배동, 프린스효령빌딩)",
-      "homepage": "http://intellivix.com",
-      "revenue": "46,644 (백만원)",
-      "net_income": "5,357 (백만원)",
-      "price_band": "7,600~9,000",
-      "fixed_price": 9000,
-      "underwriters": "미래에셋증권",
-      "demand_period": {
-        "start": "2026-10-12",
-        "end": "2026-10-16"
-      },
-      "subscription_period": {
-        "start": "2026-10-21",
-        "end": "2026-10-22"
-      },
-      "refund_date": "2026-10-26",
-      "listing_date": "2026-10-30",
-      "demand_rate": 1234.3,
-      "subscription_rate": 1410.87,
-      "competition_rate": 1410.87,
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
