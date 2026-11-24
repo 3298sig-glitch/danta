@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T11:04:05.184179+09:00",
+  "generated_at": "2026-11-24T14:41:22.333154+09:00",
   "entries": [
     {
       "no": "2363",
@@ -497,39 +497,6 @@
       "listing_change_pct": null
     },
     {
-      "no": "2340",
-      "corp_name": "케이엠에프",
-      "stock_code": "0103V0",
-      "market": "코스닥",
-      "sector": "기타 식품 제조업",
-      "ceo": "정용진",
-      "address": "대구광역시 동구 율암로 12 (율암동)",
-      "homepage": "http://",
-      "revenue": "25,751 (백만원)",
-      "net_income": "11,463 (백만원)",
-      "price_band": "15,000~17,800",
-      "fixed_price": null,
-      "underwriters": "IBK투자증권",
-      "demand_period": {
-        "start": "2026-11-16",
-        "end": "2026-11-20"
-      },
-      "subscription_period": {
-        "start": "2026-11-24",
-        "end": "2026-11-25"
-      },
-      "refund_date": "2026-11-27",
-      "listing_date": null,
-      "demand_rate": null,
-      "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
-      "is_popular": false,
-      "news": [],
-      "listing_open_price": null,
-      "listing_change_pct": null
-    },
-    {
       "no": "2357",
       "corp_name": "신영스팩12호",
       "stock_code": "0231Y0",
@@ -541,7 +508,7 @@
       "revenue": "- (백만원)",
       "net_income": "- (백만원)",
       "price_band": "2,000~2,000",
-      "fixed_price": null,
+      "fixed_price": 2000,
       "underwriters": "신영증권",
       "demand_period": {
         "start": "2026-11-19",
@@ -553,11 +520,11 @@
       },
       "refund_date": "2026-11-27",
       "listing_date": null,
-      "demand_rate": null,
+      "demand_rate": 1275.8,
       "subscription_rate": null,
-      "competition_rate": null,
-      "competition_rate_source": null,
-      "is_popular": false,
+      "competition_rate": 1275.8,
+      "competition_rate_source": "demand",
+      "is_popular": true,
       "news": [],
       "listing_open_price": null,
       "listing_change_pct": null
@@ -985,6 +952,39 @@
       "demand_rate": 1000.07,
       "subscription_rate": 684.73,
       "competition_rate": 684.73,
+      "competition_rate_source": "subscription",
+      "is_popular": true,
+      "news": [],
+      "listing_open_price": null,
+      "listing_change_pct": null
+    },
+    {
+      "no": "2328",
+      "corp_name": "인텔리빅스",
+      "stock_code": "420610",
+      "market": "코스닥",
+      "sector": "방송장비 제조업",
+      "ceo": "장정훈",
+      "address": "서울 서초구 효령로34길 4, 6층 601호(방배동, 프린스효령빌딩)",
+      "homepage": "http://intellivix.com",
+      "revenue": "46,644 (백만원)",
+      "net_income": "5,357 (백만원)",
+      "price_band": "7,600~9,000",
+      "fixed_price": 9000,
+      "underwriters": "미래에셋증권",
+      "demand_period": {
+        "start": "2026-10-12",
+        "end": "2026-10-16"
+      },
+      "subscription_period": {
+        "start": "2026-10-21",
+        "end": "2026-10-22"
+      },
+      "refund_date": "2026-10-26",
+      "listing_date": "2026-10-30",
+      "demand_rate": 1234.3,
+      "subscription_rate": 1410.87,
+      "competition_rate": 1410.87,
       "competition_rate_source": "subscription",
       "is_popular": true,
       "news": [],
